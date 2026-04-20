@@ -1,0 +1,1315 @@
+<HTML>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wartungsprotokoll Lüftungsanlage</title>
+    <style>
+        @page { 
+            size: A4; 
+            margin: 20mm; 
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .company-info {
+            float: right;
+            font-size: 10px;
+            margin-bottom: 15px;
+        }
+        .clear { clear: both; }
+        .section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .section-title {
+            background-color: #f0f0f0;
+            padding: 8px;
+            margin: -10px -10px 10px -10px;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 6px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e8e8e8;
+            font-weight: bold;
+        }
+        .checkbox {
+            width: 15px;
+            height: 15px;
+        }
+        .signature-section {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature-box {
+            width: 45%;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            text-align: center;
+        }
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px solid #333;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-info">
+        Klimatechnik Nord GmbH<br>
+        Industriestraße 45<br>
+        22880 Wedel<br>
+        Tel: 04103/123456<br>
+        service@klimanord.de
+    </div>
+    <div class="clear"></div>
+
+    <div class="header">
+        <h1>WARTUNGSPROTOKOLL LÜFTUNGSANLAGE</h1>
+        <h2>Nach DIN 1946 und VDI 6022</h2>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Anlagendaten</div>
+        <table>
+            <tr>
+                <td><strong>Objektbezeichnung:</strong></td>
+                <td><input type="text" style="width: 200px;" value="Bürogebäude Zentral"></td>
+                <td><strong>Anlagen-Nr.:</strong></td>
+                <td><input type="text" style="width: 100px;" value="RLT-001"></td>
+            </tr>
+            <tr>
+                <td><strong>Standort:</strong></td>
+                <td colspan="3"><input type="text" style="width: 400px;" value="Hamburger Straße 67, 20459 Hamburg"></td>
+            </tr>
+            <tr>
+                <td><strong>Hersteller:</strong></td>
+                <td><input type="text" style="width: 150px;" value="Wolf Anlagen"></td>
+                <td><strong>Baujahr:</strong></td>
+                <td><input type="text" style="width: 100px;" value="2019"></td>
+            </tr>
+            <tr>
+                <td><strong>Volumenstrom:</strong></td>
+                <td><input type="text" style="width: 150px;" value="8.500 m³/h"></td>
+                <td><strong>Letzte Wartung:</strong></td>
+                <td><input type="text" style="width: 100px;" value="15.03.2024"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">1. Sichtprüfung und mechanische Reinigung</div>
+        <table>
+            <tr>
+                <th style="width: 50%;">Prüfpunkt</th>
+                <th style="width: 15%;">i.O.</th>
+                <th style="width: 15%;">Mangel</th>
+                <th style="width: 20%;">Bemerkung</th>
+            </tr>
+            <tr>
+                <td>Außenluft- und Fortluftgitter kontrollieren</td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td><input type="text" style="width: 100px;"></td>
+            </tr>
+            <tr>
+                <td>Zuluft- und Abluftgitter in den Räumen prüfen</td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td><input type="text" style="width: 100px;"></td>
+            </tr>
+            <tr>
+                <td>Lüftungskanäle auf Verschmutzung kontrollieren</td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><input type="text" style="width: 100px;" value="Reinigung erforderlich"></td>
+            </tr>
+            <tr>
+                <td>Kondensatwanne und Ablauf überprüfen</td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td><input type="text" style="width: 100px;"></td>
+            </tr>
+            <tr>
+                <td>Wärmerückgewinner reinigen und prüfen</td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td><input type="text" style="width: 100px;"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">2. Filterwartung</div>
+        <table>
+            <tr>
+                <th>Filtertyp</th>
+                <th>Filterklasse</th>
+                <th>Zustand</th>
+                <th>Wechsel erforderlich</th>
+                <th>Bemerkung</th>
+            </tr>
+            <tr>
+                <td>Außenluftfilter G4</td>
+                <td>G4</td>
+                <td>Verschmutzt</td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td>Gewechselt am 28.06.2024</td>
+            </tr>
+            <tr>
+                <td>Feinfilter F7</td>
+                <td>F7</td>
+                <td>Gut</td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td>Nächster Wechsel in 3 Monaten</td>
+            </tr>
+            <tr>
+                <td>Abluftfilter G3</td>
+                <td>G3</td>
+                <td>Ausreichend</td>
+                <td><input type="checkbox" class="checkbox"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">3. Ventilatoren und Antriebe</div>
+        <table>
+            <tr>
+                <td><strong>Zuluftventilator - Stromaufnahme:</strong></td>
+                <td><input type="text" style="width: 100px;" value="12,4 A"></td>
+                <td><strong>Sollwert:</strong></td>
+                <td><input type="text" style="width: 100px;" value="12,8 A"></td>
+            </tr>
+            <tr>
+                <td><strong>Abluftventilator - Stromaufnahme:</strong></td>
+                <td><input type="text" style="width: 100px;" value="11,8 A"></td>
+                <td><strong>Sollwert:</strong></td>
+                <td><input type="text" style="width: 100px;" value="12,2 A"></td>
+            </tr>
+            <tr>
+                <td><strong>Riemenspannung geprüft:</strong></td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><strong>Lager geschmiert:</strong></td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">4. Regelung und Steuerung</div>
+        <table>
+            <tr>
+                <td><strong>Solltemperatur Zuluft:</strong></td>
+                <td><input type="text" style="width: 80px;" value="22°C"></td>
+                <td><strong>Isttemperatur:</strong></td>
+                <td><input type="text" style="width: 80px;" value="21,8°C"></td>
+            </tr>
+            <tr>
+                <td><strong>Frostschutzregelung getestet:</strong></td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+                <td><strong>Brandschutzklappen geprüft:</strong></td>
+                <td><input type="checkbox" class="checkbox" checked></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Wartungsergebnis</div>
+        <p>
+            <input type="checkbox" class="checkbox"> Wartung ordnungsgemäß durchgeführt<br>
+            <input type="checkbox" class="checkbox" checked> Wartung durchgeführt, Nacharbeiten erforderlich<br><br>
+            <strong>Nächster Wartungstermin:</strong> <input type="text" style="width: 150px;" value="28.12.2024">
+        </p>
+    </div>
+
+    <div class="signature-section">
+        <div class="signature-box">
+            <strong>Servicetechniker</strong><br>
+            Hamburg, 28.06.2024<br><br>
+            ________________________<br>
+            M. Schneider
+        </div>
+        <div class="signature-box">
+            <strong>Betreiber/Auftraggeber</strong><br>
+            Datum: ________________<br><br>
+            ________________________<br>
+            Unterschrift
+        </div>
+    </div>
+</body>
+</html>
+</HTML>
+
+<HTML>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lüftungsanlagen-Wartungsprotokoll</title>
+    <style>
+        @page { 
+            size: A4; 
+            margin: 15mm; 
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 11px;
+            line-height: 1.3;
+            margin: 0;
+            padding: 15px;
+            background-color: white;
+            color: #333;
+        }
+        .document-header {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+            color: white;
+            padding: 15px;
+            margin: -15px -15px 25px -15px;
+            text-align: center;
+        }
+        .company-details {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 9px;
+            background: white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .form-group {
+            background: #f8f9fa;
+            border-left: 4px solid #3182ce;
+            margin: 15px 0;
+            padding: 12px;
+        }
+        .group-header {
+            font-size: 13px;
+            font-weight: bold;
+            color: #2c5282;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .maintenance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 10px;
+        }
+        .maintenance-table th {
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e0;
+            padding: 8px 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .maintenance-table td {
+            border: 1px solid #cbd5e0;
+            padding: 6px;
+            vertical-align: middle;
+        }
+        .status-ok { background-color: #c6f6d5; }
+        .status-issue { background-color: #fed7d7; }
+        .checkbox-large {
+            width: 18px;
+            height: 18px;
+            margin: 0 5px;
+        }
+        .input-field {
+            border: 1px solid #a0aec0;
+            padding: 3px 6px;
+            border-radius: 3px;
+            background: white;
+        }
+        .footer-section {
+            margin-top: 40px;
+            border-top: 2px solid #3182ce;
+            padding-top: 15px;
+        }
+        .signature-area {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+        }
+        .sig-box {
+            text-align: center;
+            width: 40%;
+        }
+        .sig-line {
+            border-top: 1px solid #333;
+            margin-top: 30px;
+            padding-top: 5px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-details">
+        AirTech Service GmbH<br>
+        Lüftungstechnik & Wartung<br>
+        Gewerbepark 12<br>
+        85609 Aschheim<br>
+        Tel: 089/987654321<br>
+        wartung@airtech-service.de
+    </div>
+
+    <div class="document-header">
+        <h1>WARTUNGSPROTOKOLL</h1>
+        <h2>Raumlufttechnische Anlage</h2>
+        <p>Wartung nach DIN EN 12599 und VDI 3803</p>
+    </div>
+
+    <div class="form-group">
+        <div class="group-header">Objektdaten</div>
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="width: 20%; font-weight: bold;">Liegenschaft:</td>
+                <td style="width: 30%;"><input type="text" class="input-field" style="width: 180px;" value="Verwaltungsgebäude München"></td>
+                <td style="width: 20%; font-weight: bold;">RLT-Kennziffer:</td>
+                <td style="width: 30%;"><input type="text" class="input-field" style="width: 120px;" value="RLT-2024-07"></td>
+            </tr>
+            <tr style="height: 30px;">
+                <td style="font-weight: bold;">Adresse:</td>
+                <td colspan="3"><input type="text" class="input-field" style="width: 450px;" value="Maximilianstraße 15, 80539 München"></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Anlagenhersteller:</td>
+                <td><input type="text" class="input-field" style="width: 180px;" value="Systemair"></td>
+                <td style="font-weight: bold;">Inbetriebnahme:</td>
+                <td><input type="text" class="input-field" style="width: 120px;" value="März 2020"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="group-header">1. Allgemeine Anlagenprüfung</div>
+        <table class="maintenance-table">
+            <thead>
+                <tr>
+                    <th style="width: 55%;">Prüfkriterium</th>
+                    <th style="width: 12%;">OK</th>
+                    <th style="width: 12%;">Mangel</th>
+                    <th style="width: 21%;">Anmerkungen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gesamtfunktion der RLT-Anlage überprüfen</td>
+                    <td class="status-ok"><input type="checkbox" checked></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="text" class="input-field" style="width: 120px;"></td>
+                </tr>
+                <tr>
+                    <td>Außenluftansaugung und Fortluftausblasung kontrollieren</td>
+                    <td class="status-ok"><input type="checkbox" checked></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="text" class="input-field" style="width: 120px;"></td>
+                </tr>
+                <tr>
+                    <td>Schalldämpfer auf Beschädigungen prüfen</td>
+                    <td class="status-ok"><input type="checkbox" checked></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="text" class="input-field" style="width: 120px;"></td>
+                </tr>
+                <tr>
+                    <td>Luftklappen und Regelorgane funktionsprüfen</td>
+                    <td><input type="checkbox"></td>
+                    <td class="status-issue"><input type="checkbox" checked></td>
+                    <td><input type="text" class="input-field" style="width: 120px;" value="1 Klappe klemmt"></td>
+                </tr>
+                <tr>
+                    <td>Dichtigkeit der Anlagengehäuse kontrollieren</td>
+                    <td class="status-ok"><input type="checkbox" checked></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="text" class="input-field" style="width: 120px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="group-header">2. Filter und Luftreinigung</div>
+        <table class="maintenance-table">
+            <thead>
+                <tr>
+                    <th>Filterposition</th>
+                    <th>Typ/Klasse</th>
+                    <th>Zustand</th>
+                    <th>Gewechselt</th>
+                    <th>Nächster Wechsel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Vorfilter Zuluft</td>
+                    <td>G4 - Grobfilter</td>
+                    <td>Verschmutzt</td>
+                    <td><input type="checkbox" class="checkbox-large" checked></td>
+                    <td>Oktober 2024</td>
+                </tr>
+                <tr>
+                    <td>Hauptfilter Zuluft</td>
+                    <td>F7 - Feinfilter</td>
+                    <td>Akzeptabel</td>
+                    <td><input type="checkbox" class="checkbox-large"></td>
+                    <td>September 2024</td>
+                </tr>
+                <tr>
+                    <td>Abluftfilter</td>
+                    <td>G3 - Grundfilter</td>
+                    <td>Gut</td>
+                    <td><input type="checkbox" class="checkbox-large"></td>
+                    <td>November 2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="group-header">3. Ventilatoren und Motoren</div>
+        <table style="width: 100%;">
+            <tr>
+                <td><strong>Zuluftventilator Leistungsaufnahme:</strong></td>
+                <td><input type="text" class="input-field" style="width: 80px;" value="15,2 kW"></td>
+                <td><strong>Betriebsstunden:</strong></td>
+                <td><input type="text" class="input-field" style="width: 80px;" value="8.742 h"></td>
+            </tr>
+            <tr style="height: 25px;">
+                <td><strong>Abluftventilator Leistungsaufnahme:</strong></td>
+                <td><input type="text" class="input-field" style="width: 80px;" value="14,8 kW"></td>
+                <td><strong>Betriebsstunden:</strong></td>
+                <td><input type="text" class="input-field" style="width: 80px;" value="8.739 h"></td>
+            </tr>
+            <tr>
+                <td><strong>Schwingungsmessung durchgeführt:</strong></td>
+                <td><input type="checkbox" class="checkbox-large" checked></td>
+                <td><strong>Lagerschmierung erneuert:</strong></td>
+                <td><input type="checkbox" class="checkbox-large" checked></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="group-header">4. Wärmetauscher und Klimatisierung</div>
+        <table class="maintenance-table">
+            <tr>
+                <td><strong>Wärmerückgewinner Wirkungsgrad:</strong></td>
+                <td><input type="text" class="input-field" style="width: 80px;" value="78%"></td>
+                <td><strong>Reinigung durchgeführt:</strong></td>
+                <td><input type="checkbox" class="checkbox-large" checked></td>
+            </tr>
+            <tr>
+                <td><strong>Kühlregister Zustand:</strong></td>
+                <td><input type="text" class="input-field" style="width: 120px;" value="Gereinigt"></td>
+                <td><strong>Kondensat-Ableitung frei:</strong></td>
+                <td><input type="checkbox" class="checkbox-large" checked></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer-section">
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <input type="checkbox" class="checkbox-large"> <strong>Anlage betriebsbereit</strong><br>
+                <input type="checkbox" class="checkbox-large" checked> <strong>Mängel behoben/Nachbesserung erforderlich</strong>
+            </div>
+            <div>
+                <strong>Folgewartung:</strong> <input type="text" class="input-field" style="width: 120px;" value="Januar 2025">
+            </div>
+        </div>
+
+        <div class="signature-area">
+            <div class="sig-box">
+                <strong>Wartungsfirma</strong>
+                <div class="sig-line">
+                    München, den 15.07.2024<br>
+                    T. Müller (Servicetechniker)
+                </div>
+            </div>
+            <div class="sig-box">
+                <strong>Auftraggeber</strong>
+                <div class="sig-line">
+                    Ort, Datum<br>
+                    Unterschrift
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</HTML>
+
+<HTML>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLT-Anlagen Wartungsbericht</title>
+    <style>
+        @page { 
+            size: A4; 
+            margin: 18mm; 
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .page-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header-banner {
+            background-color: #1a365d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: -20px -20px 25px -20px;
+            position: relative;
+        }
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 10px solid #1a365d;
+        }
+        .service-company {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            background: rgba(255,255,255,0.95);
+            color: #1a365d;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 9px;
+            line-height: 1.2;
+        }
+        .content-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .box-title {
+            background: linear-gradient(90deg, #4a5568 0%, #718096 100%);
+            color: white;
+            padding: 12px 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .box-content {
+            padding: 15px;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .field-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .field-label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #2d3748;
+        }
+        .field-input {
+            flex: 1;
+            border: 1px solid #cbd5e0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        .inspection-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 10px;
+        }
+        .inspection-table th {
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+            border: 1px solid #a0aec0;
+            padding: 10px 6px;
+            text-align: center;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .inspection-table td {
+            border: 1px solid #a0aec0;
+            padding: 8px 6px;
+            vertical-align: middle;
+            background: white;
+        }
+        .inspection-table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+        .status-checkbox {
+            width: 16px;
+            height: 16px;
+            accent-color: #38a169;
+        }
+        .filter-section {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .measurement-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .result-section {
+            background: #fffaf0;
+            border: 2px solid #ed8936;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 25px 0;
+        }
+        .signature-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #a0aec0;
+        }
+        .signature-field {
+            text-align: center;
+        }
+        .signature-line {
+            border-top: 2px solid #2d3748;
+            margin-top: 40px;
+            padding-top: 8px;
+            font-size: 10px;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="service-company">
+            <strong>LuftWartung Pro GmbH</strong><br>
+            Technologiepark 8<br>
+            70569 Stuttgart<br>
+            Tel: 0711/456789<br>
+            info@luftwartung.de
+        </div>
+
+        <div class="header-banner">
+            <h1>WARTUNGSBERICHT</h1>
+            <h2>Raumlufttechnische Anlage</h2>
+            <p style="margin: 8px 0 0 0;">Gemäß VDI 6022 und DGUV Regel 101-021</p>
+        </div>
+
+        <div class="content-box">
+            <div class="box-title">ANLAGENSTAMMDATEN</div>
+            <div class="box-content">
+                <div class="data-grid">
+                    <div class="field-group">
+                        <span class="field-label">Gebäude:</span>
+                        <input type="text" class="field-input" value="Technologiezentrum Süd">
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">RLT-Nummer:</span>
+                        <input type="text" class="field-input" value="STG-RLT-003">
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">Standort:</span>
+                        <input type="text" class="field-input" value="Mercedesstraße 120, Stuttgart">
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">Anlagetyp:</span>
+                        <input type="text" class="field-input" value="Zentral-RLT mit WRG">
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">Hersteller:</span>
+                        <input type="text" class="field-input" value="Swegon Germany">
+                    </div>
+                    <div class="field-group">
+                        <span class="field-label">Luftleistung:</span>
+                        <input type="text" class="field-input" value="12.000 m³/h">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <div class="box-title">1. VISUELLE INSPEKTION UND FUNKTIONSPRÜFUNG</div>
+            <div class="box-content">
+                <table class="inspection-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Kontrollpunkt</th>
+                            <th style="width: 15%;">Einwandfrei</th>
+                            <th style="width: 15%;">Beanstandung</th>
+                            <th style="width: 20%;">Bemerkung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Luftein- und -austrittsöffnungen überprüfen</td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox" checked></td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox"></td>
+                            <td><input type="text" class="field-input" style="width: 100%;"></td>
+                        </tr>
+                        <tr>
+                            <td>Isolierung und Dampfsperre kontrollieren</td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox" checked></td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox"></td>
+                            <td><input type="text" class="field-input" style="width: 100%;"></td>
+                        </tr>
+                        <tr>
+                            <td>Brandschutz- und Absperrklappen testen</td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox"></td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox" checked></td>
+                            <td><input type="text" class="field-input" style="width: 100%;" value="Eine Klappe reagiert träge"></td>
+                        </tr>
+                        <tr>
+                            <td>Kondensatableitung und -wanne prüfen</td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox" checked></td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox"></td>
+                            <td><input type="text" class="field-input" style="width: 100%;"></td>
+                        </tr>
+                        <tr>
+                            <td>Wartungszugänge und Beleuchtung kontrollieren</td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox" checked></td>
+                            <td style="text-align: center;"><input type="checkbox" class="status-checkbox"></td>
+                            <td><input type="text" class="field-input" style="width: 100%;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <div class="box-title">2. LUFTFILTER UND REINIGUNG</div>
+            <div class="box-content">
+                <div class="filter-section">
+                    <div style="font-weight: bold; margin-bottom: 8px;">Filterstatus und Austausch</div>
+                    <div class="measurement-row">
+                        <span><strong>Zuluft Vorfilter (G4):</strong></span>
+                        <span>Gewechselt ✓ | Nächste Wartung: Sept. 2024</span>
+                    </div>
+                    <div class="measurement-row">
+                        <span><strong>Zuluft Feinfilter (F8):</strong></span>
+                        <span>Zustand OK | Nächste Wartung: Okt. 2024</span>
+                    </div>
+                    <div class="measurement-row">
+                        <span><strong>Abluftfilter (G3):</strong></span>
+                        <span>Zustand OK | Nächste Wartung: Nov. 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <div class="box-title">3. TECHNISCHE MESSUNGEN</div>
+            <div class="box-content">
+                <div class="data-grid">
+                    <div class="measurement-row">
+                        <span><strong>Zuluft Volumenstrom:</strong></span>
+                        <input type="text" class="field-input" style="width: 100px;" value="11.850 m³/h">
+                    </div>
+                    <div class="measurement-row">
+                        <span><strong>Abluft Volumenstrom:</strong></span>
+                        <input type="text" class="field-input" style="width: 100px;" value="11.820 m³/h">
+                    </div>
+                    <div class="measurement-row">
+                        <span><strong>Motor Zuluft - Stromaufnahme:</strong></span>
+                        <input type="text" class="field-input" style="width: 100px;" value="18,5 A">
+                    </div>
+                    <div class="measurement-row">
+                        <span><strong>Motor Abluft - Stromaufnahme:</strong></span>
+                        <input type="text" class="field-input" style="width: 100px;" value="17,9 A">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div style="font-weight: bold; font-size: 13px; margin-bottom: 10px;">WARTUNGSERGEBNIS</div>
+            <div style="margin: 10px 0;">
+                <input type="checkbox" style="margin-right: 8px;"> Wartung vollständig und erfolgreich abgeschlossen<br>
+                <input type="checkbox" checked style="margin-right: 8px;"> Wartung mit Beanstandungen - Nacharbeiten erforderlich
+            </div>
+            <div style="margin-top: 15px;">
+                <strong>Nächste planmäßige Wartung:</strong> 
+                <input type="text" class="field-input" style="width: 150px;" value="20.01.2025">
+            </div>
+        </div>
+
+        <div class="signature-container">
+            <div class="signature-field">
+                <div style="font-weight: bold;">Wartungsunternehmen</div>
+                <div class="signature-line">
+                    Stuttgart, 20.07.2024<br>
+                    A. Weber (Lüftungstechnik)
+                </div>
+            </div>
+            <div class="signature-field">
+                <div style="font-weight: bold;">Betreiber/Eigentümer</div>
+                <div class="signature-line">
+                    Datum: _______________<br>
+                    Unterschrift
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</HTML>
+
+<HTML>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wartungsnachweis Lüftungstechnik</title>
+    <style>
+        @page { 
+            size: A4; 
+            margin: 20mm; 
+        }
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.35;
+            margin: 0;
+            padding: 18px;
+            background-color: white;
+            color: #2c3e50;
+        }
+        .document-frame {
+            border: 3px solid #34495e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: -18px;
+            min-height: calc(100vh - 40mm);
+        }
+        .logo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px double #34495e;
+        }
+        .main-title {
+            flex: 1;
+            text-align: center;
+        }
+        .main-title h1 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .main-title h2 {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin: 0;
+            font-weight: normal;
+        }
+        .company-info {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 9px;
+            min-width: 180px;
+            border-left: 4px solid #3498db;
+        }
+        .info-panel {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin: 18px 0;
+            overflow: hidden;
+        }
+        .panel-header {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .panel-header::before {
+            content: '▶';
+            margin-right: 8px;
+            color: #3498db;
+        }
+        .panel-content {
+            padding: 16px;
+        }
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 15px;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 140px;
+            display: inline-block;
+        }
+        .form-input {
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 11px;
+            flex: 1;
+            max-width: 200px;
+        }
+        .form-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .checklist-table th {
+            background: linear-gradient(180deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            border: 1px solid #2c3e50;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .checklist-table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px 8px;
+            vertical-align: middle;
+            background: white;
+        }
+        .checklist-table tr:hover td {
+            background-color: #f8f9fa;
+        }
+        .status-cell {
+            text-align: center;
+            width: 60px;
+        }
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            accent-color: #27ae60;
+            cursor: pointer;
+        }
+        .priority-high {
+            background-color: #fdeaea !important;
+            border-left: 4px solid #e74c3c;
+        }
+        .priority-normal {
+            background-color: #eafaf1 !important;
+            border-left: 4px solid #27ae60;
+        }
+        .measurements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .measurement-item {
+            border: 1px solid #d5dbdb;
+            border-radius: 6px;
+            padding: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        .measurement-label {
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .measurement-value {
+            border: 1px solid #95a5a6;
+            padding: 6px;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 12px;
+            background: white;
+        }
+        .conclusion-box {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .conclusion-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .conclusion-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 15px 0;
+        }
+        .conclusion-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .final-signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #34495e;
+        }
+        .signature-block {
+            text-align: center;
+            width: 45%;
+        }
+        .signature-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .signature-date {
+            margin: 15px 0;
+            color: #7f8c8d;
+        }
+        .signature-line {
+            border-top: 2px solid #34495e;
+            padding-top: 8px;
+            margin-top: 35px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-frame">
+        <div class="logo-header">
+            <div class="company-info">
+                <strong>VentilTech Solutions</strong><br>
+                Klimaanlagen & Service<br>
+                Am Industriering 25<br>
+                60528 Frankfurt am Main<br>
+                Tel: 069/789012<br>
+                service@ventiltech.com
+            </div>
+            <div class="main-title">
+                <h1>Wartungsnachweis</h1>
+                <h2>Lüftungs- und Klimaanlagen</h2>
+                <p style="font-size: 10px; margin: 8px 0 0 0; color: #95a5a6;">
+                    Durchführung nach VDI 3803 und ASR A3.6
+                </p>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">ANLAGENBESCHREIBUNG</div>
+            <div class="panel-content">
+                <div class="form-row">
+                    <span class="form-label">Objektbezeichnung:</span>
+                    <input type="text" class="form-input" value="Bankenzentrum Frankfurt">
+                    <span class="form-label">RLT-Bezeichnung:</span>
+                    <input type="text" class="form-input" value="FFM-RLT-2024-04">
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Anschrift:</span>
+                    <input type="text" class="form-input" style="max-width: 400px;" value="Taunusanlage 8, 60329 Frankfurt am Main">
+                </div>
+                <div class="form-row">
+                    <span class="form-label">Anlagenhersteller:</span>
+                    <input type="text" class="form-input" value="Weiss Klimatechnik">
+                    <span class="form-label">Baujahr:</span>
+                    <input type="text" class="form-input" value="2021">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">1. WARTUNGSARBEITEN UND KONTROLLEN</div>
+            <div class="panel-content">
+                <table class="checklist-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 52%;">Wartungsaufgabe</th>
+                            <th style="width: 12%;">Erledigt</th>
+                            <th style="width: 12%;">Problem</th>
+                            <th style="width: 24%;">Bemerkung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="priority-normal">
+                            <td>Außenluftgitter und Wetterschutz kontrollieren</td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox" checked></td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox"></td>
+                            <td><input type="text" class="form-input" style="width: 100%; border: none; background: transparent;"></td>
+                        </tr>
+                        <tr class="priority-normal">
+                            <td>Ventilatorräder und -gehäuse inspizieren</td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox" checked></td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox"></td>
+                            <td><input type="text" class="form-input" style="width: 100%; border: none; background: transparent;"></td>
+                        </tr>
+                        <tr class="priority-high">
+                            <td>Übertragung der Schwingungen messen</td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox"></td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox" checked></td>
+                            <td><input type="text" class="form-input" style="width: 100%; border: none; background: transparent;" value="Erhöhte Werte - Lager prüfen"></td>
+                        </tr>
+                        <tr class="priority-normal">
+                            <td>Kanalreinigung und Desinfektion durchführen</td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox" checked></td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox"></td>
+                            <td><input type="text" class="form-input" style="width: 100%; border: none; background: transparent;"></td>
+                        </tr>
+                        <tr class="priority-normal">
+                            <td>Wärmetauscher reinigen und überprüfen</td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox" checked></td>
+                            <td class="status-cell"><input type="checkbox" class="custom-checkbox"></td>
+                            <td><input type="text" class="form-input" style="width: 100%; border: none; background: transparent;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">2. FILTERWARTUNG UND -TAUSCH</div>
+            <div class="panel-content">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                    <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; border: 1px solid #27ae60;">
+                        <div style="font-weight: bold; color: #27ae60;">Außenluftfilter G4</div>
+                        <div style="margin: 8px 0; font-size: 10px;">Status: Getauscht ✓</div>
+                        <div style="font-size: 10px;">Nächster Wechsel: Okt 2024</div>
+                    </div>
+                    <div style="background: #e8f4f8; padding: 12px; border-radius: 6px; border: 1px solid #3498db;">
+                        <div style="font-weight: bold; color: #3498db;">Feinfilter F7</div>
+                        <div style="margin: 8px 0; font-size: 10px;">Status: Akzeptabel</div>
+                        <div style="font-size: 10px;">Nächster Wechsel: Nov 2024</div>
+                    </div>
+                    <div style="background: #f8f4e8; padding: 12px; border-radius: 6px; border: 1px solid #f39c12;">
+                        <div style="font-weight: bold; color: #f39c12;">Abluftfilter G3</div>
+                        <div style="margin: 8px 0; font-size: 10px;">Status: Gut</div>
+                        <div style="font-size: 10px;">Nächster Wechsel: Dez 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="panel-header">3. BETRIEBSMESSUNGEN</div>
+            <div class="panel-content">
+                <div class="measurements-grid">
+                    <div class="measurement-item">
+                        <span class="measurement-label">Zuluftvolumen:</span>
+                        <input type="text" class="measurement-value" value="15.200 m³/h">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">Abluftvolumen:</span>
+                        <input type="text" class="measurement-value" value="15.180 m³/h">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">Antriebsleistung ZUL:</span>
+                        <input type="text" class="measurement-value" value="22,3 kW">
+                    </div>
+                    <div class="measurement-item">
+                        <span class="measurement-label">Antriebsleistung ABL:</span>
+                        <input type="text" class="measurement-value" value="21,8 kW">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion-box">
+            <div class="conclusion-title">Wartungsergebnis</div>
+            <div class="conclusion-options">
+                <div class="conclusion-option">
+                    <input type="checkbox" style="width: 20px; height: 20px;">
+                    <span>Anlage vollständig wartungskonform</span>
+                </div>
+                <div class="conclusion-option">
+                    <input type="checkbox" checked style="width: 20px; height: 20px;">
+                    <span>Mängel festgestellt - Nachbesserung erforderlich</span>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <strong>Termin Folgewartung:</strong>
+                <input type="text" style="background: white; color: #2c3e50; border: none; padding: 4px 8px; border-radius: 4px; margin-left: 10px; width: 150px;" value="25.01.2025">
+            </div>
+        </div>
+
+        <div class="final-signatures">
+            <div class="signature-block">
+                <div class="signature-title">Durchführende Firma</div>
+                <div class="signature-date">Frankfurt a.M., 25.07.2024</div>
+                <div class="signature-line">
+                    R. Hoffmann<br>
+                    (Klimatechniker)
+                </div>
+            </div>
+            <div class="signature-block">
+                <div class="signature-title">Auftraggeber</div>
+                <div class="signature-date">Ort, Datum</div>
+                <div class="signature-line">
+                    ________________________<br>
+                    Unterschrift
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</HTML>
