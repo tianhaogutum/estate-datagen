@@ -1,0 +1,73 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Wärmepumpe (Luft-Wasser)",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-A AWO-E-AC 201.B10",
+      "anzahl": 1
+    },
+    "Auftraggeber": {
+      "name": "Markus Feldmann",
+      "anschrift": "Birkenweg 14, 70563 Stuttgart",
+      "telefon": "+49 711 8834521"
+    },
+    "Auftragnehmer": {
+      "firma": "HeiztechnikService GmbH",
+      "anschrift": "Industriestraße 38, 70376 Stuttgart",
+      "telefon": "+49 711 4792100"
+    },
+    "Objekt der Wartung": {
+      "adresse": "Birkenweg 14, 70563 Stuttgart"
+    },
+    "Gegenstand_des_Vertrages": "Der Auftragnehmer verpflichtet sich, die im Objekt des Auftraggebers installierte Luft-Wasser-Wärmepumpe des Typs Viessmann Vitocal 200-A regelmäßig zu warten, zu inspizieren und in einem funktionssicheren Betriebszustand zu erhalten. Die Wartung umfasst alle sicherheitsrelevanten und leistungserhaltenden Maßnahmen gemäß den Herstellervorgaben sowie den einschlägigen DIN-Normen.",
+    "Vereinbarungen": [
+      "Sichtprüfung der Gesamtanlage auf mechanische Beschädigungen und Korrosion",
+      "Überprüfung und Reinigung des Verdampfers und Verflüssigers",
+      "Kontrolle der Kältemittelfüllung und Dichtheitscheck gemäß EU-Verordnung 517/2014",
+      "Messung und Protokollierung der Betriebsdrücke und -temperaturen",
+      "Überprüfung der elektrischen Anschlüsse und Sicherheitseinrichtungen",
+      "Prüfung und ggf. Nachstellung der Regelungsparameter",
+      "Kontrolle des Sole- bzw. Heizwasserkreislaufs inkl. Druckprüfung",
+      "Reinigung des Luft-Ansaugfilters",
+      "Funktionsprüfung der Abtaueinrichtung",
+      "Dokumentation der Wartungsarbeiten und Übergabe eines Wartungsprotokolls"
+    ],
+    "Wartungsintervall": "jährlich",
+    "Laufzeit": {
+      "start": "2024-01-01",
+      "ende": "unbefristet",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "betrag": 320.0,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Stuttgart",
+    "Unterschriften": [
+      {
+        "rolle": "Auftraggeber",
+        "unterschrift_von": "Markus Feldmann",
+        "ort": "Stuttgart",
+        "datum": "2023-12-15"
+      },
+      {
+        "rolle": "Auftragnehmer",
+        "unterschrift_von": "Stefan Kreuzer",
+        "ort": "Stuttgart",
+        "datum": "2023-12-18"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "48 Stunden werktags",
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Preisanpassungsklausel": "Der Auftragnehmer ist berechtigt, die vereinbarte Vergütung einmal jährlich zum Vertragsjahresbeginn entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamtes anzupassen, maximal jedoch um 5 % pro Jahr.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die durch nachweislich fehlerhafte Wartungsarbeiten entstehen, bis zur Höhe der vereinbarten Jahresvergütung, es sei denn, es liegt grobe Fahrlässigkeit oder Vorsatz vor. Die Haftung für mittelbare Schäden und Folgeschäden ist ausgeschlossen.",
+    "Gewaehrleistungszeit": "12 Monate"
+  }
+}

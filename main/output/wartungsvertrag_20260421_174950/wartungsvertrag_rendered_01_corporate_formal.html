@@ -1,0 +1,481 @@
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 20mm 22mm 25mm 22mm;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8mm;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 5mm;
+  }
+  .company-header {
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.6;
+  }
+  .company-header .company-name {
+    font-size: 13pt;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .doc-title-block {
+    text-align: right;
+  }
+  .doc-title-block .doc-title {
+    font-size: 16pt;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+  }
+  .doc-title-block .doc-subtitle {
+    font-size: 9pt;
+    color: #555;
+    display: block;
+    margin-top: 1mm;
+    letter-spacing: 0.5px;
+  }
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin: 5mm 0;
+  }
+  hr.section-rule-thick {
+    border: none;
+    border-top: 2px solid #1a1a1a;
+    margin: 6mm 0;
+  }
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1a1a1a;
+    margin-top: 6mm;
+    margin-bottom: 3mm;
+    border-left: 4px solid #1a1a1a;
+    padding-left: 3mm;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3mm;
+    font-size: 10pt;
+  }
+  .data-table td {
+    padding: 2mm 3mm;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+  }
+  .data-table td.label {
+    font-weight: bold;
+    color: #1a1a1a;
+    width: 38%;
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+    white-space: nowrap;
+  }
+  .data-table td.value {
+    color: #222;
+    width: 62%;
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+  }
+  .two-col-wrapper {
+    display: flex;
+    gap: 6mm;
+    margin-bottom: 2mm;
+  }
+  .col-half {
+    flex: 1;
+  }
+  .text-block {
+    font-size: 10pt;
+    font-family: Georgia, serif;
+    color: #222;
+    line-height: 1.65;
+    text-align: justify;
+    margin-bottom: 3mm;
+  }
+  .vereinbarungen-list {
+    margin: 0;
+    padding-left: 5mm;
+    font-size: 10pt;
+    font-family: Georgia, serif;
+    color: #222;
+    line-height: 1.75;
+  }
+  .vereinbarungen-list li {
+    margin-bottom: 1.5mm;
+    text-align: justify;
+  }
+  .signature-block {
+    margin-top: 10mm;
+  }
+  .signature-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .signature-table td {
+    width: 50%;
+    vertical-align: bottom;
+    padding: 2mm 4mm 2mm 0;
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+  }
+  .sig-line {
+    border-top: 1px solid #1a1a1a;
+    margin-top: 10mm;
+    padding-top: 2mm;
+  }
+  .sig-label {
+    font-size: 8.5pt;
+    color: #555;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .sig-name {
+    font-weight: bold;
+    font-size: 10pt;
+    color: #1a1a1a;
+    display: block;
+    margin-top: 1mm;
+  }
+  .sig-details {
+    font-size: 9pt;
+    color: #444;
+    display: block;
+    margin-top: 0.5mm;
+  }
+  .footer {
+    position: fixed;
+    bottom: 10mm;
+    left: 22mm;
+    right: 22mm;
+    border-top: 1px solid #aaa;
+    padding-top: 2mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #666;
+    font-family: Georgia, serif;
+  }
+  .footer .footer-left {
+    line-height: 1.5;
+  }
+  .footer .footer-right {
+    text-align: right;
+    line-height: 1.5;
+  }
+  .notice-box {
+    border: 1px solid #bbb;
+    background: #f9f9f9;
+    padding: 3mm 4mm;
+    font-size: 9.5pt;
+    font-family: Georgia, serif;
+    color: #222;
+    line-height: 1.6;
+    margin-top: 3mm;
+    margin-bottom: 3mm;
+    text-align: justify;
+  }
+  .page-number {
+    text-align: right;
+    font-size: 8.5pt;
+    font-family: Georgia, serif;
+    color: #888;
+    margin-bottom: 4mm;
+  }
+  .kosten-highlight {
+    background: #f0f0f0;
+    border-left: 3px solid #1a1a1a;
+    padding: 2mm 4mm;
+    font-size: 10.5pt;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 2mm 0;
+  }
+  .inline-label {
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-number">Seite 1</div>
+
+  <div class="header-block">
+    <div class="company-header">
+      <span class="company-name"><firma></span>
+      <anschrift style="display:block; font-size:9pt; color:#444;"><anschrift></anschrift><br>
+      Tel.: <telefon>
+    </div>
+    <div class="doc-title-block">
+      <span class="doc-title">Wartungsvertrag</span>
+      <span class="doc-subtitle">Heizungs- und Klimatechnik &mdash; Gewerblicher Servicevertrag</span>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <div class="section-title">Vertragsparteien</div>
+
+  <div class="two-col-wrapper">
+    <div class="col-half">
+      <table class="data-table">
+        <tr>
+          <td colspan="2" style="font-weight:bold; font-size:9pt; color:#555; padding-bottom:1mm; border-bottom: 2px solid #ccc; text-transform:uppercase; letter-spacing:0.5px;">Auftraggeber</td>
+        </tr>
+        <tr>
+          <td class="label">Name</td>
+          <td class="value"><name></td>
+        </tr>
+        <tr>
+          <td class="label">Anschrift</td>
+          <td class="value"><anschrift></td>
+        </tr>
+        <tr>
+          <td class="label">Telefon</td>
+          <td class="value"><telefon></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-half">
+      <table class="data-table">
+        <tr>
+          <td colspan="2" style="font-weight:bold; font-size:9pt; color:#555; padding-bottom:1mm; border-bottom: 2px solid #ccc; text-transform:uppercase; letter-spacing:0.5px;">Auftragnehmer</td>
+        </tr>
+        <tr>
+          <td class="label">Firma</td>
+          <td class="value"><firma></td>
+        </tr>
+        <tr>
+          <td class="label">Anschrift</td>
+          <td class="value"><anschrift></td>
+        </tr>
+        <tr>
+          <td class="label">Telefon</td>
+          <td class="value"><telefon></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <div class="section-title">Objekt der Wartung</div>
+
+  <table class="data-table">
+    <tr>
+      <td class="label">Objektadresse</td>
+      <td class="value"><adresse></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule">
+
+  <div class="section-title">Anlagenbeschreibung</div>
+
+  <table class="data-table">
+    <tr>
+      <td class="label">Anlagentyp</td>
+      <td class="value"><typ></td>
+    </tr>
+    <tr>
+      <td class="label">Hersteller</td>
+      <td class="value"><hersteller></td>
+    </tr>
+    <tr>
+      <td class="label">Modell / Typenbezeichnung</td>
+      <td class="value"><modell></td>
+    </tr>
+    <tr>
+      <td class="label">Anzahl der Anlagen</td>
+      <td class="value"><anzahl></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 1 &mdash; Gegenstand des Vertrages</div>
+
+  <div class="text-block">
+    <Gegenstand_des_Vertrages>
+  </div>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 2 &mdash; Vereinbarte Wartungsleistungen</div>
+
+  <div class="text-block" style="margin-bottom:2mm;">
+    Der Auftragnehmer erbringt im Rahmen der vereinbarten Wartungsintervalle insbesondere folgende Leistungen:
+  </div>
+
+  <ol class="vereinbarungen-list">
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+    <li><Vereinbarungen></li>
+  </ol>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 3 &mdash; Wartungsintervall und Laufzeit</div>
+
+  <table class="data-table">
+    <tr>
+      <td class="label">Wartungsintervall</td>
+      <td class="value"><Wartungsintervall></td>
+    </tr>
+    <tr>
+      <td class="label">Vertragsbeginn</td>
+      <td class="value"><start></td>
+    </tr>
+    <tr>
+      <td class="label">Vertragsende</td>
+      <td class="value"><ende></td>
+    </tr>
+    <tr>
+      <td class="label">Kündigungsfrist</td>
+      <td class="value"><frist> zum <zum></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 4 &mdash; Vergütung und Kosten</div>
+
+  <div class="kosten-highlight">
+    Wartungspauschale: <betrag> <waehrung> &nbsp;|&nbsp; <bezugseinheit> &nbsp;|&nbsp; <Mehrwertsteuer>
+  </div>
+
+  <div class="text-block" style="margin-top:3mm;">
+    <span class="inline-label">Zahlungsbedingungen:</span> <Zahlungsbedingungen>
+  </div>
+
+  <div class="text-block">
+    <span class="inline-label">Preisanpassungsklausel:</span> <Preisanpassungsklausel>
+  </div>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 5 &mdash; Zusatzleistungen und Reaktionszeiten</div>
+
+  <table class="data-table">
+    <tr>
+      <td class="label">Reaktionszeit bei Störung</td>
+      <td class="value"><Reaktionszeit_bei_Stoerung></td>
+    </tr>
+  </table>
+
+  <div class="text-block" style="margin-top:2mm; margin-bottom:1mm;">
+    Folgende Zusatzleistungen sind im Rahmen dieses Vertrages vereinbart:
+  </div>
+
+  <ol class="vereinbarungen-list">
+    <li><Zusatzleistungen></li>
+    <li><Zusatzleistungen></li>
+    <li><Zusatzleistungen></li>
+  </ol>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 6 &mdash; Haftung</div>
+
+  <div class="notice-box">
+    <Haftungsklauseln>
+  </div>
+
+  <hr class="section-rule">
+
+  <div class="section-title">§ 7 &mdash; Gerichtsstand und Schlussbestimmungen</div>
+
+  <table class="data-table">
+    <tr>
+      <td class="label">Gerichtsstand</td>
+      <td class="value"><Gerichtsstand></td>
+    </tr>
+  </table>
+
+  <div class="text-block" style="margin-top:2mm;">
+    Sollten einzelne Bestimmungen dieses Vertrages unwirksam oder undurchführbar sein oder werden, so wird dadurch die Wirksamkeit des übrigen Vertrages nicht berührt. Die Parteien verpflichten sich, anstelle der unwirksamen Bestimmung eine wirksame Regelung zu treffen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt. Änderungen und Ergänzungen dieses Vertrages bedürfen der Schriftform.
+  </div>
+
+  <hr class="section-rule-thick">
+
+  <div class="section-title">Unterschriften</div>
+
+  <div class="text-block" style="margin-bottom:4mm;">
+    Dieser Vertrag wird in zwei gleichlautenden Ausfertigungen erstellt. Jede Vertragspartei erhält ein Exemplar. Mit den nachstehenden Unterschriften erklären die Parteien ihr Einverständnis mit dem gesamten Vertragsinhalt.
+  </div>
+
+  <div class="signature-block">
+    <table class="signature-table">
+      <tr>
+        <td>
+          <div class="sig-line">
+            <span class="sig-label">Auftraggeber</span>
+            <span class="sig-name"><unterschrift_von></span>
+            <span class="sig-details">Ort: <ort> &nbsp;&nbsp;&nbsp; Datum: <datum></span>
+            <span class="sig-details" style="margin-top:5mm; display:block; color:#aaa; font-style:italic; font-size:8.5pt;">___________________________<br>Unterschrift</span>
+          </div>
+        </td>
+        <td style="padding-left: 10mm;">
+          <div class="sig-line">
+            <span class="sig-label">Auftragnehmer</span>
+            <span class="sig-name"><unterschrift_von></span>
+            <span class="sig-details">Ort: <ort> &nbsp;&nbsp;&nbsp; Datum: <datum></span>
+            <span class="sig-details" style="margin-top:5mm; display:block; color:#aaa; font-style:italic; font-size:8.5pt;">___________________________<br>Unterschrift</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      <strong><firma></strong> &nbsp;&bull;&nbsp; <anschrift> &nbsp;&bull;&nbsp; Tel.: <telefon>
+    </div>
+    <div class="footer-right">
+      Wartungsvertrag &mdash; Wärmepumpenanlage<br>
+      Vertrauliches Dokument
+    </div>
+  </div>
+
+</div>
+</body>

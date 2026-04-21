@@ -1,0 +1,77 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "<typ>",
+      "hersteller": "<hersteller>",
+      "modell": "<modell>",
+      "anzahl": "<anzahl>"
+    },
+    "Auftraggeber": {
+      "name": "<name>",
+      "anschrift": "<anschrift>",
+      "telefon": "<telefon>"
+    },
+    "Auftragnehmer": {
+      "firma": "<firma>",
+      "anschrift": "<anschrift>",
+      "telefon": "<telefon>"
+    },
+    "Objekt der Wartung": {
+      "adresse": "<adresse>"
+    },
+    "Gegenstand_des_Vertrages": "<Gegenstand_des_Vertrages>",
+    "Vereinbarungen": [
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>",
+      "<Vereinbarungen>"
+    ],
+    "Wartungsintervall": "<Wartungsintervall>",
+    "Laufzeit": {
+      "start": "<start>",
+      "ende": "<ende>",
+      "kuendigungsfrist": {
+        "frist": "<frist>",
+        "zum": "<zum>"
+      }
+    },
+    "Kosten": {
+      "betrag": "<betrag>",
+      "waehrung": "<waehrung>",
+      "bezugseinheit": "<bezugseinheit>"
+    },
+    "Gerichtsstand": "<Gerichtsstand>",
+    "Unterschriften": [
+      {
+        "rolle": "<rolle>",
+        "unterschrift_von": "<unterschrift_von>",
+        "ort": "<ort>",
+        "datum": "<datum>"
+      },
+      {
+        "rolle": "<rolle>",
+        "unterschrift_von": "<unterschrift_von>",
+        "ort": "<ort>",
+        "datum": "<datum>"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "<Reaktionszeit_bei_Stoerung>",
+    "Zusatzleistungen": [
+      "<Zusatzleistungen>",
+      "<Zusatzleistungen>",
+      "<Zusatzleistungen>"
+    ],
+    "Zahlungsbedingungen": "<Zahlungsbedingungen>",
+    "Haftungsklauseln": "<Haftungsklauseln>",
+    "Mehrwertsteuer": "<Mehrwertsteuer>",
+    "Preisanpassungsklausel": "<Preisanpassungsklausel>"
+  }
+}

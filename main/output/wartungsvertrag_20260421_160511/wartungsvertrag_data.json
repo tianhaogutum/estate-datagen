@@ -1,0 +1,77 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft-Wasser-Wärmepumpe",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-S AWB-E-AC 201.D10",
+      "anzahl": 1
+    },
+    "Auftraggeber": {
+      "name": "Margarethe Sollberger",
+      "anschrift": "Birkenweg 14, 70374 Stuttgart",
+      "telefon": "+49 711 48392017"
+    },
+    "Auftragnehmer": {
+      "firma": "Kälte- & Klimatechnik Rennwald GmbH",
+      "anschrift": "Industriestraße 22, 70469 Stuttgart",
+      "telefon": "+49 711 96031450"
+    },
+    "Objekt der Wartung": {
+      "adresse": "Birkenweg 14, 70374 Stuttgart"
+    },
+    "Gegenstand_des_Vertrages": "Gegenstand dieses Wartungsvertrages ist die regelmäßige, fachgerechte Inspektion und Wartung der Luft-Wasser-Wärmepumpe Viessmann Vitocal 200-S am oben genannten Objekt. Der Auftragnehmer verpflichtet sich, alle zur Aufrechterhaltung der Betriebssicherheit und Effizienz der Anlage erforderlichen Maßnahmen durchzuführen, Verschleißteile zu prüfen und im Bedarfsfall zu ersetzen sowie den Auftraggeber über den Zustand der Anlage zu informieren.",
+    "Vereinbarungen": [
+      "Sichtprüfung und Reinigung des Verdampfers und Verflüssigers",
+      "Überprüfung und Nachfüllen des Kältemittels (R410A) gemäß EU-Verordnung Nr. 517/2014",
+      "Kontrolle der elektrischen Anschlüsse und Sicherheitseinrichtungen",
+      "Überprüfung des Expansionsventils und der Regelungsparameter",
+      "Prüfung der Heizkreispumpe und Druckkontrolle im Heizkreis",
+      "Kontrolle des Heizungspufferspeichers auf Korrosion und Dichtheit",
+      "Überprüfung der Abtaufunktion und der Luftführung",
+      "Funktionstest der Notabschaltung und Sicherheitsventile",
+      "Messung der Leistungszahl (COP) und Vergleich mit Herstellervorgaben",
+      "Erstellung eines Wartungsprotokolls mit Übergabe an den Auftraggeber"
+    ],
+    "Wartungsintervall": "halbjährlich",
+    "Laufzeit": {
+      "start": "2024-03-01",
+      "ende": "unbefristet",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "betrag": 195.0,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Stuttgart",
+    "Unterschriften": [
+      {
+        "rolle": "Auftraggeber",
+        "unterschrift_von": "Margarethe Sollberger",
+        "ort": "Stuttgart",
+        "datum": "2024-02-19"
+      },
+      {
+        "rolle": "Auftragnehmer",
+        "unterschrift_von": "Dieter Rennwald",
+        "ort": "Stuttgart",
+        "datum": "2024-02-21"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "48 Stunden werktags",
+    "Zusatzleistungen": [
+      "Telefonische Störungsberatung während der Geschäftszeiten (Mo–Fr 08:00–17:00 Uhr)",
+      "Priorisierte Terminvergabe bei ungeplanten Reparatureinsätzen",
+      "Jährlicher schriftlicher Anlagenbericht mit Effizienzempfehlungen"
+    ],
+    "Zahlungsbedingungen": "Rechnungsstellung nach jedem Wartungseinsatz; Zahlung innerhalb von 14 Tagen ohne Abzug auf das angegebene Geschäftskonto.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die nachweislich auf unsachgemäß durchgeführte Wartungsarbeiten zurückzuführen sind, bis zur Höhe des einfachen Jahresauftragswertes. Eine weitergehende Haftung, insbesondere für Folgeschäden oder Betriebsunterbrechungen, ist ausgeschlossen, sofern nicht Vorsatz oder grobe Fahrlässigkeit vorliegt.",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Preisanpassungsklausel": "Der Auftragnehmer ist berechtigt, die Wartungspauschale einmal jährlich zum 1. Januar um maximal den prozentualen Anstieg des vom Statistischen Bundesamt veröffentlichten Verbraucherpreisindex anzupassen. Die Ankündigung hat schriftlich mit einer Frist von 6 Wochen zu erfolgen."
+  }
+}

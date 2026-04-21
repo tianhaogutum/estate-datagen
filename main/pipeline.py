@@ -40,8 +40,6 @@ def run(doc_key: str) -> None:
     print(f"  data:    {data_path}")
     for v in artifacts["variants"]:
         print(f"  [{v['profile']}] html: {v['html']}")
-        print(f"  [{v['profile']}] pdf:  {v['pdf']}")
-
 
 if __name__ == "__main__":
     key = sys.argv[1] if len(sys.argv) > 1 else "wartungsvertrag"

@@ -1,0 +1,77 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Wärmepumpe (Luft/Wasser)",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-S AWB-E-AC 201.D10",
+      "anzahl": 1
+    },
+    "Auftraggeber": {
+      "name": "Thomas Bergmann",
+      "anschrift": "Eichenweg 14, 70563 Stuttgart",
+      "telefon": "+49 711 8834562"
+    },
+    "Auftragnehmer": {
+      "firma": "Klimatechnik Süd GmbH",
+      "anschrift": "Industriestraße 47, 70376 Stuttgart",
+      "telefon": "+49 711 9920110"
+    },
+    "Objekt der Wartung": {
+      "adresse": "Eichenweg 14, 70563 Stuttgart"
+    },
+    "Gegenstand_des_Vertrages": "Gegenstand dieses Vertrages ist die regelmäßige Wartung und Instandhaltung der im Objekt installierten Luft/Wasser-Wärmepumpe Vitocal 200-S des Herstellers Viessmann. Der Auftragnehmer verpflichtet sich, die Anlage gemäß den Herstellervorgaben sowie den einschlägigen technischen Normen zu prüfen, zu warten und im einwandfreien Betriebszustand zu erhalten. Erkannte Mängel werden dem Auftraggeber unverzüglich mitgeteilt.",
+    "Vereinbarungen": [
+      "Sichtprüfung und Reinigung des Verdampfers auf Verschmutzung und Vereisung",
+      "Überprüfung und Reinigung des Luftfilters sowie Ersatz bei Bedarf",
+      "Kontrolle der Kältemittelfüllmenge und Dichtigkeitsprüfung gemäß ChemKlimaschutzV",
+      "Prüfung der elektrischen Anschlüsse, Sicherungen und Steuerungskomponenten",
+      "Inspektion der Umwälzpumpe und des Heizkreisverteilers auf Funktion und Dichtheit",
+      "Messung der Vor- und Rücklauftemperaturen sowie Überprüfung der Heizkurveneinstellung",
+      "Überprüfung der Abtaufunktion und des Kondensatablaufs",
+      "Funktionstest aller Sicherheits- und Regelungseinrichtungen",
+      "Schmierung beweglicher Teile gemäß Herstellervorschrift",
+      "Erstellung eines schriftlichen Wartungsprotokolls und Übergabe an den Auftraggeber"
+    ],
+    "Wartungsintervall": "jährlich",
+    "Laufzeit": {
+      "start": "2024-01-01",
+      "ende": "unbefristet",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "betrag": 320.0,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Stuttgart",
+    "Unterschriften": [
+      {
+        "rolle": "Auftraggeber",
+        "unterschrift_von": "Thomas Bergmann",
+        "ort": "Stuttgart",
+        "datum": "2023-12-15"
+      },
+      {
+        "rolle": "Auftragnehmer",
+        "unterschrift_von": "Markus Feldner",
+        "ort": "Stuttgart",
+        "datum": "2023-12-18"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "48 Stunden werktags",
+    "Zusatzleistungen": [
+      "Telefonische Betriebsberatung bis zu 2 Stunden pro Jahr kostenfrei",
+      "Priorisierte Entstörung außerhalb der regulären Wartung gegen gesondertes Entgelt",
+      "Jährliche Energieeffizienzauswertung mit schriftlichem Bericht"
+    ],
+    "Zahlungsbedingungen": "Rechnungsbetrag zahlbar innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die durch nachweislich fehlerhafte Wartungsarbeiten entstanden sind, bis zur Höhe des einfachen Jahreswertes des Vertrages. Eine weitergehende Haftung, insbesondere für mittelbare Schäden oder Folgeschäden, ist ausgeschlossen, sofern kein grob fahrlässiges oder vorsätzliches Handeln vorliegt.",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Preisanpassungsklausel": "Der Auftragnehmer ist berechtigt, den vereinbarten Wartungspreis einmal jährlich entsprechend der Entwicklung des Verbraucherpreisindexes (VPI) des Statistischen Bundesamtes anzupassen. Die Anpassung ist dem Auftraggeber mindestens 6 Wochen vor Inkrafttreten schriftlich mitzuteilen."
+  }
+}

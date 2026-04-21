@@ -1,0 +1,73 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft-Wasser-Wärmepumpe",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-A AWO-E-AC 201.D10",
+      "anzahl": 1
+    },
+    "Auftraggeber": {
+      "name": "Markus Brenner",
+      "anschrift": "Fichtenweg 14, 74321 Bietigheim-Bissingen",
+      "telefon": "+49 7142 938274"
+    },
+    "Auftragnehmer": {
+      "firma": "Kälte- und Klimatechnik Hollweg GmbH",
+      "anschrift": "Industriestraße 23, 74076 Heilbronn",
+      "telefon": "+49 7131 556890"
+    },
+    "Objekt der Wartung": {
+      "adresse": "Fichtenweg 14, 74321 Bietigheim-Bissingen"
+    },
+    "Gegenstand_des_Vertrages": "Gegenstand dieses Wartungsvertrages ist die regelmäßige Inspektion, Wartung und Funktionsprüfung der oben genannten Luft-Wasser-Wärmepumpe am Objekt des Auftraggebers. Der Auftragnehmer verpflichtet sich, alle erforderlichen Wartungsarbeiten gemäß den Herstellervorgaben sowie den einschlägigen technischen Normen fachgerecht durchzuführen, um einen sicheren und effizienten Betrieb der Anlage zu gewährleisten.",
+    "Vereinbarungen": [
+      "Sichtprüfung und Reinigung des Verdampfers",
+      "Überprüfung und Reinigung des Verflüssigers",
+      "Kontrolle des Kältemittelkreislaufs auf Dichtheit",
+      "Prüfung und ggf. Nachfüllen des Kältemittels gemäß F-Gase-Verordnung",
+      "Inspektion aller elektrischen Anschlüsse und Sicherheitseinrichtungen",
+      "Überprüfung der Umwälzpumpe und des Hydrauliksystems",
+      "Kontrolle und Reinigung des Kondensatablaufs",
+      "Überprüfung der Steuerungsparameter und Betriebsdaten",
+      "Funktionstest Abtauautomatik",
+      "Messung der Leistungszahl (COP) und Dokumentation der Ergebnisse",
+      "Erstellung eines schriftlichen Wartungsberichts nach jedem Wartungstermin"
+    ],
+    "Wartungsintervall": "jährlich",
+    "Laufzeit": {
+      "start": "2024-03-01",
+      "ende": "unbefristet",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "betrag": 310.0,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Heilbronn",
+    "Unterschriften": [
+      {
+        "rolle": "Auftraggeber",
+        "unterschrift_von": "Markus Brenner",
+        "ort": "Bietigheim-Bissingen",
+        "datum": "2024-02-19"
+      },
+      {
+        "rolle": "Auftragnehmer",
+        "unterschrift_von": "Stefan Hollweg",
+        "ort": "Heilbronn",
+        "datum": "2024-02-21"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "48 Stunden werktags",
+    "Zahlungsbedingungen": "Rechnungsbetrag zahlbar innerhalb von 14 Tagen ohne Abzug nach Rechnungsdatum",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Preisanpassungsklausel": "Der Auftragnehmer ist berechtigt, das vereinbarte Wartungsentgelt einmal jährlich entsprechend der Veränderung des vom Statistischen Bundesamt veröffentlichten Verbraucherpreisindex (VPI) anzupassen. Die Anpassung wird dem Auftraggeber mindestens 8 Wochen vor Inkrafttreten schriftlich mitgeteilt.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die durch nachweislich fehlerhafte Wartungsarbeiten entstanden sind, bis zur Höhe der vereinbarten Jahresvergütung. Eine weitergehende Haftung, insbesondere für mittelbare Schäden oder Folgeschäden, ist ausgeschlossen, soweit keine grobe Fahrlässigkeit oder Vorsatz vorliegt."
+  }
+}
