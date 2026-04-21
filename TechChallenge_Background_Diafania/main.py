@@ -1,4 +1,4 @@
-import anthropic
+import boto3
 import base64
 import subprocess
 import os
@@ -7,9 +7,20 @@ from dotenv import load_dotenv
 
 from utils.render import extract_html_solutions_and_convert_to_pdf
 
-# Load environment variables and initialize the Anthropic client (Cloude API)
-load_dotenv() 
-client = anthropic.Anthropic()
+# Load environment variables and initialize the AWS Bedrock client
+load_dotenv()
+
+# AWS Bedrock configuration
+AWS_REGION = os.getenv('AWS_REGION', 'eu-central-1')
+bedrock_client = boto3.client(
+    'bedrock-runtime',
+    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+    region_name=AWS_REGION
+)
+
+# Bedrock model ID for Claude (using inference profile)
+BEDROCK_MODEL_ID = 'eu.anthropic.claude-sonnet-4-6'
 
 # Define document types, system types, and baseline requirements for the generated documents.
 # These will be used in the prompt to guide the generation of the HTML documents.
@@ -113,35 +124,37 @@ Additional Requirements:
 Now generate the {num_solutions} distinct {doc_type} documents.
 """
 
-# Generate the HTML documents using the Claude Sonnet 4 model, providing the seed documents and the prompt.
-with client.messages.stream(
-    model="claude-sonnet-4-20250514",
-    max_tokens=num_solutions * 5000,
-    messages=[{"role": "user",
-               "content": [
-                {
-                    "type": "document",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "application/pdf",
-                        "data": seed_docs[0],
-                    },
-                },
-                {
-                    "type": "document",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "application/pdf",
-                        "data": seed_docs[1],
-                    },
-                },
-                {
-                    "type": "text",
-                    "text": prompt,
-                }
-            ],}]
-) as stream:
-    response = stream.get_final_message()
+# Generate the HTML documents using AWS Bedrock Claude model
+# Build messages for Bedrock (convert base64 PDFs to text content)
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "text": f"Here is the first seed document (base64 encoded PDF):\n\n{seed_docs[0]}"
+            },
+            {
+                "text": f"Here is the second seed document (base64 encoded PDF):\n\n{seed_docs[1]}"
+            },
+            {
+                "text": prompt
+            }
+        ]
+    }
+]
+
+# Call Bedrock API
+response = bedrock_client.converse(
+    modelId=BEDROCK_MODEL_ID,
+    messages=messages,
+    inferenceConfig={
+        'maxTokens': num_solutions * 5000,
+        'temperature': 0.7
+    }
+)
+
+# Extract the response text
+response_text = response['output']['message']['content'][0]['text']
 
 # Define the filename and filepath for saving the generated HTML content and PDF
 filename = f"generated_document_00_{doc_type}_{system_type}"
@@ -149,7 +162,7 @@ filepath = "output/" + filename
 
 # Save the generated HTML content to a file
 with open(filepath + ".html", "w") as f:
-    f.write(response.content[0].text)
+    f.write(response_text)
 
 # Render the generated HTML documents to PDF
-extract_html_solutions_and_convert_to_pdf(response.content[0].text, filepath)
+extract_html_solutions_and_convert_to_pdf(response_text, filepath)

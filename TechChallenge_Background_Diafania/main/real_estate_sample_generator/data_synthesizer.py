@@ -10,15 +10,25 @@ import json
 import re
 from pathlib import Path
 
-import anthropic
+import boto3
+import os
 from dotenv import load_dotenv
 
-from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
+from TechChallenge_Background_Diafania.main.real_estate_sample_generator.taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
 load_dotenv()
-_client = anthropic.Anthropic()
 
-SYNTHESIZER_MODEL = "claude-sonnet-4-20250514"
+# AWS Bedrock configuration
+AWS_REGION = os.getenv('AWS_REGION', 'eu-central-1')
+_bedrock_client = boto3.client(
+    'bedrock-runtime',
+    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+    region_name=AWS_REGION
+)
+
+# Bedrock model ID (using inference profile)
+BEDROCK_MODEL_ID = 'eu.anthropic.claude-sonnet-4-6'
 
 
 def _read_requirements(doc: DocumentType) -> str:
@@ -66,14 +76,14 @@ def synthesize(doc_key: str) -> dict:
     doc = REAL_ESTATE_TAXONOMY[doc_key]
     prompt = _build_prompt(_read_requirements(doc), doc.name)
 
-    with _client.messages.stream(
-        model=SYNTHESIZER_MODEL,
-        max_tokens=3000,
-        messages=[{"role": "user", "content": prompt}],
-    ) as stream:
-        msg = stream.get_final_message()
+    # Use AWS Bedrock instead of Anthropic SDK
+    response = _bedrock_client.converse(
+        modelId=BEDROCK_MODEL_ID,
+        messages=[{"role": "user", "content": [{"text": prompt}]}],
+        inferenceConfig={'maxTokens': 3000}
+    )
 
-    raw = msg.content[0].text
+    raw = response['output']['message']['content'][0]['text']
     data = _extract_json(raw)
     _validate(data, doc)
     return data
