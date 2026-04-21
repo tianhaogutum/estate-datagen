@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Wartungsvertrag – Kälte- und Klimatechnik Schneider GmbH</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
+    color: #2a2e33;
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0 0 30mm 0;
+    position: relative;
+  }
+  /* Header band */
+  .header {
+    background: linear-gradient(90deg, #2a6b7c 0%, #3b8a9e 100%);
+    color: #ffffff;
+    padding: 14mm 18mm 10mm 18mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .logo-block {
+    background: #ffffff;
+    color: #2a6b7c;
+    width: 46mm;
+    height: 22mm;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14pt;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .logo-block small {
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: #6c8a92;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .contractor-info {
+    text-align: right;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+  .contractor-info .firm {
+    font-weight: 700;
+    font-size: 10.5pt;
+    margin-bottom: 2px;
+  }
+  .title-strip {
+    background: #f3b63a;
+    color: #2a2e33;
+    padding: 6mm 18mm;
+    font-size: 18pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .title-strip .subtitle {
+    display: block;
+    font-size: 10pt;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin-top: 2px;
+    letter-spacing: 0;
+  }
+  .content {
+    padding: 8mm 18mm 0 18mm;
+  }
+  h2 {
+    color: #2a6b7c;
+    font-size: 11.5pt;
+    margin: 6mm 0 2mm 0;
+    border-bottom: 1.5px solid #f3b63a;
+    padding-bottom: 1mm;
+    letter-spacing: 0.3px;
+  }
+  h2 .num {
+    background: #2a6b7c;
+    color: #fff;
+    display: inline-block;
+    width: 6mm; height: 6mm;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 9pt;
+    line-height: 6mm;
+    margin-right: 2mm;
+  }
+  .parties {
+    display: flex;
+    gap: 6mm;
+    margin-bottom: 4mm;
+  }
+  .party {
+    flex: 1;
+    border: 1px solid #dde4e7;
+    border-left: 4px solid #2a6b7c;
+    padding: 3mm 4mm;
+    background: #f7fafb;
+  }
+  .party.an {
+    border-left-color: #f3b63a;
+  }
+  .party .role {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #2a6b7c;
+    font-weight: 700;
+    margin-bottom: 1.5mm;
+  }
+  .party.an .role { color: #b8811a; }
+  .party .name {
+    font-weight: 700;
+    font-size: 11pt;
+    margin-bottom: 1mm;
+  }
+  /* Callout boxes */
+  .callouts {
+    display: flex;
+    gap: 4mm;
+    margin: 4mm 0;
+  }
+  .callout {
+    flex: 1;
+    background: #2a6b7c;
+    color: #fff;
+    padding: 3.5mm 4mm;
+    border-radius: 3px;
+    position: relative;
+  }
+  .callout.accent { background: #f3b63a; color: #2a2e33; }
+  .callout .label {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    display: block;
+    margin-bottom: 1mm;
+  }
+  .callout .value {
+    font-size: 13pt;
+    font-weight: 700;
+  }
+  .callout .sub {
+    font-size: 8.5pt;
+    opacity: 0.9;
+    display: block;
+    margin-top: 0.5mm;
+  }
+  ul.check {
+    list-style: none;
+    padding-left: 0;
+    margin: 2mm 0;
+  }
+  ul.check li {
+    padding: 1mm 0 1mm 7mm;
+    position: relative;
+  }
+  ul.check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2a6b7c;
+    font-weight: 700;
+  }
+  .kv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2mm 0;
+    font-size: 10pt;
+  }
+  .kv-table td {
+    padding: 1.8mm 3mm;
+    border-bottom: 1px solid #e3eaec;
+  }
+  .kv-table td.k {
+    background: #f3f7f8;
+    font-weight: 600;
+    color: #2a6b7c;
+    width: 45%;
+  }
+  .anlage-box {
+    background: #f7fafb;
+    border: 1px solid #dde4e7;
+    border-radius: 3px;
+    padding: 3mm 4mm;
+    margin: 2mm 0;
+  }
+  .signatures {
+    display: flex;
+    gap: 8mm;
+    margin-top: 10mm;
+  }
+  .sig {
+    flex: 1;
+    border-top: 1.5px solid #2a2e33;
+    padding-top: 2mm;
+    font-size: 9.5pt;
+  }
+  .sig .r {
+    font-weight: 700;
+    color: #2a6b7c;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .sig .n { font-weight: 600; margin-top: 1mm; }
+  .addon {
+    background: #fff8e6;
+    border-left: 4px solid #f3b63a;
+    padding: 3mm 4mm;
+    margin: 3mm 0;
+    font-size: 9.5pt;
+  }
+  .addon strong { color: #b8811a; }
+  /* Footer brand bar */
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2a6b7c;
+    color: #d8e5e8;
+    font-size: 8pt;
+    padding: 3mm 18mm;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer .bar {
+    height: 3mm;
+    background: #f3b63a;
+    margin: -3mm -18mm 2mm -18mm;
+  }
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  p { margin: 1mm 0 2mm 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo-block">
+      KKS
+      <small>KÄLTE · KLIMA · SCHNEIDER</small>
+    </div>
+    <div class="contractor-info">
+      <div class="firm">Kälte- und Klimatechnik Schneider GmbH</div>
+      <div>Industriestraße 15</div>
+      <div>64297 Darmstadt</div>
+      <div>Tel. 06151-754290</div>
+    </div>
+  </div>
+
+  <div class="title-strip">
+    Wartungsvertrag
+    <span class="subtitle">Wärmepumpe · Luft-Wasser-System · Premium-Service</span>
+  </div>
+
+  <div class="content">
+
+    <h2><span class="num">1</span>Vertragsparteien</h2>
+    <div class="parties">
+      <div class="party">
+        <div class="role">Auftraggeber</div>
+        <div class="name">Marcus Weber</div>
+        <div>Ahornstraße 28<br>64289 Darmstadt</div>
+        <div>Tel. 06151-892473</div>
+      </div>
+      <div class="party an">
+        <div class="role">Auftragnehmer</div>
+        <div class="name">Kälte- und Klimatechnik Schneider GmbH</div>
+        <div>Industriestraße 15<br>64297 Darmstadt</div>
+        <div>Tel. 06151-754290</div>
+      </div>
+    </div>
+
+    <div class="callouts">
+      <div class="callout">
+        <span class="label">Vertragsbeginn</span>
+        <span class="value">01.03.2024</span>
+        <span class="sub">Laufzeit bis 28.02.2027</span>
+      </div>
+      <div class="callout accent">
+        <span class="label">Wartungspauschale</span>
+        <span class="value">385,50 EUR</span>
+        <span class="sub">pro Wartungsintervall · zzgl. MwSt.</span>
+      </div>
+      <div class="callout">
+        <span class="label">Intervall</span>
+        <span class="value">jährlich</span>
+        <span class="sub">nach VDI 4645</span>
+      </div>
+    </div>
+
+    <h2><span class="num">2</span>Gegenstand des Vertrages</h2>
+    <p>Wartung und Instandhaltung der Luft-Wasser-Wärmepumpenanlage gemäß VDI 4645 und Herstellervorgaben zur Aufrechterhaltung der Betriebssicherheit und Energieeffizienz.</p>
+
+    <div class="anlage-box">
+      <strong style="color:#2a6b7c;">Gewartete Anlage</strong>
+      <table class="kv-table" style="margin-top:2mm;">
+        <tr><td class="k">Anlagentyp</td><td>Luft-Wasser-Wärmepumpe</td></tr>
+        <tr><td class="k">Hersteller</td><td>Viessmann</td></tr>
+        <tr><td class="k">Modell</td><td>Vitocal 200-S AWO-E-AC 201.D10</td></tr>
+        <tr><td class="k">Anzahl</td><td>1 Stück</td></tr>
+        <tr><td class="k">Objektadresse</td><td>Ahornstraße 28, 64289 Darmstadt</td></tr>
+      </table>
+    </div>
+
+    <h2><span class="num">3</span>Leistungsumfang</h2>
+    <ul class="check">
+      <li>Sichtprüfung aller Anlagenkomponenten</li>
+      <li>Überprüfung Kältemittelkreislauf und Füllstand</li>
+      <li>Kontrolle elektrischer Anschlüsse und Sicherheitseinrichtungen</li>
+      <li>Reinigung Verdampfer und Filter</li>
+      <li>Funktionsprüfung Regelung und Steuerung</li>
+      <li>Messung und Dokumentation Betriebsparameter</li>
+      <li>Erstellung Wartungsprotokoll</li>
+    </ul>
+
+    <h2><span class="num">4</span>Vertragslaufzeit &amp; Kündigung</h2>
+    <table class="kv-table">
+      <tr><td class="k">Vertragsbeginn</td><td>01.03.2024</td></tr>
+      <tr><td class="k">Vertragsende (frühestens)</td><td>28.02.2027</td></tr>
+      <tr><td class="k">Kündigungsfrist</td><td>3 Monate zum Jahresende</td></tr>
+    </table>
+
+    <h2><span class="num">5</span>Vergütung &amp; Zahlungsbedingungen</h2>
+    <table class="kv-table">
+      <tr><td class="k">Preis je Wartung</td><td>385,50 EUR zzgl. MwSt.</td></tr>
+      <tr><td class="k">Zahlungsziel</td><td>14 Tage netto ohne Abzug</td></tr>
+      <tr><td class="k">Gewährleistung</td><td>12 Monate auf durchgeführte Wartungsarbeiten</td></tr>
+    </table>
+
+    <div class="addon">
+      <strong>Service-Plus – Zusatzleistungen</strong>
+      <ul class="check" style="margin-top:1mm;">
+        <li>Ersatzteilbeschaffung zum Selbstkostenpreis</li>
+        <li>Notdienstbereitschaft außerhalb Geschäftszeiten</li>
+        <li>Reaktionszeit bei Störung: <strong>48 Stunden werktags</strong></li>
+      </ul>
+    </div>
+
+    <h2><span class="num">6</span>Gerichtsstand</h2>
+    <p>Ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertrag ist <strong>Darmstadt</strong>.</p>
+
+    <div class="signatures">
+      <div class="sig">
+        <div class="r">Auftraggeber</div>
+        <div class="n">Marcus Weber</div>
+        <div>Darmstadt, 15.02.2024</div>
+      </div>
+      <div class="sig">
+        <div class="r">Auftragnehmer</div>
+        <div class="n">Ralf Schneider</div>
+        <div>Darmstadt, 15.02.2024</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="bar"></div>
+    <div class="footer-row">
+      <div>Kälte- und Klimatechnik Schneider GmbH · Industriestraße 15 · 64297 Darmstadt</div>
+      <div>Tel. 06151-754290 · www.kks-schneider.de</div>
+    </div>
+  </div>
+
+</div>
+</body>

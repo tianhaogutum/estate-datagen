@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Wartungsvertrag</title>
+<style>
+  @page { size: A4; margin: 22mm 20mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', 'Inter', Arial, sans-serif;
+    font-weight: 300;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    margin: 0;
+    background: #ffffff;
+  }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 40px;
+  }
+  .masthead .kicker {
+    font-size: 8.5pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    font-weight: 400;
+  }
+  .masthead h1 {
+    font-size: 26pt;
+    font-weight: 200;
+    margin: 6px 0 0 0;
+    letter-spacing: -0.01em;
+  }
+  .masthead .ref {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #8a8a8a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .masthead .ref strong {
+    display: block;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+
+  section {
+    margin-bottom: 34px;
+    page-break-inside: avoid;
+  }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .num {
+    font-size: 34pt;
+    font-weight: 100;
+    color: #c8c8c8;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .sec-title {
+    font-size: 12pt;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .sec-body {
+    padding-left: 88px;
+  }
+
+  .kv {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 6px 20px;
+    margin-bottom: 4px;
+  }
+  .kv .l {
+    font-size: 8.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    font-weight: 400;
+    padding-top: 2px;
+  }
+  .kv .v {
+    font-weight: 500;
+    color: #111;
+  }
+  .kv .v.light { font-weight: 400; color: #333; }
+
+  .parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .party .role {
+    font-size: 8.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .party .name {
+    font-size: 12pt;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .party .line {
+    font-size: 10pt;
+    color: #333;
+  }
+
+  ul.clean {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.clean li {
+    padding: 7px 0;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    gap: 14px;
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li::before {
+    content: "—";
+    color: #bcbcbc;
+    font-weight: 300;
+  }
+
+  .cost-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: 4px;
+  }
+  .cost-block .cell {
+    padding: 14px 16px 14px 0;
+    border-right: 1px solid #e5e5e5;
+  }
+  .cost-block .cell:last-child { border-right: none; padding-right: 0; }
+  .cost-block .lbl {
+    font-size: 8.5pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 6px;
+  }
+  .cost-block .big {
+    font-size: 20pt;
+    font-weight: 200;
+    letter-spacing: -0.01em;
+  }
+  .cost-block .sub {
+    font-size: 9.5pt;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  .note {
+    font-size: 9.5pt;
+    color: #444;
+  }
+
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 10px;
+  }
+  .sig .role {
+    font-size: 8.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin-bottom: 50px;
+  }
+  .sig .line {
+    border-top: 1px solid #1a1a1a;
+    padding-top: 6px;
+    font-size: 9pt;
+    color: #333;
+  }
+  .sig .name { font-weight: 500; color: #111; }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 8pt;
+    color: #9a9a9a;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tag {
+    font-size: 8.5pt;
+    padding: 4px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 40px;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <div class="kicker">Vertragsdokument</div>
+    <h1>Wartungsvertrag.</h1>
+  </div>
+  <div class="ref">
+    Wärmepumpenanlage
+    <strong>Nr. WP-2024-0301</strong>
+  </div>
+</div>
+
+<section>
+  <div class="sec-head">
+    <div class="num">01</div>
+    <div class="sec-title">Vertragsparteien</div>
+  </div>
+  <div class="sec-body">
+    <div class="parties">
+      <div class="party">
+        <div class="role">Auftraggeber</div>
+        <div class="name">Marcus Weber</div>
+        <div class="line">Ahornstraße 28<br>64289 Darmstadt</div>
+        <div class="line" style="margin-top:8px; color:#8a8a8a; font-size:9pt;">Tel. 06151-892473</div>
+      </div>
+      <div class="party">
+        <div class="role">Auftragnehmer</div>
+        <div class="name">Kälte- und Klimatechnik Schneider GmbH</div>
+        <div class="line">Industriestraße 15<br>64297 Darmstadt</div>
+        <div class="line" style="margin-top:8px; color:#8a8a8a; font-size:9pt;">Tel. 06151-754290</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">02</div>
+    <div class="sec-title">Anlage &amp; Objekt</div>
+  </div>
+  <div class="sec-body">
+    <div class="kv"><div class="l">Anlagentyp</div><div class="v">Luft-Wasser-Wärmepumpe</div></div>
+    <div class="kv"><div class="l">Hersteller</div><div class="v">Viessmann</div></div>
+    <div class="kv"><div class="l">Modell</div><div class="v">Vitocal 200-S AWO-E-AC 201.D10</div></div>
+    <div class="kv"><div class="l">Anzahl</div><div class="v">1 Stück</div></div>
+    <div class="kv"><div class="l">Standort</div><div class="v light">Ahornstraße 28, 64289 Darmstadt</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">03</div>
+    <div class="sec-title">Vertragsgegenstand</div>
+  </div>
+  <div class="sec-body">
+    <p class="note" style="margin:0;">
+      Wartung und Instandhaltung der Luft-Wasser-Wärmepumpenanlage gemäß VDI 4645 und
+      Herstellervorgaben zur Aufrechterhaltung der Betriebssicherheit und Energieeffizienz.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">04</div>
+    <div class="sec-title">Leistungsumfang</div>
+  </div>
+  <div class="sec-body">
+    <ul class="clean">
+      <li>Sichtprüfung aller Anlagenkomponenten</li>
+      <li>Überprüfung Kältemittelkreislauf und Füllstand</li>
+      <li>Kontrolle elektrischer Anschlüsse und Sicherheitseinrichtungen</li>
+      <li>Reinigung Verdampfer und Filter</li>
+      <li>Funktionsprüfung Regelung und Steuerung</li>
+      <li>Messung und Dokumentation Betriebsparameter</li>
+      <li>Erstellung Wartungsprotokoll</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">05</div>
+    <div class="sec-title">Intervall &amp; Laufzeit</div>
+  </div>
+  <div class="sec-body">
+    <div class="kv"><div class="l">Wartungsintervall</div><div class="v">jährlich</div></div>
+    <div class="kv"><div class="l">Vertragsbeginn</div><div class="v">01.03.2024</div></div>
+    <div class="kv"><div class="l">Vertragsende</div><div class="v">28.02.2027</div></div>
+    <div class="kv"><div class="l">Kündigungsfrist</div><div class="v light">3 Monate zum Jahresende</div></div>
+    <div class="kv"><div class="l">Reaktionszeit</div><div class="v light">48 Stunden werktags bei Störungen</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">06</div>
+    <div class="sec-title">Vergütung</div>
+  </div>
+  <div class="sec-body">
+    <div class="cost-block">
+      <div class="cell">
+        <div class="lbl">Betrag</div>
+        <div class="big">385,50 EUR</div>
+        <div class="sub">pro Wartungsintervall</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Steuer</div>
+        <div class="big" style="font-size:14pt; padding-top:4px;">zzgl. MwSt.</div>
+        <div class="sub">gesetzlich gültig</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Zahlung</div>
+        <div class="big" style="font-size:14pt; padding-top:4px;">14 Tage netto</div>
+        <div class="sub">ohne Abzug</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">07</div>
+    <div class="sec-title">Weitere Konditionen</div>
+  </div>
+  <div class="sec-body">
+    <div class="kv"><div class="l">Gewährleistung</div><div class="v light">12 Monate auf durchgeführte Wartungsarbeiten</div></div>
+    <div class="kv"><div class="l">Gerichtsstand</div><div class="v">Darmstadt</div></div>
+    <div class="kv" style="grid-template-columns: 160px 1fr; align-items:start;">
+      <div class="l">Zusatzleistungen</div>
+      <div class="v light">
+        <div class="tags">
+          <span class="tag">Ersatzteilbeschaffung zum Selbstkostenpreis</span>
+          <span class="tag">Notdienstbereitschaft außerhalb Geschäftszeiten</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div class="num">08</div>
+    <div class="sec-title">Unterschriften</div>
+  </div>
+  <div class="sec-body">
+    <div class="signatures">
+      <div class="sig">
+        <div class="role">Auftraggeber</div>
+        <div class="line">
+          <span class="name">Marcus Weber</span><br>
+          Darmstadt, 15.02.2024
+        </div>
+      </div>
+      <div class="sig">
+        <div class="role">Auftragnehmer</div>
+        <div class="line">
+          <span class="name">Ralf Schneider</span><br>
+          Darmstadt, 15.02.2024
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <span>Wartungsvertrag · Wärmepumpe</span>
+  <span>Seite 1 / 1</span>
+</div>
+
+</body>

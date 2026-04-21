@@ -1,0 +1,72 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft-Wasser-Wärmepumpe",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-S AWO-E-AC 201.D10",
+      "anzahl": 1
+    },
+    "Auftraggeber": {
+      "name": "Marcus Weber",
+      "anschrift": "Ahornstraße 28, 64289 Darmstadt",
+      "telefon": "06151-892473"
+    },
+    "Auftragnehmer": {
+      "firma": "Kälte- und Klimatechnik Schneider GmbH",
+      "anschrift": "Industriestraße 15, 64297 Darmstadt",
+      "telefon": "06151-754290"
+    },
+    "Objekt der Wartung": {
+      "adresse": "Ahornstraße 28, 64289 Darmstadt"
+    },
+    "Gegenstand_des_Vertrages": "Wartung und Instandhaltung der Luft-Wasser-Wärmepumpenanlage gemäß VDI 4645 und Herstellervorgaben zur Aufrechterhaltung der Betriebssicherheit und Energieeffizienz",
+    "Vereinbarungen": [
+      "Sichtprüfung aller Anlagenkomponenten",
+      "Überprüfung Kältemittelkreislauf und Füllstand",
+      "Kontrolle elektrischer Anschlüsse und Sicherheitseinrichtungen",
+      "Reinigung Verdampfer und Filter",
+      "Funktionsprüfung Regelung und Steuerung",
+      "Messung und Dokumentation Betriebsparameter",
+      "Erstellung Wartungsprotokoll"
+    ],
+    "Wartungsintervall": "jährlich",
+    "Laufzeit": {
+      "start": "2024-03-01",
+      "ende": "2027-02-28",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "betrag": 385.5,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Darmstadt",
+    "Unterschriften": [
+      {
+        "rolle": "Auftraggeber",
+        "unterschrift_von": "Marcus Weber",
+        "ort": "Darmstadt",
+        "datum": "2024-02-15"
+      },
+      {
+        "rolle": "Auftragnehmer",
+        "unterschrift_von": "Ralf Schneider",
+        "ort": "Darmstadt",
+        "datum": "2024-02-15"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "48 Stunden werktags",
+    "Zahlungsbedingungen": "14 Tage netto ohne Abzug",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsarbeiten",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Zusatzleistungen": [
+      "Ersatzteilbeschaffung zum Selbstkostenpreis",
+      "Notdienstbereitschaft außerhalb Geschäftszeiten"
+    ]
+  }
+}

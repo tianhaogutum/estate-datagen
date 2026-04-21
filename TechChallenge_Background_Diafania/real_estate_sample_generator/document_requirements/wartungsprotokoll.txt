@@ -1,0 +1,66 @@
+WARTUNGSPROTOKOLL — REQUIRED DATA
+=================================
+
+Ein Wartungsprotokoll dokumentiert eine durchgeführte Wartung an einer
+technischen Anlage (z.B. Wärmepumpe, Rauchwarnmelder, Lüftungsanlage).
+
+Basis: Beispiel-PDFs aus Daten_AI_Engineer_CaseStudy/
+ - Wartungsprotokoll_Waermepumpe-1.pdf  (Glen Dimplex Formular, sehr technisch, mit Checkboxen & Messwerten)
+ - Wartungsprotokoll-Rauchwarnmelder-2.pdf (privater Gebrauch, nach DIN 14676, tabellarisch pro Raum)
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell der Anlage
+   (bei Wärmepumpe: Luft/Wasser / Sole/Wasser / Wasser/Wasser, S-Nr., Softwarestand)
+   (bei Rauchwarnmelder: Hersteller, Modell, Anzahl der Melder)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "keine Mängel vorhanden" oder "1 Rauchmelder defekt")
+- Wartungsergebnis: "erfolgreich durchgeführt" ODER "durchgeführt, Mängel zu beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, Fax, E-Mail
+   (das wartungsdurchführende Unternehmen)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung)
+- Datum_Inbetriebnahme: ISO-Datum
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Vorlauf-/Rücklauftemperatur, Kältemittelfüllmenge, Solekonzentration)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+- Pruefberichte_pro_Raum: Liste von { Raum, Anzahl_Rauchmelder, Batterietyp,
+  entstaubt, Verschmutzungen_entfernt, Prueftaste_geprueft, Batterietausch_durchgefuehrt }
+- Kaeltetechnische_Pruefung: { Dichtigkeitskontrolle_EU_517_2014 (bool),
+  Kältemittelart, Kältemittelfüllmenge_kg, Resultat_Lecksuche_g_a,
+  Wiederholungspruefung_erforderlich (bool) }
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [{"arbeit": "", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [{"bezeichnung": "", "wert": 0, "einheit": ""}],
+    "Historie": [{"komponente": "", "laufzeit_h": 0}],
+    "Pruefberichte_pro_Raum": [{"raum": "", "anzahl_rauchmelder": 0, "batterietyp": "Alkaline|Lithium", "entstaubt": true, "verschmutzungen_entfernt": true, "prueftaste_geprueft": true, "batterietausch_durchgefuehrt": false}],
+    "Kaeltetechnische_Pruefung": {"dichtigkeitskontrolle_eu_517_2014": true, "kaeltemittelart": "", "kaeltemittelfuellmenge_kg": 0, "resultat_lecksuche_g_a": 0, "wiederholungspruefung_erforderlich": false}
+  }
+}

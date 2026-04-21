@@ -1,0 +1,344 @@
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Wartungsvertrag – Formular WV-WP-2024</title>
+<style>
+@page { size: A4; margin: 12mm; }
+* { box-sizing: border-box; }
+body {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 9pt;
+  color: #000;
+  background: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+.form-header {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+}
+.form-header h1 {
+  font-size: 12pt;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.form-meta {
+  font-size: 8pt;
+  text-align: right;
+  font-family: "Consolas", monospace;
+}
+.form-meta .rev { background: #fff; color: #000; padding: 1px 5px; display: inline-block; margin-top: 2px; }
+.subheader {
+  background: #e8e8e8;
+  padding: 3px 10px;
+  font-size: 8pt;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+}
+section { margin: 6px 0; }
+.section-title {
+  background: #333;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 9pt;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+table.grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+}
+table.grid td, table.grid th {
+  border: 1px solid #000;
+  padding: 2px 5px;
+  vertical-align: top;
+}
+table.grid th {
+  background: #d8d8d8;
+  text-align: left;
+  font-weight: bold;
+  font-size: 8pt;
+  text-transform: uppercase;
+}
+.label {
+  font-size: 7.5pt;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: block;
+}
+.field {
+  border-bottom: 1px dotted #000;
+  padding: 1px 2px;
+  min-height: 12px;
+  font-weight: bold;
+}
+.two-col { display: flex; gap: 4px; }
+.two-col > div { flex: 1; }
+.chk { font-family: "DejaVu Sans", "Arial Unicode MS", sans-serif; font-size: 10pt; }
+.checklist table { width: 100%; border-collapse: collapse; }
+.checklist td {
+  border: 1px solid #000;
+  padding: 2px 4px;
+  font-size: 8.5pt;
+}
+.checklist .num { width: 18px; text-align: center; background: #f0f0f0; font-weight: bold; }
+.checklist .res { width: 60px; text-align: center; }
+.footer-signatures {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+.sig-box {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 4px 6px;
+  min-height: 70px;
+}
+.sig-box .sig-head {
+  background: #333;
+  color: #fff;
+  padding: 1px 4px;
+  font-size: 8pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: -4px -6px 4px -6px;
+}
+.sig-line {
+  border-top: 1px solid #000;
+  margin-top: 30px;
+  padding-top: 2px;
+  font-size: 7.5pt;
+  text-align: center;
+}
+.note {
+  font-size: 7.5pt;
+  border: 1px dashed #666;
+  padding: 3px 5px;
+  background: #fafafa;
+}
+.hstamp {
+  border: 2px solid #b00;
+  color: #b00;
+  padding: 2px 6px;
+  font-size: 8pt;
+  font-weight: bold;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.tag {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 0 4px;
+  font-size: 7.5pt;
+  margin-right: 3px;
+}
+ul.compact { margin: 2px 0; padding-left: 16px; font-size: 8.5pt; }
+ul.compact li { margin: 1px 0; }
+.kv-row { display: flex; border-bottom: 1px solid #ccc; padding: 1px 0; font-size: 8.5pt; }
+.kv-row .k { width: 45%; color: #333; }
+.kv-row .v { width: 55%; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div class="form-header">
+  <div>
+    <h1>■ Wartungsvertrag – Wärmepumpenanlage</h1>
+    <div style="font-size:7.5pt; margin-top:2px;">Service- und Instandhaltungsvereinbarung gem. VDI 4645</div>
+  </div>
+  <div class="form-meta">
+    Formular-Nr.: WV-WP-2024-017<br>
+    <span class="rev">REV. 03 / Ausg. 02-2024</span><br>
+    Seite 1 / 1
+  </div>
+</div>
+
+<div class="subheader">
+  <div><span class="tag">AKTE</span> KKS-2024-0384</div>
+  <div><span class="tag">OBJ</span> DA-AHO-28</div>
+  <div><span class="tag">TECH</span> WP-LW-VIE</div>
+  <div><span class="tag">INT</span> 1×/Jahr</div>
+</div>
+
+<!-- VERTRAGSPARTEIEN -->
+<section>
+  <div class="section-title">1 · Vertragsparteien</div>
+  <table class="grid">
+    <tr>
+      <th style="width:50%;">Auftraggeber (AG)</th>
+      <th style="width:50%;">Auftragnehmer (AN)</th>
+    </tr>
+    <tr>
+      <td>
+        <span class="label">Name / Firma</span>
+        <div class="field">Marcus Weber</div>
+        <span class="label">Anschrift</span>
+        <div class="field">Ahornstraße 28, 64289 Darmstadt</div>
+        <span class="label">Telefon</span>
+        <div class="field">06151-892473</div>
+      </td>
+      <td>
+        <span class="label">Firma</span>
+        <div class="field">Kälte- und Klimatechnik Schneider GmbH</div>
+        <span class="label">Anschrift</span>
+        <div class="field">Industriestraße 15, 64297 Darmstadt</div>
+        <span class="label">Telefon</span>
+        <div class="field">06151-754290</div>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<!-- ANLAGENDATEN -->
+<section>
+  <div class="section-title">2 · Anlagendaten / Objekt</div>
+  <table class="grid">
+    <tr>
+      <th style="width:20%;">Anlagentyp</th>
+      <td style="width:30%;">
+        <span class="chk">☑</span> Luft-Wasser-WP &nbsp;
+        <span class="chk">☐</span> Sole-Wasser &nbsp;
+        <span class="chk">☐</span> Wasser-Wasser
+      </td>
+      <th style="width:20%;">Stückzahl</th>
+      <td style="width:30%;"><b>1</b> Stk.</td>
+    </tr>
+    <tr>
+      <th>Hersteller</th>
+      <td>Viessmann</td>
+      <th>Modell / Typ</th>
+      <td>Vitocal 200-S AWO-E-AC 201.D10</td>
+    </tr>
+    <tr>
+      <th>Objektadresse</th>
+      <td colspan="3">Ahornstraße 28, 64289 Darmstadt</td>
+    </tr>
+    <tr>
+      <th>Gegenstand d. Vertr.</th>
+      <td colspan="3" style="font-size:8pt;">Wartung und Instandhaltung der Luft-Wasser-Wärmepumpenanlage gemäß VDI 4645 und Herstellervorgaben zur Aufrechterhaltung der Betriebssicherheit und Energieeffizienz.</td>
+    </tr>
+  </table>
+</section>
+
+<!-- LEISTUNGSKATALOG -->
+<section>
+  <div class="section-title">3 · Leistungskatalog / Wartungsumfang</div>
+  <div class="checklist">
+    <table>
+      <tr>
+        <td class="num">#</td>
+        <td><b>Prüf- und Wartungstätigkeit</b></td>
+        <td class="res">vereinbart</td>
+        <td class="res">i.O.</td>
+        <td class="res">n.i.O.</td>
+      </tr>
+      <tr><td class="num">01</td><td>Sichtprüfung aller Anlagenkomponenten</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">02</td><td>Überprüfung Kältemittelkreislauf und Füllstand</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">03</td><td>Kontrolle elektrischer Anschlüsse und Sicherheitseinrichtungen</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">04</td><td>Reinigung Verdampfer und Filter</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">05</td><td>Funktionsprüfung Regelung und Steuerung</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">06</td><td>Messung und Dokumentation Betriebsparameter</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+      <tr><td class="num">07</td><td>Erstellung Wartungsprotokoll</td><td class="res chk">☑</td><td class="res chk">☐</td><td class="res chk">☐</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- INTERVALL / LAUFZEIT / KOSTEN -->
+<section>
+  <div class="section-title">4 · Intervall · Laufzeit · Vergütung</div>
+  <table class="grid">
+    <tr>
+      <th style="width:25%;">Wartungsintervall</th>
+      <td style="width:25%;">
+        <span class="chk">☐</span> halbjährl. &nbsp;
+        <span class="chk">☑</span> jährlich &nbsp;
+        <span class="chk">☐</span> 2-jährl.
+      </td>
+      <th style="width:25%;">Reaktionszeit Störung</th>
+      <td style="width:25%;">48 Stunden werktags</td>
+    </tr>
+    <tr>
+      <th>Vertragsbeginn</th>
+      <td>01.03.2024</td>
+      <th>Vertragsende (frühestens)</th>
+      <td>28.02.2027</td>
+    </tr>
+    <tr>
+      <th>Kündigungsfrist</th>
+      <td colspan="3">3 Monate zum Jahresende (schriftlich)</td>
+    </tr>
+    <tr>
+      <th>Vergütung</th>
+      <td><b>385,50 EUR</b> pro Wartungsintervall</td>
+      <th>Steuer</th>
+      <td>zzgl. MwSt.</td>
+    </tr>
+    <tr>
+      <th>Zahlungsbedingungen</th>
+      <td>14 Tage netto ohne Abzug</td>
+      <th>Gewährleistung</th>
+      <td>12 Monate auf durchgeführte Wartungsarbeiten</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ZUSATZLEISTUNGEN & RECHTLICHES -->
+<section>
+  <div class="two-col">
+    <div>
+      <div class="section-title">5 · Zusatzleistungen</div>
+      <ul class="compact">
+        <li><span class="chk">☑</span> Ersatzteilbeschaffung zum Selbstkostenpreis</li>
+        <li><span class="chk">☑</span> Notdienstbereitschaft außerhalb Geschäftszeiten</li>
+      </ul>
+    </div>
+    <div>
+      <div class="section-title">6 · Gerichtsstand / Schlussbestimmungen</div>
+      <div class="kv-row"><span class="k">Ausschl. Gerichtsstand</span><span class="v">Darmstadt</span></div>
+      <div class="kv-row"><span class="k">Schriftformerfordernis</span><span class="v">ja (Änderungen / Ergänzungen)</span></div>
+      <div class="kv-row"><span class="k">Salvatorische Klausel</span><span class="v">vereinbart</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNTERSCHRIFTEN -->
+<section>
+  <div class="section-title">7 · Rechtsverbindliche Unterzeichnung</div>
+  <div class="footer-signatures">
+    <div class="sig-box">
+      <div class="sig-head">Auftraggeber</div>
+      <span class="label">Name</span>
+      <div class="field">Marcus Weber</div>
+      <span class="label">Ort / Datum</span>
+      <div class="field">Darmstadt, 15.02.2024</div>
+      <div class="sig-line">Unterschrift / Firmenstempel</div>
+    </div>
+    <div class="sig-box">
+      <div class="sig-head">Auftragnehmer</div>
+      <span class="label">Name</span>
+      <div class="field">Ralf Schneider</div>
+      <span class="label">Ort / Datum</span>
+      <div class="field">Darmstadt, 15.02.2024</div>
+      <div class="sig-line">Unterschrift / Firmenstempel</div>
+    </div>
+  </div>
+</section>
+
+<div class="note" style="margin-top:6px;">
+  <b>HINWEIS:</b> Dieses Formular ist Bestandteil der Serviceakte KKS-2024-0384. Abweichungen bedürfen der Schriftform.
+  Protokollierung gem. F-Gase-VO / VDI 4645 durch den ausführenden Techniker. &nbsp; <span class="hstamp">ORIGINAL · AG-EXEMPLAR</span>
+</div>
+
+</body>

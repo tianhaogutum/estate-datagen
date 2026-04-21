@@ -47,9 +47,9 @@ def load_pdf_as_base64(filepath):
 
 # Convert from docx to pdf first if not already done 
 if not os.path.exists("Daten_AI_Engineer_CaseStudy/Wartungsvertrag-Wärmepumpe-1.pdf"):
-    subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", "Daten_AI_Engineer_CaseStudy", "Daten_AI_Engineer_CaseStudy/Wartungsvertrag_für_Rauchwarnmelder-2.docx"])
-if not os.path.exists("Daten_AI_Engineer_CaseStudy/Wartungsvertrag_für_Rauchwarnmelder-2.pdf"):
     subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", "Daten_AI_Engineer_CaseStudy", "Daten_AI_Engineer_CaseStudy/Wartungsvertrag-Wärmepumpe-1.docx"])
+if not os.path.exists("Daten_AI_Engineer_CaseStudy/Wartungsvertrag_für_Rauchwarnmelder-2.pdf"):
+    subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", "Daten_AI_Engineer_CaseStudy", "Daten_AI_Engineer_CaseStudy/Wartungsvertrag_für_Rauchwarnmelder-2.docx"])
 
 # Load the PDF files and encode them in base64
 protocol_pdf_base64_1 = load_pdf_as_base64("Daten_AI_Engineer_CaseStudy/Wartungsprotokoll_Waermepumpe-1.pdf")
@@ -58,7 +58,7 @@ contract_pdf_base64_1 = load_pdf_as_base64("Daten_AI_Engineer_CaseStudy/Wartungs
 contract_pdf_base64_2 = load_pdf_as_base64("Daten_AI_Engineer_CaseStudy/Wartungsvertrag_für_Rauchwarnmelder-2.pdf")
 
 # Define the prompt for generating multiple unique HTML documents
-num_solutions = 1
+num_solutions = 5
 doc_type = "Wartungsvertrag" # Set or select from doc_types
 system_type = "Rauchwarnmelder" # Set or select from system_types
 
@@ -114,10 +114,10 @@ Now generate the {num_solutions} distinct {doc_type} documents.
 """
 
 # Generate the HTML documents using the Claude Sonnet 4 model, providing the seed documents and the prompt.
-response = client.messages.create(
+with client.messages.stream(
     model="claude-sonnet-4-20250514",
     max_tokens=num_solutions * 5000,
-    messages=[{"role": "user", 
+    messages=[{"role": "user",
                "content": [
                 {
                     "type": "document",
@@ -140,7 +140,8 @@ response = client.messages.create(
                     "text": prompt,
                 }
             ],}]
-)
+) as stream:
+    response = stream.get_final_message()
 
 # Define the filename and filepath for saving the generated HTML content and PDF
 filename = f"generated_document_00_{doc_type}_{system_type}"
