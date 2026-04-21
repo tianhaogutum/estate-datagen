@@ -11,24 +11,13 @@ import re
 from pathlib import Path
 
 import boto3
-import os
-from dotenv import load_dotenv
 
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
+from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
-load_dotenv()
+BEDROCK_REGION = "eu-central-1"
+BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"
 
-# AWS Bedrock configuration
-AWS_REGION = os.getenv('AWS_REGION', 'eu-central-1')
-_bedrock_client = boto3.client(
-    'bedrock-runtime',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    region_name=AWS_REGION
-)
-
-# Bedrock model ID (using inference profile)
-BEDROCK_MODEL_ID = 'eu.anthropic.claude-sonnet-4-6'
+_bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 
 
 def _read_requirements(doc: DocumentType) -> str:

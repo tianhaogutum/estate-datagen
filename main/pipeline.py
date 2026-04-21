@@ -12,9 +12,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.data_synthesizer import synthesize_to_file
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.doc_generator import generate_document
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.taxonomy import REAL_ESTATE_TAXONOMY
+from data_synthesizer import synthesize_to_file
+from doc_generator import generate_document
+from taxonomy import REAL_ESTATE_TAXONOMY
 
 
 def run(doc_key: str) -> None:

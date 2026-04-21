@@ -10,30 +10,19 @@ Renders the HTML to PDF.
 import base64
 import json
 import re
-import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import boto3
-from dotenv import load_dotenv
 from weasyprint import HTML
 
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.style_profiles import StyleProfile, get_profiles
-from TechChallenge_Background_Diafania.main.real_estate_sample_generator.taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
+from style_profiles import StyleProfile, get_profiles
+from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
-load_dotenv()
+BEDROCK_REGION = "eu-central-1"
+BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"
 
-# AWS Bedrock configuration
-AWS_REGION = os.getenv('AWS_REGION', 'eu-central-1')
-_bedrock_client = boto3.client(
-    'bedrock-runtime',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    region_name=AWS_REGION
-)
-
-# Bedrock model ID (using inference profile)
-BEDROCK_MODEL_ID = 'eu.anthropic.claude-sonnet-4-6'
+_bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 
 
 def _pdf_base64(path: Path) -> str:
@@ -127,19 +116,15 @@ def _generate_html_for_profile(
     prompt_text = _build_prompt_text(
         data, doc.name, len(doc_blocks), profile, variant_index, variant_total
     )
-    
-    # For Bedrock, we need to include the PDF data as text since Bedrock doesn't
-    # support document content blocks like the Anthropic SDK
-    # Extract base64 data from doc_blocks and include in prompt
+
     pdf_data_text = ""
     for block in doc_blocks:
         if block.get("type") == "document":
             pdf_b64 = block["source"]["data"]
             pdf_data_text = f"\n\n[SEED DOCUMENT BASE64]:\n{pdf_b64}\n"
-    
+
     full_prompt = pdf_data_text + prompt_text
 
-    # Use AWS Bedrock instead of Anthropic SDK
     response = _bedrock_client.converse(
         modelId=BEDROCK_MODEL_ID,
         messages=[{"role": "user", "content": [{"text": full_prompt}]}],
