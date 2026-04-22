@@ -1,0 +1,182 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft/Wasser-Wärmepumpe",
+      "hersteller": "Viessmann",
+      "modell": "Vitocal 200-A AWO-E-AC 201.A10",
+      "seriennummer": "7571234890123",
+      "softwarestand": "2.3.1",
+      "anzahl": 1
+    },
+    "Anlagenstandort": {
+      "name": "Familie Brinkmann",
+      "strasse": "Eichenweg 14",
+      "plz": "48431",
+      "ort": "Rheine",
+      "objekttyp": "EFH"
+    },
+    "Datum der Wartung": "2024-10-15",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "Sichtprüfung der gesamten Anlage auf Beschädigungen und Korrosion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Kältemittelanlage auf Dichtigkeit",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Reinigung des Luftwärmetauschers / Lamellenpakets",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Überprüfung und Reinigung des Kondensatablaufs",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung des elektrischen Zuheizers",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Umwälzpumpe Heizkreis auf Geräuschentwicklung",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Kontrolle aller elektrischen Anschlüsse und Klemmen",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Auslesen und Dokumentation der Betriebsstunden und Fehlerspeicher",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Abtaufunktion (Heizbandthermostat)",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung des Expansionsventils und der Drücke im Kältekreis",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Kontrolle des Systemdrucks im Heizkreis (Vordruck Ausdehnungsgefäß)",
+        "ergebnis": "n.i.O."
+      },
+      {
+        "arbeit": "Nachfüllen des Heizkreisdrucks auf Sollwert 1,5 bar",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Überprüfung der Regelparameter und Betriebseinstellungen",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionstest nach Abschluss der Wartungsarbeiten",
+        "ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Lamellenpaket des Außengeräts war stark durch Pappelwolle und Staub verstopft und wurde gereinigt. Systemdruck Heizkreis lag bei 0,8 bar (Soll: 1,5 bar), wurde auf 1,5 bar nachgefüllt. Keine weiteren Mängel festgestellt. Anlage läuft nach Wartung einwandfrei.",
+    "Wartungsergebnis": "erfolgreich durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "Haustechnik Schulze GmbH",
+      "kd_techniker": "Markus Feldmann",
+      "strasse": "Industriestraße 22",
+      "plz": "48431",
+      "ort": "Rheine",
+      "tel": "+49 5971 84320",
+      "fax": "+49 5971 843229",
+      "email": "service@haustechnik-schulze.de"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "Techniker",
+        "unterschrift_von": "Markus Feldmann",
+        "datum": "2024-10-15"
+      },
+      {
+        "rolle": "Kunde",
+        "unterschrift_von": "Heinrich Brinkmann",
+        "datum": "2024-10-15"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "Heinrich Brinkmann",
+      "anschrift": "Eichenweg 14, 48431 Rheine"
+    },
+    "Naechster_Wartungstermin": "2025-10-01",
+    "Datum_Inbetriebnahme": "2019-11-20",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "Anlagendruck-Manometer Prüfadapter (Verbrauchsmaterial)",
+        "menge": 1
+      },
+      {
+        "bezeichnung": "Dichtungsring für Wartungsventil DN20",
+        "menge": 2
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "Vorlauftemperatur Heizkreis",
+        "wert": 38.4,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Rücklauftemperatur Heizkreis",
+        "wert": 33.1,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Hochdruck Kältekreis",
+        "wert": 18.7,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Niederdruck Kältekreis",
+        "wert": 4.2,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Außentemperatur bei Messung",
+        "wert": 9.5,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Systemdruck Heizkreis nach Befüllung",
+        "wert": 1.5,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Kältemittelfüllmenge (geprüft, kein Verlust)",
+        "wert": 2.05,
+        "einheit": "kg"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "Verdichter",
+        "laufzeit_h": 14872
+      },
+      {
+        "komponente": "Umwälzpumpe Heizkreis",
+        "laufzeit_h": 22104
+      },
+      {
+        "komponente": "Lüftermotor Außengerät",
+        "laufzeit_h": 13956
+      },
+      {
+        "komponente": "Elektrischer Zuheizer",
+        "laufzeit_h": 412
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": true,
+      "kaeltemittelart": "R410A",
+      "kaeltemittelfuellmenge_kg": 2.05,
+      "resultat_lecksuche_g_a": 0,
+      "wiederholungspruefung_erforderlich": false
+    }
+  }
+}

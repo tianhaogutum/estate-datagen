@@ -1,0 +1,189 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft/Wasser-Wärmepumpe",
+      "hersteller": "Glen Dimplex",
+      "modell": "SI 8TU",
+      "seriennummer": "GD-2019-084731",
+      "softwarestand": "V3.12.4",
+      "anzahl": 1
+    },
+    "Anlagenstandort": {
+      "name": "Familie Hartmann",
+      "strasse": "Birkenweg 14",
+      "plz": "85716",
+      "ort": "Unterschleißheim",
+      "objekttyp": "EFH"
+    },
+    "Datum der Wartung": "2024-03-18",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "Sichtprüfung der gesamten Anlage auf Beschädigungen und Korrosion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Kältemittelleitungen auf Dichtheit",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Reinigung des Luftwärmetauschers (Verdampfer)",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Kontrolle und Reinigung des Kondensatablaufs",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der elektrischen Anschlüsse und Klemmen auf festen Sitz",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung des Expansionsventils",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung des Heizwasserkreislaufs (Druck, Entlüftung)",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Messung der Vor- und Rücklauftemperaturen im Heizbetrieb",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Pumpenleistung und Fördermenge",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Softwarestand und Fehlerspeicher ausgelesen",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung Abtauautomatik",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Sicherheitsventil auf Funktion geprüft",
+        "ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Verdampfer wies leichte Verschmutzungen durch Pappelwolle auf, wurde gereinigt. Anlagendruck im Heizkreis war auf 0,8 bar abgefallen und wurde auf 1,5 bar nachgefüllt. Anlage läuft nach Wartung einwandfrei, keine weiteren Mängel festgestellt.",
+    "Wartungsergebnis": "erfolgreich durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "Kälte- und Wärmetechnik Söllner GmbH",
+      "kd_techniker": "Markus Brettschneider",
+      "strasse": "Industriestraße 22",
+      "plz": "85764",
+      "ort": "Oberschleißheim",
+      "tel": "+49 89 31458700",
+      "fax": "+49 89 31458719",
+      "email": "service@soellner-kaeltetechnik.de"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "Techniker",
+        "unterschrift_von": "Markus Brettschneider",
+        "datum": "2024-03-18"
+      },
+      {
+        "rolle": "Kunde",
+        "unterschrift_von": "Peter Hartmann",
+        "datum": "2024-03-18"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "Peter Hartmann",
+      "anschrift": "Birkenweg 14, 85716 Unterschleißheim"
+    },
+    "Naechster_Wartungstermin": "2025-03-01",
+    "Datum_Inbetriebnahme": "2019-11-06",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "Heizungsausdehnungsgefäß-Membrane DN25",
+        "menge": 1
+      },
+      {
+        "bezeichnung": "Filtereinsatz Schmutzfänger 1 Zoll",
+        "menge": 1
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "Vorlauftemperatur Heizkreis",
+        "wert": 38.4,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Rücklauftemperatur Heizkreis",
+        "wert": 32.1,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Außentemperatur bei Messung",
+        "wert": 5.2,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Verdampfereintrittstemperatur",
+        "wert": 4.8,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Verdampferaustrittstemperatur",
+        "wert": -1.3,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Hochdruck Kältekreis",
+        "wert": 18.6,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Niederdruck Kältekreis",
+        "wert": 4.2,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Anlagendruck Heizkreis nach Befüllung",
+        "wert": 1.5,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Leistungsaufnahme Kompressor",
+        "wert": 2.1,
+        "einheit": "kW"
+      },
+      {
+        "bezeichnung": "COP gemessen",
+        "wert": 3.8,
+        "einheit": "-"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "Kompressor",
+        "laufzeit_h": 12840
+      },
+      {
+        "komponente": "Primärpumpe",
+        "laufzeit_h": 14210
+      },
+      {
+        "komponente": "Sekundärpumpe",
+        "laufzeit_h": 13955
+      },
+      {
+        "komponente": "Steuerung / Regler",
+        "laufzeit_h": 37920
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": true,
+      "kaeltemittelart": "R410A",
+      "kaeltemittelfuellmenge_kg": 2.35,
+      "resultat_lecksuche_g_a": 0,
+      "wiederholungspruefung_erforderlich": false
+    }
+  }
+}

@@ -39,7 +39,10 @@ def run(doc_key: str) -> None:
     print(f"  run dir: {out_dir}")
     print(f"  data:    {data_path}")
     for v in artifacts["variants"]:
-        print(f"  [{v['profile']}] html: {v['html']}")
+        if v["status"] == "ok":
+            print(f"  [{v['profile']}] html: {v['html']}")
+        else:
+            print(f"  [{v['profile']}] FAILED: {v.get('error', '?')}")
 
 if __name__ == "__main__":
     key = sys.argv[1] if len(sys.argv) > 1 else "wartungsvertrag"

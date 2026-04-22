@@ -6,3 +6,4 @@ __pycache__/
 *.pyd
 /main/style_profiles copy.py
 /main/doc_synthesizer copy.py
+/main/__pycache__/

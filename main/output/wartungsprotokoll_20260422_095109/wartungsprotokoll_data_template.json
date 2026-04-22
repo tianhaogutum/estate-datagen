@@ -1,0 +1,189 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "<typ>",
+      "hersteller": "<hersteller>",
+      "modell": "<modell>",
+      "seriennummer": "<seriennummer>",
+      "softwarestand": "<softwarestand>",
+      "anzahl": "<anzahl>"
+    },
+    "Anlagenstandort": {
+      "name": "<name>",
+      "strasse": "<strasse>",
+      "plz": "<plz>",
+      "ort": "<ort>",
+      "objekttyp": "<objekttyp>"
+    },
+    "Datum der Wartung": "<Datum der Wartung>",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      },
+      {
+        "arbeit": "<arbeit>",
+        "ergebnis": "<ergebnis>"
+      }
+    ],
+    "Bemerkungen": "<Bemerkungen>",
+    "Wartungsergebnis": "<Wartungsergebnis>",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "<firma>",
+      "kd_techniker": "<kd_techniker>",
+      "strasse": "<strasse>",
+      "plz": "<plz>",
+      "ort": "<ort>",
+      "tel": "<tel>",
+      "fax": "<fax>",
+      "email": "<email>"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "<rolle>",
+        "unterschrift_von": "<unterschrift_von>",
+        "datum": "<datum>"
+      },
+      {
+        "rolle": "<rolle>",
+        "unterschrift_von": "<unterschrift_von>",
+        "datum": "<datum>"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "<name>",
+      "anschrift": "<anschrift>"
+    },
+    "Naechster_Wartungstermin": "<Naechster_Wartungstermin>",
+    "Datum_Inbetriebnahme": "<Datum_Inbetriebnahme>",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "<bezeichnung>",
+        "menge": "<menge>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "menge": "<menge>"
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      },
+      {
+        "bezeichnung": "<bezeichnung>",
+        "wert": "<wert>",
+        "einheit": "<einheit>"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "<komponente>",
+        "laufzeit_h": "<laufzeit_h>"
+      },
+      {
+        "komponente": "<komponente>",
+        "laufzeit_h": "<laufzeit_h>"
+      },
+      {
+        "komponente": "<komponente>",
+        "laufzeit_h": "<laufzeit_h>"
+      },
+      {
+        "komponente": "<komponente>",
+        "laufzeit_h": "<laufzeit_h>"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": "<dichtigkeitskontrolle_eu_517_2014>",
+      "kaeltemittelart": "<kaeltemittelart>",
+      "kaeltemittelfuellmenge_kg": "<kaeltemittelfuellmenge_kg>",
+      "resultat_lecksuche_g_a": "<resultat_lecksuche_g_a>",
+      "wiederholungspruefung_erforderlich": "<wiederholungspruefung_erforderlich>"
+    }
+  }
+}

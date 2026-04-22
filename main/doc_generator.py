@@ -9,7 +9,6 @@ Features:
 - Uses TEMPLATE dataset as input source
 """
 
-import base64
 import json
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -30,10 +29,6 @@ _bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 # Utils
 # -------------------------
 
-def _pdf_base64(path: Path) -> str:
-    return base64.standard_b64encode(path.read_bytes()).decode("utf-8")
-
-
 def _few_shot_document_blocks(doc: DocumentType) -> list[dict]:
     base = Path(__file__).parent
     blocks = []
@@ -45,12 +40,13 @@ def _few_shot_document_blocks(doc: DocumentType) -> list[dict]:
 
         blocks.append(
             {
-                "type": "document",
-                "source": {
-                    "type": "base64",
-                    "media_type": "application/pdf",
-                    "data": _pdf_base64(p),
-                },
+                "document": {
+                    "format": "pdf",
+                    "name": p.stem,
+                    "source": {
+                        "bytes": p.read_bytes(),
+                    },
+                }
             }
         )
 
@@ -126,16 +122,11 @@ def _generate_raw_output(
         data, doc.name, len(doc_blocks), profile, variant_index, variant_total
     )
 
-    pdf_data_text = ""
-    for block in doc_blocks:
-        if block.get("type") == "document":
-            pdf_data_text += f"\n[PDF BASE64]\n{block['source']['data']}\n"
-
-    full_prompt = pdf_data_text + prompt_text
+    content = [*doc_blocks, {"text": prompt_text}]
 
     response = _bedrock_client.converse(
         modelId=BEDROCK_MODEL_ID,
-        messages=[{"role": "user", "content": [{"text": full_prompt}]}],
+        messages=[{"role": "user", "content": content}],
         inferenceConfig={"maxTokens": 6000},
     )
 
