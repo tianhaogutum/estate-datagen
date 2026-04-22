@@ -1,0 +1,180 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft/Wasser-Wärmepumpe",
+      "hersteller": "Glen Dimplex",
+      "modell": "SI 8TU",
+      "seriennummer": "GD-2019-48271-X",
+      "softwarestand": "V3.12.4",
+      "anzahl": 1
+    },
+    "Anlagenstandort": {
+      "name": "Familie Hartmann",
+      "strasse": "Birkenweg 14",
+      "plz": "74321",
+      "ort": "Bietigheim-Bissingen",
+      "objekttyp": "EFH"
+    },
+    "Datum der Wartung": "2024-09-12",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "Sichtprüfung der Gesamtanlage auf äußere Schäden und Korrosion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung und Reinigung des Luftansaugfilters",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Kontrolle der elektrischen Anschlüsse und Klemmen auf festen Sitz",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Messung der Betriebs- und Sicherheitsdrücke im Kältekreislauf",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung des Abtauvorgangs",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Solepumpe auf Dichtigkeit und Funktion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Kontrolle der Solekonzentration (Frostschutz)",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung des Expansionsventils auf korrekten Betrieb",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Inspektion der Wärmetauscheroberflächen auf Verschmutzung",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Funktionskontrolle der Steuerung und Fehlerprotokoll auslesen",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Prüfung des Sicherheitstemperaturbegrenzers",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Dichtigkeitskontrolle gemäß EU-Verordnung 517/2014",
+        "ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Luftfilter war stark verschmutzt und wurde gereinigt. Wärmetauscher-Lamellen wurden mit Druckluft entstaubt. Alle übrigen geprüften Komponenten ohne Befund. Keine sicherheitsrelevanten Mängel festgestellt.",
+    "Wartungsergebnis": "erfolgreich durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "Heizungs- und Kältetechnik Berger GmbH",
+      "kd_techniker": "Markus Steinfeld",
+      "strasse": "Industriestraße 22",
+      "plz": "74321",
+      "ort": "Bietigheim-Bissingen",
+      "tel": "+49 7142 938470",
+      "fax": "+49 7142 9384799",
+      "email": "service@berger-kaeltetechnik.de"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "Techniker",
+        "unterschrift_von": "Markus Steinfeld",
+        "datum": "2024-09-12"
+      },
+      {
+        "rolle": "Kunde",
+        "unterschrift_von": "Thomas Hartmann",
+        "datum": "2024-09-12"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "Thomas Hartmann",
+      "anschrift": "Birkenweg 14, 74321 Bietigheim-Bissingen"
+    },
+    "Naechster_Wartungstermin": "2025-09-01",
+    "Datum_Inbetriebnahme": "2019-11-08",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "Luftfilter-Matte G4 (400x500mm)",
+        "menge": 1
+      },
+      {
+        "bezeichnung": "Dichtungsring Solepumpe DN25",
+        "menge": 2
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "Vorlauftemperatur Heizkreis",
+        "wert": 38.4,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Rücklauftemperatur Heizkreis",
+        "wert": 32.1,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Verdampfungstemperatur",
+        "wert": 4.8,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Kondensationstemperatur",
+        "wert": 44.2,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Hochdruck Kältekreis",
+        "wert": 17.3,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Niederdruck Kältekreis",
+        "wert": 4.2,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Solekonzentration (Ethylenglykol)",
+        "wert": 28.0,
+        "einheit": "%"
+      },
+      {
+        "bezeichnung": "Außentemperatur bei Wartung",
+        "wert": 16.5,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Kältemittelfüllmenge R410A",
+        "wert": 2.85,
+        "einheit": "kg"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "Kompressor",
+        "laufzeit_h": 14820
+      },
+      {
+        "komponente": "Solepumpe",
+        "laufzeit_h": 15340
+      },
+      {
+        "komponente": "Ventilator Außeneinheit",
+        "laufzeit_h": 13950
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": true,
+      "kaeltemittelart": "R410A",
+      "kaeltemittelfuellmenge_kg": 2.85,
+      "resultat_lecksuche_g_a": 0,
+      "wiederholungspruefung_erforderlich": false
+    }
+  }
+}

@@ -75,24 +75,25 @@ def _extract_json(text: str) -> dict:
     return json.loads(text[start:end + 1])
 
 
-def _to_placeholder(obj, parent_key: str = ""):
+def _to_placeholder(obj, parent_key: str = "", index: int = 0):
     """
     Convert real JSON into placeholder JSON.
 
     Example:
-        "typ": "Heat Pump"
-        -> "typ": "<typ>"
+        "typ": "Heat Pump"          -> "typ": "<typ>"
+        list item 2: "arbeit": ...  -> "arbeit": "<arbeit_2>"
     """
 
     if isinstance(obj, dict):
-        return {k: _to_placeholder(v, k) for k, v in obj.items()}
+        return {k: _to_placeholder(v, k, index) for k, v in obj.items()}
 
     elif isinstance(obj, list):
-        return [_to_placeholder(i, parent_key) for i in obj]
+        return [_to_placeholder(item, parent_key, idx + 1) for idx, item in enumerate(obj)]
 
     else:
-        # Use field-based placeholder if available
         if parent_key:
+            if index:
+                return f"<{parent_key}_{index}>"
             return f"<{parent_key}>"
         return "<value>"
 
