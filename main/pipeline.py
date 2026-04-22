@@ -19,7 +19,7 @@ from pathlib import Path
 
 from data_synthesizer import synthesize_to_file
 from doc_generator import generate_document
-from pdf_converter import convert_variants
+from pdf_converter import convert_html_to_pdf
 from taxonomy import REAL_ESTATE_TAXONOMY, SYSTEM_TYPES
 
 
@@ -78,15 +78,33 @@ def run(doc_key: str, system_key: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     data_path = out_dir / f"{doc_key}_data.json"
 
-    print(f"\n[1/3] Synthesizing data for '{doc_key}' / '{system_key}'...")
+    print(f"\n[1/4] Synthesizing data for '{doc_key}' / '{system_key}'...")
     data = synthesize_to_file(doc_key, data_path, system_key)
 
-    print(f"\n[2/3] Generating HTML variants for '{doc_key}'...")
+    print(f"\n[2/4] Generating HTML variants for '{doc_key}'...")
     stem = out_dir / f"{doc_key}_rendered"
     artifacts = generate_document(doc_key, data, stem)
 
-    print("\n[3/3] Converting HTML to PDF...")
-    convert_variants(artifacts["variants"])
+    print("\n[3/4] Filling HTML placeholders with real data...")
+    for v in artifacts["variants"]:
+        if v["status"] != "ok":
+            continue
+        html_path = Path(v["html"])
+        filled_html = fill_html(html_path.read_text(encoding="utf-8"), data["real"])
+        filled_path = html_path.with_name(html_path.stem + "_filled.html")
+        filled_path.write_text(filled_html, encoding="utf-8")
+        v["html_filled"] = str(filled_path)
+
+    print("\n[4/4] Converting filled HTML to PDF...")
+    for v in artifacts["variants"]:
+        if v["status"] != "ok" or "html_filled" not in v:
+            continue
+        try:
+            pdf_path = convert_html_to_pdf(Path(v["html_filled"]))
+            v["pdf"] = str(pdf_path)
+        except Exception as e:
+            print(f"PDF conversion failed for {v['profile']}: {e}")
+            v["pdf_error"] = str(e)
 
     print("\nDone.")
     print(f"  run dir: {out_dir}")

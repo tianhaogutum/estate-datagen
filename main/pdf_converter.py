@@ -3,9 +3,6 @@ PDF Converter
 
 Converts HTML files to PDF using pdfkit (wkhtmltopdf wrapper).
 
-Requires wkhtmltopdf to be installed:
-    https://wkhtmltopdf.org/downloads.html
-
 Usage:
     python pdf_converter.py <html_file_or_directory>
 """
