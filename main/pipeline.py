@@ -19,6 +19,7 @@ from pathlib import Path
 
 from data_synthesizer import synthesize_to_file
 from doc_generator import generate_document
+from pdf_converter import convert_variants
 from taxonomy import REAL_ESTATE_TAXONOMY, SYSTEM_TYPES
 
 
@@ -77,23 +78,15 @@ def run(doc_key: str, system_key: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     data_path = out_dir / f"{doc_key}_data.json"
 
-    print(f"\n[1/2] Synthesizing data for '{doc_key}' / '{system_key}'...")
+    print(f"\n[1/3] Synthesizing data for '{doc_key}' / '{system_key}'...")
     data = synthesize_to_file(doc_key, data_path, system_key)
 
-    print(f"\n[2/2] Generating HTML variants for '{doc_key}' / '{system_key}'...")
+    print(f"\n[2/3] Generating HTML variants for '{doc_key}'...")
     stem = out_dir / f"{doc_key}_rendered"
     artifacts = generate_document(doc_key, data, stem)
 
-    print("\n[3/3] Filling HTML with real data...")
-    for v in artifacts["variants"]:
-        if v["status"] != "ok":
-            continue
-        html_path = Path(v["html"])
-        filled = fill_html(html_path.read_text(encoding="utf-8"), data["real"])
-        filled_path = html_path.with_stem(html_path.stem + "_filled")
-        filled_path.write_text(filled, encoding="utf-8")
-        v["html_filled"] = str(filled_path)
-        print(f"  [{v['profile']}] filled: {filled_path}")
+    print("\n[3/3] Converting HTML to PDF...")
+    convert_variants(artifacts["variants"])
 
     print("\nDone.")
     print(f"  run dir: {out_dir}")
@@ -102,6 +95,10 @@ def run(doc_key: str, system_key: str) -> None:
         if v["status"] == "ok":
             print(f"  [{v['profile']}] template: {v['html']}")
             print(f"  [{v['profile']}] filled:   {v['html_filled']}")
+            if "pdf" in v:
+                print(f"  [{v['profile']}] pdf:  {v['pdf']}")
+            if "pdf_error" in v:
+                print(f"  [{v['profile']}] pdf FAILED: {v['pdf_error']}")
         else:
             print(f"  [{v['profile']}] FAILED: {v.get('error', '?')}")
 
