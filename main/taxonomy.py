@@ -33,21 +33,22 @@ SYSTEM_TYPES: dict[str, str] = {
 @dataclass
 class DocumentType:
     name: str
-    requirements_file: str
+    doc_key: str
     few_shot_files: list[str]
 
     def requirements_file_for(self, system_key: str) -> str:
-        doc_dir = self.requirements_file.replace(".txt", "")
-        per_system = f"{doc_dir}/{system_key}.txt"
-        if (Path(__file__).parent / per_system).exists():
-            return per_system
-        return self.requirements_file
+        per_system = f"document_requirements/{self.doc_key}/{system_key}.txt"
+        if not (Path(__file__).parent / per_system).exists():
+            raise FileNotFoundError(
+                f"No requirements file for '{self.name}' / '{system_key}': {per_system}"
+            )
+        return per_system
 
 
 REAL_ESTATE_TAXONOMY: dict[str, DocumentType] = {
     "wartungsprotokoll": DocumentType(
         name="Wartungsprotokoll",
-        requirements_file="document_requirements/wartungsprotokoll.txt",
+        doc_key="wartungsprotokoll",
         few_shot_files=[
             "few_shots/Wartungsprotokoll_Waermepumpe-1.pdf",
             "few_shots/Wartungsprotokoll-Rauchwarnmelder-2.pdf",
@@ -55,7 +56,7 @@ REAL_ESTATE_TAXONOMY: dict[str, DocumentType] = {
     ),
     "wartungsvertrag": DocumentType(
         name="Wartungsvertrag",
-        requirements_file="document_requirements/wartungsvertrag.txt",
+        doc_key="wartungsvertrag",
         few_shot_files=[
             "few_shots/Wartungsvertrag-Wärmepumpe-1.pdf",
             "few_shots/Wartungsvertrag_für_Rauchwarnmelder-2.pdf",

@@ -60,6 +60,18 @@ def run(doc_key: str, system_key: str) -> None:
             f"Unknown system_key '{system_key}'. Options: {list(SYSTEM_TYPES)}"
         )
 
+    base = Path(__file__).parent
+    doc = REAL_ESTATE_TAXONOMY[doc_key]
+
+    req_file = base / doc.requirements_file_for(system_key)
+    if not req_file.exists():
+        raise SystemExit(f"Requirements file not found: {req_file}")
+
+    for pdf in doc.few_shot_files:
+        pdf_path = base / pdf
+        if not pdf_path.exists():
+            raise SystemExit(f"Few-shot file not found: {pdf_path}")
+
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_dir = Path(__file__).parent / "output" / f"{doc_key}_{system_key}_{timestamp}"
     out_dir.mkdir(parents=True, exist_ok=True)

@@ -148,7 +148,7 @@ def _generate_raw_output(
     response = _bedrock_client.converse(
         modelId=BEDROCK_MODEL_ID,
         messages=[{"role": "user", "content": content}],
-        inferenceConfig={"maxTokens": 6000},
+        inferenceConfig={"maxTokens": 10000},
     )
 
     return response["output"]["message"]["content"][0]["text"]
