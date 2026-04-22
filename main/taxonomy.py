@@ -33,14 +33,12 @@ class SystemType:
 
 
 SYSTEM_TYPES: dict[str, SystemType] = {
-    # 暖通与能源
     "KLIMAANLAGE": SystemType("KLIMAANLAGE", "Klimaanlage", SystemCategory.HVAC_ENERGY),
     "WAERMEPUMPE": SystemType("WAERMEPUMPE", "Wärmepumpe", SystemCategory.HVAC_ENERGY),
     "HEIZKESSEL": SystemType("HEIZKESSEL", "Heizkessel", SystemCategory.HVAC_ENERGY),
     "LUEFTUNGSANLAGE": SystemType(
         "LUEFTUNGSANLAGE", "Lüftungsanlage", SystemCategory.HVAC_ENERGY
     ),
-    # 安全与消防
     "BRANDMELDEANLAGE": SystemType(
         "BRANDMELDEANLAGE", "Brandmeldeanlage", SystemCategory.SAFETY_FIRE
     ),
@@ -57,7 +55,6 @@ SYSTEM_TYPES: dict[str, SystemType] = {
     "SICHERHEITSBELEUCHTUNG": SystemType(
         "SICHERHEITSBELEUCHTUNG", "Sicherheitsbeleuchtung", SystemCategory.SAFETY_FIRE
     ),
-    # 基础设施
     "AUFZUG_PERSONEN": SystemType(
         "AUFZUG_PERSONEN", "Personenaufzug", SystemCategory.INFRASTRUCTURE
     ),

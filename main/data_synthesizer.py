@@ -30,8 +30,11 @@ else:
     _bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 
 
-def _read_requirements(doc: DocumentType) -> str:
-    path = Path(__file__).parent / doc.requirements_file
+def _read_requirements(doc: DocumentType, system_key: str | None = None) -> str:
+    req_file = (
+        doc.requirements_file_for(system_key) if system_key else doc.requirements_file
+    )
+    path = Path(__file__).parent / req_file
     return path.read_text(encoding="utf-8")
 
 
@@ -116,12 +119,12 @@ def _validate(data: dict, doc: DocumentType) -> None:
         raise ValueError(f"Missing required fields: {missing}")
 
 
-def synthesize(doc_key: str) -> dict:
+def synthesize(doc_key: str, system_key: str | None = None) -> dict:
     if doc_key not in REAL_ESTATE_TAXONOMY:
         raise KeyError(f"Unknown document type: {doc_key}")
 
     doc = REAL_ESTATE_TAXONOMY[doc_key]
-    prompt = _build_prompt(_read_requirements(doc), doc.name)
+    prompt = _build_prompt(_read_requirements(doc, system_key), doc.name)
 
     response = _bedrock_client.converse(
         modelId=BEDROCK_MODEL_ID,
@@ -137,8 +140,10 @@ def synthesize(doc_key: str) -> dict:
     return {"real": data, "placeholder": _to_placeholder(data)}
 
 
-def synthesize_to_file(doc_key: str, out_path: Path) -> dict:
-    result = synthesize(doc_key)
+def synthesize_to_file(
+    doc_key: str, out_path: Path, system_key: str | None = None
+) -> dict:
+    result = synthesize(doc_key, system_key)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
