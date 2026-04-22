@@ -20,9 +20,9 @@ from pathlib import Path
 
 
 class SystemCategory(Enum):
-    HVAC_ENERGY = "暖通与能源"
-    SAFETY_FIRE = "安全与消防"
-    INFRASTRUCTURE = "基础设施"
+    HVAC_ENERGY = "HVAC & Energy"
+    SAFETY_FIRE = "Safety & Fire Protection"
+    INFRASTRUCTURE = "Infrastructure"
 
 
 @dataclass
