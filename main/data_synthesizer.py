@@ -9,6 +9,8 @@ This version outputs TWO datasets:
 2. placeholder data (template-style values using <field_name>)
 """
 
+from __future__ import annotations
+
 import json
 import platform
 import re
@@ -31,9 +33,7 @@ else:
 
 
 def _read_requirements(doc: DocumentType, system_key: str | None = None) -> str:
-    req_file = (
-        doc.requirements_file_for(system_key) if system_key else doc.requirements_file
-    )
+    req_file = doc.requirements_file_for(system_key)
     path = Path(__file__).parent / req_file
     return path.read_text(encoding="utf-8")
 
@@ -110,13 +110,9 @@ def _to_placeholder(obj, parent_key: str = "", index: int = 0):
         return "<value>"
 
 
-def _validate(data: dict, doc: DocumentType) -> None:
+def _validate(data: dict) -> None:
     if "required" not in data or "optional" not in data:
         raise ValueError("Missing top-level keys: required / optional")
-
-    missing = [f for f in doc.required_fields if f not in data["required"]]
-    if missing:
-        raise ValueError(f"Missing required fields: {missing}")
 
 
 def synthesize(doc_key: str, system_key: str | None = None) -> dict:
@@ -135,7 +131,7 @@ def synthesize(doc_key: str, system_key: str | None = None) -> dict:
     raw = response["output"]["message"]["content"][0]["text"]
     data = _extract_json(raw)
 
-    _validate(data, doc)
+    _validate(data)
 
     return {"real": data, "placeholder": _to_placeholder(data)}
 
