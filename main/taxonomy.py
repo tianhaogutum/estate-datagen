@@ -12,7 +12,6 @@ describe and exemplify it.
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List
 
 
 class DocumentCategory(Enum):
@@ -24,13 +23,13 @@ class DocumentType:
     name: str
     category: DocumentCategory
     description: str
-    required_fields: List[str] = field(default_factory=list)
-    optional_fields: List[str] = field(default_factory=list)
+    required_fields: list[str] = field(default_factory=list)
+    optional_fields: list[str] = field(default_factory=list)
     requirements_file: str = ""
-    few_shot_files: List[str] = field(default_factory=list)
+    few_shot_files: list[str] = field(default_factory=list)
 
 
-REAL_ESTATE_TAXONOMY: Dict[str, DocumentType] = {
+REAL_ESTATE_TAXONOMY: dict[str, DocumentType] = {
     "wartungsprotokoll": DocumentType(
         name="Wartungsprotokoll",
         category=DocumentCategory.MAINTENANCE,
@@ -97,11 +96,11 @@ REAL_ESTATE_TAXONOMY: Dict[str, DocumentType] = {
 }
 
 
-def list_categories() -> List[str]:
+def list_categories() -> list[str]:
     return [c.value for c in DocumentCategory]
 
 
-def list_documents_by_category(category: DocumentCategory) -> List[DocumentType]:
+def list_documents_by_category(category: DocumentCategory) -> list[DocumentType]:
     return [doc for doc in REAL_ESTATE_TAXONOMY.values() if doc.category == category]
 
 
@@ -118,8 +117,12 @@ def print_taxonomy() -> None:
         for doc in list_documents_by_category(category):
             print(f"  - {doc.name}")
             print(f"      description: {doc.description}")
-            print(f"      required fields ({len(doc.required_fields)}): {', '.join(doc.required_fields)}")
-            print(f"      optional fields ({len(doc.optional_fields)}): {', '.join(doc.optional_fields)}")
+            print(
+                f"      required fields ({len(doc.required_fields)}): {', '.join(doc.required_fields)}"
+            )
+            print(
+                f"      optional fields ({len(doc.optional_fields)}): {', '.join(doc.optional_fields)}"
+            )
             print(f"      requirements file: {base / doc.requirements_file}")
 
 

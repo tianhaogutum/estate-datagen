@@ -8,13 +8,13 @@ This version outputs TWO datasets:
 1. real data (fully generated values)
 2. placeholder data (template-style values using <field_name>)
 """
-import platform
+
 import json
+import platform
 import re
 from pathlib import Path
 
 import boto3
-
 from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
 BEDROCK_REGION = "eu-central-1"
@@ -24,7 +24,7 @@ if platform.system() == "Windows":
     print("Detected Windows")
     _session = boto3.Session(profile_name="claude-bedrock", region_name=BEDROCK_REGION)
     _bedrock_client = _session.client("bedrock-runtime")
-    
+
 else:
     print("Detected non-Windows OS, using default boto3 client")
     _bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
@@ -79,7 +79,7 @@ def _extract_json(text: str) -> dict:
     if start == -1 or end == -1:
         raise ValueError(f"No JSON object found:\n{text[:300]}")
 
-    return json.loads(text[start:end + 1])
+    return json.loads(text[start : end + 1])
 
 
 def _to_placeholder(obj, parent_key: str = "", index: int = 0):
@@ -95,7 +95,9 @@ def _to_placeholder(obj, parent_key: str = "", index: int = 0):
         return {k: _to_placeholder(v, k, index) for k, v in obj.items()}
 
     elif isinstance(obj, list):
-        return [_to_placeholder(item, parent_key, idx + 1) for idx, item in enumerate(obj)]
+        return [
+            _to_placeholder(item, parent_key, idx + 1) for idx, item in enumerate(obj)
+        ]
 
     else:
         if parent_key:
@@ -123,10 +125,8 @@ def synthesize(doc_key: str) -> dict:
 
     response = _bedrock_client.converse(
         modelId=BEDROCK_MODEL_ID,
-        messages=[
-            {"role": "user", "content": [{"text": prompt}]}
-        ],
-        inferenceConfig={"maxTokens": 3000}
+        messages=[{"role": "user", "content": [{"text": prompt}]}],
+        inferenceConfig={"maxTokens": 3000},
     )
 
     raw = response["output"]["message"]["content"][0]["text"]
@@ -134,10 +134,7 @@ def synthesize(doc_key: str) -> dict:
 
     _validate(data, doc)
 
-    return {
-        "real": data,
-        "placeholder": _to_placeholder(data)
-    }
+    return {"real": data, "placeholder": _to_placeholder(data)}
 
 
 def synthesize_to_file(doc_key: str, out_path: Path) -> dict:
@@ -149,13 +146,12 @@ def synthesize_to_file(doc_key: str, out_path: Path) -> dict:
     template_path = out_path.with_name(out_path.stem + "_template.json")
 
     real_path.write_text(
-        json.dumps(result["real"], indent=2, ensure_ascii=False),
-        encoding="utf-8"
+        json.dumps(result["real"], indent=2, ensure_ascii=False), encoding="utf-8"
     )
 
     template_path.write_text(
         json.dumps(result["placeholder"], indent=2, ensure_ascii=False),
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     print(f"Real data saved to: {real_path}")

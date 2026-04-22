@@ -44,6 +44,7 @@ def run(doc_key: str) -> None:
         else:
             print(f"  [{v['profile']}] FAILED: {v.get('error', '?')}")
 
+
 if __name__ == "__main__":
     key = sys.argv[1] if len(sys.argv) > 1 else "wartungsvertrag"
     run(key)
