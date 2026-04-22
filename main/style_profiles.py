@@ -7,7 +7,6 @@ so that a single JSON payload yields multiple real-world-looking variants.
 """
 
 from dataclasses import dataclass
-from typing import List
 
 
 @dataclass
@@ -17,7 +16,7 @@ class StyleProfile:
     description: str
 
 
-STYLE_PROFILES: List[StyleProfile] = [
+STYLE_PROFILES: list[StyleProfile] = [
     StyleProfile(
         key="corporate_formal",
         name="Corporate Formal",
@@ -32,5 +31,5 @@ STYLE_PROFILES: List[StyleProfile] = [
 ]
 
 
-def get_profiles() -> List[StyleProfile]:
+def get_profiles() -> list[StyleProfile]:
     return STYLE_PROFILES
