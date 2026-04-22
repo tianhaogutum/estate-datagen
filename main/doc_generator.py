@@ -10,11 +10,10 @@ Features:
 """
 
 import json
+import platform
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-
-import platform
 
 import boto3
 from style_profiles import StyleProfile, get_profiles
@@ -24,21 +23,28 @@ BEDROCK_REGION = "eu-central-1"
 BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"
 
 
-
 if platform.system() == "Windows":
     print("Detected Windows")
     _session = boto3.Session(profile_name="claude-bedrock", region_name=BEDROCK_REGION)
     _bedrock_client = _session.client("bedrock-runtime")
-    
+
 else:
     print("Detected non-Windows OS, using default boto3 client")
     _bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 
 
-
 # -------------------------
 # Utils
 # -------------------------
+
+
+def _sanitize_doc_name(name: str) -> str:
+    # Bedrock only allows alphanumeric, whitespace, hyphens, parentheses, square brackets
+    # and no consecutive whitespace
+    sanitized = re.sub(r"[^a-zA-Z0-9 \-()\[\]]", "-", name)
+    sanitized = re.sub(r" {2,}", " ", sanitized).strip("-")
+    return sanitized or "document"
+
 
 def _few_shot_document_blocks(doc: DocumentType) -> list[dict]:
     base = Path(__file__).parent
@@ -53,7 +59,7 @@ def _few_shot_document_blocks(doc: DocumentType) -> list[dict]:
             {
                 "document": {
                     "format": "pdf",
-                    "name": p.stem,
+                    "name": _sanitize_doc_name(p.stem),
                     "source": {
                         "bytes": p.read_bytes(),
                     },
@@ -67,6 +73,7 @@ def _few_shot_document_blocks(doc: DocumentType) -> list[dict]:
 # -------------------------
 # Prompt (ALL ENGLISH)
 # -------------------------
+
 
 def _build_prompt_text(
     data: dict,
@@ -104,6 +111,7 @@ INPUT DATA (FROM TEMPLATE SOURCE):
 # HTML extraction (robust)
 # -------------------------
 
+
 def _extract_html(text: str) -> str:
     match = re.search(r"<HTML>(.*?)</HTML>", text, flags=re.DOTALL | re.IGNORECASE)
     if match:
@@ -120,6 +128,7 @@ def _extract_html(text: str) -> str:
 # -------------------------
 # LLM call (raw output preserved)
 # -------------------------
+
 
 def _generate_raw_output(
     doc: DocumentType,
@@ -149,6 +158,7 @@ def _generate_raw_output(
 # Main (UNCHANGED SIGNATURE)
 # -------------------------
 
+
 def generate_document(doc_key: str, data: dict, output_stem: Path) -> dict:
     doc = REAL_ESTATE_TAXONOMY[doc_key]
     doc_blocks = _few_shot_document_blocks(doc)
@@ -166,9 +176,7 @@ def generate_document(doc_key: str, data: dict, output_stem: Path) -> dict:
         html_path = Path(base_name + ".html")
 
         try:
-            raw_text = _generate_raw_output(
-                doc, doc_blocks, data, profile, idx, total
-            )
+            raw_text = _generate_raw_output(doc, doc_blocks, data, profile, idx, total)
 
             raw_path.write_text(raw_text, encoding="utf-8")
 

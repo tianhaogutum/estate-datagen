@@ -1,9 +1,10 @@
 .env
-/venv
+venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-/main/style_profiles copy.py
-/main/doc_synthesizer copy.py
-/main/__pycache__/
+main/output/
+# copy files
+*copy*.py
+.DS_Store
