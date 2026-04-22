@@ -1,0 +1,160 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft/Wasser-Wärmepumpe",
+      "hersteller": "Vaillant",
+      "modell": "aroTHERM plus VWL 75/6 A",
+      "seriennummer": "VL2023-087432",
+      "anzahl": 1
+    },
+    "Anlagenstandort": {
+      "name": "Familie Hartmann",
+      "strasse": "Birkenweg 14",
+      "plz": "73430",
+      "ort": "Aalen",
+      "objekttyp": "EFH"
+    },
+    "Datum der Wartung": "2024-11-07",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "Sichtprüfung der Gesamtanlage auf Beschädigungen und Korrosion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der elektrischen Anschlüsse und Klemmen auf festen Sitz",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Reinigung des Außengeräte-Wärmetauschers (Lamellenblock)",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Überprüfung und Reinigung des Kondensatablaufs",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Prüfung der Umwälzpumpe Heizkreis auf Funktion und Geräuschentwicklung",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Kontrolle des Systemdrucks Heizkreis",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Überprüfung der Sicherheitsventile auf Dichtheit und Funktion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Auslesen und Quittieren von Fehlermeldungen im Steuergerät",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung Abtauzyklus",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Prüfung der Kältemittelanlage auf Undichtigkeiten (Lecksuche)",
+        "ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Lamellenblock des Außengeräts wies starke Verschmutzung durch Pappelwolle auf, wurde gereinigt. Systemdruck war auf 0,8 bar abgefallen und wurde auf 1,5 bar nachgefüllt. Ansonsten keine Mängel festgestellt. Anlage läuft nach Wartung einwandfrei.",
+    "Wartungsergebnis": "erfolgreich durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "Haustechnik Brenner GmbH",
+      "kd_techniker": "Stefan Möller",
+      "strasse": "Industriestraße 22",
+      "plz": "73431",
+      "ort": "Aalen",
+      "tel": "+49 7361 94820",
+      "email": "service@haustechnik-brenner.de"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "Techniker",
+        "unterschrift_von": "Stefan Möller",
+        "datum": "2024-11-07"
+      },
+      {
+        "rolle": "Kunde",
+        "unterschrift_von": "Klaus Hartmann",
+        "datum": "2024-11-07"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "Klaus Hartmann",
+      "anschrift": "Birkenweg 14, 73430 Aalen"
+    },
+    "Naechster_Wartungstermin": "2025-11-06",
+    "Datum_Inbetriebnahme": "2021-09-15",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "Schrader-Ventilkappen Kältekreis (Satz)",
+        "menge": 2
+      },
+      {
+        "bezeichnung": "Dichtung Sicherheitsventil DN20",
+        "menge": 1
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "Vorlauftemperatur Heizkreis",
+        "wert": 42.3,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Rücklauftemperatur Heizkreis",
+        "wert": 36.8,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Außenlufttemperatur bei Messung",
+        "wert": 9.5,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Systemdruck Heizkreis nach Wartung",
+        "wert": 1.5,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Leistungsaufnahme Verdichter",
+        "wert": 1.84,
+        "einheit": "kW"
+      },
+      {
+        "bezeichnung": "Hochdruck Kältekreis",
+        "wert": 18.2,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Niederdruck Kältekreis",
+        "wert": 4.7,
+        "einheit": "bar"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "Verdichter",
+        "laufzeit_h": 14823
+      },
+      {
+        "komponente": "Umwälzpumpe Heizkreis",
+        "laufzeit_h": 18540
+      },
+      {
+        "komponente": "Lüftermotor Außengerät",
+        "laufzeit_h": 12310
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": true,
+      "kaeltemittelart": "R-410A",
+      "kaeltemittelfuellmenge_kg": 1.85,
+      "resultat_lecksuche_g_a": 0,
+      "wiederholungspruefung_erforderlich": false
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "typ": "Luft/Wasser-Wärmepumpe",
+      "hersteller": "Glen Dimplex",
+      "modell": "SI 8TU",
+      "seriennummer": "GD-2019-084523",
+      "anzahl": 1
+    },
+    "Anlagenstandort": {
+      "name": "Familie Hartmann",
+      "strasse": "Birkenweg 14",
+      "plz": "74321",
+      "ort": "Bietigheim-Bissingen",
+      "objekttyp": "EFH"
+    },
+    "Datum der Wartung": "2024-03-12",
+    "Durchgeführte Arbeiten": [
+      {
+        "arbeit": "Sichtprüfung der Gesamtanlage auf Beschädigungen und Korrosion",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Kältemittelleitung auf Undichtigkeiten",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Reinigung des Luftwärmetauschers / Lamellenreinigung",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Überprüfung und Reinigung des Kondensatablaufs",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Funktionsprüfung der Heizkreispumpe",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Prüfung der elektrischen Anschlüsse und Sicherungen",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Steuerungsparameter und Softwarestand",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Kontrolle des Expansionsventils",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Prüfung des Sicherheitsventils Heizkreis",
+        "ergebnis": "n.i.O."
+      },
+      {
+        "arbeit": "Tausch des Sicherheitsventils Heizkreis",
+        "ergebnis": "behoben"
+      },
+      {
+        "arbeit": "Messung Vorlauf- und Rücklauftemperatur",
+        "ergebnis": "i.O."
+      },
+      {
+        "arbeit": "Überprüfung der Abtaufunktion",
+        "ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Sicherheitsventil am Heizkreis war undicht und wurde getauscht. Lamellenpaket des Luftwärmetauschers stark verschmutzt, wurde gereinigt. Anlage läuft nach Wartung wieder einwandfrei. Softwarestand auf aktuellem Stand.",
+    "Wartungsergebnis": "erfolgreich durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "firma": "Haustechnik Südwest GmbH",
+      "kd_techniker": "Stefan Wörner",
+      "strasse": "Industriestraße 38",
+      "plz": "74321",
+      "ort": "Bietigheim-Bissingen",
+      "tel": "+49 7142 93410-0",
+      "email": "service@haustechnik-suedwest.de"
+    },
+    "Unterschriften": [
+      {
+        "rolle": "Techniker",
+        "unterschrift_von": "Stefan Wörner",
+        "datum": "2024-03-12"
+      },
+      {
+        "rolle": "Kunde",
+        "unterschrift_von": "Markus Hartmann",
+        "datum": "2024-03-12"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "name": "Markus Hartmann",
+      "anschrift": "Birkenweg 14, 74321 Bietigheim-Bissingen"
+    },
+    "Naechster_Wartungstermin": "2025-03-01",
+    "Datum_Inbetriebnahme": "2019-11-06",
+    "Verwendete_Ersatzteile": [
+      {
+        "bezeichnung": "Sicherheitsventil 3 bar DN20 (Heizkreis)",
+        "menge": 1
+      },
+      {
+        "bezeichnung": "Dichtungsset Kondensatablauf",
+        "menge": 1
+      }
+    ],
+    "Messwerte": [
+      {
+        "bezeichnung": "Vorlauftemperatur Heizkreis",
+        "wert": 42.3,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Rücklauftemperatur Heizkreis",
+        "wert": 35.8,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Außentemperatur bei Messung",
+        "wert": 4.5,
+        "einheit": "°C"
+      },
+      {
+        "bezeichnung": "Hochdruck Kältekreis",
+        "wert": 18.4,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Niederdruck Kältekreis",
+        "wert": 4.2,
+        "einheit": "bar"
+      },
+      {
+        "bezeichnung": "Kältemittelfüllmenge",
+        "wert": 2.8,
+        "einheit": "kg"
+      },
+      {
+        "bezeichnung": "Saugtemperatur Verdichter",
+        "wert": 8.1,
+        "einheit": "°C"
+      }
+    ],
+    "Historie": [
+      {
+        "komponente": "Verdichter",
+        "laufzeit_h": 12480
+      },
+      {
+        "komponente": "Heizkreispumpe",
+        "laufzeit_h": 14230
+      },
+      {
+        "komponente": "Lüftermotor",
+        "laufzeit_h": 11950
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "dichtigkeitskontrolle_eu_517_2014": true,
+      "kaeltemittelart": "R410A",
+      "kaeltemittelfuellmenge_kg": 2.8,
+      "resultat_lecksuche_g_a": 0,
+      "wiederholungspruefung_erforderlich": false
+    }
+  }
+}

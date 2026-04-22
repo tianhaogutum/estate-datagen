@@ -86,7 +86,8 @@ IMPORTANT RULES:
 - Do NOT include explanations or markdown.
 - Language MUST be German.
 - Keep formatting professional and realistic.
-- Keep using the labels like <modell>,<typ> in generated HTML, do not replace them with actual values.s
+- Keep all labels from the input data (e.g. <modell>, <typ>) in the HTML output, do not replace them with actual values.
+- Labels MUST be written as HTML entities: use &lt; and &gt; instead of < and >. For example: &lt;typ&gt;, &lt;modell&gt;.
 
 STYLE PROFILE:
 Name: {profile.name}
