@@ -20,6 +20,13 @@ SYSTEM_TYPES: dict[str, str] = {
     "ELEKTRISCHE_ANLAGE": "Elektrische Anlage",
     "HEBEANLAGE_ABWASSER": "Hebeanlage Abwasser",
     "NOTSTROMAGGREGAT": "Notstromaggregat",
+    "FEUERSCHUTZABSCHLUSS": "Rauch- und Feuerschutzabschluss",
+    "FEUERSCHUTZEINRICHTUNG_MANUELL": "Wandhydrant / Handfeuerlöscher",
+    "SANITAER_ALLG": "Sanitärtechnik allgemein",
+    "ELEKTRISCHE_ANLAGE_MOBIL": "Nichtortsfeste elektrische Betriebsmittel",
+    "BLITZSCHUTZ": "Blitzschutzanlage",
+    "DRUCKBEHAELTER": "Druckbehälter / Druckanlage",
+    "CO_WARNANLAGE": "CO-Warnanlage",
 }
 
 
