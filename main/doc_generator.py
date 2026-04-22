@@ -14,15 +14,26 @@ import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-import boto3
+import platform
 
+import boto3
 from style_profiles import StyleProfile, get_profiles
 from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
 BEDROCK_REGION = "eu-central-1"
 BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"
 
-_bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+
+
+if platform.system() == "Windows":
+    print("Detected Windows")
+    _session = boto3.Session(profile_name="claude-bedrock", region_name=BEDROCK_REGION)
+    _bedrock_client = _session.client("bedrock-runtime")
+    
+else:
+    print("Detected non-Windows OS, using default boto3 client")
+    _bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
+
 
 
 # -------------------------
