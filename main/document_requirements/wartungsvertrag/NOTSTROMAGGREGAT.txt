@@ -1,0 +1,108 @@
+WARTUNGSVERTRAG — NOTSTROMAGGREGAT — REQUIRED DATA
+===================================================
+
+Ein Wartungsvertrag für ein Notstromaggregat regelt die regelmäßige
+Wartung, Prüfung und Funktionskontrolle der Netzersatzanlage gemäß
+VDE 0100-710 und DIN 6280 (Stationäre Stromerzeugungsaggregate).
+
+Basis: Wartungsvertrag für Notstromaggregate/Netzersatzanlagen nach
+DIN 6280-13 (Wartung und Instandhaltung) und VDE 0100-710
+(Errichten von Niederspannungsanlagen — Medizinisch genutzte Bereiche).
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Notstromaggregat" / Hersteller / Modell / Anzahl der Aggregate
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Standorts des Notstromaggregats
+- Gegenstand_des_Vertrages: Freitext — Wartung und Funktionskontrolle des
+  Notstromaggregats gemäß VDE 0100-710 und DIN 6280
+- Vereinbarungen / Leistungen:
+  1. Probelauf unter Last: Durchführung eines Probelaufs unter Nennlast
+     (mindestens 30 Minuten) zur Überprüfung der Leistungsabgabe,
+     Betriebstemperaturen und Abgaswerte
+  2. Kraftstoffkontrolle: Prüfung des Kraftstoffstandes und der
+     Kraftstoffqualität, Kontrolle auf Wassereinschlüsse sowie
+     Überprüfung der Kraftstoffleitungen auf Dichtheit
+  3. Batterieprüfung: Messung der Starterbatteriespannung und des
+     Innenwiderstands, Prüfung der Batterieladung und Ladeerhaltung,
+     Reinigung der Batteriepole
+  4. Umschaltautomatik testen: Funktionsprüfung der automatischen
+     Netzumschalteinrichtung (ATS), Überprüfung der Umschaltzeiten
+     und der Rückschaltung auf Netzspannung
+  5. Abgasanlage prüfen: Sichtprüfung der Abgasanlage auf
+     Undichtigkeiten, Korrosion und freie Durchgängigkeit;
+     Überprüfung der Schalldämmung und Kompensatoren
+  6. Dokumentation: Erstellen eines Prüfprotokolls gemäß DIN 6280
+     mit Messwerten, Betriebsstunden und festgestellten Mängeln
+- Wartungsintervall: z.B. "halbjährlich" oder "jährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum oder "unbefristet",
+             Kündigungsfrist: { Frist, zum Jahresende/Monatsende/Quartalsende } }
+- Kosten: { Betrag (numerisch), Währung EUR, Bezugseinheit
+           (z.B. "pro Wartungsintervall" | "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "4 Stunden, 24/7"
+- Zusatzleistungen: z.B. ["Ölwechsel Motor und Filter",
+  "Kühlmittelwechsel", "Keilriemenkontrolle und -tausch",
+  "Fernüberwachung Betriebszustand"]
+- Zahlungsbedingungen: z.B. "30 Tage netto nach Rechnungsstellung"
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf Ersatzteile und Instandsetzungsarbeiten"
+- Preisanpassungsklausel: z.B. "Preisanpassung jährlich gemäß VPI"
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Notstromaggregate im Objekt
+- Nennleistung_kVA: Nennleistung des Aggregats in kVA (z.B. 100)
+- Kraftstoffart: Art des Kraftstoffs (z.B. "Diesel" | "Erdgas" | "Biogas")
+- Betriebsstunden: Aktueller Betriebsstundenstand zum Vertragsbeginn
+- Norm_Pruefung: Anzuwendende Norm/Vorschrift
+  (z.B. "VDE 0100-710, DIN 6280-13, DIN VDE 0100-560")
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Notstromaggregat", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Probelauf unter Last: Durchführung eines Probelaufs unter Nennlast (mind. 30 Minuten) zur Prüfung von Leistung und Betriebstemperaturen",
+      "Kraftstoffkontrolle: Prüfung von Kraftstoffstand und -qualität, Kontrolle auf Wassereinschlüsse und Dichtheit der Leitungen",
+      "Batterieprüfung: Messung von Starterbatteriespannung und Innenwiderstand sowie Prüfung der Ladeerhaltung",
+      "Umschaltautomatik testen: Funktionsprüfung der automatischen Netzumschalteinrichtung (ATS) und Überprüfung der Umschaltzeiten",
+      "Abgasanlage prüfen: Sichtprüfung auf Undichtigkeiten, Korrosion und freie Durchgängigkeit sowie Prüfung der Schalldämmung",
+      "Dokumentation: Prüfprotokoll gemäß DIN 6280 mit Messwerten, Betriebsstunden und Mängelprotokoll"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [
+      {"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Nennleistung_kVA": 0,
+    "Kraftstoffart": "Diesel|Erdgas|Biogas",
+    "Betriebsstunden": 0,
+    "Norm_Pruefung": "VDE 0100-710, DIN 6280-13, DIN VDE 0100-560"
+  }
+}

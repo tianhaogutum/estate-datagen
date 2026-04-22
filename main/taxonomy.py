@@ -6,12 +6,86 @@ Defines the taxonomy for maintenance-related real estate documents:
 - Wartungsvertrag  (Maintenance Contract)
 
 Each document type lists the required and optional fields and the files that
-describe and exemplify it.
+describe and exemplify it. Documents are further specialized by system type
+(e.g. WAERMEPUMPE, BRANDMELDEANLAGE).
 """
 
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
+
+# -------------------------
+# System types
+# -------------------------
+
+
+class SystemCategory(Enum):
+    HVAC_ENERGY = "暖通与能源"
+    SAFETY_FIRE = "安全与消防"
+    INFRASTRUCTURE = "基础设施"
+
+
+@dataclass
+class SystemType:
+    key: str
+    german_name: str
+    category: SystemCategory
+
+
+SYSTEM_TYPES: dict[str, SystemType] = {
+    # 暖通与能源
+    "KLIMAANLAGE": SystemType("KLIMAANLAGE", "Klimaanlage", SystemCategory.HVAC_ENERGY),
+    "WAERMEPUMPE": SystemType("WAERMEPUMPE", "Wärmepumpe", SystemCategory.HVAC_ENERGY),
+    "HEIZKESSEL": SystemType("HEIZKESSEL", "Heizkessel", SystemCategory.HVAC_ENERGY),
+    "LUEFTUNGSANLAGE": SystemType(
+        "LUEFTUNGSANLAGE", "Lüftungsanlage", SystemCategory.HVAC_ENERGY
+    ),
+    # 安全与消防
+    "BRANDMELDEANLAGE": SystemType(
+        "BRANDMELDEANLAGE", "Brandmeldeanlage", SystemCategory.SAFETY_FIRE
+    ),
+    "SPRINKLER": SystemType("SPRINKLER", "Sprinkleranlage", SystemCategory.SAFETY_FIRE),
+    "RAUCHMELDER": SystemType(
+        "RAUCHMELDER", "Rauchwarnmelder", SystemCategory.SAFETY_FIRE
+    ),
+    "FEUERSCHUTZTUER": SystemType(
+        "FEUERSCHUTZTUER", "Feuerschutztür", SystemCategory.SAFETY_FIRE
+    ),
+    "RAUCHSCHUTZ_RWA": SystemType(
+        "RAUCHSCHUTZ_RWA", "Rauch- und Wärmeabzugsanlage", SystemCategory.SAFETY_FIRE
+    ),
+    "SICHERHEITSBELEUCHTUNG": SystemType(
+        "SICHERHEITSBELEUCHTUNG", "Sicherheitsbeleuchtung", SystemCategory.SAFETY_FIRE
+    ),
+    # 基础设施
+    "AUFZUG_PERSONEN": SystemType(
+        "AUFZUG_PERSONEN", "Personenaufzug", SystemCategory.INFRASTRUCTURE
+    ),
+    "ELEKTRISCHE_ANLAGE": SystemType(
+        "ELEKTRISCHE_ANLAGE", "Elektrische Anlage", SystemCategory.INFRASTRUCTURE
+    ),
+    "HEBEANLAGE_ABWASSER": SystemType(
+        "HEBEANLAGE_ABWASSER", "Hebeanlage Abwasser", SystemCategory.INFRASTRUCTURE
+    ),
+    "NOTSTROMAGGREGAT": SystemType(
+        "NOTSTROMAGGREGAT", "Notstromaggregat", SystemCategory.INFRASTRUCTURE
+    ),
+}
+
+
+def list_system_types_by_category(category: SystemCategory) -> list[SystemType]:
+    return [s for s in SYSTEM_TYPES.values() if s.category == category]
+
+
+def get_system_type(key: str) -> SystemType:
+    if key not in SYSTEM_TYPES:
+        raise KeyError(f"Unknown system type: {key}. Options: {list(SYSTEM_TYPES)}")
+    return SYSTEM_TYPES[key]
+
+
+# -------------------------
+# Document types
+# -------------------------
 
 
 class DocumentCategory(Enum):
@@ -27,6 +101,16 @@ class DocumentType:
     optional_fields: list[str] = field(default_factory=list)
     requirements_file: str = ""
     few_shot_files: list[str] = field(default_factory=list)
+    system_types: list[str] = field(default_factory=lambda: list(SYSTEM_TYPES.keys()))
+
+    def requirements_file_for(self, system_key: str) -> str:
+        """Return the per-system requirements file path, falling back to the generic one."""
+        doc_dir = self.requirements_file.replace(".txt", "")
+        per_system = f"{doc_dir}/{system_key}.txt"
+        base = Path(__file__).parent
+        if (base / per_system).exists():
+            return per_system
+        return self.requirements_file
 
 
 REAL_ESTATE_TAXONOMY: dict[str, DocumentType] = {
@@ -96,6 +180,11 @@ REAL_ESTATE_TAXONOMY: dict[str, DocumentType] = {
 }
 
 
+# -------------------------
+# Helpers
+# -------------------------
+
+
 def list_categories() -> list[str]:
     return [c.value for c in DocumentCategory]
 
@@ -124,6 +213,15 @@ def print_taxonomy() -> None:
                 f"      optional fields ({len(doc.optional_fields)}): {', '.join(doc.optional_fields)}"
             )
             print(f"      requirements file: {base / doc.requirements_file}")
+            print(f"      system types ({len(doc.system_types)}):")
+            for cat in SystemCategory:
+                systems = [
+                    SYSTEM_TYPES[k].german_name
+                    for k in doc.system_types
+                    if SYSTEM_TYPES[k].category == cat
+                ]
+                if systems:
+                    print(f"        [{cat.value}] {', '.join(systems)}")
 
 
 if __name__ == "__main__":

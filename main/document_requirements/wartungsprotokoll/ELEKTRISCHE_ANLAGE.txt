@@ -1,0 +1,78 @@
+WARTUNGSPROTOKOLL — ELEKTRISCHE ANLAGE — REQUIRED DATA
+=======================================================
+
+Ein Wartungsprotokoll für elektrische Anlagen dokumentiert die gemäß VDE 0100
+und DGUV Vorschrift 3 vorgeschriebene Prüfung und Wartung von ortsfesten
+elektrischen Betriebsmitteln, Verteilern und Leitungsanlagen.
+
+Norm / Rechtsgrundlage:
+  - VDE 0100 (Errichten von Niederspannungsanlagen)
+  - DGUV Vorschrift 3 (Elektrische Anlagen und Betriebsmittel, ehem. BGV A3)
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer / Anzahl der Unterverteilungen
+   (Typ z.B.: Hauptverteiler, Unterverteiler, Steuerschrank)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+   Typische Arbeitspunkte:
+     * Sichtprüfung Verteiler und Leitungen auf mechanische Beschädigungen
+     * Messung Isolationswiderstand aller Stromkreise
+     * Prüfung FI-Schutzschalter (RCD): Auslösung und Auslösezeit
+     * Thermografieprüfung der Verteiler auf Hotspots
+     * Prüfung Schutzleiterverbindungen (Durchgangsmessung)
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "keine Mängel festgestellt" oder "Klemme in UV-Keller lose, nachgezogen")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Elektrofachunternehmen)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste planmäßige Wartung)
+- Datum_Inbetriebnahme: ISO-Datum (Erstinbetriebnahme der elektrischen Anlage)
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   Typische Messwerte:
+     * Isolationswiderstand_MOhm: gemessener Isolationswiderstand in Megaohm
+     * FI_Ausloesezeit_ms: Auslösezeit des FI-Schutzschalters in Millisekunden
+- Naechste_DGUV_Pruefung: ISO-Datum (nächste vorgeschriebene Wiederholungsprüfung nach DGUV V3)
+- Historie: [{"komponente": "", "laufzeit_h": 0}]
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Sichtprüfung Verteiler und Leitungen auf mechanische Beschädigungen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Messung Isolationswiderstand aller Stromkreise", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Prüfung FI-Schutzschalter (RCD): Auslösung und Auslösezeit", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Thermografieprüfung der Verteiler auf Hotspots", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Prüfung Schutzleiterverbindungen (Durchgangsmessung)", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [
+      {"bezeichnung": "Isolationswiderstand_MOhm", "wert": 0, "einheit": "MOhm"},
+      {"bezeichnung": "FI_Ausloesezeit_ms", "wert": 0, "einheit": "ms"}
+    ],
+    "Naechste_DGUV_Pruefung": "YYYY-MM-DD",
+    "Historie": [{"komponente": "", "laufzeit_h": 0}]
+  }
+}

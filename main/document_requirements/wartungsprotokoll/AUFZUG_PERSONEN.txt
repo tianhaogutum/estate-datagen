@@ -1,0 +1,82 @@
+WARTUNGSPROTOKOLL — AUFZUG / PERSONENAUFZUG — REQUIRED DATA
+============================================================
+
+Ein Wartungsprotokoll für Personenaufzüge dokumentiert die gemäß BetrSichV,
+DIN EN 13015 und TÜV-Vorgaben vorgeschriebene Wartung von Personen- und
+Lastenaufzugsanlagen.
+
+Norm / Rechtsgrundlage:
+  - BetrSichV (Betriebssicherheitsverordnung)
+  - DIN EN 13015 (Instandhaltung von Aufzügen und Fahrtreppen)
+  - TÜV-Prüfpflicht (wiederkehrende Prüfung alle 2 Jahre)
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer / Anzahl der Aufzugsanlagen
+   (Typ z.B.: Treibscheibenaufzug, Hydraulikaufzug, Seilaufzug)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+   Typische Arbeitspunkte:
+     * Seilprüfung: Verschleiß und Bruchdrähte beurteilen
+     * Bremsentest: Bremswirkung und Bremsweg messen
+     * Türsicherheit: Lichtschranken und Schließkraft prüfen
+     * Übergeschwindigkeitsbegrenzer prüfen
+     * Notbefreiungseinrichtung testen
+     * Beleuchtung Fahrkorb, Triebwerksraum und Schacht prüfen
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "alle Sicherheitseinrichtungen i.O." oder "Seilabnutzung erhöht, Tausch empfohlen")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen mit Aufzugsfachkundenachweis)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste planmäßige Wartung)
+- Datum_Inbetriebnahme: ISO-Datum (Erstinbetriebnahme der Aufzugsanlage)
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   Typische Messwerte:
+     * Bremsweg_mm: gemessener Bremsweg in Millimetern
+     * Tuerspalt_mm: Türspalt zwischen Schachttür und Fahrkorbtür in Millimetern
+- TÜV_Naechste_Pruefung: ISO-Datum (nächste vorgeschriebene TÜV-Hauptprüfung)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+   (z.B. Betriebsstunden des Aufzugsmotors oder der Steuerung)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Seilprüfung: Verschleiß und Bruchdrähte beurteilen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Bremsentest: Bremswirkung und Bremsweg messen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Türsicherheit: Lichtschranken und Schließkraft prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Übergeschwindigkeitsbegrenzer prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Notbefreiungseinrichtung testen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Beleuchtung Fahrkorb, Triebwerksraum und Schacht prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [
+      {"bezeichnung": "Bremsweg_mm", "wert": 0, "einheit": "mm"},
+      {"bezeichnung": "Tuerspalt_mm", "wert": 0, "einheit": "mm"}
+    ],
+    "TÜV_Naechste_Pruefung": "YYYY-MM-DD",
+    "Historie": [{"komponente": "", "laufzeit_h": 0}]
+  }
+}

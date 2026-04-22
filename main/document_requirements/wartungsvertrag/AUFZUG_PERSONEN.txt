@@ -1,0 +1,101 @@
+WARTUNGSVERTRAG — AUFZUG / PERSONENAUFZUG — REQUIRED DATA
+==========================================================
+
+Ein Wartungsvertrag für einen Personenaufzug regelt die regelmäßige
+Inspektion, Wartung und Prüfungsvorbereitung der Aufzugsanlage gemäß
+BetrSichV, DIN EN 13015 sowie TÜV-Prüfungsanforderungen.
+
+Basis: Wartungsvertrag für Personenaufzüge nach BetrSichV § 14 und
+DIN EN 13015 (Instandhaltung von Aufzügen und Fahrtreppen).
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Personenaufzug" / Hersteller / Modell / Anzahl der Anlagen
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Gebäudes mit Aufzugsanlage
+- Gegenstand_des_Vertrages: Freitext — Wartung und Sicherheitsüberprüfung des
+  Personenaufzugs gemäß BetrSichV und DIN EN 13015
+- Vereinbarungen / Leistungen:
+  1. Seilprüfung: Sichtprüfung und Messung der Tragseile auf Verschleiß,
+     Drahtbrüche und Korrosion gemäß DIN EN 12385
+  2. Bremsentest: Funktionsprüfung der Betriebs- und Fangbremse,
+     Überprüfung Bremsbelagstärke und Bremsmoment
+  3. Türsicherheit: Prüfung aller Schacht- und Kabinentüren, Türkontakte,
+     Türschließkräfte und Sicherheitslichtschranken
+  4. Übergeschwindigkeitsbegrenzer: Prüfung der Auslösegeschwindigkeit und
+     Rückstellung des Geschwindigkeitsbegrenzers gemäß DIN EN 81-20
+  5. TÜV-Vorbereitung: Vorbereitung und Begleitung der wiederkehrenden
+     Prüfung durch eine zugelassene Überwachungsstelle (ZÜS/TÜV)
+  6. Dokumentation: Erstellen eines Wartungsnachweises und Eintragung
+     im Betriebsbuch der Anlage
+- Wartungsintervall: z.B. "halbjährlich" oder "vierteljährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum oder "unbefristet",
+             Kündigungsfrist: { Frist, zum Jahresende/Monatsende/Quartalsende } }
+- Kosten: { Betrag (numerisch), Währung EUR, Bezugseinheit
+           (z.B. "pro Wartungsintervall" | "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "4 Stunden, 24/7"
+- Zusatzleistungen: z.B. ["Notbefreiung eingeschlossener Personen",
+  "Schmierung Führungsschienen", "Beleuchtungsprüfung Schacht"]
+- Zahlungsbedingungen: z.B. "30 Tage netto nach Rechnungsstellung"
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf Ersatzteile"
+- Preisanpassungsklausel: z.B. "Preisanpassung jährlich gemäß VPI"
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Aufzugsanlagen im Objekt
+- Tragfähigkeit_kg: Nennlast der Aufzugskabine in kg (z.B. 630)
+- Anzahl_Haltestellen: Anzahl der Haltepunkte/Etagen (z.B. 5)
+- TÜV_Prüftermin: Nächster Pflichtprüftermin durch ZÜS (ISO-Datum)
+- Norm_Pruefung: Anzuwendende Norm/Vorschrift
+  (z.B. "BetrSichV § 14, DIN EN 13015, DIN EN 81-20")
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Personenaufzug", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Seilprüfung: Sichtprüfung und Messung der Tragseile auf Verschleiß, Drahtbrüche und Korrosion",
+      "Bremsentest: Funktionsprüfung der Betriebs- und Fangbremse sowie Überprüfung Bremsbelagstärke",
+      "Türsicherheit: Prüfung aller Schacht- und Kabinentüren, Türkontakte und Sicherheitslichtschranken",
+      "Übergeschwindigkeitsbegrenzer: Prüfung der Auslösegeschwindigkeit und Rückstellung",
+      "TÜV-Vorbereitung: Vorbereitung und Begleitung der wiederkehrenden Prüfung durch ZÜS/TÜV",
+      "Dokumentation: Wartungsnachweis und Eintragung im Betriebsbuch"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [
+      {"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Tragfähigkeit_kg": 0,
+    "Anzahl_Haltestellen": 0,
+    "TÜV_Prüftermin": "YYYY-MM-DD",
+    "Norm_Pruefung": "BetrSichV § 14, DIN EN 13015, DIN EN 81-20"
+  }
+}

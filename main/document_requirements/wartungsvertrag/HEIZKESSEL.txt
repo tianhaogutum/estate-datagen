@@ -1,0 +1,89 @@
+WARTUNGSVERTRAG — REQUIRED DATA (HEIZKESSEL)
+============================================
+
+Ein Wartungsvertrag ist ein Vertrag zwischen Auftraggeber (AG) und
+Auftragnehmer (AN) über die regelmäßige Wartung eines Heizkessels.
+Heizkessel (gas-, öl- oder pelletbetrieben) unterliegen gesetzlichen
+Prüfpflichten gemäß der 1. BImSchV (Bundesimmissionsschutzverordnung).
+Die Wartung umfasst insbesondere Brennereinstellung, Abgasmessung und
+die Sicherstellung des einwandfreien hydraulischen Betriebs.
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / (ggf. Anzahl) des zu wartenden Heizkessels
+  (z.B. "Gasbrennwertkessel", "Ölheizkessel", "Pelletkessel")
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  des Heizkessels inkl. Brenner, Abgasanlage und hydraulischer Einbindung
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  (z.B. "Brennereinstellung und Optimierung", "Abgasmessung gemäß 1. BImSchV",
+   "Reinigung Wärmetauscher", "Prüfung Sicherheitsventil",
+   "Kontrolle Wasserdruck und Nachspeisung", "Dokumentation")
+- Wartungsintervall: z.B. "halbjährlich", "4 Mal / Jahr", "jährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Wartungsintervall" / "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Kunde|Dienstleister|Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage ohne Abzug")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Einzelgeräte
+- Abgaswerte: Messwerte aus der Abgasanalyse:
+    - CO2_Prozent: Kohlendioxidgehalt im Abgas in Prozent (numerisch)
+    - CO_ppm: Kohlenmonoxidgehalt im Abgas in ppm (numerisch)
+    - Abgastemperatur_Grad_C: Abgastemperatur in Grad Celsius (numerisch)
+- Wirkungsgrad: Feuerungstechnischer Wirkungsgrad des Kessels in Prozent (numerisch)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Brennereinstellung und Verbrennungsoptimierung",
+      "Abgasmessung gemäß 1. BImSchV",
+      "Reinigung Wärmetauscher und Brennkammer",
+      "Prüfung Sicherheitsventil und Ausdehnungsgefäß",
+      "Kontrolle Wasserdruck und Nachspeisung",
+      "Dokumentation der Wartungsarbeiten und Abgasmessprotokolle"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {"start": "YYYY-MM-DD", "ende": "YYYY-MM-DD|unbefristet", "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}},
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Abgaswerte": {
+      "CO2_Prozent": 0,
+      "CO_ppm": 0,
+      "Abgastemperatur_Grad_C": 0
+    },
+    "Wirkungsgrad": 0
+  }
+}

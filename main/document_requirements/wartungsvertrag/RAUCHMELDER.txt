@@ -1,0 +1,85 @@
+WARTUNGSVERTRAG — RAUCHWARNMELDER — REQUIRED DATA
+==================================================
+
+Rauchwarnmelder sind autonome Geräte zur frühzeitigen Warnung bei Brandrauch
+in Wohn- und Gewerberäumen. Die Wartung erfolgt nach DIN 14676.
+
+Basis: Wartungsvertrag für Rauchwarnmelder gemäß DIN 14676
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Anzahl der Rauchwarnmelder
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Rauchwarnmelder nach DIN 14676")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Funktionstest aller Rauchwarnmelder mittels Prüftaste und/oder Prüfspray"
+  - "Entstauben der Rauchwarnmelder zur Sicherstellung der Detektionsfähigkeit"
+  - "Batterietausch bei Bedarf oder nach Herstellervorgabe"
+  - "Protokollierung der Wartung pro Raum gemäß DIN 14676"
+- Wartungsintervall: z.B. "jährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Gerät" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Austausch defekter Rauchwarnmelder", "Montage zusätzlicher Geräte")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage ohne Abzug")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Rauchwarnmelder
+- Anzahl_Melder: Gesamtanzahl der installierten Rauchwarnmelder
+- Batterietyp: Typ der verwendeten Batterie (z.B. "Alkaline AA", "Lithium 9V", "Langzeitbatterie 10 Jahre")
+- Norm_Pruefung: Norm, nach der die Prüfung durchgeführt wird (z.B. "DIN 14676")
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Rauchwarnmelder", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Funktionstest aller Rauchwarnmelder mittels Prüftaste und/oder Prüfspray",
+      "Entstauben der Rauchwarnmelder zur Sicherstellung der Detektionsfähigkeit",
+      "Batterietausch bei Bedarf oder nach Herstellervorgabe",
+      "Protokollierung der Wartung pro Raum gemäß DIN 14676"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Anzahl_Melder": 0,
+    "Batterietyp": "",
+    "Norm_Pruefung": "DIN 14676"
+  }
+}

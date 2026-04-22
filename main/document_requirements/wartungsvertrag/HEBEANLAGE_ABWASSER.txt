@@ -1,0 +1,97 @@
+WARTUNGSVERTRAG — HEBEANLAGE ABWASSER — REQUIRED DATA
+======================================================
+
+Ein Wartungsvertrag für eine Hebeanlage Abwasser regelt die regelmäßige
+Wartung, Reinigung und Funktionsprüfung der Abwasserhebeanlage gemäß
+DIN EN 12050 (Abwasserhebeanlagen für die Gebäude- und Grundstücksentwässerung).
+
+Basis: Wartungsvertrag für Abwasserhebeanlagen nach DIN EN 12050
+(Hebeanlagen für fäkalienfreies und fäkalienhaltiges Schmutzwasser).
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Hebeanlage Abwasser" / Hersteller / Modell / Anzahl der Anlagen
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Objekts mit Hebeanlage
+- Gegenstand_des_Vertrages: Freitext — Wartung und Prüfung der Abwasserhebeanlage
+  gemäß DIN EN 12050 und Herstellervorgaben
+- Vereinbarungen / Leistungen:
+  1. Pumpenprüfung: Überprüfung der Pumpenfunktion, Förderstrom und
+     Motorstromaufnahme; Kontrolle der Gleitringdichtungen und Lager
+  2. Reinigung Sammelbehälter: Entleerung und Reinigung des Sammelbehälters,
+     Entfernung von Ablagerungen, Fetten und Feststoffen
+  3. Prüfung Schwimmerschalter: Funktionsprüfung aller Niveau-Schwimmerschalter
+     und Niveausensoren sowie Prüfung der Alarm- und Einschaltschwellen
+  4. Rückstausicherung testen: Überprüfung und Funktionstest der Rückstauklappe
+     und des Rückschlagventils auf Dichtheit und freie Beweglichkeit
+  5. Dokumentation: Erstellen eines Wartungsnachweises gemäß DIN EN 12050
+     und Herstellervorgaben, Eintragung in das Anlagenbuch
+- Wartungsintervall: z.B. "halbjährlich" oder "jährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum oder "unbefristet",
+             Kündigungsfrist: { Frist, zum Jahresende/Monatsende/Quartalsende } }
+- Kosten: { Betrag (numerisch), Währung EUR, Bezugseinheit
+           (z.B. "pro Wartungsintervall" | "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "4 Stunden werktags, 8 Stunden Wochenende"
+- Zusatzleistungen: z.B. ["Entsorgung Behälterinhalt",
+  "Austausch Verschleißteile (Dichtungen, Schwimmer)",
+  "Störungsprotokollierung per Fernwartung"]
+- Zahlungsbedingungen: z.B. "14 Tage ohne Abzug nach Rechnungsstellung"
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf Ersatzteile und Instandsetzungsarbeiten"
+- Preisanpassungsklausel: z.B. "Preisanpassung jährlich gemäß VPI"
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Hebeanlagen im Objekt
+- Norm_Pruefung: Anzuwendende Norm/Vorschrift
+  (z.B. "DIN EN 12050-1, DIN EN 12050-2")
+- Foerdermenge_m3h: Nenn-Fördermenge der Hebeanlage in m³/h
+- Anzahl_Pumpen: Anzahl der Pumpen in der Hebeanlage (z.B. 1 oder 2 bei Duplex)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Hebeanlage Abwasser", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Pumpenprüfung: Überprüfung der Pumpenfunktion, Förderstrom und Motorstromaufnahme sowie Gleitringdichtungen",
+      "Reinigung Sammelbehälter: Entleerung und Reinigung des Behälters, Entfernung von Ablagerungen und Feststoffen",
+      "Prüfung Schwimmerschalter: Funktionsprüfung aller Niveau-Schwimmerschalter und Alarm- sowie Einschaltschwellen",
+      "Rückstausicherung testen: Überprüfung und Funktionstest der Rückstauklappe und des Rückschlagventils auf Dichtheit",
+      "Dokumentation: Wartungsnachweis gemäß DIN EN 12050 und Eintragung in das Anlagenbuch"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [
+      {"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Norm_Pruefung": "DIN EN 12050-1, DIN EN 12050-2",
+    "Foerdermenge_m3h": 0,
+    "Anzahl_Pumpen": 0
+  }
+}

@@ -1,0 +1,105 @@
+WARTUNGSVERTRAG — ELEKTRISCHE ANLAGE — REQUIRED DATA
+=====================================================
+
+Ein Wartungsvertrag für eine elektrische Anlage regelt die regelmäßige
+Prüfung, Inspektion und Instandhaltung der Niederspannungsinstallation
+gemäß VDE 0100 und DGUV Vorschrift 3 (ehem. BGV A3).
+
+Basis: Wartungsvertrag für ortsgebundene elektrische Anlagen nach
+DIN VDE 0100 (Errichten von Niederspannungsanlagen) und
+DGUV Vorschrift 3 (Elektrische Anlagen und Betriebsmittel).
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Elektrische Anlage" / Hersteller / Modell (Hauptverteiler) /
+  Anzahl der Verteilungen
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Gebäudes mit der elektrischen Anlage
+- Gegenstand_des_Vertrages: Freitext — Prüfung und Wartung der elektrischen
+  Anlage gemäß VDE 0100 und DGUV Vorschrift 3
+- Vereinbarungen / Leistungen:
+  1. Sichtprüfung Verteiler: Sichtprüfung aller Verteiler, Schaltanlagen und
+     Betriebsmittel auf mechanische Beschädigungen, Korrosion und ordnungsgemäße
+     Kennzeichnung
+  2. Messung Isolationswiderstand: Messung des Isolationswiderstands aller
+     Stromkreise gemäß DIN VDE 0100-600
+  3. Prüfung RCDs: Funktionsprüfung aller Fehlerstromschutzschalter (RCDs/FIs)
+     einschließlich Auslösezeitvermessung
+  4. Thermografieprüfung: Infrarot-Thermografieinspektion der Hauptverteiler
+     zur Erkennung von Wärmeentwicklung und Verbindungsfehlern
+  5. Protokollierung nach DGUV V3: Erstellung des Prüfberichts und Eintragung
+     der Messwerte gemäß DGUV Vorschrift 3 inklusive Mängelprotokoll
+  6. Dokumentation: Aktualisierung der Anlagendokumentation und Übergabe
+     des Prüfprotokolls an den Auftraggeber
+- Wartungsintervall: z.B. "jährlich" oder "alle 4 Jahre" (gemäß DGUV V3)
+- Laufzeit: { Startdatum (ISO), Enddatum oder "unbefristet",
+             Kündigungsfrist: { Frist, zum Jahresende/Monatsende/Quartalsende } }
+- Kosten: { Betrag (numerisch), Währung EUR, Bezugseinheit
+           (z.B. "pro Wartungsintervall" | "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "8 Stunden werktags"
+- Zusatzleistungen: z.B. ["Prüfung ortsfester Betriebsmittel",
+  "Messung Schleifenwiderstand", "Erdungsmessung"]
+- Zahlungsbedingungen: z.B. "14 Tage ohne Abzug nach Rechnungsstellung"
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf durchgeführte Arbeiten"
+- Preisanpassungsklausel: z.B. "Preisanpassung jährlich gemäß VPI"
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Verteiler/Unterverteiler im Objekt
+- Norm_Pruefung: Anzuwendende Norm/Vorschrift
+  (z.B. "DIN VDE 0100-600, DGUV Vorschrift 3")
+- Nennspannung_V: Nennspannung der Anlage in Volt (z.B. 400)
+- Anzahl_Verteiler: Gesamtzahl der zu prüfenden Verteiler und Unterverteiler
+- Pruefrythmus_Jahre: Wiederkehrender Prüfzyklus in Jahren gemäß DGUV V3
+  (z.B. 4 für Gewerbebetriebe, 1 für besonders gefährdete Bereiche)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Elektrische Anlage", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Sichtprüfung Verteiler: Sichtprüfung aller Verteiler und Schaltanlagen auf Beschädigungen, Korrosion und Kennzeichnung",
+      "Messung Isolationswiderstand: Messung des Isolationswiderstands aller Stromkreise gemäß DIN VDE 0100-600",
+      "Prüfung RCDs: Funktionsprüfung aller Fehlerstromschutzschalter einschließlich Auslösezeitvermessung",
+      "Thermografieprüfung: Infrarot-Thermografieinspektion der Hauptverteiler zur Erkennung von Verbindungsfehlern",
+      "Protokollierung nach DGUV V3: Erstellung des Prüfberichts und Mängelprotokoll gemäß DGUV Vorschrift 3",
+      "Dokumentation: Aktualisierung der Anlagendokumentation und Übergabe des Prüfprotokolls"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [
+      {"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Norm_Pruefung": "DIN VDE 0100-600, DGUV Vorschrift 3",
+    "Nennspannung_V": 0,
+    "Anzahl_Verteiler": 0,
+    "Pruefrythmus_Jahre": 0
+  }
+}

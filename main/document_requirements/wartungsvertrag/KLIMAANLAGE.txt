@@ -1,0 +1,84 @@
+WARTUNGSVERTRAG — REQUIRED DATA (KLIMAANLAGE)
+=============================================
+
+Ein Wartungsvertrag ist ein Vertrag zwischen Auftraggeber (AG) und
+Auftragnehmer (AN) über die regelmäßige Wartung einer Klimaanlage.
+Klimaanlagen unterliegen besonderen gesetzlichen Anforderungen, insbesondere
+der EU-Verordnung 517/2014 über fluorierte Treibhausgase (F-Gase), die
+regelmäßige Dichtheitsprüfungen und Dokumentationspflichten vorschreibt.
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / (ggf. Anzahl) der zu wartenden Klimaanlage
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  der Klimaanlage, einschließlich gesetzlicher F-Gas-Pflichten gemäß EU 517/2014
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  (z.B. "Filterwechsel", "Kältemittelkontrolle gemäß EU 517/2014",
+   "Reinigung Wärmetauscher", "Prüfung Drücke und Temperaturen",
+   "Dichtheitsprüfung", "Dokumentation")
+- Wartungsintervall: z.B. "halbjährlich", "4 Mal / Jahr", "jährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Wartungsintervall" / "pro Gerät") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Kunde|Dienstleister|Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage ohne Abzug")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Einzelgeräte
+- Kaeltemittelart: Bezeichnung des verwendeten Kältemittels (z.B. "R410A", "R32", "R290")
+- Kaeltemittelfuellmenge_kg: Füllmenge des Kältemittels in Kilogramm (numerisch)
+- Dichtigkeitskontrolle_EU_517_2014: Pflichtintervall der Dichtheitsprüfung gemäß
+  EU-Verordnung 517/2014 (z.B. "jährlich ab 5 t CO2-Äquivalent",
+  "halbjährlich ab 50 t CO2-Äquivalent")
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Filterwechsel (Innen- und Außeneinheit)",
+      "Kältemittelkontrolle gemäß EU-Verordnung 517/2014",
+      "Reinigung Wärmetauscher",
+      "Prüfung Betriebsdrücke und Temperaturen",
+      "Dichtheitsprüfung Kältekreislauf",
+      "Dokumentation der Wartungsarbeiten und F-Gas-Nachweis"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {"start": "YYYY-MM-DD", "ende": "YYYY-MM-DD|unbefristet", "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}},
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Kaeltemittelart": "",
+    "Kaeltemittelfuellmenge_kg": 0,
+    "Dichtigkeitskontrolle_EU_517_2014": ""
+  }
+}

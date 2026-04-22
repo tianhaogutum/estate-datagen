@@ -1,0 +1,87 @@
+WARTUNGSVERTRAG — RAUCH- UND WÄRMEABZUGSANLAGE (RWA) — REQUIRED DATA
+======================================================================
+
+Eine Rauch- und Wärmeabzugsanlage (RWA) dient der kontrollierten Ableitung von
+Brandrauch und Wärme zur Sicherung von Flucht- und Rettungswegen. Die Wartung
+erfolgt nach DIN EN 12101 und DIN 18232.
+
+Basis: Wartungsvertrag für Rauch- und Wärmeabzugsanlagen gemäß DIN EN 12101 / DIN 18232
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Anzahl der Öffnungsorgane und Steuereinheiten
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Rauch- und Wärmeabzugsanlage nach DIN EN 12101 und DIN 18232")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Funktionsprüfung aller Öffnungsorgane (Lüftungsklappen, RWA-Fenster, Auftriebsklappen)"
+  - "Steuerungstest der RWA-Zentrale und aller Bedien- und Anzeigeelemente"
+  - "Prüfung aller Auslöseeinrichtungen (thermische Auslöser, Rauchmelder, Handauslösung)"
+  - "Messung und Dokumentation der freien Entrauchungsquerschnitte"
+- Wartungsintervall: z.B. "jährlich", "halbjährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Wartungsintervall" / "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "8 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Reinigung der Öffnungsorgane", "Prüfung der Antriebseinheiten",
+   "Überprüfung der Energieversorgung und Notstromversorgung")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Einzelgeräte
+- Norm_Pruefung: Norm, nach der die Prüfung durchgeführt wird (z.B. "DIN EN 12101")
+- Anzahl_Oeffnungsorgane: Gesamtanzahl der installierten Öffnungsorgane (Klappen, Fenster)
+- Entrauchungsflaeche_m2: Gesamte freie Entrauchungsfläche der Anlage in m²
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Rauch- und Wärmeabzugsanlage", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Funktionsprüfung aller Öffnungsorgane (Lüftungsklappen, RWA-Fenster, Auftriebsklappen)",
+      "Steuerungstest der RWA-Zentrale und aller Bedien- und Anzeigeelemente",
+      "Prüfung aller Auslöseeinrichtungen (thermische Auslöser, Rauchmelder, Handauslösung)",
+      "Messung und Dokumentation der freien Entrauchungsquerschnitte"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Norm_Pruefung": "DIN EN 12101",
+    "Anzahl_Oeffnungsorgane": 0,
+    "Entrauchungsflaeche_m2": 0
+  }
+}

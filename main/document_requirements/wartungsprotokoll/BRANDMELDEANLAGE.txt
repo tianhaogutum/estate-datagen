@@ -1,0 +1,75 @@
+WARTUNGSPROTOKOLL — BRANDMELDEANLAGE
+=====================================
+
+Ein Wartungsprotokoll für Brandmeldeanlagen dokumentiert die planmäßige
+Inspektion und Prüfung aller Komponenten einer Brandmeldeanlage (BMA)
+gemäß den geltenden Normen und Vorschriften.
+
+Norm: DIN 14675, VDE 0833
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell der Brandmeldeanlage
+   (Typ: z.B. "Brandmeldeanlage", Hersteller: z.B. Bosch/Siemens/Esser, S-Nr., Anzahl Melder)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Funktionsprüfung aller Melder (Rauchmelder, Wärmemelder, Handmelder)
+     * Inspektion Brandmeldezentrale (Anzeigen, Spannungsversorgung, Akku)
+     * Test Alarmierungseinrichtungen (Sirenen, Blitzleuchten, Durchsageanlage)
+     * Protokollierung nach DIN 14675 (Prüfbericht, Ereignisspeicher auslesen)
+     * Prüfung Übertragungseinrichtung zur Feuerwehr (ÜE-Test)
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "alle Melder ordnungsgemäß" oder "2 Rauchmelder verunreinigt, gereinigt")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, zertifiziert nach DIN 14675)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung, i.d.R. jährlich)
+- Datum_Inbetriebnahme: ISO-Datum der Erstinbetriebnahme der BMA
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Rauchmelder, Sirenen, Sicherungen, Akkumulatoren)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Akkuspannung_V, Ruhestrom_mA, Alarmstrom_mA)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+- Pruefbericht_Zentrale: Status der Brandmeldezentrale und Ereignisspeicher
+   { status: "OK"|"Stoerung"|"Revision", ereignisspeicher_eintraege: 0 }
+- Anzahl_Melder_geprueft: Gesamtanzahl der geprüften Brandmelder (int)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Funktionsprüfung aller Melder (Rauch-, Wärme-, Handmelder)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Inspektion Brandmeldezentrale (Anzeigen, Spannungsversorgung, Akku)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Test Alarmierungseinrichtungen (Sirenen, Blitzleuchten)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Protokollierung nach DIN 14675 (Ereignisspeicher ausgelesen)", "ergebnis": "ja|nein"},
+      {"arbeit": "Prüfung Übertragungseinrichtung zur Feuerwehr (ÜE-Test)", "ergebnis": "i.O.|n.i.O.|behoben"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [{"bezeichnung": "", "wert": 0, "einheit": ""}],
+    "Historie": [{"komponente": "", "laufzeit_h": 0}],
+    "Pruefbericht_Zentrale": {"status": "OK|Stoerung|Revision", "ereignisspeicher_eintraege": 0},
+    "Anzahl_Melder_geprueft": 0
+  }
+}

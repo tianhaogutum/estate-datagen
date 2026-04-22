@@ -1,0 +1,78 @@
+WARTUNGSPROTOKOLL — HEBEANLAGE ABWASSER — REQUIRED DATA
+========================================================
+
+Ein Wartungsprotokoll für Abwasserhebeanlagen dokumentiert die gemäß
+DIN EN 12050 vorgeschriebene Wartung von Fäkalien- und Schmutzwasserhebeanlagen,
+die unterhalb der Rückstauebene eingebaut sind.
+
+Norm / Rechtsgrundlage:
+  - DIN EN 12050 (Abwasserhebeanlagen für die Gebäude- und Grundstücksentwässerung)
+  - Herstellervorschriften (mindestens 1× jährliche Wartung empfohlen)
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer / Anzahl der Hebeanlagen
+   (Typ z.B.: Fäkalienhebeanlage, Schmutzwasserhebeanlage, Druckerhöhungsanlage)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+   Typische Arbeitspunkte:
+     * Pumpenprüfung: Laufgeräusche und Förderleistung kontrollieren
+     * Reinigung Sammelbehälter innen (Ablagerungen, Fettschichten entfernen)
+     * Prüfung Schwimmerschalter (Schaltpunkte Ein/Aus und Alarm)
+     * Rückstausicherung (Rückschlagventil) testen
+     * Druckleitung und Anschlüsse auf Dichtheit prüfen
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "Anlage in gutem Zustand" oder "Schwimmerschalter verschmutzt, gereinigt")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Sanitär- oder Fachunternehmen)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste planmäßige Wartung)
+- Datum_Inbetriebnahme: ISO-Datum (Erstinbetriebnahme der Hebeanlage)
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   Typische Messwerte:
+     * Foerdermenge_m3h: gemessene Förderleistung der Pumpe in m³/h
+     * Behaeltervolumen_l: Nutzvolumen des Sammelbehälters in Litern
+- Anzahl_Pumpen: Anzahl der verbauten Pumpen in der Hebeanlage (integer)
+- Historie: [{"komponente": "", "laufzeit_h": 0}]
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Pumpenprüfung: Laufgeräusche und Förderleistung kontrollieren", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Reinigung Sammelbehälter innen (Ablagerungen, Fettschichten entfernen)", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Prüfung Schwimmerschalter (Schaltpunkte Ein/Aus und Alarm)", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Rückstausicherung (Rückschlagventil) testen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Druckleitung und Anschlüsse auf Dichtheit prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [
+      {"bezeichnung": "Foerdermenge_m3h", "wert": 0, "einheit": "m3/h"},
+      {"bezeichnung": "Behaeltervolumen_l", "wert": 0, "einheit": "l"}
+    ],
+    "Anzahl_Pumpen": 0,
+    "Historie": [{"komponente": "", "laufzeit_h": 0}]
+  }
+}

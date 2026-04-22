@@ -1,0 +1,84 @@
+WARTUNGSPROTOKOLL — WÄRMEPUMPE — REQUIRED DATA
+===============================================
+
+Ein Wartungsprotokoll für eine Wärmepumpe dokumentiert die durchgeführten
+Wartungs- und Prüfarbeiten an Heizungs-Wärmepumpen (Luft/Wasser, Sole/Wasser,
+Wasser/Wasser) gemäß Herstellervorgaben und geltendem Regelwerk.
+
+Typische Anlagentypen: Luft/Wasser-Wärmepumpe, Sole/Wasser-Wärmepumpe,
+Wasser/Wasser-Wärmepumpe, Split-Wärmepumpe, Monoblock-Wärmepumpe
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ (z.B. Luft/Wasser) / Hersteller / Modell / Seriennummer /
+  Softwarestand / Anzahl
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+  Typische Arbeitspunkte für Wärmepumpen:
+    • Kältekreisprüfung (Drücke, Temperaturen, Dichtheit)
+    • Solekonzentration messen (bei Sole/Wasser-Anlage)
+    • Verdampfer reinigen (Lamellen, Oberfläche)
+    • Kondensator / Wärmeübertrager reinigen
+    • Betriebsstunden ablesen und dokumentieren
+    • Softwarestand prüfen und ggf. aktualisieren
+    • Abtauverhalten kontrollieren (Frequenz, Dauer, Vollständigkeit)
+    • Heizungswasserdruck und -qualität prüfen
+    • Elektrische Anschlüsse und Sicherheitseinrichtungen prüfen
+    • Regelung und Steuerparameter kontrollieren
+  (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "Abtauverhalten unauffällig, Solekonzentration nachgefüllt")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+  Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung)
+- Datum_Inbetriebnahme: ISO-Datum der Erstinbetriebnahme
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+  (z.B. Solemischung, Filter, Dichtungen)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+  (z.B. Vorlauftemperatur °C, Rücklauftemperatur °C, Solekonzentration %,
+   Außentemperatur °C, Hochdruck bar, Niederdruck bar, Leistungsaufnahme kW,
+   Wärmeleistung kW, COP, Heizungswasserdruck bar)
+- Kaeltetechnische_Pruefung: { Dichtigkeitskontrolle nach EU 517/2014 (bool),
+  Kältemittelart (z.B. R410A, R32, R290, R454B), Kältemittelfüllmenge_kg,
+  Resultat_Lecksuche_g_a, Wiederholungspruefung_erforderlich (bool) }
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+  (z.B. Verdichter, Umwälzpumpe Heizkreis, Umwälzpumpe Sole)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Kältekreisprüfung (Drücke, Temperaturen, Dichtheit)", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Solekonzentration messen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Verdampfer reinigen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Kondensator / Wärmeübertrager reinigen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Betriebsstunden ablesen und dokumentieren", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Softwarestand prüfen und ggf. aktualisieren", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Abtauverhalten kontrollieren", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [{"bezeichnung": "", "wert": 0, "einheit": ""}],
+    "Kaeltetechnische_Pruefung": {"dichtigkeitskontrolle_eu_517_2014": true, "kaeltemittelart": "", "kaeltemittelfuellmenge_kg": 0, "resultat_lecksuche_g_a": 0, "wiederholungspruefung_erforderlich": false},
+    "Historie": [{"komponente": "", "laufzeit_h": 0}]
+  }
+}

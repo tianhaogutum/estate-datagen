@@ -1,0 +1,88 @@
+WARTUNGSPROTOKOLL — NOTSTROMAGGREGAT — REQUIRED DATA
+=====================================================
+
+Ein Wartungsprotokoll für Notstromaggregate dokumentiert die gemäß VDE 0100-710
+und DIN 6280 vorgeschriebene Wartung von stationären Notstromversorgungsanlagen
+(Dieselaggregate, USV-Anlagen) zur Sicherstellung der Verfügbarkeit im Störfall.
+
+Norm / Rechtsgrundlage:
+  - VDE 0100-710 (Medizinisch genutzte Bereiche, Sicherheitsstromversorgung)
+  - DIN 6280 (Stationäre Stromerzeugungsanlagen mit Hubkolbenverbrennungsmotor)
+  - Herstellervorschriften (mindestens 1× jährliche Wartung und regelmäßige Probeläufe)
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer / Anzahl der Aggregate
+   (Typ z.B.: Dieselaggregat, Benzingenerator, USV-Anlage)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+   Typische Arbeitspunkte:
+     * Probelauf unter Last (mind. 30 Minuten) mit Protokollierung der Messwerte
+     * Kraftstoffkontrolle: Füllstand prüfen, Kraftstofffilter wechseln
+     * Batterieprüfung Starterbatterie: Spannung, Kapazität und Anschlüsse
+     * Umschaltautomatik (ATS) testen: automatische Zuschaltung bei Netzausfall
+     * Kühlsystem prüfen: Kühlmittelstand, Kühler und Thermostat
+     * Abgasanlage prüfen: Dichtheit, Abgasrohr und Schalldämpfer
+     * Ölwechsel: Motoröl und Ölfilter wechseln
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "Probelauf erfolgreich, alle Messwerte im Sollbereich" oder "Kraftstofffilter stark verschmutzt, getauscht")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Elektro- oder Motorenfachunternehmen)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste planmäßige Wartung)
+- Datum_Inbetriebnahme: ISO-Datum (Erstinbetriebnahme des Aggregats)
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   Typische Messwerte:
+     * Spannung_V: gemessene Ausgangsspannung in Volt
+     * Frequenz_Hz: gemessene Ausgangsfrequenz in Hertz
+     * Leistung_kW: gemessene Wirkleistung unter Last in Kilowatt
+     * Kraftstofffuellstand_pct: Kraftstofffüllstand in Prozent
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+   (z.B. Betriebsstunden des Motors seit Inbetriebnahme oder letztem Ölwechsel)
+- Naechster_Oelwechsel: ISO-Datum (Fälligkeitsdatum des nächsten Ölwechsels)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Probelauf unter Last (mind. 30 Minuten) mit Protokollierung der Messwerte", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Kraftstoffkontrolle: Füllstand prüfen, Kraftstofffilter wechseln", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Batterieprüfung Starterbatterie: Spannung, Kapazität und Anschlüsse", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Umschaltautomatik (ATS) testen: automatische Zuschaltung bei Netzausfall", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Kühlsystem prüfen: Kühlmittelstand, Kühler und Thermostat", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Abgasanlage prüfen: Dichtheit, Abgasrohr und Schalldämpfer", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Ölwechsel: Motoröl und Ölfilter wechseln", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [
+      {"bezeichnung": "Spannung_V", "wert": 0, "einheit": "V"},
+      {"bezeichnung": "Frequenz_Hz", "wert": 0, "einheit": "Hz"},
+      {"bezeichnung": "Leistung_kW", "wert": 0, "einheit": "kW"},
+      {"bezeichnung": "Kraftstofffuellstand_pct", "wert": 0, "einheit": "%"}
+    ],
+    "Historie": [{"komponente": "", "laufzeit_h": 0}],
+    "Naechster_Oelwechsel": "YYYY-MM-DD"
+  }
+}

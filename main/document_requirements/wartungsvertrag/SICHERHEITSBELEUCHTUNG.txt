@@ -1,0 +1,89 @@
+WARTUNGSVERTRAG — SICHERHEITSBELEUCHTUNG — REQUIRED DATA
+=========================================================
+
+Sicherheitsbeleuchtungsanlagen stellen im Versagensfall der Allgemeinbeleuchtung
+die Beleuchtung für Fluchtwege und Sicherheitsbereiche sicher. Die Wartung erfolgt
+nach DIN EN 1838 und VDE 0108.
+
+Basis: Wartungsvertrag für Sicherheitsbeleuchtungsanlagen gemäß DIN EN 1838 / VDE 0108
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Anzahl der Sicherheitsleuchten und Zentralen
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Sicherheitsbeleuchtungsanlage nach DIN EN 1838 und VDE 0108")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Funktionstest aller Sicherheitsleuchten mit simulierter Netzunterbrechung (Betriebsdauer 1 Stunde)"
+  - "Batterie-Kapazitätsprüfung zur Sicherstellung der Mindestbetriebsdauer nach DIN EN 1838"
+  - "Leuchtmitteltausch defekter oder verbrauchter Leuchtmittel"
+  - "Prüfung und Inspektion der Schaltzentrale (ZSV/LSV) inkl. Lade- und Überwachungsfunktionen"
+- Wartungsintervall: z.B. "jährlich", "halbjährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Wartungsintervall" / "pro Leuchte" / "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "8 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Tausch defekter Akkus", "Reinigung der Leuchtengehäuse",
+   "Prüfung der Fluchtwegkennzeichnung")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Sicherheitsleuchten
+- Norm_Pruefung: Norm, nach der die Prüfung durchgeführt wird (z.B. "DIN EN 1838")
+- Anzahl_Leuchten: Gesamtanzahl der installierten Sicherheitsleuchten
+- Batterie_Typ: Typ der verwendeten Akkumulatoren (z.B. "NiCd", "NiMH", "LiFePO4")
+- Betriebsdauer_h: Geforderte Mindestbetriebsdauer der Sicherheitsbeleuchtung in Stunden
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Sicherheitsbeleuchtung", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Funktionstest aller Sicherheitsleuchten mit simulierter Netzunterbrechung (Betriebsdauer 1 Stunde)",
+      "Batterie-Kapazitätsprüfung zur Sicherstellung der Mindestbetriebsdauer nach DIN EN 1838",
+      "Leuchtmitteltausch defekter oder verbrauchter Leuchtmittel",
+      "Prüfung und Inspektion der Schaltzentrale (ZSV/LSV) inkl. Lade- und Überwachungsfunktionen"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Norm_Pruefung": "DIN EN 1838",
+    "Anzahl_Leuchten": 0,
+    "Batterie_Typ": "",
+    "Betriebsdauer_h": 0
+  }
+}

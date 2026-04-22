@@ -1,0 +1,80 @@
+WARTUNGSPROTOKOLL — HEIZKESSEL — REQUIRED DATA
+===============================================
+
+Ein Wartungsprotokoll für einen Heizkessel dokumentiert die durchgeführten
+Wartungs- und Prüfarbeiten an Gas-, Öl- oder Pelletheizkesseln gemäß den
+Vorgaben der 1. BImSchV, den Herstellerempfehlungen und dem geltenden
+technischen Regelwerk (z.B. DVGW, TRGI, DIN EN 304/305).
+
+Typische Anlagentypen: Gas-Brennwertkessel, Gas-Niedertemperaturkessel,
+Ölbrennwertkessel, Pelletkessel, Kombitherme, Heizungsanlage mit Speicher
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer / Anzahl
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+  Typische Arbeitspunkte für Heizkessel:
+    • Brennereinstellung und -überprüfung (Luftzahl, Düse, Elektroden)
+    • Abgasmessung: CO₂-Gehalt, CO-Gehalt, Abgastemperatur, Zugmessung
+    • Wärmetauscher reinigen (Heizflächen, Züge)
+    • Sicherheitsventil prüfen (Ansprechen, Dichtheit)
+    • Wasserdruck Heizungsanlage kontrollieren
+    • Zündanlage prüfen (Zündelektroden, Zündtransformator)
+    • Brennstoffversorgung und Absperrarmatur kontrollieren
+    • Abgasführung und Zuluftöffnungen prüfen
+    • Ausdehnungsgefäß und Vordruck prüfen
+    • Umwälzpumpe und Regelventile kontrollieren
+  (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+  (z.B. "Abgaswerte innerhalb der Grenzwerte, Wärmetauscher stark verrußt, gereinigt")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+  Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung)
+- Datum_Inbetriebnahme: ISO-Datum der Erstinbetriebnahme
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+  (z.B. Zündelektroden, Dichtungen, Düse, Ionisationselektrode, Filter)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+  (z.B. CO₂-Gehalt %, CO-Gehalt ppm, Abgastemperatur °C, Lufttemperatur °C,
+   Abgasverlust %, Wirkungsgrad %, Wasserdruck bar, Vordruck Ausdehnungsgefäß bar,
+   Zugmessung Pa, O₂-Gehalt %)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+  (z.B. Brenner, Umwälzpumpe)
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Brennereinstellung und -überprüfung", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Abgasmessung (CO2, CO, Abgastemperatur)", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Wärmetauscher reinigen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Sicherheitsventil prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Wasserdruck Heizungsanlage kontrollieren", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Zündanlage prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"},
+      {"arbeit": "Ausdehnungsgefäß und Vordruck prüfen", "ergebnis": "i.O.|n.i.O.|behoben|ja|nein"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [{"bezeichnung": "", "wert": 0, "einheit": ""}],
+    "Historie": [{"komponente": "", "laufzeit_h": 0}]
+  }
+}

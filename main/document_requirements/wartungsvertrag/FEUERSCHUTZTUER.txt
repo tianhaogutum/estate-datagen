@@ -1,0 +1,86 @@
+WARTUNGSVERTRAG — FEUERSCHUTZTÜR — REQUIRED DATA
+=================================================
+
+Feuerschutztüren sind raumabschließende Abschlüsse zum Schutz vor Feuer und Rauch.
+Die Wartung erfolgt nach DIN EN 1634 und DIN 18095.
+
+Basis: Wartungsvertrag für Feuerschutztüren gemäß DIN EN 1634 / DIN 18095
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Anzahl der Feuerschutztüren
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Feuerschutztüren nach DIN EN 1634 und DIN 18095")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Prüfung des Schließmechanismus (Türschließer, Scharniere, Schlösser) auf Funktion und Zustand"
+  - "Inspektion und Prüfung der Dichtungen (Rauch-, Intumeszenz- und Bürstendichtungen)"
+  - "Kontrolle von Türblatt und Zarge auf Beschädigungen, Verformungen und fachgerechten Einbau"
+  - "Prüfung und Dokumentation des Zulassungskennzeichens (CE-Kennzeichnung, Zulassungsnummer)"
+- Wartungsintervall: z.B. "jährlich", "halbjährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Tür" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Austausch von Dichtungen", "Einstellung Türschließer", "Schmierung Bänder")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Feuerschutztüren
+- Feuerwiderstandsklasse: Klassifizierung der Türen nach Feuerwiderstandsdauer
+  (z.B. "T30", "T60", "T90", "EI130", "EI260")
+- Anzahl_Tueren: Gesamtanzahl der zu wartenden Feuerschutztüren
+- Norm_Pruefung: Norm, nach der die Prüfung durchgeführt wird (z.B. "DIN EN 1634")
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "Feuerschutztür", "hersteller": "", "modell": "", "anzahl": 0},
+    "Auftraggeber": {"name": "", "anschrift": "", "telefon": ""},
+    "Auftragnehmer": {"firma": "", "anschrift": "", "telefon": ""},
+    "Objekt der Wartung": {"adresse": ""},
+    "Gegenstand_des_Vertrages": "",
+    "Vereinbarungen": [
+      "Prüfung des Schließmechanismus (Türschließer, Scharniere, Schlösser) auf Funktion und Zustand",
+      "Inspektion und Prüfung der Dichtungen (Rauch-, Intumeszenz- und Bürstendichtungen)",
+      "Kontrolle von Türblatt und Zarge auf Beschädigungen, Verformungen und fachgerechten Einbau",
+      "Prüfung und Dokumentation des Zulassungskennzeichens (CE-Kennzeichnung, Zulassungsnummer)"
+    ],
+    "Wartungsintervall": "",
+    "Laufzeit": {
+      "start": "YYYY-MM-DD",
+      "ende": "YYYY-MM-DD|unbefristet",
+      "kuendigungsfrist": {"frist": "", "zum": "Jahresende|Monatsende|Quartalsende"}
+    },
+    "Kosten": {"betrag": 0, "waehrung": "EUR", "bezugseinheit": "pro Wartungsintervall|pro Gerät|pro Jahr"},
+    "Gerichtsstand": "",
+    "Unterschriften": [{"rolle": "Auftraggeber|Auftragnehmer", "unterschrift_von": "", "ort": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "",
+    "Zusatzleistungen": [],
+    "Zahlungsbedingungen": "",
+    "Haftungsklauseln": "",
+    "Gewaehrleistungszeit": "",
+    "Preisanpassungsklausel": "",
+    "Mehrwertsteuer": "zzgl. MwSt.|inkl. MwSt.",
+    "Anlagen_Stueckzahl": 0,
+    "Feuerwiderstandsklasse": "T30|T60|T90",
+    "Anzahl_Tueren": 0,
+    "Norm_Pruefung": "DIN EN 1634"
+  }
+}

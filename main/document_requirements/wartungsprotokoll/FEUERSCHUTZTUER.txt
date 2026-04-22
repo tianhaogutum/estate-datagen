@@ -1,0 +1,84 @@
+WARTUNGSPROTOKOLL — FEUERSCHUTZTÜR
+=====================================
+
+Ein Wartungsprotokoll für Feuerschutztüren dokumentiert die planmäßige
+Inspektion, Funktionsprüfung und Instandhaltung aller Feuerschutztüren
+sowie Feuerschutzabschlüsse gemäß den geltenden Normen und Vorschriften.
+
+Norm: DIN EN 1634, DIN 18095
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell der Feuerschutztüren
+   (Typ: z.B. "Feuerschutztür T30", "Feuerschutztür T60", "Rauchschutztür RS",
+    Hersteller: z.B. Teckentrup/Hörmann/Jansen, S-Nr., Gesamtanzahl Türen)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Prüfung Schließmechanismus und Türschließer (selbstschließende Funktion)
+     * Dichtungen prüfen und ggf. tauschen (Umfangsdichtung, Bodendichtung)
+     * Türblatt und Zarge kontrollieren (Verformungen, Beschädigungen, Spaltmaße)
+     * Zulassungskennzeichen und Übereinstimmungserklärung prüfen
+     * Feststellanlage testen (sofern vorhanden, elektromagnetische Feststellung)
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "alle Türen ordnungsgemäß funktionstüchtig" oder
+    "Türschließer Tür 3/OG defekt, ausgetauscht")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, zugelassener Fachbetrieb)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung, i.d.R. jährlich)
+- Datum_Inbetriebnahme: ISO-Datum der Erstmontage der Feuerschutztüren
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Türschließer, Umfangsdichtung, Bodendichtung, Schlosszylinder)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Spaltmaß_mm, Schließkraft_N)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+- Pruefbericht_pro_Tuer: Türweise Prüfdokumentation nach DIN EN 1634
+   Liste von { tuer_id, feuerwiderstandsklasse, schliessverhalten,
+               dichtung_ok, kennzeichen_vorhanden }
+
+JSON SCHEMA
+-----------
+{
+  "required": {
+    "Anlagentyp": {"typ": "", "hersteller": "", "modell": "", "seriennummer": "", "anzahl": 0},
+    "Anlagenstandort": {"name": "", "strasse": "", "plz": "", "ort": "", "objekttyp": "EFH|MFH|Gewerblich|Wohnung"},
+    "Datum der Wartung": "YYYY-MM-DD",
+    "Durchgeführte Arbeiten": [
+      {"arbeit": "Prüfung Schließmechanismus und Türschließer (selbstschließende Funktion)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Dichtungen prüfen und ggf. tauschen (Umfangs- und Bodendichtung)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Türblatt und Zarge kontrollieren (Verformungen, Spaltmaße, Beschädigungen)", "ergebnis": "i.O.|n.i.O.|behoben"},
+      {"arbeit": "Zulassungskennzeichen und Übereinstimmungserklärung prüfen", "ergebnis": "ja|nein"},
+      {"arbeit": "Feststellanlage testen (elektromagnetische Feststellung, sofern vorhanden)", "ergebnis": "i.O.|n.i.O.|behoben"}
+    ],
+    "Bemerkungen": "",
+    "Wartungsergebnis": "erfolgreich|maengel_zu_beseitigen",
+    "Ausfuehrende_Fachfirma": {"firma": "", "kd_techniker": "", "strasse": "", "plz": "", "ort": "", "tel": "", "email": ""},
+    "Unterschriften": [{"rolle": "Techniker|Kunde", "unterschrift_von": "", "datum": "YYYY-MM-DD"}]
+  },
+  "optional": {
+    "Auftraggeber": {"name": "", "anschrift": ""},
+    "Naechster_Wartungstermin": "YYYY-MM-DD",
+    "Datum_Inbetriebnahme": "YYYY-MM-DD",
+    "Verwendete_Ersatzteile": [{"bezeichnung": "", "menge": 0}],
+    "Messwerte": [{"bezeichnung": "", "wert": 0, "einheit": ""}],
+    "Historie": [{"komponente": "", "laufzeit_h": 0}],
+    "Pruefbericht_pro_Tuer": [
+      {
+        "tuer_id": "",
+        "feuerwiderstandsklasse": "T30|T60|T90|T120|RS",
+        "schliessverhalten": "i.O.|n.i.O.|behoben",
+        "dichtung_ok": true,
+        "kennzeichen_vorhanden": true
+      }
+    ]
+  }
+}
