@@ -1,0 +1,56 @@
+WARTUNGSVERTRAG — RAUCH- UND FEUERSCHUTZABSCHLUSS — REQUIRED DATA
+==================================================================
+
+Rauch- und Feuerschutzabschlüsse (z.B. Feuerschutztore, Feuerschutzrolltore) sind
+raumabschließende Abschlüsse, die im Brandfall selbsttätig schließen und den Durchtritt
+von Feuer und Rauch verhindern. Die Wartung erfolgt nach der ttz-Richtlinie und DIN EN 1634.
+
+Basis: Wartungsvertrag für Rauch- und Feuerschutzabschlüsse gemäß ttz-Richtlinie /
+DIN EN 1634 (Feuerwiderstandsprüfungen für Türen, Tore und Abschlüsse)
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ (z.B. "Feuerschutztor", "Feuerschutzrolltor") / Hersteller / Modell /
+  (ggf. Anzahl der Abschlüsse)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Feuerschutzabschlüsse nach ttz-Richtlinie und DIN EN 1634")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Prüfung des Schließverhaltens: Kontrolle des selbsttätigen Schließens auf
+     Vollständigkeit, Schließkraft und Schließgeschwindigkeit gemäß Herstellervorgabe"
+  - "Auslöseeinrichtung testen: Funktionsprüfung aller thermischen und elektrischen
+     Auslöser sowie der Raucherkennungseinrichtungen (sofern vorhanden)"
+  - "Dichtungen prüfen und tauschen: Inspektion der Rauch- und Intumeszenzdichtungen
+     auf Zustand und Vollständigkeit; Austausch bei Verschleiß oder Beschädigung"
+  - "Laufschienen warten: Reinigung und Schmierung der Laufschienen, Führungsprofile
+     und Lager bei Rolltoren; Prüfung auf Verformung und freie Beweglichkeit"
+  - "Zulassungskennzeichen prüfen: Kontrolle des CE-Kennzeichens, der nationalen
+     Zulassung und der Typenschilder auf Vollständigkeit und Lesbarkeit"
+- Wartungsintervall: z.B. "jährlich", "halbjährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Abschluss" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Austausch Verschleißteile", "Einstellung Schließgeschwindigkeit", "Entstörungsdienst")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Abschlüsse
+- Feuerwiderstandsklasse: Klassifizierung nach Feuerwiderstandsdauer
+  (z.B. "EI130", "EI260", "E30", "E60")
+- Anzahl_Abschluesse: Gesamtanzahl der zu wartenden Rauch- und Feuerschutzabschlüsse
+- Feststellanlagen_vorhanden: Angabe, ob elektromagnetische Feststellanlagen verbaut sind
+  (z.B. "ja" | "nein")

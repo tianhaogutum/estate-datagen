@@ -1,0 +1,49 @@
+WARTUNGSPROTOKOLL — NICHTORTSFESTE ELEKTRISCHE BETRIEBSMITTEL (PRÜFUNG ORTSVERÄNDERLICHER GERÄTE)
+==================================================================================================
+
+Ein Wartungsprotokoll für nichtortsfeste elektrische Betriebsmittel dokumentiert
+die planmäßige Prüfung ortsveränderlicher elektrischer Geräte und Arbeitsmittel
+gemäß den Vorgaben der gesetzlichen Unfallverhütungsvorschriften und des technischen
+Regelwerks. Ziel ist der Nachweis der elektrischen Sicherheit der Betriebsmittel
+sowie die Vermeidung von Gefährdungen durch fehlerhafte Geräte.
+
+Basis: DGUV Vorschrift 3, BetrSichV, DIN VDE 0701-0702
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer
+   (Typ: z.B. "ortsveränderliche Betriebsmittel Schutzklasse I", "Verlängerungskabel",
+    "Elektrowerkzeug", Anzahl geprüfter Geräte gesamt)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Sichtprüfung Gehäuse, Anschlusskabel und Stecker auf Beschädigungen
+     * Messung Schutzleiterwiderstand (Anforderung ≤ 0,3 Ω nach DIN VDE 0701-0702)
+     * Messung Isolationswiderstand (Anforderung ≥ 1 MΩ)
+     * Funktionsprüfung des Betriebsmittels im bestimmungsgemäßen Betrieb
+     * Prüfplakette mit nächstem Prüfdatum anbringen
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "alle Geräte geprüft und für sicher befunden" oder
+    "Bohrmaschine Inv.-Nr. 047 Kabelmantel defekt, Gerät außer Betrieb genommen")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das prüfende Unternehmen, Elektrofachkraft nach DGUV Vorschrift 3)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wiederholungsprüfung)
+- Datum_Inbetriebnahme: ISO-Datum der Erstprüfung oder Inbetriebnahme
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Stecker, Kupplung, Zuleitung, Prüfplaketten)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Schutzleiterwiderstand_Ohm, Isolationswiderstand_MOhm, Ableitstrom_mA)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+- Pruefbericht_pro_Geraet: Gerätewise Prüfdokumentation nach DIN VDE 0701-0702
+   Liste von { inventarnummer, geraetetyp, schutzleiterwiderstand_ohm,
+               isolationswiderstand_mohm, ergebnis }
+- Anzahl_Geraete_geprueft: Gesamtanzahl der geprüften Betriebsmittel (int)

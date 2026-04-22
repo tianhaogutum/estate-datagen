@@ -1,0 +1,47 @@
+WARTUNGSPROTOKOLL — FEUERSCHUTZEINRICHTUNG MANUELL (WANDHYDRANT / HANDFEUERLÖSCHER)
+=====================================================================================
+
+Ein Wartungsprotokoll für manuelle Feuerschutzeinrichtungen dokumentiert die
+planmäßige Prüfung, Inspektion und Instandhaltung von Wandhydranten und
+Handfeuerlöschern in Gebäuden gemäß den geltenden Normen und Vorschriften.
+Ziel ist die jederzeitige Einsatzbereitschaft der Erstangriffsmittel und die
+Einhaltung der vorgeschriebenen Prüffristen.
+
+Basis: ASR A2.2, DIN EN 3, DIN 14461
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer
+   (Typ: z.B. "Wandhydrant Typ F", "Wandhydrant Typ S", "Handfeuerlöscher ABC 6 kg",
+    Hersteller: z.B. Minimax/Gloria/Amerex, S-Nr., Gesamtanzahl Geräte)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Sichtkontrolle Gehäuse, Plombierung und Kennzeichnung
+     * Druckkontrolle am Manometer (Soll-Betriebsdruck prüfen)
+     * Prüfung Füllmenge und Treibgas (Wägen oder Kontrolle Druckpatrone)
+     * Schlauchprüfung auf Dichtheit und Zustand (nur Wandhydrant)
+     * Standortkennzeichnung und Zugänglichkeit prüfen
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "alle Löscher ordnungsgemäß" oder
+    "Löscher Nr. 4/OG Schlauch porös, erneuert und neu plombiert")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, anerkannter Sachkundiger nach DIN 14406)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung, i.d.R. jährlich)
+- Datum_Inbetriebnahme: ISO-Datum der Erstaufstellung/-montage
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Druckpatrone, Löschmittel, Schlauch, Plombe, Dichtung)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Betriebsdruck_bar, Fuellgewicht_kg)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+- Pruefbericht_pro_Geraet: Gerätewise Prüfdokumentation
+   Liste von { geraet_id, typ, druck_bar, plombierung_ok, naechste_pruefung }

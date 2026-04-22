@@ -1,0 +1,49 @@
+WARTUNGSPROTOKOLL — DRUCKBEHÄLTER / DRUCKANLAGE
+=================================================
+
+Ein Wartungsprotokoll für Druckbehälter und Druckanlagen dokumentiert die
+planmäßige Inspektion, Prüfung und Instandhaltung überwachungsbedürftiger
+Anlagen gemäß den Vorgaben der Betriebssicherheitsverordnung und der
+Druckgeräterichtlinie. Ziel ist die Sicherstellung des sicheren Betriebs
+sowie die lückenlose Vorbereitung und Dokumentation der wiederkehrenden
+Prüfungen durch eine zugelassene Überwachungsstelle (ZÜS).
+
+Basis: BetrSichV Anhang 2, Druckgeräterichtlinie 2014/68/EU
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer
+   (Typ: z.B. "Druckluftbehälter", "Warmwasserspeicher", "Ausdehnungsgefäß",
+    Hersteller, S-Nr., Baujahr, zulässiger Betriebsdruck PS in bar, Volumen in Liter)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Sichtprüfung auf Korrosion, mechanische Beschädigungen und Undichtigkeiten
+     * Prüfung Sicherheitsventil (Ansprechdruck, Dichtheit nach dem Ansprechen)
+     * Manometerkontrolle (Anzeigenabgleich, Skalierung, Zustand)
+     * Prüfung Druckbegrenzungseinrichtung und Abschaltautomatik
+     * Dokumentation und Vorbereitung der Unterlagen für ZÜS-Prüfung
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "Druckbehälter in ordnungsgemäßem Zustand, Sicherheitsventil dicht" oder
+    "Manometer defekt, ersetzt; Unterlagen für ZÜS-Prüfung zusammengestellt")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, befähigte Person nach BetrSichV)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung)
+- Datum_Inbetriebnahme: ISO-Datum der Erstinbetriebnahme des Druckbehälters
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Sicherheitsventil, Manometer, Dichtung, Absperrventil)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Betriebsdruck_bar, Pruef_Nenndruck_bar, Ansprechdruck_Sicherheitsventil_bar)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+   (z.B. Kompressor, Druckregler)
+- Naechste_ZÜS_Pruefung: ISO-Datum der nächsten vorgeschriebenen ZÜS-Prüfung
+- Druckbehaelter_Kennzeichnung: CE-Kennzeichnung, Prüfzeichen und amtliche Zulassungsnummer

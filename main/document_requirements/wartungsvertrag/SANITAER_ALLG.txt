@@ -1,0 +1,62 @@
+WARTUNGSVERTRAG — SANITÄRTECHNIK / TRINKWASSERHYGIENE — REQUIRED DATA
+======================================================================
+
+Ein Wartungsvertrag für Sanitärtechnik und Trinkwasserhygiene regelt die
+regelmäßige Prüfung der Trinkwasserqualität, insbesondere die Legionellenuntersuchung
+sowie die Inspektion und Spülung der Trinkwasserinstallation. Die Durchführung
+erfolgt nach Trinkwasserverordnung (TrinkwV) und DVGW W 551.
+
+Basis: Wartungsvertrag für Sanitärtechnik und Trinkwasserhygiene gemäß
+Trinkwasserverordnung (TrinkwV) / DVGW W 551 (Trinkwassererwärmungs- und
+Trinkwasserleitungsanlagen — Technische Maßnahmen zur Verminderung des Legionellenwachstums)
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ (z.B. "Trinkwasserinstallation mit Zentralspeicher") / Hersteller /
+  Modell (Speicher/Erwärmer) / (ggf. Anzahl Entnahmestellen)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Gebäudes mit der Trinkwasserinstallation
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Jährliche Probenahme und Hygieneinspektion der Trinkwasseranlage gemäß
+  TrinkwV und DVGW W 551 einschließlich Legionellenuntersuchung")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Jährliche Probenahme: Entnahme von Wasserproben an repräsentativen Entnahmestellen
+     und Übergabe an ein akkreditiertes Labor zur Legionellenuntersuchung gemäß TrinkwV
+     Anlage 3"
+  - "Temperaturmessung: Messung der Warm- und Kaltwassertemperaturen an allen
+     relevanten Entnahmestellen und Vergleich mit den Sollwerten nach DVGW W 551
+     (PWH ≥ 60 °C am Speicher, ≤ 55 °C in der Leitung, PWC ≤ 25 °C)"
+  - "Spülung selten genutzter Leitungen: Identifikation und Spülung von Leitungsab-
+     schnitten mit geringer oder fehlender Nutzungsfrequenz zur Vermeidung von
+     Stagnation und mikrobiologischem Wachstum"
+  - "Inspektion Speicher: Sichtprüfung des Trinkwasserspeichers/-erwärmers auf
+     Korrosion, Ablagerungen, Funktion der Korrosionsschutzanode und Dichtheit"
+  - "Dokumentation nach TrinkwV: Erstellung des Untersuchungsberichts und
+     Übermittlung der Laborbefunde an das Gesundheitsamt bei Überschreitung der
+     technischen Maßnahmenwerte gemäß TrinkwV"
+- Wartungsintervall: z.B. "jährlich" (gemäß TrinkwV §14b)
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Probenahme" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "48 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Sanierungsbegleitung bei Legionellenbefund", "Erneuerung Korrosionsschutzanode",
+  "Erstellung Gefährdungsanalyse nach TrinkwV")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Entnahmestellen oder Speicher
+- Anzahl_Entnahmestellen: Gesamtanzahl der beprobten Entnahmestellen
+- Speichervolumen_l: Nennvolumen des Trinkwasserspeichers in Litern
+- Probenahmelabor: Name und Akkreditierungsnummer des beauftragten Prüflabors

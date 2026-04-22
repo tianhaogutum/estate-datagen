@@ -1,0 +1,49 @@
+WARTUNGSPROTOKOLL — CO-WARNANLAGE (Z. B. TIEFGARAGE)
+======================================================
+
+Ein Wartungsprotokoll für CO-Warnanlagen dokumentiert die planmäßige
+Inspektion, Funktionsprüfung und Kalibrierungskontrolle aller Sensoren,
+Alarmierungseinrichtungen und Steuerkomponenten einer CO-Warnanlage
+gemäß den geltenden Bau- und Prüfvorschriften. Ziel ist die lückenlose
+Sicherstellung der Schutzfunktion der Anlage zum Schutz von Personen
+vor gefährlichen Kohlenmonoxidkonzentrationen insbesondere in Tiefgaragen.
+
+Basis: Landesbauordnung, PrüfVO, VDI 2053
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer
+   (Typ: z.B. "CO-Warnanlage Tiefgarage", "CO-Gaswarnanlage",
+    Hersteller: z.B. Hekatron/MSA/Dräger, S-Nr., Anzahl Sensoren gesamt)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Funktionstest aller Sensoren mit Prüfgas (definierte CO-Konzentration)
+     * Prüfung Alarmierungseinrichtungen (optische und akustische Alarmgeber)
+     * Test Abschaltsteuerung (automatische Lüftungsaktivierung bei Alarmschwelle)
+     * Kalibrierungskontrolle aller Sensoren (Nullpunkt- und Empfindlichkeitsabgleich)
+     * Prüfung Zentrale und Anzeige (Statusanzeigen, Fehlerspeicher, Spannungsversorgung)
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "alle Sensoren reagieren auf Prüfgas, Lüftungssteuerung schaltet korrekt" oder
+    "Sensor Zone 3 Kalibrierungsdrift festgestellt, Sensor getauscht und kalibriert")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, zugelassener Fachbetrieb)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung, i.d.R. jährlich)
+- Datum_Inbetriebnahme: ISO-Datum der Erstinbetriebnahme der CO-Warnanlage
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. CO-Sensor, Prüfgasflasche, Sicherung, Signalgeber)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Ansprechschwelle_ppm, Kalibrierungswert_ppm, Voralarm_ppm, Hauptalarm_ppm)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+   (z.B. Lueftungsanlage, Zentrale)
+- Anzahl_Sensoren_geprueft: Gesamtanzahl der geprüften CO-Sensoren (int)
+- Naechste_Kalibrierung: ISO-Datum der nächsten vorgeschriebenen Sensorkalibrierung

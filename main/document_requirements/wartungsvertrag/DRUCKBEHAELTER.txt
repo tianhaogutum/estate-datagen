@@ -1,0 +1,61 @@
+WARTUNGSVERTRAG — DRUCKBEHÄLTER / DRUCKANLAGE — REQUIRED DATA
+==============================================================
+
+Druckbehälter und Druckanlagen sind überwachungsbedürftige Anlagen, die unter
+innerem Überdruck stehen und besonderen Sicherheitsanforderungen unterliegen.
+Betrieb und Prüfung erfolgen gemäß Betriebssicherheitsverordnung (BetrSichV)
+Anhang 2 und der Druckgeräterichtlinie 2014/68/EU.
+
+Basis: Wartungsvertrag für Druckbehälter und Druckanlagen gemäß
+BetrSichV Anhang 2 (Besondere Vorschriften für überwachungsbedürftige Anlagen) /
+Druckgeräterichtlinie 2014/68/EU
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ (z.B. "Druckluftbehälter", "Warmwasserspeicher unter Druck",
+  "Kompressoranlage") / Hersteller / Modell / (ggf. Anzahl)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Aufstellungsorts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung und Instandhaltung des Druckbehälters gemäß BetrSichV
+  Anhang 2 und Druckgeräterichtlinie 2014/68/EU")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Sichtprüfung auf Korrosion: Äußere und soweit möglich innere Sichtprüfung des
+     Behältermantels, der Schweißnähte, Flansche und Anschlüsse auf Korrosion,
+     Beschädigungen und Undichtigkeiten"
+  - "Sicherheitsventil prüfen: Funktionsprüfung des Sicherheitsventils auf korrekten
+     Ansprechdruck und freie Beweglichkeit; Prüfung Abblaseleitung auf freien
+     Querschnitt gemäß Herstellervorgabe"
+  - "Manometerkalibrierung: Überprüfung und ggf. Kalibrierung der Druckmessgeräte
+     (Manometer) auf Anzeigegenauigkeit; Austausch bei Abweichung"
+  - "Dokumentation für ZÜS: Vorbereitung und Bereitstellung der erforderlichen
+     Unterlagen für die zugelassene Überwachungsstelle (ZÜS) sowie Führung des
+     Prüfbuchs"
+  - "Fristen nach BetrSichV einhalten: Koordination und Einhaltung der gesetzlichen
+     Prüffristen (innere Prüfung, Druckprüfung) gemäß BetrSichV Anhang 2 Nr. 3"
+- Wartungsintervall: z.B. "jährlich" oder gemäß Prüfbescheid der ZÜS
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Behälter" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Begleitung ZÜS-Prüfung", "Instandsetzung nach Prüfbefund",
+  "Erneuerung Sicherheitsventil", "Druckprüfung")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der zu wartenden Druckbehälter
+- Nenndruck_bar: Maximal zulässiger Betriebsdruck in bar (PS)
+- Fassungsvermoegen_l: Nennvolumen des Druckbehälters in Litern
+- Naechste_ZÜS_Pruefung: Datum der nächsten fälligen ZÜS-Prüfung (ISO-Datum)

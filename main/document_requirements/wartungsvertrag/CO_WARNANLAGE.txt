@@ -1,0 +1,63 @@
+WARTUNGSVERTRAG — CO-WARNANLAGE (TIEFGARAGE) — REQUIRED DATA
+=============================================================
+
+Eine CO-Warnanlage in Tiefgaragen überwacht kontinuierlich die Kohlenmonoxid-
+konzentration in der Raumluft und löst bei Überschreitung der Grenzwerte akustische
+und optische Alarme sowie die automatische Steuerung der Lüftungsanlage aus. Betrieb
+und Prüfung erfolgen gemäß Landesbauordnung, Prüfverordnung (PrüfVO) und VDI 2053.
+
+Basis: Wartungsvertrag für CO-Warnanlagen gemäß Landesbauordnung /
+PrüfVO (Prüfverordnung der Länder) / VDI 2053 (Raumlufttechnische Anlagen für Garagen)
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "CO-Warnanlage" / Hersteller / Modell (Zentrale) /
+  (ggf. Anzahl Sensoren)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse der Tiefgarage bzw. des Gebäudes
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung und Prüfung der CO-Warnanlage in der Tiefgarage gemäß
+  PrüfVO und VDI 2053")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Funktionstest Sensoren mit Prüfgas: Beaufschlagung aller CO-Sensoren mit
+     zertifiziertem Prüfgas definierter Konzentration zur Überprüfung der
+     Ansprechempfindlichkeit und Messwertanzeige"
+  - "Test Alarmierungseinrichtungen: Prüfung aller akustischen Signalgeber
+     (Hupen, Sirenen) und optischen Signalgeber (Blitzleuchten, Anzeigetafeln) auf
+     Funktion und ausreichende Wahrnehmbarkeit"
+  - "Kalibrierung: Nullpunktkalibrierung und Empfindlichkeitskalibrierung aller
+     Sensoren gemäß Herstellervorgabe; Dokumentation der Kalibrierwerte"
+  - "Test Abschaltsteuerung Lüftung: Überprüfung der automatischen Aktivierung
+     der Zu- und Abluftanlage bei Überschreitung der CO-Warnschwellwerte sowie
+     Test der Zwangsabschaltung bei Höchstwertüberschreitung"
+  - "Zentrale prüfen: Inspektion der CO-Warnzentrale auf ordnungsgemäße Funktion,
+     Anzeige, Datenspeicherung, Spannungsversorgung und Notstromversorgung;
+     Aktualisierung der Anlagendokumentation"
+- Wartungsintervall: z.B. "jährlich" (gemäß PrüfVO und Herstellervorgabe)
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Wartungsintervall" / "pro Jahr") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "4 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Austausch Sensoren nach Ablauf Standzeit", "Entstörungsdienst außerhalb
+  Regelarbeitszeit", "Erneuerung Prüfgasflasche")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der installierten Sensoren
+- Anzahl_Sensoren: Gesamtanzahl der CO-Sensoren in der Anlage
+- Kalibrierintervall_Monate: Herstellerseitig vorgeschriebenes Kalibrierintervall
+  in Monaten (z.B. 6 oder 12)
+- Abschaltsteuerung_vorhanden: Angabe, ob eine automatische Lüftungssteuerung
+  und Abschaltfunktion installiert ist (z.B. "ja" | "nein")

@@ -1,0 +1,48 @@
+WARTUNGSPROTOKOLL — SANITÄRTECHNIK ALLGEMEIN (TRINKWASSER / LEGIONELLENPRÜFUNG)
+=================================================================================
+
+Ein Wartungsprotokoll für die allgemeine Sanitärtechnik dokumentiert die
+planmäßige Inspektion, Temperaturmessung und hygienische Überprüfung von
+Trinkwasserinstallationen gemäß den geltenden gesundheitsrechtlichen
+Normen und Vorschriften. Besonderer Schwerpunkt liegt auf dem Nachweis
+der Legionellenfreiheit sowie der Einhaltung der Temperaturanforderungen
+an Warm- und Kaltwassersysteme.
+
+Basis: TrinkwV, DVGW W 551
+
+REQUIRED FIELDS (must be present)
+---------------------------------
+- Anlagentyp: Typ / Hersteller / Modell / Seriennummer
+   (Typ: z.B. "Trinkwasseranlage mit Zentralspeicher", "Durchlauferhitzer",
+    "Zirkulationssystem", Hersteller und Modell des Speichers, Speichervolumen)
+- Anlagenstandort: Adresse und Objekttyp (EFH / MFH / Gewerblich / Wohnung)
+- Datum der Wartung: ISO-Datum (YYYY-MM-DD)
+- Durchgeführte Arbeiten: Liste der Arbeitspunkte jeweils mit Ergebnis
+   Typische Arbeiten:
+     * Probenahme Kaltwasser (PWC) und Warmwasser (PWH) an definierten Entnahmestellen
+     * Temperaturmessung (PWH ≥ 60 °C am Speicheraustritt, PWC ≤ 25 °C)
+     * Spülung selten genutzter oder stillgelegter Entnahmestellen
+     * Inspektion Trinkwasserspeicher und Leitungsführung auf Korrosion und Ablagerungen
+   (Ergebnis-Werte: "i.O." | "n.i.O." | "behoben" | "ja" | "nein")
+- Bemerkungen: Freitext zum Zustand oder besonderen Vorkommnissen
+   (z.B. "Temperaturen im Normbereich, keine Auffälligkeiten" oder
+    "Entnahmestelle EG/WC lange nicht genutzt, gespült und Probe entnommen")
+- Wartungsergebnis: "erfolgreich" ODER "maengel_zu_beseitigen"
+- Ausfuehrende_Fachfirma: Firma, KD-Techniker, Straße, PLZ, Ort, Tel, E-Mail
+   (das wartungsdurchführende Unternehmen, zugelassener Installateur nach DVGW)
+- Unterschriften: Liste von { Rolle, Unterschrift_von, Datum }
+   Pflicht-Rollen: Techniker und Kunde
+
+OPTIONAL FIELDS (may be present)
+--------------------------------
+- Auftraggeber: Name und Anschrift
+- Naechster_Wartungstermin: ISO-Datum (Fälligkeit nächste Wartung, i.d.R. jährlich)
+- Datum_Inbetriebnahme: ISO-Datum der Inbetriebnahme der Trinkwasseranlage
+- Verwendete_Ersatzteile: Liste von { Bezeichnung, Menge }
+   (z.B. Mischerpatrone, Dichtung, Filterkartusche, Thermostatelement)
+- Messwerte: Liste von { Bezeichnung, Wert, Einheit }
+   (z.B. Temperatur_PWH_Grad_C, Temperatur_PWC_Grad_C, Zirkulationstemperatur_Grad_C)
+- Historie: Liste von Laufzeitwerten { Komponente, Laufzeit_h }
+   (z.B. Zirkulationspumpe)
+- Probenahme_Ergebnis: Laborergebnis der Wasserproben je Entnahmestelle
+   Liste von { entnahmestelle, legionellen_kbe_100ml, bewertung }

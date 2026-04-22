@@ -1,0 +1,56 @@
+WARTUNGSVERTRAG — WANDHYDRANT / HANDFEUERLÖSCHER — REQUIRED DATA
+=================================================================
+
+Wandhydranten und Handfeuerlöscher sind manuelle Feuerschutzeinrichtungen zur
+Erstbekämpfung von Entstehungsbränden. Die Wartung erfolgt nach ASR A2.2,
+DIN EN 3 (Handfeuerlöscher) und DIN 14461 (Wandhydranten).
+
+Basis: Wartungsvertrag für manuelle Feuerschutzeinrichtungen gemäß ASR A2.2 /
+DIN EN 3 (Tragbare Feuerlöscher) / DIN 14461 (Feuerlöschanlagen — Wandhydranten)
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ (z.B. "Handfeuerlöscher", "Wandhydrant Typ F", "Kombination") /
+  Hersteller / Modell / (ggf. Anzahl)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Wartungsobjekts
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Wartungs-/Instandhaltungspflicht
+  (z.B. "Regelmäßige Wartung der Handfeuerlöscher und Wandhydranten nach ASR A2.2,
+  DIN EN 3 und DIN 14461")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Sichtkontrolle: Prüfung der Zugänglichkeit, Kennzeichnung, Plombierung und des
+     äußeren Zustands aller Feuerlöscheinrichtungen auf sichtbare Mängel"
+  - "Druckkontrolle: Überprüfung des Betriebsdrucks bei Dauerdrucklöschern und
+     Kontrolle der Druckanzeige gemäß Herstellerangabe; Druckprüfung bei Wandhydranten"
+  - "Nachfüllung und Austausch bei Bedarf: Nachfüllung von Löschmittel und
+     Treibmittel sowie Austausch abgelaufener oder defekter Feuerlöscher"
+  - "Schlauchprüfung: Inspektion der Wandhydrantenschläuche auf Risse, Verhärtung
+     und Dichtheit; Druckprüfung gemäß DIN 14461"
+  - "Dokumentation: Erstellung des Prüfnachweises und Anbringen des Wartungsaufklebers
+     gemäß ASR A2.2; Eintragung in das Gebäudebuch"
+- Wartungsintervall: z.B. "jährlich", "halbjährlich"
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Gerät" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "24 Stunden werktags"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Grundüberholung Feuerlöscher nach 10 Jahren", "Schlauch-Druckprüfung",
+  "Bereitstellung von Ersatzlöschern während der Wartung")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Gesamtanzahl der zu wartenden Einheiten
+- Anzahl_Loescher: Anzahl der zu wartenden Handfeuerlöscher
+- Anzahl_Wandhydranten: Anzahl der zu wartenden Wandhydranten
+- Loeschmittelart: Art des Löschmittels (z.B. "Pulver", "Schaum", "CO2", "Wasser")

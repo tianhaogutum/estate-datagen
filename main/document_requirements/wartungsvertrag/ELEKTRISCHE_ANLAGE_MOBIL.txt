@@ -1,0 +1,61 @@
+WARTUNGSVERTRAG — NICHTORTSFESTE ELEKTRISCHE BETRIEBSMITTEL — REQUIRED DATA
+============================================================================
+
+Nichtortsfeste (ortsveränderliche) elektrische Betriebsmittel sind Geräte, die
+während des Betriebs bewegt werden oder leicht von einem Platz zum anderen getragen
+werden können. Die regelmäßige Prüfung ist nach DGUV Vorschrift 3 und DIN VDE 0701-0702
+vorgeschrieben.
+
+Basis: Wartungsvertrag für nichtortsfeste elektrische Betriebsmittel gemäß
+DGUV Vorschrift 3 (Elektrische Anlagen und Betriebsmittel) /
+DIN VDE 0701-0702 (Prüfung nach Instandsetzung und Wiederholungsprüfung elektrischer Geräte)
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Nichtortsfeste elektrische Betriebsmittel" / Gerätekategorien
+  (z.B. "Verlängerungsleitungen, Elektrowerkzeuge, EDV-Geräte") / (ggf. Anzahl)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Prüforts (Betriebsstätte)
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Prüfpflicht
+  (z.B. "Wiederholungsprüfung nichtortsfester elektrischer Betriebsmittel gemäß
+  DGUV Vorschrift 3 und DIN VDE 0701-0702")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Sichtprüfung: Überprüfung aller Betriebsmittel auf äußere Beschädigungen,
+     Zustand der Anschlussleitungen, Stecker, Gehäuse und Kennzeichnungen"
+  - "Messung Schutzleiterwiderstand: Messung des Schutzleiterwiderstands gemäß
+     DIN VDE 0701-0702 zur Sicherstellung der Schutzleiterkontinuität"
+  - "Messung Isolationswiderstand: Messung des Isolationswiderstands zwischen
+     spannungsführenden Leitern und dem Schutzleiter gemäß DIN VDE 0701-0702"
+  - "Funktionsprüfung: Überprüfung der bestimmungsgemäßen Funktion jedes
+     Betriebsmittels im Prüfbetrieb"
+  - "Prüfplakette: Anbringen einer farbcodierten Prüfplakette mit Prüfdatum und
+     nächstem Prüftermin an jedem geprüften Betriebsmittel"
+  - "Prüfprotokoll nach DGUV V3: Erstellung eines vollständigen Prüfprotokolls mit
+     Messwerten, Beurteilung und Liste der Mängel gemäß DGUV Vorschrift 3"
+- Wartungsintervall: z.B. "jährlich", "alle 6 Monate" (abhängig von Geräteart und
+  Einsatzbereich gemäß DGUV Vorschrift 3)
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Betriebsmittel" / "pro Prüftag" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "nach Vereinbarung"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Aussonderung nicht reparabler Betriebsmittel", "Inventarisierung der Geräte",
+  "Bereitstellung geprüfter Ersatzgeräte")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto nach Rechnungsstellung")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf durchgeführte Prüfleistungen"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Gesamtanzahl der zu prüfenden Betriebsmittel
+- Anzahl_Betriebsmittel: Anzahl der nichtortsfesten elektrischen Betriebsmittel
+- Pruefrythmus_Monate: Wiederkehrender Prüfzyklus in Monaten gemäß DGUV V3
+  (z.B. 6 für Baustellen, 12 für Bürobetriebe)

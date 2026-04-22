@@ -1,0 +1,61 @@
+WARTUNGSVERTRAG — BLITZSCHUTZANLAGE — REQUIRED DATA
+====================================================
+
+Eine Blitzschutzanlage schützt bauliche Anlagen und Personen vor den direkten und
+indirekten Auswirkungen von Blitzeinschlägen. Die wiederkehrende Prüfung und Wartung
+erfolgt nach DIN EN 62305 (Blitzschutz) und VDE 0185-305.
+
+Basis: Wartungsvertrag für Blitzschutzanlagen gemäß DIN EN 62305
+(Blitzschutz — Teile 1–4) / VDE 0185-305
+
+REQUIRED FIELDS (must be present)
+----------------------------------
+- Anlagentyp: Typ = "Blitzschutzanlage" / Hersteller (Fangeinrichtung/Ableitung) /
+  Ausführungsart (z.B. "natürliche Ableitung über Stahlbewehrung", "isoliertes System") /
+  (ggf. Anzahl Ableitungen)
+- Auftraggeber: vollständiger Name, Anschrift, Telefon
+- Auftragnehmer: Firma, Anschrift, Telefon
+- Objekt der Wartung: Adresse des Gebäudes mit der Blitzschutzanlage
+- Gegenstand_des_Vertrages: Freitext-Beschreibung der Prüfpflicht
+  (z.B. "Wiederkehrende Prüfung und Wartung der Blitzschutzanlage gemäß
+  DIN EN 62305 und VDE 0185-305")
+- Vereinbarungen / Leistungen: Liste der vertraglichen Einzelleistungen
+  - "Sichtprüfung Fangeinrichtung und Ableitungen: Visuelle Kontrolle aller
+     Fangleitungen, Fangstangen und Ableitungen auf mechanische Beschädigungen,
+     Korrosion, Befestigung und Vollständigkeit"
+  - "Erdungswiderstandsmessung: Messung des Erdungswiderstands aller Erder gemäß
+     DIN EN 62305-3 und Dokumentation der Messwerte; Vergleich mit Grenzwerten"
+  - "Prüfung Trennstellen: Öffnen und Prüfen aller Trennstellen (Messschienen) zur
+     Kontrolle der Verbindungsqualität und des Übergangswiderstands"
+  - "Überspannungsschutz prüfen: Funktionsprüfung und Sichtkontrolle der installierten
+     Überspannungsschutzgeräte (SPD) in Unterverteilungen und an Einspeisepunkten"
+  - "Prüfprotokoll: Erstellung eines vollständigen Prüfberichts nach DIN EN 62305
+     mit Messwerten, Mängeldokumentation und Empfehlungen"
+- Wartungsintervall: z.B. "alle 4 Jahre" (Blitzschutzklasse III–IV), "alle 2 Jahre"
+  (Blitzschutzklasse I–II) gemäß DIN EN 62305-3
+- Laufzeit: { Startdatum (ISO), Enddatum (ISO) ODER "unbefristet",
+             Kuendigungsfrist: { frist (z.B. "3 Monate"),
+                                 zum (z.B. "Jahresende" | "Monatsende" | "Quartalsende") } }
+- Kosten: { Betrag (numerisch), Währung, Bezugseinheit
+           (z.B. "pro Prüfung" / "pro Wartungsintervall") }
+- Gerichtsstand: Ort
+- Unterschriften: Liste von { Rolle (Auftraggeber|Auftragnehmer),
+                              unterschrift_von, Ort, Datum (ISO) }
+
+OPTIONAL FIELDS (may be present)
+---------------------------------
+- Reaktionszeit_bei_Stoerung: z.B. "nach Vereinbarung"
+- Zusatzleistungen: Liste von Strings
+  (z.B. "Instandsetzung beschädigter Ableitungen", "Erneuerung Erder",
+  "Erstellung Blitzschutz-Bestandsplan")
+- Zahlungsbedingungen: Beschreibung (z.B. "14 Tage netto")
+- Haftungsklauseln: Kurzfassung der Haftungsregelung
+- Gewaehrleistungszeit: z.B. "12 Monate auf durchgeführte Arbeiten"
+- Preisanpassungsklausel: Beschreibung
+- Mehrwertsteuer: "zzgl. MwSt." | "inkl. MwSt."
+- Anlagen_Stueckzahl: Anzahl der Ableitungen oder zu prüfenden Komponenten
+- Blitzschutzklasse: Schutzklasse der Anlage nach DIN EN 62305
+  (z.B. "I", "II", "III", "IV")
+- Anzahl_Ableitungen: Gesamtanzahl der Ableitungen am Gebäude
+- Wiederholungspruefung_Intervall_Jahre: Prüfintervall in Jahren gemäß Blitzschutzklasse
+  und DIN EN 62305-3 (z.B. 1, 2 oder 4)
