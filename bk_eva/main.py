@@ -1,8 +1,8 @@
-import boto3
 import base64
 import subprocess
 from pathlib import Path
 
+import boto3
 from utils.render import extract_html_solutions_and_convert_to_pdf
 
 BEDROCK_REGION = "eu-central-1"
@@ -17,7 +17,13 @@ bedrock_client = boto3.client("bedrock-runtime", region_name=BEDROCK_REGION)
 
 doc_types = ["Wartungsprotokoll", "Wartungsvertrag"]
 
-system_types = ["Wärmepumpe", "Rauchwarnmelder", "Solaranlage", "Klimaanlage", "Lüftungsanlage"]
+system_types = [
+    "Wärmepumpe",
+    "Rauchwarnmelder",
+    "Solaranlage",
+    "Klimaanlage",
+    "Lüftungsanlage",
+]
 
 baseline_requirements = {
     "Wartungsprotokoll": [
@@ -25,7 +31,7 @@ baseline_requirements = {
         "Datum der Wartung",
         "Durchgeführte Arbeiten",
         "Bemerkungen",
-        "Unterschriften"
+        "Unterschriften",
     ],
     "Wartungsvertrag": [
         "Anlagentyp",
@@ -35,25 +41,55 @@ baseline_requirements = {
         "Vereinbarungen",
         "Laufzeit",
         "Kosten",
-        "Unterschriften"
-    ]
+        "Unterschriften",
+    ],
 }
+
 
 def load_pdf_as_base64(filepath):
     with open(filepath, "rb") as f:
         return base64.standard_b64encode(f.read()).decode("utf-8")
 
+
 # Convert from docx to pdf first if not already done
 if not (DATA_DIR / "Wartungsvertrag-Wärmepumpe-1.pdf").exists():
-    subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", str(DATA_DIR), str(DATA_DIR / "Wartungsvertrag-Wärmepumpe-1.docx")])
+    subprocess.run(
+        [
+            "libreoffice",
+            "--headless",
+            "--convert-to",
+            "pdf",
+            "--outdir",
+            str(DATA_DIR),
+            str(DATA_DIR / "Wartungsvertrag-Wärmepumpe-1.docx"),
+        ]
+    )
 if not (DATA_DIR / "Wartungsvertrag_für_Rauchwarnmelder-2.pdf").exists():
-    subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", str(DATA_DIR), str(DATA_DIR / "Wartungsvertrag_für_Rauchwarnmelder-2.docx")])
+    subprocess.run(
+        [
+            "libreoffice",
+            "--headless",
+            "--convert-to",
+            "pdf",
+            "--outdir",
+            str(DATA_DIR),
+            str(DATA_DIR / "Wartungsvertrag_für_Rauchwarnmelder-2.docx"),
+        ]
+    )
 
 # Load the PDF files and encode them in base64
-protocol_pdf_base64_1 = load_pdf_as_base64(DATA_DIR / "Wartungsprotokoll_Waermepumpe-1.pdf")
-protocol_pdf_base64_2 = load_pdf_as_base64(DATA_DIR / "Wartungsprotokoll-Rauchwarnmelder-2.pdf")
-contract_pdf_base64_1 = load_pdf_as_base64(DATA_DIR / "Wartungsvertrag-Wärmepumpe-1.pdf")
-contract_pdf_base64_2 = load_pdf_as_base64(DATA_DIR / "Wartungsvertrag_für_Rauchwarnmelder-2.pdf")
+protocol_pdf_base64_1 = load_pdf_as_base64(
+    DATA_DIR / "Wartungsprotokoll_Waermepumpe-1.pdf"
+)
+protocol_pdf_base64_2 = load_pdf_as_base64(
+    DATA_DIR / "Wartungsprotokoll-Rauchwarnmelder-2.pdf"
+)
+contract_pdf_base64_1 = load_pdf_as_base64(
+    DATA_DIR / "Wartungsvertrag-Wärmepumpe-1.pdf"
+)
+contract_pdf_base64_2 = load_pdf_as_base64(
+    DATA_DIR / "Wartungsvertrag_für_Rauchwarnmelder-2.pdf"
+)
 
 num_solutions = 5
 doc_type = "Wartungsvertrag"
@@ -120,23 +156,18 @@ messages = [
             {
                 "text": f"Here is the second seed document (base64 encoded PDF):\n\n{seed_docs[1]}"
             },
-            {
-                "text": prompt
-            }
-        ]
+            {"text": prompt},
+        ],
     }
 ]
 
 response = bedrock_client.converse(
     modelId=BEDROCK_MODEL_ID,
     messages=messages,
-    inferenceConfig={
-        'maxTokens': num_solutions * 5000,
-        'temperature': 0.7
-    }
+    inferenceConfig={"maxTokens": num_solutions * 5000, "temperature": 0.7},
 )
 
-response_text = response['output']['message']['content'][0]['text']
+response_text = response["output"]["message"]["content"][0]["text"]
 
 filename = f"generated_document_00_{doc_type}_{system_type}"
 filepath = str(OUTPUT_DIR / filename)

@@ -1,5 +1,6 @@
 from weasyprint import HTML
 
+
 # extract wrapped <HTML>...</HTML> tags and convert to PDF
 def extract_html_solutions_and_convert_to_pdf(html_content, filepath):
     solutions = []
@@ -15,13 +16,14 @@ def extract_html_solutions_and_convert_to_pdf(html_content, filepath):
         if end_index == -1:
             break
 
-        solution_html = html_content[start_index:end_index + len(end_tag)]
+        solution_html = html_content[start_index : end_index + len(end_tag)]
         solutions.append(solution_html)
 
         start_index = end_index + len(end_tag)
 
     for i, solution in enumerate(solutions):
-        convert_html_to_pdf(solution, filepath + f'_{i+1}.pdf')
+        convert_html_to_pdf(solution, filepath + f"_{i + 1}.pdf")
+
 
 def convert_html_to_pdf(html_content, pdf_path):
     try:

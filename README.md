@@ -123,8 +123,6 @@ python fill_template.py <html_template> <json_path> [<output_path>]
 
 | Scenario file | Anomaly |
 |---|---|
-| `date_mismatch` | Protocol dates don't align with contract frequency |
-| `device_type_mismatch` | `device_type` disagrees across Device / Contract / Protocol |
 | `case2` | Multiple contracts for one physical device |
 | `case3_protocol` | Protocol date falls outside active contract period |
 | `case3_vertrag` | Contract data aligned to case3 building/device |
