@@ -1,0 +1,528 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Wartungsvertrag Blitzschutzanlage</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 40px 60px;
+      line-height: 1.5;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 3px solid #1a1a1a;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+    .company-header h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18pt;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+    }
+    .company-header p {
+      font-size: 9pt;
+      color: #444;
+      margin-top: 3px;
+    }
+    .page-number {
+      text-align: right;
+      font-size: 9pt;
+      color: #666;
+      padding-top: 4px;
+    }
+    .doc-title {
+      text-align: center;
+      margin: 20px 0 8px 0;
+    }
+    .doc-title h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 15pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1a1a1a;
+    }
+    .doc-title p {
+      font-size: 9pt;
+      color: #555;
+      margin-top: 4px;
+    }
+    hr.section-rule {
+      border: none;
+      border-top: 1.5px solid #b0b0b0;
+      margin: 18px 0 14px 0;
+    }
+    hr.thin-rule {
+      border: none;
+      border-top: 1px solid #d0d0d0;
+      margin: 10px 0 8px 0;
+    }
+    .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 10pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.data-table td {
+      padding: 5px 8px;
+      vertical-align: top;
+      font-size: 10.5pt;
+    }
+    table.data-table td.label {
+      width: 38%;
+      font-weight: bold;
+      color: #2c2c2c;
+      white-space: nowrap;
+    }
+    table.data-table td.value {
+      width: 62%;
+      color: #1a1a1a;
+    }
+    table.data-table tr:nth-child(even) td {
+      background-color: #f5f5f5;
+    }
+    table.two-col {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.two-col td {
+      vertical-align: top;
+      width: 50%;
+      padding: 0 10px 0 0;
+    }
+    table.two-col td:last-child {
+      padding-right: 0;
+      padding-left: 10px;
+      border-left: 1px solid #d0d0d0;
+    }
+    .placeholder {
+      color: #1a3a6b;
+      font-style: italic;
+    }
+    ol.leistungen {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+    ol.leistungen li {
+      margin-bottom: 7px;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+    ul.zusatz {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+    ul.zusatz li {
+      margin-bottom: 5px;
+      font-size: 10.5pt;
+    }
+    .text-block {
+      font-size: 10.5pt;
+      line-height: 1.6;
+      text-align: justify;
+      color: #1a1a1a;
+    }
+    .sig-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    .sig-table td {
+      width: 50%;
+      vertical-align: top;
+      padding: 0 20px 0 0;
+    }
+    .sig-table td:last-child {
+      padding-left: 20px;
+      padding-right: 0;
+      border-left: 1px solid #d0d0d0;
+    }
+    .sig-block .sig-label {
+      font-weight: bold;
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      color: #2c2c2c;
+    }
+    .sig-block table.data-table td.label {
+      width: 45%;
+    }
+    .sig-block table.data-table td.value {
+      width: 55%;
+    }
+    .sig-line {
+      border-top: 1px solid #1a1a1a;
+      margin-top: 36px;
+      padding-top: 4px;
+      font-size: 9pt;
+      color: #555;
+    }
+    .footer {
+      margin-top: 30px;
+      border-top: 2px solid #1a1a1a;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer .footer-col {
+      font-size: 8.5pt;
+      color: #444;
+      line-height: 1.6;
+    }
+    .footer .footer-col strong {
+      font-size: 9pt;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 8pt;
+      padding: 2px 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .section-wrapper {
+      margin-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="company-header">
+      <h1>Blitzschutz Nord GmbH</h1>
+      <p>Gewerbepark Ost 14 &nbsp;|&nbsp; 13059 Berlin &nbsp;|&nbsp; Tel.: +49 30 92781650</p>
+    </div>
+    <div class="page-number">
+      Seite 1 von 1<br />
+      <span style="font-size:8pt; color:#888;">Dokument-Typ: Wartungsvertrag</span>
+    </div>
+  </div>
+
+  <!-- DOCUMENT TITLE -->
+  <div class="doc-title">
+    <h2>Wartungsvertrag &ndash; Blitzschutzanlage</h2>
+    <p>Vertrag über die wiederkehrende Prüfung und Instandhaltung einer Blitzschutzanlage</p>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 1: VERTRAGSPARTEIEN -->
+  <div class="section-wrapper">
+    <div class="section-title">1. Vertragsparteien</div>
+    <table class="two-col">
+      <tr>
+        <td>
+          <div style="margin-bottom:6px;"><span class="badge">Auftraggeber</span></div>
+          <table class="data-table">
+            <tr>
+              <td class="label">Name</td>
+              <td class="value placeholder">Tech Plaza Berlin Verwaltungs GmbH</td>
+            </tr>
+            <tr>
+              <td class="label">Anschrift</td>
+              <td class="value placeholder">Gewerbepark Ost 14, 13059 Berlin</td>
+            </tr>
+            <tr>
+              <td class="label">Telefon</td>
+              <td class="value placeholder">+49 30 92781650</td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <div style="margin-bottom:6px;"><span class="badge">Auftragnehmer</span></div>
+          <table class="data-table">
+            <tr>
+              <td class="label">Firma</td>
+              <td class="value placeholder">Blitzschutz Nord GmbH</td>
+            </tr>
+            <tr>
+              <td class="label">Anschrift</td>
+              <td class="value placeholder">Gewerbepark Ost 14, 13059 Berlin</td>
+            </tr>
+            <tr>
+              <td class="label">Telefon</td>
+              <td class="value placeholder">+49 30 92781650</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 2: OBJEKT DER WARTUNG -->
+  <div class="section-wrapper">
+    <div class="section-title">2. Objekt der Wartung</div>
+    <table class="data-table">
+      <tr>
+        <td class="label">Gebäudebezeichnung</td>
+        <td class="value placeholder">Tech Plaza Berlin</td>
+      </tr>
+      <tr>
+        <td class="label">Adresse</td>
+        <td class="value placeholder">Musterstraße 1, 10117 Berlin</td>
+      </tr>
+      <tr>
+        <td class="label">Gebäude-ID</td>
+        <td class="value placeholder">BLDG-EU-001</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 3: ANLAGENTYP -->
+  <div class="section-wrapper">
+    <div class="section-title">3. Anlagentyp und technische Angaben</div>
+    <table class="data-table">
+      <tr>
+        <td class="label">Typ der Anlage</td>
+        <td class="value placeholder">Blitzschutzanlage</td>
+      </tr>
+      <tr>
+        <td class="label">Hersteller</td>
+        <td class="value placeholder">Dehn + Söhne</td>
+      </tr>
+      <tr>
+        <td class="label">Ausführungsart</td>
+        <td class="value placeholder">isoliertes System mit separater Ableitung</td>
+      </tr>
+      <tr>
+        <td class="label">Anzahl Ableitungen</td>
+        <td class="value placeholder">4</td>
+      </tr>
+      <tr>
+        <td class="label">Blitzschutzklasse</td>
+        <td class="value placeholder">I</td>
+      </tr>
+      <tr>
+        <td class="label">Wiederholungsprüfung (Intervall)</td>
+        <td class="value placeholder">1 Jahre</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 4: GEGENSTAND DES VERTRAGES -->
+  <div class="section-wrapper">
+    <div class="section-title">4. Gegenstand des Vertrages</div>
+    <p class="text-block placeholder">Wiederkehrende Prüfung und Wartung der Blitzschutzanlage (DEHNventil M TNS 255) am Objekt Tech Plaza Berlin gemäß DIN EN 62305 (Teile 1–4) einschließlich vollständiger Protokollierung aller Messwerte und Mängelbefunde.</p>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 5: VEREINBARTE LEISTUNGEN -->
+  <div class="section-wrapper">
+    <div class="section-title">5. Vereinbarte Leistungen</div>
+    <ol class="leistungen">
+      <li class="placeholder">Sichtprüfung Fangeinrichtung und Ableitungen: Visuelle Kontrolle aller Fangleitungen, Fangstangen und Ableitungen auf mechanische Beschädigungen, Korrosion, Befestigung und Vollständigkeit</li>
+      <li class="placeholder">Erdungswiderstandsmessung: Messung des Erdungswiderstands aller Erder gemäß DIN EN 62305-3 und Dokumentation der Messwerte; Vergleich mit Grenzwerten</li>
+      <li class="placeholder">Prüfung Trennstellen: Öffnen und Prüfen aller Trennstellen (Messschienen) zur Kontrolle der Verbindungsqualität und des Übergangswiderstands</li>
+      <li class="placeholder">Überspannungsschutz prüfen: Funktionsprüfung und Sichtkontrolle der installierten Überspannungsschutzgeräte (SPD) in Unterverteilungen und an Einspeisepunkten</li>
+      <li class="placeholder">Prüfprotokoll: Erstellung eines vollständigen Prüfberichts nach DIN EN 62305 mit Messwerten, Mängeldokumentation und Empfehlungen</li>
+    </ol>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 6: ZUSATZLEISTUNGEN -->
+  <div class="section-wrapper">
+    <div class="section-title">6. Zusatzleistungen (optional / nach Bedarf)</div>
+    <ul class="zusatz">
+      <li class="placeholder">Instandsetzung beschädigter Ableitungen nach Befund</li>
+      <li class="placeholder">Erneuerung korrodierter Erder auf gesonderte Anforderung</li>
+      <li class="placeholder">Erstellung und Aktualisierung des Blitzschutz-Bestandsplans</li>
+    </ul>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 7: WARTUNGSINTERVALL & LAUFZEIT -->
+  <div class="section-wrapper">
+    <div class="section-title">7. Wartungsintervall und Vertragslaufzeit</div>
+    <table class="data-table">
+      <tr>
+        <td class="label">Wartungsintervall</td>
+        <td class="value placeholder">alle 1 Jahr (Blitzschutzklasse I gemäß DIN EN 62305-3)</td>
+      </tr>
+      <tr>
+        <td class="label">Vertragsbeginn</td>
+        <td class="value placeholder">2023-08-10</td>
+      </tr>
+      <tr>
+        <td class="label">Vertragsende</td>
+        <td class="value placeholder">unbefristet</td>
+      </tr>
+      <tr>
+        <td class="label">Kündigungsfrist</td>
+        <td class="value placeholder">3 Monate zum Jahresende</td>
+      </tr>
+      <tr>
+        <td class="label">Reaktionszeit bei Störung</td>
+        <td class="value placeholder">nach Vereinbarung, reguläre Terminplanung innerhalb von 5 Werktagen</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 8: KOSTEN & ZAHLUNGSBEDINGUNGEN -->
+  <div class="section-wrapper">
+    <div class="section-title">8. Kosten und Zahlungsbedingungen</div>
+    <table class="data-table">
+      <tr>
+        <td class="label">Wartungspreis (netto)</td>
+        <td class="value placeholder">2100.0 EUR pro Wartungsintervall</td>
+      </tr>
+      <tr>
+        <td class="label">Mehrwertsteuer</td>
+        <td class="value placeholder">zzgl. MwSt.</td>
+      </tr>
+      <tr>
+        <td class="label">Zahlungsbedingungen</td>
+        <td class="value placeholder">Rechnung nach Durchführung der Wartung, zahlbar innerhalb von 30 Tagen netto ohne Abzug</td>
+      </tr>
+      <tr>
+        <td class="label">Preisanpassungsklausel</td>
+        <td class="value placeholder">Der Wartungspreis kann einmal jährlich zum 1. Januar entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamts angepasst werden, maximal jedoch um 5 % gegenüber dem Vorjahrespreis. Die Anpassung ist dem Auftraggeber mindestens 6 Wochen vor Inkrafttreten schriftlich mitzuteilen.</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 9: GEWÄHRLEISTUNG & HAFTUNG -->
+  <div class="section-wrapper">
+    <div class="section-title">9. Gewährleistung und Haftung</div>
+    <table class="data-table">
+      <tr>
+        <td class="label">Gewährleistungszeit</td>
+        <td class="value placeholder">24 Monate auf durchgeführte Arbeiten und ausgetauschte Bauteile</td>
+      </tr>
+      <tr>
+        <td class="label">Haftungsklauseln</td>
+        <td class="value placeholder">Der Auftragnehmer haftet für Schäden, die nachweislich auf Ausführungsfehler bei der Wartung zurückzuführen sind, begrenzt auf den Auftragswert der jeweiligen Wartungsmaßnahme. Eine weitergehende Haftung für mittelbare Schäden oder Folgeschäden ist ausgeschlossen, soweit gesetzlich zulässig.</td>
+      </tr>
+    </table>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 10: GERICHTSSTAND -->
+  <div class="section-wrapper">
+    <div class="section-title">10. Gerichtsstand und anwendbares Recht</div>
+    <p class="text-block">
+      Gerichtsstand für alle Streitigkeiten aus diesem Vertrag ist
+      <span class="placeholder">Berlin</span>.
+      Es gilt das Recht der Bundesrepublik Deutschland.
+    </p>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 11: UNTERSCHRIFTEN -->
+  <div class="section-wrapper">
+    <div class="section-title">11. Vertragsunterzeichnung</div>
+    <table class="sig-table">
+      <tr>
+        <td>
+          <div class="sig-block">
+            <div class="sig-label">Auftraggeber</div>
+            <table class="data-table">
+              <tr>
+                <td class="label">Rolle</td>
+                <td class="value placeholder">Auftraggeber</td>
+              </tr>
+              <tr>
+                <td class="label">Unterzeichnet von</td>
+                <td class="value placeholder">Markus Steinberg</td>
+              </tr>
+              <tr>
+                <td class="label">Ort</td>
+                <td class="value placeholder">Berlin</td>
+              </tr>
+              <tr>
+                <td class="label">Datum</td>
+                <td class="value placeholder">2023-07-15</td>
+              </tr>
+            </table>
+            <div class="sig-line">Rechtsverbindliche Unterschrift &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          </div>
+        </td>
+        <td>
+          <div class="sig-block">
+            <div class="sig-label">Auftragnehmer</div>
+            <table class="data-table">
+              <tr>
+                <td class="label">Rolle</td>
+                <td class="value placeholder">Auftragnehmer</td>
+              </tr>
+              <tr>
+                <td class="label">Unterzeichnet von</td>
+                <td class="value placeholder">Petra Wolffram</td>
+              </tr>
+              <tr>
+                <td class="label">Ort</td>
+                <td class="value placeholder">Berlin</td>
+              </tr>
+              <tr>
+                <td class="label">Datum</td>
+                <td class="value placeholder">2023-07-18</td>
+              </tr>
+            </table>
+            <div class="sig-line">Rechtsverbindliche Unterschrift &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-col">
+      <strong>Auftragnehmer</strong><br />
+      Blitzschutz Nord GmbH<br />
+      Gewerbepark Ost 14, 13059 Berlin<br />
+      Tel.: +49 30 92781650
+    </div>
+    <div class="footer-col" style="text-align:center;">
+      <strong>Normen &amp; Vorschriften</strong><br />
+      DIN EN 62305 (Teile 1&ndash;4)<br />
+      VDE 0185-305
+    </div>
+    <div class="footer-col" style="text-align:right;">
+      <strong>Dokumenttyp</strong><br />
+      Wartungsvertrag Blitzschutz<br />
+      Vertragsversion: 1.0<br />
+      <span style="color:#888;">Seite 1 von 1</span>
+    </div>
+  </div>
+
+</body>

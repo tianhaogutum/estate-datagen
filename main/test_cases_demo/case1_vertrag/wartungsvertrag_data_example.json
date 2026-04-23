@@ -1,0 +1,78 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Blitzschutzanlage",
+      "Hersteller": "Dehn + Söhne GmbH & Co. KG",
+      "Ausführungsart": "isoliertes System mit separater Ableitung",
+      "Anzahl_Ableitungen": 6
+    },
+    "Auftraggeber": {
+      "Name": "Tech Plaza Berlin Verwaltungs GmbH",
+      "Anschrift": "Musterstraße 1, 10117 Berlin",
+      "Telefon": "+49 30 40501200"
+    },
+    "Auftragnehmer": {
+      "Firma": "Blitzschutz Nord GmbH",
+      "Anschrift": "Gewerbepark Ost 14, 13059 Berlin",
+      "Telefon": "+49 30 92781650"
+    },
+    "Objekt_der_Wartung": {
+      "Gebäudebezeichnung": "Tech Plaza Berlin",
+      "Adresse": "Musterstraße 1, 10117 Berlin",
+      "Gebäude_ID": "BLDG-EU-001"
+    },
+    "Gegenstand_des_Vertrages": "Wiederkehrende Prüfung und Wartung der Blitzschutzanlage am Objekt Tech Plaza Berlin gemäß DIN EN 62305 (Teile 1–4) und VDE 0185-305 einschließlich vollständiger Protokollierung aller Messwerte und Mängelbefunde.",
+    "Vereinbarungen_Leistungen": [
+      "Sichtprüfung Fangeinrichtung und Ableitungen: Visuelle Kontrolle aller Fangleitungen, Fangstangen und Ableitungen auf mechanische Beschädigungen, Korrosion, Befestigung und Vollständigkeit",
+      "Erdungswiderstandsmessung: Messung des Erdungswiderstands aller Erder gemäß DIN EN 62305-3 und Dokumentation der Messwerte; Vergleich mit Grenzwerten",
+      "Prüfung Trennstellen: Öffnen und Prüfen aller Trennstellen (Messschienen) zur Kontrolle der Verbindungsqualität und des Übergangswiderstands",
+      "Überspannungsschutz prüfen: Funktionsprüfung und Sichtkontrolle der installierten Überspannungsschutzgeräte (SPD) in Unterverteilungen und an Einspeisepunkten",
+      "Prüfprotokoll: Erstellung eines vollständigen Prüfberichts nach DIN EN 62305 mit Messwerten, Mängeldokumentation und Empfehlungen"
+    ],
+    "Wartungsintervall": "alle 2 Jahre (Blitzschutzklasse II gemäß DIN EN 62305-3)",
+    "Laufzeit": {
+      "Startdatum": "2025-01-01",
+      "Enddatum": "unbefristet",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1850.0,
+      "Währung": "EUR",
+      "Bezugseinheit": "pro Wartungsintervall"
+    },
+    "Gerichtsstand": "Berlin",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Markus Steinberg",
+        "Ort": "Berlin",
+        "Datum": "2024-12-10"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Petra Wolffram",
+        "Ort": "Berlin",
+        "Datum": "2024-12-12"
+      }
+    ]
+  },
+  "optional": {
+    "Blitzschutzklasse": "II",
+    "Anzahl_Ableitungen": 6,
+    "Wiederholungspruefung_Intervall_Jahre": 2,
+    "Zusatzleistungen": [
+      "Instandsetzung beschädigter Ableitungen nach Befund",
+      "Erneuerung korrodierter Erder auf gesonderte Anforderung",
+      "Erstellung und Aktualisierung des Blitzschutz-Bestandsplans"
+    ],
+    "Zahlungsbedingungen": "Rechnung nach Durchführung der Wartung, zahlbar innerhalb von 14 Tagen netto ohne Abzug",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die nachweislich auf Ausführungsfehler bei der Wartung zurückzuführen sind, begrenzt auf den Auftragswert der jeweiligen Wartungsmaßnahme. Eine weitergehende Haftung für mittelbare Schäden oder Folgeschäden ist ausgeschlossen, soweit gesetzlich zulässig.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Arbeiten und ausgetauschte Bauteile",
+    "Preisanpassungsklausel": "Der Wartungspreis kann einmal jährlich zum 1. Januar entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamts angepasst werden, maximal jedoch um 5 % gegenüber dem Vorjahrespreis. Die Anpassung ist dem Auftraggeber mindestens 6 Wochen vor Inkrafttreten schriftlich mitzuteilen.",
+    "Reaktionszeit_bei_Stoerung": "nach Vereinbarung, reguläre Terminplanung innerhalb von 10 Werktagen"
+  }
+}

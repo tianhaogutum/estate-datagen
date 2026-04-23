@@ -1,0 +1,396 @@
+@prefix :       <https://example.org/wartung#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+
+#####################################################################
+# EconomicUnit
+#####################################################################
+
+:EconomicUnitShape a sh:NodeShape ;
+    sh:targetClass :EconomicUnit ;
+    sh:property [
+        sh:path :name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :economicUnitType ;
+        sh:datatype xsd:string ;
+        sh:in ( "Wirtschaftseinheit" "Firmengelände" "Quartier" ) ;
+        sh:maxCount 1 ;
+    ] .
+
+#####################################################################
+# Building
+#####################################################################
+
+:BuildingShape a sh:NodeShape ;
+    sh:targetClass :Building ;
+    sh:property [
+        sh:path :economicUnit ;
+        sh:class :EconomicUnit ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :address ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+#####################################################################
+# Device
+#####################################################################
+
+:DeviceShape a sh:NodeShape ;
+    sh:targetClass :Device ;
+    sh:property [
+        sh:path :building ;
+        sh:class :Building ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :deviceType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "WAERMEPUMPE" "HEIZKESSEL" "RAUCHMELDER" "SPRINKLER"
+                "AUFZUG" "KLIMAANLAGE" "ELEKTRISCH_ALLG" ) ;
+    ] .
+
+#####################################################################
+# ServiceProvider
+#####################################################################
+
+:ServiceProviderShape a sh:NodeShape ;
+    sh:targetClass :ServiceProvider ;
+    sh:property [
+        sh:path :name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+#####################################################################
+# MaintenanceContract
+#####################################################################
+
+:MaintenanceContractShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceContract ;
+    sh:property [
+        sh:path :contractBuilding ;
+        sh:class :Building ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :serviceProvider ;
+        sh:class :ServiceProvider ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :deviceType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "WAERMEPUMPE" "HEIZKESSEL" "RAUCHMELDER" "SPRINKLER"
+                "AUFZUG" "KLIMAANLAGE" "ELEKTRISCH_ALLG" ) ;
+    ] ;
+    sh:property [
+        sh:path :contractDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :contractStart ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :contractEnd ;
+        sh:datatype xsd:date ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :terminationPeriodMonths ;
+        sh:datatype xsd:integer ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :terminationDeadlineRule ;
+        sh:datatype xsd:string ;
+        sh:in ( "END_OF_YEAR" "END_OF_MONTH" "ANNIVERSARY" ) ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :maintenanceFrequency ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "MONTHLY" "QUARTERLY" "SEMI_ANNUAL" "ANNUAL" "BIENNIAL" ) ;
+    ] ;
+    sh:property [
+        sh:path :costPerMaintenance ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    # contract_start >= contract_date
+    sh:sparql [
+        sh:message "contract_start must be >= contract_date" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+            sh:declare [ sh:prefix "xsd" ; sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?contractDate ?contractStart
+            WHERE {
+              $this ex:contractDate  ?contractDate .
+              $this ex:contractStart ?contractStart .
+              FILTER (?contractStart < ?contractDate)
+            }
+        """ ;
+    ] ;
+    # contract_end > contract_start  (when set)
+    sh:sparql [
+        sh:message "contract_end must be > contract_start" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?contractStart ?contractEnd
+            WHERE {
+              $this ex:contractStart ?contractStart .
+              $this ex:contractEnd   ?contractEnd .
+              FILTER (?contractEnd <= ?contractStart)
+            }
+        """ ;
+    ] .
+
+#####################################################################
+# MaintenanceProtocol
+#####################################################################
+
+:MaintenanceProtocolShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceProtocol ;
+    sh:property [
+        sh:path :contract ;
+        sh:class :MaintenanceContract ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :device ;
+        sh:class :Device ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :deviceType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "WAERMEPUMPE" "HEIZKESSEL" "RAUCHMELDER" "SPRINKLER"
+                "AUFZUG" "KLIMAANLAGE" "ELEKTRISCH_ALLG" ) ;
+    ] ;
+    sh:property [
+        sh:path :maintenanceDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :maintenanceType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "WARTUNG" "INSPEKTION" "PRUEFUNG" "REPARATUR" "ERSTABNAHME" ) ;
+    ] ;
+    sh:property [
+        sh:path :performedBy ;
+        sh:class :ServiceProvider ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :resultDeficiency ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+    ] ;
+    # deficiency_type required iff result_deficiency = true
+    sh:sparql [
+        sh:message "deficiency_type is required when result_deficiency = true" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this
+            WHERE {
+              $this ex:resultDeficiency true .
+              FILTER NOT EXISTS { $this ex:deficiencyType ?d }
+            }
+        """ ;
+    ] ;
+    sh:property [
+        sh:path :deficiencyType ;
+        sh:datatype xsd:string ;
+        sh:in ( "MINOR" "MAJOR" "CRITICAL" ) ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :status ;
+        sh:datatype xsd:string ;
+        sh:in ( "COMPLETED" "MISSED" ) ;
+        sh:maxCount 1 ;
+    ] .
+
+#####################################################################
+# Coherence Rule 1 — device_type must be identical across
+# Device, MaintenanceContract and MaintenanceProtocol
+#####################################################################
+
+:DeviceTypeCoherenceShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceProtocol ;
+    sh:sparql [
+        sh:message "device_type must be identical across Device, Contract and Protocol" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?protoType ?contractType ?deviceType
+            WHERE {
+              $this ex:deviceType ?protoType ;
+                    ex:contract   ?c ;
+                    ex:device     ?d .
+              ?c ex:deviceType ?contractType .
+              ?d ex:deviceType ?deviceType .
+              FILTER (?protoType != ?contractType || ?protoType != ?deviceType)
+            }
+        """ ;
+    ] .
+
+#####################################################################
+# Coherence Rule 2 — Protocol dates must match the contract schedule
+#   - maintenance_date must lie within [contract_start, contract_end]
+#   - maintenance_date must align with contract_start + k * interval
+#     (±14 days tolerance)
+#####################################################################
+
+:ProtocolDateInRangeShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceProtocol ;
+    sh:sparql [
+        sh:message "maintenance_date must be between contract_start and contract_end" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?mdate ?cstart ?cend
+            WHERE {
+              $this ex:maintenanceDate ?mdate ;
+                    ex:contract ?c .
+              ?c ex:contractStart ?cstart .
+              OPTIONAL { ?c ex:contractEnd ?cend }
+              FILTER (
+                ?mdate < ?cstart ||
+                (BOUND(?cend) && ?mdate > ?cend)
+              )
+            }
+        """ ;
+    ] .
+
+:ProtocolDateAlignmentShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceProtocol ;
+    sh:sparql [
+        sh:message "maintenance_date must align with contract_start + k*interval (±14 days tolerance)" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex"  ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+            sh:declare [ sh:prefix "xsd" ; sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ] ;
+        ] ;
+        # Compute elapsed months via YEAR/MONTH/DAY extraction (rdflib does not
+        # support casting xsd:duration to xsd:double, so we avoid date subtraction).
+        # elapsedMonths ≈ 12*Δyear + Δmonth + Δday/30.4375
+        # delta_days = (elapsedMonths - k*interval) * 30.4375
+        sh:select """
+            SELECT $this ?mdate ?cstart ?freq ?intervalMonths ?deltaDays
+            WHERE {
+              $this ex:maintenanceDate ?mdate ;
+                    ex:contract ?c .
+              ?c ex:contractStart ?cstart ;
+                 ex:maintenanceFrequency ?freq .
+              BIND (
+                IF(?freq = "MONTHLY",     1,
+                IF(?freq = "QUARTERLY",   3,
+                IF(?freq = "SEMI_ANNUAL", 6,
+                IF(?freq = "ANNUAL",     12,
+                IF(?freq = "BIENNIAL",   24, 0))))) AS ?intervalMonths )
+              FILTER (?intervalMonths > 0)
+
+              BIND ( xsd:double(12 * (YEAR(?mdate) - YEAR(?cstart))
+                                + (MONTH(?mdate) - MONTH(?cstart)))
+                     + xsd:double(DAY(?mdate) - DAY(?cstart)) / 30.4375
+                     AS ?elapsedMonths )
+              BIND ( ROUND(?elapsedMonths / ?intervalMonths) AS ?k )
+              BIND ( ABS(?elapsedMonths - ?k * ?intervalMonths) * 30.4375 AS ?deltaDays )
+              FILTER (?deltaDays > 14.0)
+            }
+        """ ;
+    ] .
+
+#####################################################################
+# Coherence Rule 3 — Company coherence (warning)
+# Protocol.performed_by should match Contract.service_provider;
+# substitutions are allowed but must be noted.
+#####################################################################
+
+:CompanyCoherenceShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceProtocol ;
+    sh:sparql [
+        sh:severity sh:Warning ;
+        sh:message "performed_by differs from contract.service_provider — substitution should be noted" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex" ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?performed ?expected
+            WHERE {
+              $this ex:performedBy ?performed ;
+                    ex:contract ?c .
+              ?c ex:serviceProvider ?expected .
+              FILTER (?performed != ?expected)
+            }
+        """ ;
+    ] .
+
+#####################################################################
+# Coherence Rule 4 — No overlapping active contracts (warning)
+# For a given (building, device_type), two contracts must not overlap
+# in their [contract_start, contract_end] intervals.
+# (contract_end unset is treated as open-ended.)
+#####################################################################
+
+:ContractOverlapShape a sh:NodeShape ;
+    sh:targetClass :MaintenanceContract ;
+    sh:sparql [
+        sh:severity sh:Warning ;
+        sh:message "Overlapping active contracts for the same building + device_type" ;
+        sh:prefixes [
+            sh:declare [ sh:prefix "ex"  ; sh:namespace "https://example.org/wartung#"^^xsd:anyURI ] ;
+            sh:declare [ sh:prefix "xsd" ; sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ] ;
+        ] ;
+        sh:select """
+            SELECT $this ?other
+            WHERE {
+              $this ex:contractBuilding ?b ;
+                    ex:deviceType       ?dt ;
+                    ex:contractStart    ?s1 .
+              OPTIONAL { $this ex:contractEnd ?e1 }
+
+              ?other ex:contractBuilding ?b ;
+                     ex:deviceType       ?dt ;
+                     ex:contractStart    ?s2 .
+              OPTIONAL { ?other ex:contractEnd ?e2 }
+
+              FILTER (STR($this) < STR(?other))
+              # intervals overlap iff s1 <= e2 (or e2 unset) AND s2 <= e1 (or e1 unset)
+              FILTER ( (!BOUND(?e2) || ?s1 <= ?e2) &&
+                       (!BOUND(?e1) || ?s2 <= ?e1) )
+            }
+        """ ;
+    ] .

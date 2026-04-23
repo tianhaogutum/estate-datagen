@@ -1,0 +1,177 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Blitzschutzanlage",
+      "Hersteller": "OBO Bettermann",
+      "Modell": "Modell 2024",
+      "Seriennummer": "SN-ABC-123",
+      "Softwarestand": "2024.1.0",
+      "Anzahl": 1
+    },
+    "Anlagenstandort": {
+      "Adresse": "Reeperbahn 1, 20359 Hamburg",
+      "Objekttyp": "Gewerblich"
+    },
+    "Datum_der_Wartung": "2026-04-23",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Sichtprüfung Fangeinrichtung",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Messung Erdungswiderstand",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Kontrolle Überspannungsschutzgeräte (SPD)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Prüfung Ableitungsanlage auf Korrosion und mechanische Beschädigung",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Kontrolle Trennungsabstand und Potentialausgleich",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Prüfung Erdungsanlage auf festen Sitz und Durchgängigkeit",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Sichtprüfung Verbindungselemente und Halterungen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Dokumentation Messwerte und Prüfprotokoll",
+        "Ergebnis": "ja"
+      },
+      {
+        "Arbeitspunkt": "Kontrolle innerer Blitzschutz (Schirmung, Bonding)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Abschlusskontrolle Gesamtanlage",
+        "Ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Anlage in ordnungsgemäßem Zustand am Standort Hamburg. Alle Prüfpunkte unauffällig. Anlage läuft im Normalbetrieb.",
+    "Wartungsergebnis": "erfolgreich",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "Blitzschutz Technik Nord GmbH",
+      "KD_Techniker": "Thomas Müller",
+      "Strasse": "Hauptstraße 5",
+      "PLZ": "10317",
+      "Ort": "Berlin",
+      "Tel": "+49 30 11122233",
+      "EMail": "service@blitzschutz-nord.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Techniker",
+        "Unterschrift_von": "Thomas Müller",
+        "Datum": "2026-04-23"
+      },
+      {
+        "Rolle": "Kunde",
+        "Unterschrift_von": "Hausverwaltung Mitte",
+        "Datum": "2026-04-23"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Hausverwaltung Mitte",
+      "Anschrift": "Reeperbahn 1, 20359 Hamburg"
+    },
+    "Naechster_Wartungstermin": "2027-04-23",
+    "Datum_Inbetriebnahme": "2021-06-15",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Überspannungsschutzgerät SPD Typ 2",
+        "Menge": 1
+      },
+      {
+        "Bezeichnung": "Verbindungsklemme Edelstahl V4A",
+        "Menge": 4
+      },
+      {
+        "Bezeichnung": "Fangstange 1,5 m verzinkt",
+        "Menge": 1
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Erdungswiderstand",
+        "Wert": 3.2,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Widerstand Ableitung 1",
+        "Wert": 0.12,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Widerstand Ableitung 2",
+        "Wert": 0.14,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Widerstand Potentialausgleich",
+        "Wert": 0.08,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Ableitwiderstand SPD",
+        "Wert": 1.5,
+        "Einheit": "MΩ"
+      },
+      {
+        "Bezeichnung": "Stoßstromtragfähigkeit SPD",
+        "Wert": 25.0,
+        "Einheit": "kA"
+      },
+      {
+        "Bezeichnung": "Schutzpegel SPD",
+        "Wert": 1.5,
+        "Einheit": "kV"
+      },
+      {
+        "Bezeichnung": "Trennungsabstand",
+        "Wert": 0.9,
+        "Einheit": "m"
+      },
+      {
+        "Bezeichnung": "Leiterwiderstand Fangeinrichtung",
+        "Wert": 0.05,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Gesamtwiderstand Blitzschutzsystem",
+        "Wert": 3.4,
+        "Einheit": "Ω"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_nach_EU_517_2014": false,
+      "Kaeltemittelart": "",
+      "Kaeltemittelfuellmenge_kg": 0.0,
+      "Resultat_Lecksuche_g_a": 0,
+      "Wiederholungspruefung_erforderlich": false
+    },
+    "Historie": [
+      {
+        "Komponente": "Fangeinrichtung",
+        "Laufzeit_h": 0
+      },
+      {
+        "Komponente": "Erdungsanlage",
+        "Laufzeit_h": 0
+      },
+      {
+        "Komponente": "SPD Typ 2",
+        "Laufzeit_h": 0
+      }
+    ]
+  }
+}

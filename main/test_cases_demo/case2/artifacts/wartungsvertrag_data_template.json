@@ -1,0 +1,78 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "<Typ>",
+      "Hersteller": "<Hersteller>",
+      "Ausführungsart": "<Ausführungsart>",
+      "Anzahl_Ableitungen": "<Anzahl_Ableitungen>"
+    },
+    "Auftraggeber": {
+      "Name": "<Name>",
+      "Anschrift": "<Anschrift>",
+      "Telefon": "<Telefon>"
+    },
+    "Auftragnehmer": {
+      "Firma": "<Firma>",
+      "Anschrift": "<Anschrift>",
+      "Telefon": "<Telefon>"
+    },
+    "Objekt_der_Wartung": {
+      "Gebäudebezeichnung": "<Gebäudebezeichnung>",
+      "Adresse": "<Adresse>",
+      "Gebäude_ID": "<Gebäude_ID>"
+    },
+    "Gegenstand_des_Vertrages": "<Gegenstand_des_Vertrages>",
+    "Vereinbarungen_Leistungen": [
+      "<Vereinbarungen_Leistungen_1>",
+      "<Vereinbarungen_Leistungen_2>",
+      "<Vereinbarungen_Leistungen_3>",
+      "<Vereinbarungen_Leistungen_4>",
+      "<Vereinbarungen_Leistungen_5>"
+    ],
+    "Wartungsintervall": "<Wartungsintervall>",
+    "Laufzeit": {
+      "Startdatum": "<Startdatum>",
+      "Enddatum": "<Enddatum>",
+      "Kuendigungsfrist": {
+        "Frist": "<Frist>",
+        "Zum": "<Zum>"
+      }
+    },
+    "Kosten": {
+      "Betrag": "<Betrag>",
+      "Währung": "<Währung>",
+      "Bezugseinheit": "<Bezugseinheit>"
+    },
+    "Gerichtsstand": "<Gerichtsstand>",
+    "Unterschriften": [
+      {
+        "Rolle": "<Rolle_1>",
+        "Unterschrift_von": "<Unterschrift_von_1>",
+        "Ort": "<Ort_1>",
+        "Datum": "<Datum_1>"
+      },
+      {
+        "Rolle": "<Rolle_2>",
+        "Unterschrift_von": "<Unterschrift_von_2>",
+        "Ort": "<Ort_2>",
+        "Datum": "<Datum_2>"
+      }
+    ]
+  },
+  "optional": {
+    "Blitzschutzklasse": "<Blitzschutzklasse>",
+    "Anzahl_Ableitungen": "<Anzahl_Ableitungen>",
+    "Wiederholungspruefung_Intervall_Jahre": "<Wiederholungspruefung_Intervall_Jahre>",
+    "Zusatzleistungen": [
+      "<Zusatzleistungen_1>",
+      "<Zusatzleistungen_2>",
+      "<Zusatzleistungen_3>"
+    ],
+    "Zahlungsbedingungen": "<Zahlungsbedingungen>",
+    "Mehrwertsteuer": "<Mehrwertsteuer>",
+    "Haftungsklauseln": "<Haftungsklauseln>",
+    "Gewaehrleistungszeit": "<Gewaehrleistungszeit>",
+    "Preisanpassungsklausel": "<Preisanpassungsklausel>",
+    "Reaktionszeit_bei_Stoerung": "<Reaktionszeit_bei_Stoerung>"
+  }
+}

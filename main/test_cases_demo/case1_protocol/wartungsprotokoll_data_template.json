@@ -1,0 +1,177 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "<Typ>",
+      "Hersteller": "<Hersteller>",
+      "Modell": "<Modell>",
+      "Seriennummer": "<Seriennummer>",
+      "Softwarestand": "<Softwarestand>",
+      "Anzahl": "<Anzahl>"
+    },
+    "Anlagenstandort": {
+      "Adresse": "<Adresse>",
+      "Objekttyp": "<Objekttyp>"
+    },
+    "Datum_der_Wartung": "<Datum_der_Wartung>",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_1>",
+        "Ergebnis": "<Ergebnis_1>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_2>",
+        "Ergebnis": "<Ergebnis_2>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_3>",
+        "Ergebnis": "<Ergebnis_3>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_4>",
+        "Ergebnis": "<Ergebnis_4>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_5>",
+        "Ergebnis": "<Ergebnis_5>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_6>",
+        "Ergebnis": "<Ergebnis_6>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_7>",
+        "Ergebnis": "<Ergebnis_7>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_8>",
+        "Ergebnis": "<Ergebnis_8>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_9>",
+        "Ergebnis": "<Ergebnis_9>"
+      },
+      {
+        "Arbeitspunkt": "<Arbeitspunkt_10>",
+        "Ergebnis": "<Ergebnis_10>"
+      }
+    ],
+    "Bemerkungen": "<Bemerkungen>",
+    "Wartungsergebnis": "<Wartungsergebnis>",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "<Firma>",
+      "KD_Techniker": "<KD_Techniker>",
+      "Strasse": "<Strasse>",
+      "PLZ": "<PLZ>",
+      "Ort": "<Ort>",
+      "Tel": "<Tel>",
+      "EMail": "<EMail>"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "<Rolle_1>",
+        "Unterschrift_von": "<Unterschrift_von_1>",
+        "Datum": "<Datum_1>"
+      },
+      {
+        "Rolle": "<Rolle_2>",
+        "Unterschrift_von": "<Unterschrift_von_2>",
+        "Datum": "<Datum_2>"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "<Name>",
+      "Anschrift": "<Anschrift>"
+    },
+    "Naechster_Wartungstermin": "<Naechster_Wartungstermin>",
+    "Datum_Inbetriebnahme": "<Datum_Inbetriebnahme>",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "<Bezeichnung_1>",
+        "Menge": "<Menge_1>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_2>",
+        "Menge": "<Menge_2>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_3>",
+        "Menge": "<Menge_3>"
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "<Bezeichnung_1>",
+        "Wert": "<Wert_1>",
+        "Einheit": "<Einheit_1>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_2>",
+        "Wert": "<Wert_2>",
+        "Einheit": "<Einheit_2>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_3>",
+        "Wert": "<Wert_3>",
+        "Einheit": "<Einheit_3>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_4>",
+        "Wert": "<Wert_4>",
+        "Einheit": "<Einheit_4>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_5>",
+        "Wert": "<Wert_5>",
+        "Einheit": "<Einheit_5>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_6>",
+        "Wert": "<Wert_6>",
+        "Einheit": "<Einheit_6>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_7>",
+        "Wert": "<Wert_7>",
+        "Einheit": "<Einheit_7>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_8>",
+        "Wert": "<Wert_8>",
+        "Einheit": "<Einheit_8>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_9>",
+        "Wert": "<Wert_9>",
+        "Einheit": "<Einheit_9>"
+      },
+      {
+        "Bezeichnung": "<Bezeichnung_10>",
+        "Wert": "<Wert_10>",
+        "Einheit": "<Einheit_10>"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_nach_EU_517_2014": "<Dichtigkeitskontrolle_nach_EU_517_2014>",
+      "Kaeltemittelart": "<Kaeltemittelart>",
+      "Kaeltemittelfuellmenge_kg": "<Kaeltemittelfuellmenge_kg>",
+      "Resultat_Lecksuche_g_a": "<Resultat_Lecksuche_g_a>",
+      "Wiederholungspruefung_erforderlich": "<Wiederholungspruefung_erforderlich>"
+    },
+    "Historie": [
+      {
+        "Komponente": "<Komponente_1>",
+        "Laufzeit_h": "<Laufzeit_h_1>"
+      },
+      {
+        "Komponente": "<Komponente_2>",
+        "Laufzeit_h": "<Laufzeit_h_2>"
+      },
+      {
+        "Komponente": "<Komponente_3>",
+        "Laufzeit_h": "<Laufzeit_h_3>"
+      }
+    ]
+  }
+}

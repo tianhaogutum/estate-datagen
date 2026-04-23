@@ -1,0 +1,177 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Blitzschutzanlage",
+      "Hersteller": "Dehn + Söhne",
+      "Modell": "DEHNventil M TNS 255",
+      "Seriennummer": "BLZ-101-2023",
+      "Softwarestand": "1.04.2",
+      "Anzahl": 1
+    },
+    "Anlagenstandort": {
+      "Adresse": "Musterstraße 1, 10117 Berlin",
+      "Objekttyp": "Gewerbe"
+    },
+    "Datum_der_Wartung": "2025-08-10",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Sichtprüfung Fangeinrichtung und Ableitungen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Messung Erdungswiderstände",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Prüfung Potentialausgleichsschiene",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Kontrolle Trennungsabstände",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Prüfung Überspannungsschutzgeräte (SPD)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Dokumentation Blitzschutzzone LPZ 0A → LPZ 1",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Korrosionskontrolle Klemmen und Verbinder",
+        "Ergebnis": "behoben"
+      },
+      {
+        "Arbeitspunkt": "Prüfung mechanischer Befestigungen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Überprüfung Normenkonformität DIN EN 62305",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Prüfprotokoll erstellen und unterzeichnen",
+        "Ergebnis": "ja"
+      }
+    ],
+    "Bemerkungen": "Leichte Korrosion an zwei Klemmverbindern der Nordableitung festgestellt und behoben. Erdungswiderstand im Sollbereich. Anlage entspricht den Anforderungen der DIN EN 62305 Schutzklasse I.",
+    "Wartungsergebnis": "erfolgreich",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "Blitzschutz Berlin GmbH",
+      "KD_Techniker": "Klaus Hoffmann",
+      "Strasse": "Gewerbestraße 9",
+      "PLZ": "10247",
+      "Ort": "Berlin",
+      "Tel": "+49 30 98765400",
+      "EMail": "service@blitzschutz-berlin.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Techniker",
+        "Unterschrift_von": "Klaus Hoffmann",
+        "Datum": "2025-08-10"
+      },
+      {
+        "Rolle": "Kunde",
+        "Unterschrift_von": "Markus Schreiber",
+        "Datum": "2025-08-10"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Tech Plaza Berlin GmbH",
+      "Anschrift": "Musterstraße 1, 10117 Berlin"
+    },
+    "Naechster_Wartungstermin": "2026-08-10",
+    "Datum_Inbetriebnahme": "2023-08-10",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Klemmverbinder V-Stahl feuerverzinkt",
+        "Menge": 2
+      },
+      {
+        "Bezeichnung": "Korrosionsschutzband 50mm",
+        "Menge": 1
+      },
+      {
+        "Bezeichnung": "Erdungsschraube M10",
+        "Menge": 4
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Erdungswiderstand Haupterdungsschiene",
+        "Wert": 0.8,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Erdungswiderstand Nordableitung",
+        "Wert": 1.2,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Erdungswiderstand Südableitung",
+        "Wert": 0.9,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Trennungsabstand Nordseite",
+        "Wert": 0.6,
+        "Einheit": "m"
+      },
+      {
+        "Bezeichnung": "Ableiterwiderstand gesamt",
+        "Wert": 0.5,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Isolationswiderstand SPD",
+        "Wert": 2.1,
+        "Einheit": "MΩ"
+      },
+      {
+        "Bezeichnung": "Spannung Potentialausgleichsschiene",
+        "Wert": 0.0,
+        "Einheit": "V"
+      },
+      {
+        "Bezeichnung": "Leiterwiderstand Fangeinrichtung",
+        "Wert": 0.3,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Schleifenwiderstand Hauptableitung",
+        "Wert": 1.1,
+        "Einheit": "Ω"
+      },
+      {
+        "Bezeichnung": "Messwert Erdspieß Tiefenerder",
+        "Wert": 4.5,
+        "Einheit": "Ω"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_nach_EU_517_2014": false,
+      "Kaeltemittelart": "",
+      "Kaeltemittelfuellmenge_kg": 0.0,
+      "Resultat_Lecksuche_g_a": 0,
+      "Wiederholungspruefung_erforderlich": false
+    },
+    "Historie": [
+      {
+        "Komponente": "DEHNventil M TNS 255",
+        "Laufzeit_h": 17520
+      },
+      {
+        "Komponente": "Potentialausgleichsschiene",
+        "Laufzeit_h": 17520
+      },
+      {
+        "Komponente": "Fangeinrichtung Dach",
+        "Laufzeit_h": 17520
+      }
+    ]
+  }
+}

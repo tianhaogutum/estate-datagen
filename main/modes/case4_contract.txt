@@ -1,0 +1,21 @@
+{
+  "vertrags_id": "CONT-2026-BLITZ-99",
+  "vertrags_name": "Wartungsvereinbarung Blitzschutzanlage",
+  "gebaeude_id": "BLDG-DE-MUN-001",
+  "geraete_id": "DEVICE-LPS-MUC-10",
+  "anlagentyp": {
+    "kategorie": "Blitzschutzanlage",
+    "hersteller": "Dehn",
+    "schutzklasse": "II"
+  },
+  "wartungsintervall": "vierteljährlich",
+  "laufzeit": {
+    "startdatum": "2026-01-01",
+    "enddatum": "2026-12-31"
+  },
+  "leistungsumfang": [
+    "Sichtprüfung der Fangeinrichtungen",
+    "Erdungswiderstandsmessung",
+    "Prüfung der Überspannungsschutzgeräte (SPD)"
+  ]
+}

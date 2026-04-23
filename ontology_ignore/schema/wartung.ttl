@@ -1,0 +1,120 @@
+@prefix :       <https://example.org/wartung#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+
+#####################################################################
+# Ontology metadata
+#####################################################################
+
+<https://example.org/wartung> a owl:Ontology ;
+    dct:title "Wartungs- & Prüfmanagement Ontology"@en ;
+    rdfs:comment "Domain model for maintenance contracts and protocols of building devices."@en .
+
+#####################################################################
+# Classes
+#####################################################################
+
+:EconomicUnit a owl:Class ;
+    rdfs:label "EconomicUnit"@en ;
+    rdfs:comment "Top-level organisational unit (Wirtschaftseinheit, Firmengelände, Quartier)."@en .
+
+:Building a owl:Class ;
+    rdfs:label "Building"@en .
+
+:Device a owl:Class ;
+    rdfs:label "Device"@en .
+
+:ServiceProvider a owl:Class ;
+    rdfs:label "ServiceProvider"@en .
+
+:MaintenanceContract a owl:Class ;
+    rdfs:label "MaintenanceContract"@en .
+
+:MaintenanceProtocol a owl:Class ;
+    rdfs:label "MaintenanceProtocol"@en .
+
+#####################################################################
+# Object properties (links between entities)
+#####################################################################
+
+:economicUnit a owl:ObjectProperty ;
+    rdfs:domain :Building ;
+    rdfs:range  :EconomicUnit .
+
+:building a owl:ObjectProperty ;
+    rdfs:domain :Device ;
+    rdfs:range  :Building .
+
+:contractBuilding a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceContract ;
+    rdfs:range  :Building .
+
+:serviceProvider a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceContract ;
+    rdfs:range  :ServiceProvider .
+
+:contract a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceProtocol ;
+    rdfs:range  :MaintenanceContract .
+
+:device a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceProtocol ;
+    rdfs:range  :Device .
+
+:performedBy a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceProtocol ;
+    rdfs:range  :ServiceProvider .
+
+:orderedBy a owl:ObjectProperty ;
+    rdfs:domain :MaintenanceProtocol .
+    # range is EconomicUnit OR Building (kept open; SHACL will constrain if needed)
+
+#####################################################################
+# Datatype properties
+#####################################################################
+
+:name         a owl:DatatypeProperty ; rdfs:range xsd:string .
+:address      a owl:DatatypeProperty ; rdfs:range xsd:string .
+:economicUnitType a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+:deviceType   a owl:DatatypeProperty .   # range is a SKOS concept (see below)
+
+:contractDate             a owl:DatatypeProperty ; rdfs:range xsd:date .
+:contractStart            a owl:DatatypeProperty ; rdfs:range xsd:date .
+:contractEnd              a owl:DatatypeProperty ; rdfs:range xsd:date .
+:terminationPeriodMonths  a owl:DatatypeProperty ; rdfs:range xsd:integer .
+:terminationDeadlineRule  a owl:DatatypeProperty ; rdfs:range xsd:string .
+:maintenanceFrequency     a owl:DatatypeProperty ; rdfs:range xsd:string .
+:costPerMaintenance       a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+
+:maintenanceDate    a owl:DatatypeProperty ; rdfs:range xsd:date .
+:maintenanceType    a owl:DatatypeProperty ; rdfs:range xsd:string .
+:resultDeficiency   a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+:deficiencyType     a owl:DatatypeProperty ; rdfs:range xsd:string .
+:status             a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+#####################################################################
+# Controlled vocabulary: device_type as a SKOS ConceptScheme
+#####################################################################
+
+:DeviceTypeScheme a skos:ConceptScheme ;
+    skos:prefLabel "Device Type Vocabulary"@en .
+
+:WAERMEPUMPE    a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "WAERMEPUMPE" ; skos:prefLabel "Wärmepumpe"@de .
+:HEIZKESSEL     a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "HEIZKESSEL" ; skos:prefLabel "Heizkessel"@de .
+:RAUCHMELDER    a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "RAUCHMELDER" ; skos:prefLabel "Rauchmelder"@de .
+:SPRINKLER      a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "SPRINKLER" ; skos:prefLabel "Sprinkleranlage"@de .
+:AUFZUG         a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "AUFZUG" ; skos:prefLabel "Aufzug"@de .
+:KLIMAANLAGE    a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "KLIMAANLAGE" ; skos:prefLabel "Klimaanlage"@de .
+:ELEKTRISCH_ALLG a skos:Concept ; skos:inScheme :DeviceTypeScheme ;
+                skos:notation "ELEKTRISCH_ALLG" ; skos:prefLabel "Elektrische Anlage"@de .

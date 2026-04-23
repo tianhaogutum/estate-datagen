@@ -1,0 +1,554 @@
+<HTML>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wartungsprotokoll Wärmepumpe</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Times New Roman', Times, Georgia, serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #f4f4f4;
+      padding: 30px 10px;
+    }
+    .page {
+      background: #ffffff;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 56px 56px 56px;
+      border: 1px solid #cccccc;
+      position: relative;
+    }
+    .page-number {
+      position: absolute;
+      top: 20px;
+      right: 56px;
+      font-size: 9pt;
+      color: #777777;
+      font-family: Georgia, serif;
+    }
+
+    /* HEADER */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2.5px solid #1a1a1a;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .doc-header-left h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+    }
+    .doc-header-left .subtitle {
+      font-size: 10pt;
+      color: #444444;
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .doc-header-right {
+      text-align: right;
+      font-size: 9.5pt;
+      color: #333333;
+      line-height: 1.7;
+    }
+    .doc-header-right .firm-name {
+      font-weight: bold;
+      font-size: 11pt;
+      text-transform: uppercase;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 10pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #1a1a1a;
+      background: #eeeeee;
+      border-left: 4px solid #333333;
+      padding: 5px 10px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid #bbbbbb;
+      margin: 18px 0;
+    }
+
+    /* TWO-COLUMN FIELD TABLES */
+    table.field-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.field-table td {
+      padding: 4px 8px;
+      vertical-align: top;
+      font-size: 10.5pt;
+      line-height: 1.6;
+    }
+    table.field-table td.label {
+      width: 42%;
+      font-weight: bold;
+      color: #222222;
+      white-space: nowrap;
+    }
+    table.field-table td.value {
+      color: #333333;
+      border-bottom: 1px dotted #cccccc;
+    }
+    table.field-table td.placeholder {
+      color: #555555;
+      font-style: italic;
+      border-bottom: 1px dotted #cccccc;
+    }
+
+    /* ARBEITEN TABLE */
+    table.work-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.work-table thead tr {
+      background: #333333;
+      color: #ffffff;
+    }
+    table.work-table thead td {
+      padding: 6px 10px;
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table.work-table tbody tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    table.work-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+    table.work-table tbody td {
+      padding: 5px 10px;
+      font-size: 10pt;
+      vertical-align: top;
+      border-bottom: 1px solid #e0e0e0;
+      line-height: 1.5;
+    }
+    table.work-table tbody td.col-nr {
+      width: 5%;
+      text-align: center;
+      color: #666666;
+      font-size: 9.5pt;
+    }
+    table.work-table tbody td.col-arbeit {
+      width: 70%;
+    }
+    table.work-table tbody td.col-ergebnis {
+      width: 25%;
+      font-style: italic;
+      color: #2a2a2a;
+    }
+
+    /* MESSWERTE TABLE */
+    table.measure-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.measure-table thead tr {
+      background: #444444;
+      color: #ffffff;
+    }
+    table.measure-table thead td {
+      padding: 6px 10px;
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table.measure-table tbody tr:nth-child(even) { background: #f4f4f4; }
+    table.measure-table tbody tr:nth-child(odd)  { background: #ffffff; }
+    table.measure-table tbody td {
+      padding: 5px 10px;
+      font-size: 10pt;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: middle;
+    }
+    table.measure-table tbody td.col-bez { width: 55%; }
+    table.measure-table tbody td.col-wert { width: 25%; text-align: right; font-weight: bold; }
+    table.measure-table tbody td.col-einheit { width: 20%; color: #555555; }
+
+    /* ERSATZTEILE TABLE */
+    table.parts-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.parts-table thead tr {
+      background: #444444;
+      color: #ffffff;
+    }
+    table.parts-table thead td {
+      padding: 6px 10px;
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    table.parts-table tbody tr:nth-child(even) { background: #f4f4f4; }
+    table.parts-table tbody tr:nth-child(odd)  { background: #ffffff; }
+    table.parts-table tbody td {
+      padding: 5px 10px;
+      font-size: 10pt;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    table.parts-table tbody td.col-bez { width: 75%; }
+    table.parts-table tbody td.col-menge { width: 25%; text-align: center; }
+
+    /* BEMERKUNGEN */
+    .bemerkung-box {
+      border: 1px solid #cccccc;
+      background: #fafafa;
+      padding: 10px 14px;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      color: #333333;
+      min-height: 50px;
+    }
+
+    /* WARTUNGSERGEBNIS */
+    .ergebnis-box {
+      border: 2px solid #333333;
+      background: #f0f0f0;
+      padding: 10px 16px;
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    /* UNTERSCHRIFTEN */
+    .sig-row {
+      display: flex;
+      gap: 30px;
+      margin-top: 10px;
+    }
+    .sig-block {
+      flex: 1;
+      border-top: 1px solid #333333;
+      padding-top: 8px;
+      font-size: 10pt;
+    }
+    .sig-block .sig-label {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 9pt;
+      letter-spacing: 0.5px;
+      color: #444444;
+    }
+    .sig-block .sig-value {
+      margin-top: 4px;
+      font-style: italic;
+      color: #333333;
+    }
+    .sig-block .sig-date {
+      margin-top: 4px;
+      font-size: 9.5pt;
+      color: #555555;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      border-top: 2px solid #1a1a1a;
+      margin-top: 32px;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #555555;
+      line-height: 1.6;
+    }
+    .doc-footer .footer-left { max-width: 55%; }
+    .doc-footer .footer-right { text-align: right; max-width: 42%; }
+
+    /* TWO-COL LAYOUT */
+    .two-col {
+      display: flex;
+      gap: 24px;
+    }
+    .two-col .col { flex: 1; }
+
+    .inline-label {
+      font-weight: bold;
+      color: #222;
+    }
+    .placeholder-tag {
+      font-style: italic;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="page-number">Seite 1</div>
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-header-left">
+      <h1>Wartungsprotokoll Wärmepumpe</h1>
+      <div class="subtitle">Technische Inspektion &amp; Instandhaltungsnachweis</div>
+    </div>
+    <div class="doc-header-right">
+      <div class="firm-name">&lt;Firma&gt;</div>
+      <div>&lt;Strasse&gt;</div>
+      <div>&lt;PLZ&gt; &lt;Ort&gt;</div>
+      <div>Tel.: &lt;Tel&gt;</div>
+      <div>&lt;EMail&gt;</div>
+    </div>
+  </div>
+
+  <!-- ABSCHNITT 1: ANLAGENDATEN -->
+  <div class="section-title">1. Anlagendaten</div>
+  <div class="two-col">
+    <div class="col">
+      <table class="field-table">
+        <tr>
+          <td class="label">Anlagentyp:</td>
+          <td class="placeholder">&lt;Typ&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Hersteller:</td>
+          <td class="placeholder">&lt;Hersteller&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Modell:</td>
+          <td class="placeholder">&lt;Modell&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Seriennummer:</td>
+          <td class="placeholder">&lt;Seriennummer&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Softwarestand:</td>
+          <td class="placeholder">&lt;Softwarestand&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Anzahl:</td>
+          <td class="placeholder">&lt;Anzahl&gt;</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col">
+      <table class="field-table">
+        <tr>
+          <td class="label">Anlagenstandort / Adresse:</td>
+          <td class="placeholder">&lt;Adresse&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Objekttyp:</td>
+          <td class="placeholder">&lt;Objekttyp&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Datum der Wartung:</td>
+          <td class="placeholder">&lt;Datum_der_Wartung&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Datum der Inbetriebnahme:</td>
+          <td class="placeholder">&lt;Datum_Inbetriebnahme&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Nächster Wartungstermin:</td>
+          <td class="placeholder">&lt;Naechster_Wartungstermin&gt;</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- ABSCHNITT 2: AUFTRAGGEBER -->
+  <div class="section-title">2. Auftraggeber</div>
+  <table class="field-table">
+    <tr>
+      <td class="label">Name:</td>
+      <td class="placeholder">&lt;Name&gt;</td>
+    </tr>
+    <tr>
+      <td class="label">Anschrift:</td>
+      <td class="placeholder">&lt;Anschrift&gt;</td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- ABSCHNITT 3: DURCHGEFÜHRTE WARTUNGSARBEITEN -->
+  <div class="section-title">3. Durchgeführte Wartungsarbeiten</div>
+  <table class="work-table">
+    <thead>
+      <tr>
+        <td class="col-nr">Nr.</td>
+        <td class="col-arbeit">Arbeitspunkt</td>
+        <td class="col-ergebnis">Ergebnis</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-nr">1</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_1&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_1&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">2</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_2&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_2&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">3</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_3&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_3&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">4</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_4&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_4&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">5</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_5&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_5&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">6</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_6&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_6&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">7</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_7&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_7&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">8</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_8&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_8&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">9</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_9&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_9&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-nr">10</td>
+        <td class="col-arbeit">&lt;Arbeitspunkt_10&gt;</td>
+        <td class="col-ergebnis">&lt;Ergebnis_10&gt;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- ABSCHNITT 4: KÄLTETECHNISCHE PRÜFUNG -->
+  <div class="section-title">4. Kältetechnische Prüfung (gem. Verordnung (EU) Nr. 517/2014)</div>
+  <div class="two-col">
+    <div class="col">
+      <table class="field-table">
+        <tr>
+          <td class="label">Dichtigkeitskontrolle nach EU 517/2014:</td>
+          <td class="placeholder">&lt;Dichtigkeitskontrolle_nach_EU_517_2014&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Kältemittelart:</td>
+          <td class="placeholder">&lt;Kaeltemittelart&gt;</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col">
+      <table class="field-table">
+        <tr>
+          <td class="label">Kältemittelfüllmenge (kg):</td>
+          <td class="placeholder">&lt;Kaeltemittelfuellmenge_kg&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Resultat Lecksuche (g/a):</td>
+          <td class="placeholder">&lt;Resultat_Lecksuche_g_a&gt;</td>
+        </tr>
+        <tr>
+          <td class="label">Wiederholungsprüfung erforderlich:</td>
+          <td class="placeholder">&lt;Wiederholungspruefung_erforderlich&gt;</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- ABSCHNITT 5: MESSWERTE -->
+  <div class="section-title">5. Messwerte</div>
+  <table class="measure-table">
+    <thead>
+      <tr>
+        <td class="col-bez">Bezeichnung</td>
+        <td class="col-wert">Wert</td>
+        <td class="col-einheit">Einheit</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_1&gt;</td>
+        <td class="col-wert">&lt;Wert_1&gt;</td>
+        <td class="col-einheit">&lt;Einheit_1&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_2&gt;</td>
+        <td class="col-wert">&lt;Wert_2&gt;</td>
+        <td class="col-einheit">&lt;Einheit_2&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_3&gt;</td>
+        <td class="col-wert">&lt;Wert_3&gt;</td>
+        <td class="col-einheit">&lt;Einheit_3&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_4&gt;</td>
+        <td class="col-wert">&lt;Wert_4&gt;</td>
+        <td class="col-einheit">&lt;Einheit_4&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_5&gt;</td>
+        <td class="col-wert">&lt;Wert_5&gt;</td>
+        <td class="col-einheit">&lt;Einheit_5&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_6&gt;</td>
+        <td class="col-wert">&lt;Wert_6&gt;</td>
+        <td class="col-einheit">&lt;Einheit_6&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_7&gt;</td>
+        <td class="col-wert">&lt;Wert_7&gt;</td>
+        <td class="col-einheit">&lt;Einheit_7&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_8&gt;</td>
+        <td class="col-wert">&lt;Wert_8&gt;</td>
+        <td class="col-einheit">&lt;Einheit_8&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_9&gt;</td>
+        <td class="col-wert">&lt;Wert_9&gt;</td>
+        <td class="col-einheit">&lt;Einheit_9&gt;</td>
+      </tr>
+      <tr>
+        <td class="col-bez">&lt;Bezeichnung_10&gt;</td>
+        <td class="col-wert">&lt;Wert

@@ -137,7 +137,9 @@ def synthesize(doc_key: str, system_key: str | None = None) -> dict:
 
 
 def synthesize_to_file(
-    doc_key: str, out_path: Path, system_key: str | None = None
+    doc_key: str,
+    out_path: Path,
+    system_key: str | None = None,
 ) -> dict:
     result = synthesize(doc_key, system_key)
 

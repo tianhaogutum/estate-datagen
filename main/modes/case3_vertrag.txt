@@ -1,0 +1,43 @@
+"wartungsvertrag": {
+    "anlagentyp": {
+      "typ": "Blitzschutzanlage",
+      "hersteller": "Dehn",
+      "ausfuehrungsart": "isoliertes System",
+      "anzahl_ableitungen": 4
+    },
+    "auftraggeber": {
+      "name": "Hausverwaltung Meyer",
+      "anschrift": "Musterstraße 10, 80331 München",
+      "telefon": "+49 89 1234567"
+    },
+    "auftragnehmer": {
+      "firma": "Blitzschutz Profi GmbH",
+      "anschrift": "Gewerbepark 4, 85748 Garching",
+      "telefon": "+49 89 9876543"
+    },
+    "objekt_der_wartung": "Musterstraße 10, 80331 München",
+    "gegenstand_des_vertrages": "Wiederkehrende Prüfung und Wartung der Blitzschutzanlage gemäß DIN EN 62305 und VDE 0185-305",
+    "vereinbarungen_leistungen": [
+      "Sichtprüfung Fangeinrichtung und Ableitungen",
+      "Erdungswiderstandsmessung",
+      "Prüfung Trennstellen",
+      "Überspannungsschutz prüfen",
+      "Prüfprotokoll"
+    ],
+    "wartungsintervall": "alle 2 Jahre",
+    "laufzeit": {
+      "startdatum": "2023-01-01",
+      "enddatum": "2025-12-31",
+      "kuendigungsfrist": {
+        "frist": "3 Monate",
+        "zum": "Jahresende"
+      }
+    },
+    "kosten": {
+      "betrag": 450.0,
+      "waehrung": "EUR",
+      "bezugseinheit": "pro Prüfung"
+    },
+    "gerichtsstand": "München",
+    "blitzschutzklasse": "II"
+  },

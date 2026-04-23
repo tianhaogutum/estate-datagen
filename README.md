@@ -1,6 +1,6 @@
 # Synthetic Data Generation — 1000plus
 
-Generates synthetic German maintenance documents (Wartungsverträge, Wartungsprotokolle) using Claude AI via AWS Bedrock. The system takes seed documents as input and produces diverse, high-fidelity HTML and PDF outputs with content variation while preserving required baseline fields.
+Generates synthetic German maintenance documents (Wartungsverträge, Wartungsprotokolle) using Claude via AWS Bedrock. The pipeline takes per-system requirement specs as input and produces diverse, high-fidelity HTML and PDF outputs across multiple visual style variants, with content variation while preserving required baseline fields.
 
 ## Project Structure
 
@@ -9,41 +9,46 @@ SyntheticDataGeneration/
 ├── main/                              # Main pipeline
 │   ├── pipeline.py                    # Entry point — orchestrates the full pipeline
 │   ├── data_synthesizer.py            # LLM-based JSON data generation
-│   ├── doc_generator.py               # HTML/PDF document rendering
-│   ├── taxonomy.py                    # Document type definitions
-│   ├── style_profiles.py              # Visual style variants (5 profiles)
-│   ├── document_requirements/         # Template specifications
-│   │   ├── wartungsvertrag.txt
-│   │   └── wartungsprotokoll.txt
+│   ├── doc_generator.py               # HTML template generation (few-shot prompted)
+│   ├── pdf_converter.py               # HTML → PDF via wkhtmltopdf/pdfkit
+│   ├── taxonomy.py                    # Document types and system types
+│   ├── style_profiles.py              # Visual style variants
+│   ├── document_requirements/         # Per-system requirement specs
+│   │   ├── wartungsvertrag/           #   e.g. WAERMEPUMPE.txt, RAUCHMELDER.txt, ...
+│   │   └── wartungsprotokoll/
 │   ├── few_shots/                     # Example PDFs for few-shot prompting
-│   └── output/                        # Generated documents
-├── eva/                               # Evaluation / prototyping
+│   └── output/                        # Generated documents (timestamped runs)
+├── bk/                                # Prototyping / reference
 │   ├── main.py                        # Single document generation
 │   ├── KONZEPT.md                     # Concept documentation
-│   ├── utils/
-│   │   └── render.py                  # HTML extraction & PDF conversion (WeasyPrint)
+│   ├── utils/render.py                # HTML extraction & PDF (WeasyPrint)
 │   └── Daten_AI_Engineer_CaseStudy/   # Seed documents (PDF, DOCX)
 ├── requirements.txt
-├── .gitignore
+├── wkhtmltopdf.pkg                    # macOS installer for wkhtmltopdf
 └── README.md
 ```
 
 ## Prerequisites
 
 - Python >= 3.10
-- AWS CLI installed and configured with a profile that has Bedrock access in `eu-central-1`
-- WeasyPrint system dependencies ([installation guide](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html))
+- AWS CLI configured with a profile that has Bedrock access in `eu-central-1` (default profile name: `claude-bedrock`)
+- **wkhtmltopdf** installed and on `PATH` (used by `pdfkit` for PDF conversion)
+  - macOS: install via the bundled `wkhtmltopdf.pkg`, or `brew install --cask wkhtmltopdf`
+  - Linux/Windows: see [wkhtmltopdf.org/downloads](https://wkhtmltopdf.org/downloads.html)
 
 ## Setup
 
 ### 1. Create and activate a virtual environment
 
+**macOS / Linux:**
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
 **PowerShell** (run once if needed):
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-```
-
-```powershell
 python -m venv venv
 .\venv\Scripts\activate
 ```
@@ -62,56 +67,56 @@ pip install -r requirements.txt
 
 ### 3. Configure AWS credentials
 
-Make sure you have a working AWS profile with Bedrock access:
+The pipeline uses the AWS profile `claude-bedrock` by default. Configure it:
 
 ```bash
-aws configure --profile <your-profile-name>
+aws configure --profile claude-bedrock
+aws sts get-caller-identity --profile claude-bedrock
 ```
 
-Verify it works:
-
-```bash
-aws sts get-caller-identity --profile <your-profile-name>
-```
+To use a different profile, update the `profile_name` in `data_synthesizer.py` and `doc_generator.py`.
 
 ## Running the Pipeline
-
-### Full pipeline (multiple style variants)
 
 From the repository root:
 
 ```bash
 cd main
-python pipeline.py                    # default: wartungsvertrag
-python pipeline.py wartungsprotokoll  # maintenance protocol
+python pipeline.py <doc_key> <system_key>
 ```
 
-The pipeline runs two stages:
-
-1. **Synthesizer** — calls Claude to generate structured JSON data from document requirements
-2. **Generator** — calls Claude with few-shot examples to produce HTML, then renders to PDF in 5 style variants
-
-Output is saved to a timestamped folder in `main/output/`.
-
-### Single document generation (eva)
+Example:
 
 ```bash
-cd eva
-python main.py
+python pipeline.py wartungsvertrag WAERMEPUMPE
+python pipeline.py wartungsprotokoll RAUCHMELDER
 ```
+
+The pipeline runs four stages:
+
+1. **Synthesize** — Claude generates structured JSON data from the matching per-system requirement spec
+2. **Generate** — Claude produces an HTML template (with `&lt;label&gt;` placeholders) for each style variant, using few-shot PDF examples
+3. **Fill** — placeholders are replaced with real values from the JSON (no LLM)
+4. **Convert** — filled HTML is rendered to PDF via `wkhtmltopdf`
+
+Output is written to `main/output/<doc_key>_<system_key>_<timestamp>/`.
 
 ## Supported Document Types
 
-| Key                  | Description              |
+| doc_key              | Description              |
 |----------------------|--------------------------|
 | `wartungsvertrag`    | Maintenance contract     |
 | `wartungsprotokoll`  | Maintenance protocol     |
 
-Supported equipment: heat pumps, smoke detectors, solar systems, HVAC, ventilation.
+## Supported System Types (`system_key`)
+
+`KLIMAANLAGE`, `WAERMEPUMPE`, `HEIZKESSEL`, `LUEFTUNGSANLAGE`, `BRANDMELDEANLAGE`, `SPRINKLER`, `RAUCHMELDER`, `FEUERSCHUTZTUER`, `RAUCHSCHUTZ_RWA`, `SICHERHEITSBELEUCHTUNG`, `AUFZUG_PERSONEN`, `ELEKTRISCHE_ANLAGE`, `HEBEANLAGE_ABWASSER`, `NOTSTROMAGGREGAT`, `FEUERSCHUTZABSCHLUSS`, `FEUERSCHUTZEINRICHTUNG_MANUELL`, `SANITAER_ALLG`, `ELEKTRISCHE_ANLAGE_MOBIL`, `BLITZSCHUTZ`, `DRUCKBEHAELTER`, `CO_WARNANLAGE`
+
+Each `(doc_key, system_key)` pair must have a matching requirement file at `main/document_requirements/<doc_key>/<system_key>.txt`.
 
 ## Tech Stack
 
-- **Claude Sonnet 4** via AWS Bedrock (`eu-central-1`)
-- **WeasyPrint** for HTML-to-PDF rendering
+- **Claude Sonnet 4.6** via AWS Bedrock (`eu.anthropic.claude-sonnet-4-6`, `eu-central-1`)
+- **pdfkit / wkhtmltopdf** for HTML-to-PDF rendering
 - **boto3** for AWS authentication
 - **python-dotenv** for environment configuration

@@ -1,0 +1,78 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Blitzschutzanlage",
+      "Hersteller": "Dehn",
+      "Ausführungsart": "isoliertes System",
+      "Anzahl_Ableitungen": 4
+    },
+    "Auftraggeber": {
+      "Name": "Hausverwaltung Meyer",
+      "Anschrift": "Musterstraße 10, 80331 München",
+      "Telefon": "+49 89 1234567"
+    },
+    "Auftragnehmer": {
+      "Firma": "Blitzschutz Profi GmbH",
+      "Anschrift": "Gewerbepark 4, 85748 Garching",
+      "Telefon": "+49 89 9876543"
+    },
+    "Objekt_der_Wartung": {
+      "Gebäudebezeichnung": "Musterstraße 10",
+      "Adresse": "Musterstraße 10, 80331 München",
+      "Gebäude_ID": "BLDG-BY-010"
+    },
+    "Gegenstand_des_Vertrages": "Wiederkehrende Prüfung und Wartung der Blitzschutzanlage gemäß DIN EN 62305 und VDE 0185-305",
+    "Vereinbarungen_Leistungen": [
+      "Sichtprüfung Fangeinrichtung und Ableitungen",
+      "Erdungswiderstandsmessung",
+      "Prüfung Trennstellen",
+      "Überspannungsschutz prüfen",
+      "Prüfprotokoll"
+    ],
+    "Wartungsintervall": "alle 2 Jahre",
+    "Laufzeit": {
+      "Startdatum": "2023-01-01",
+      "Enddatum": "2025-12-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Jahresende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 450.0,
+      "Währung": "EUR",
+      "Bezugseinheit": "pro Prüfung"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Hans Meyer",
+        "Ort": "München",
+        "Datum": "2022-12-15"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Klaus Bauer",
+        "Ort": "Garching",
+        "Datum": "2022-12-18"
+      }
+    ]
+  },
+  "optional": {
+    "Blitzschutzklasse": "II",
+    "Anzahl_Ableitungen": 4,
+    "Wiederholungspruefung_Intervall_Jahre": 2,
+    "Zusatzleistungen": [
+      "Instandsetzung beschädigter Ableitungen nach Befund",
+      "Erneuerung korrodierter Erder auf gesonderte Anforderung",
+      "Erstellung und Aktualisierung des Blitzschutz-Bestandsplans"
+    ],
+    "Zahlungsbedingungen": "Rechnung nach Durchführung der Wartung, zahlbar innerhalb von 30 Tagen netto ohne Abzug",
+    "Mehrwertsteuer": "zzgl. MwSt.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die nachweislich auf Ausführungsfehler bei der Wartung zurückzuführen sind, begrenzt auf den Auftragswert der jeweiligen Wartungsmaßnahme. Eine weitergehende Haftung für mittelbare Schäden oder Folgeschäden ist ausgeschlossen, soweit gesetzlich zulässig.",
+    "Gewaehrleistungszeit": "24 Monate auf durchgeführte Arbeiten und ausgetauschte Bauteile",
+    "Preisanpassungsklausel": "Der Wartungspreis kann einmal jährlich zum 1. Januar entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamts angepasst werden, maximal jedoch um 3 % gegenüber dem Vorjahrespreis. Die Anpassung ist dem Auftraggeber mindestens 4 Wochen vor Inkrafttreten schriftlich mitzuteilen.",
+    "Reaktionszeit_bei_Stoerung": "nach Vereinbarung, reguläre Terminplanung innerhalb von 5 Werktagen"
+  }
+}

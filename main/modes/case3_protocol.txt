@@ -1,0 +1,25 @@
+IMPORTANT: The Datum_der_Wartung (2026-04-23) is deliberately set AFTER the
+contract end date (2025-12-31). Keep this date exactly as-is — this mismatch
+is intentional and represents the anomaly scenario.
+"wartungsprotokoll": {
+    "anlagentyp": "Blitzschutzanlage Schutzklasse II / Dehn / Modell 2023 / SN-998877",
+    "anlagenstandort": "Musterstraße 10, 80331 München (MFH)",
+    "datum_der_wartung": "2026-04-23",
+    "durchgefuehrte_arbeiten": [
+      { "punkt": "Sichtprüfung Fangeinrichtung", "ergebnis": "i.O." },
+      { "punkt": "Messung Erdungswiderstand", "ergebnis": "i.O." },
+      { "punkt": "Kontrolle Überspannungsschutzgeräte", "ergebnis": "i.O." }
+    ],
+    "bemerkungen": "Anlage in ordnungsgemäßem Zustand, alle Erdungswiderstände im Sollbereich.",
+    "wartungsergebnis": "erfolgreich",
+    "ausfuehrende_fachfirma": {
+      "firma": "Blitzschutz Profi GmbH",
+      "techniker": "Max Mustermann",
+      "ort": "Garching",
+      "tel": "+49 89 9876543"
+    },
+    "unterschriften": [
+      { "rolle": "Techniker", "unterschrift_von": "Max Mustermann", "datum": "2026-04-23" },
+      { "rolle": "Kunde", "unterschrift_von": "Hausverwaltung Meyer", "datum": "2026-04-23" }
+    ],
+    "blitzschutzklasse": "II"

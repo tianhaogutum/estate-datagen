@@ -1,0 +1,44 @@
+# Violates Rule 2: maintenance_date must align with contract schedule (±14 days).
+# Contract starts 2024-01-15 and is QUARTERLY (every 3 months).
+# The protocol date 2024-05-10 is ~115 days after start — not near any quarter mark.
+
+@prefix :    <https://example.org/wartung#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:eu-1 a :EconomicUnit ;
+    :name "Wohnpark Nord" ;
+    :economicUnitType "Wirtschaftseinheit" .
+
+:bld-1 a :Building ;
+    :economicUnit :eu-1 ;
+    :name "Haus A" ;
+    :address "Musterstraße 1, 10115 Berlin" .
+
+:sp-1 a :ServiceProvider ;
+    :name "HVAC Service GmbH" .
+
+:dev-1 a :Device ;
+    :building :bld-1 ;
+    :deviceType "WAERMEPUMPE" .
+
+:ct-1 a :MaintenanceContract ;
+    :contractBuilding :bld-1 ;
+    :deviceType "WAERMEPUMPE" ;
+    :serviceProvider :sp-1 ;
+    :contractDate  "2024-01-10"^^xsd:date ;
+    :contractStart "2024-01-15"^^xsd:date ;
+    :contractEnd   "2026-01-14"^^xsd:date ;
+    :terminationPeriodMonths 3 ;
+    :terminationDeadlineRule "END_OF_YEAR" ;
+    :maintenanceFrequency "QUARTERLY" ;
+    :costPerMaintenance "150.00"^^xsd:decimal .
+
+:pr-1 a :MaintenanceProtocol ;
+    :contract :ct-1 ;
+    :device :dev-1 ;
+    :deviceType "WAERMEPUMPE" ;
+    :maintenanceDate "2024-05-10"^^xsd:date ;   # 115 days in — off by ~25 days
+    :maintenanceType "WARTUNG" ;
+    :performedBy :sp-1 ;
+    :resultDeficiency false ;
+    :status "COMPLETED" .

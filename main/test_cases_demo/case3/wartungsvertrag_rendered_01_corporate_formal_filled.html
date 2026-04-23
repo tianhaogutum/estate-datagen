@@ -1,0 +1,490 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Wartungsvertrag Blitzschutzanlage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 40px 60px;
+      line-height: 1.5;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2.5px solid #1a1a1a;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }
+    .company-name {
+      font-size: 15pt;
+      font-weight: bold;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+    }
+    .company-sub {
+      font-size: 9pt;
+      color: #444;
+      margin-top: 3px;
+    }
+    .page-number {
+      text-align: right;
+      font-size: 9pt;
+      color: #555;
+      margin-top: 4px;
+    }
+    .doc-title {
+      text-align: center;
+      margin: 22px 0 8px 0;
+    }
+    .doc-title h1 {
+      font-family: Georgia, serif;
+      font-size: 17pt;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      border-bottom: 1.5px solid #1a1a1a;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    .doc-subtitle {
+      font-size: 10pt;
+      color: #444;
+      margin-top: 6px;
+      font-style: italic;
+    }
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid #aaa;
+      margin: 18px 0 12px 0;
+    }
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 10pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      margin-top: 6px;
+      border-left: 4px solid #1a1a1a;
+      padding-left: 8px;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.data-table td {
+      padding: 5px 8px;
+      vertical-align: top;
+      font-size: 10pt;
+    }
+    table.data-table td.label {
+      width: 36%;
+      font-weight: bold;
+      color: #2a2a2a;
+      background-color: #f2f2f2;
+      border: 1px solid #d0d0d0;
+      white-space: nowrap;
+    }
+    table.data-table td.value {
+      width: 64%;
+      color: #1a1a1a;
+      border: 1px solid #d0d0d0;
+      background-color: #fafafa;
+    }
+    table.two-col-data {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+    }
+    table.two-col-data td {
+      padding: 5px 8px;
+      vertical-align: top;
+      font-size: 10pt;
+      width: 25%;
+    }
+    table.two-col-data td.label {
+      font-weight: bold;
+      color: #2a2a2a;
+      background-color: #f2f2f2;
+      border: 1px solid #d0d0d0;
+    }
+    table.two-col-data td.value {
+      color: #1a1a1a;
+      border: 1px solid #d0d0d0;
+      background-color: #fafafa;
+    }
+    ol.leistungen {
+      margin: 0 0 0 20px;
+      padding: 0;
+    }
+    ol.leistungen li {
+      margin-bottom: 7px;
+      font-size: 10pt;
+      color: #1a1a1a;
+    }
+    ol.leistungen li span.list-label {
+      font-weight: bold;
+      color: #333;
+    }
+    ul.zusatz {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+    ul.zusatz li {
+      margin-bottom: 5px;
+      font-size: 10pt;
+    }
+    .sig-block {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .sig-block td {
+      width: 50%;
+      padding: 10px 16px 10px 0;
+      vertical-align: top;
+      border: none;
+    }
+    .sig-inner {
+      border: 1px solid #bbb;
+      background: #fafafa;
+      padding: 12px 16px;
+    }
+    .sig-inner .sig-role {
+      font-weight: bold;
+      font-size: 10.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+    .sig-inner table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .sig-inner table td {
+      padding: 3px 0;
+      font-size: 10pt;
+    }
+    .sig-inner table td.slabel {
+      font-weight: bold;
+      width: 42%;
+      color: #333;
+    }
+    .sig-line {
+      border-top: 1px solid #555;
+      margin-top: 28px;
+      margin-bottom: 3px;
+      width: 80%;
+    }
+    .sig-name-text {
+      font-size: 9pt;
+      color: #555;
+    }
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      margin-top: 32px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #555;
+    }
+    .footer-col {
+      width: 32%;
+    }
+    .footer-col strong {
+      display: block;
+      font-size: 9pt;
+      color: #1a1a1a;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .notice-box {
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      border-left: 4px solid #555;
+      padding: 9px 14px;
+      font-size: 9.5pt;
+      color: #2a2a2a;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    .placeholder {
+      color: #1a1a1a;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div>
+      <div class="company-name">Blitzschutz &amp; Elektrotechnik Kessler GmbH</div>
+      <div class="company-sub">Industriepark 12 &nbsp;|&nbsp; 55252 Kastel &nbsp;|&nbsp; Tel.: +49 6134 561890</div>
+    </div>
+    <div class="page-number">Seite 1 von 1</div>
+  </div>
+
+  <!-- DOCUMENT TITLE -->
+  <div class="doc-title">
+    <h1>Wartungsvertrag</h1>
+    <div class="doc-subtitle">Wiederkehrende Prüfung und Wartung einer Blitzschutzanlage</div>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 1: ANLAGENTYP -->
+  <div class="section-title">1. Anlagentyp</div>
+  <table class="two-col-data">
+    <tr>
+      <td class="label">Typ</td>
+      <td class="value"><span class="placeholder">Blitzschutzanlage</span></td>
+      <td class="label">Hersteller</td>
+      <td class="value"><span class="placeholder">Dehn</span></td>
+    </tr>
+    <tr>
+      <td class="label">Ausführungsart</td>
+      <td class="value"><span class="placeholder">isoliertes System</span></td>
+      <td class="label">Anzahl Ableitungen</td>
+      <td class="value"><span class="placeholder">4</span></td>
+    </tr>
+    <tr>
+      <td class="label">Blitzschutzklasse</td>
+      <td class="value"><span class="placeholder">II</span></td>
+      <td class="label">Wiederholungsprüfung (Jahre)</td>
+      <td class="value"><span class="placeholder">2</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 2: VERTRAGSPARTEIEN -->
+  <div class="section-title">2. Vertragsparteien</div>
+  <table class="two-col-data">
+    <tr>
+      <td class="label" style="width:18%;">Auftraggeber – Name</td>
+      <td class="value" style="width:32%;"><span class="placeholder">Hausverwaltung Meyer</span></td>
+      <td class="label" style="width:18%;">Auftragnehmer – Firma</td>
+      <td class="value" style="width:32%;"><span class="placeholder">Blitzschutz Profi GmbH</span></td>
+    </tr>
+    <tr>
+      <td class="label">Anschrift</td>
+      <td class="value"><span class="placeholder">Gewerbepark 4, 85748 Garching</span></td>
+      <td class="label">Anschrift</td>
+      <td class="value"><span class="placeholder">Gewerbepark 4, 85748 Garching</span></td>
+    </tr>
+    <tr>
+      <td class="label">Telefon</td>
+      <td class="value"><span class="placeholder">+49 89 9876543</span></td>
+      <td class="label">Telefon</td>
+      <td class="value"><span class="placeholder">+49 89 9876543</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 3: WARTUNGSOBJEKT -->
+  <div class="section-title">3. Objekt der Wartung</div>
+  <table class="data-table">
+    <tr>
+      <td class="label">Adresse des Objekts</td>
+      <td class="value"><span class="placeholder">Musterstraße 10, 80331 München</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 4: VERTRAGSGEGENSTAND -->
+  <div class="section-title">4. Gegenstand des Vertrages</div>
+  <div class="notice-box">
+    <span class="placeholder">Wiederkehrende Prüfung und Wartung der Blitzschutzanlage gemäß DIN EN 62305 und VDE 0185-305</span>
+  </div>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 5: VEREINBARUNGEN UND LEISTUNGEN -->
+  <div class="section-title">5. Vereinbarte Leistungen</div>
+  <ol class="leistungen">
+    <li><span class="list-label">Position 1:</span> <span class="placeholder">Sichtprüfung Fangeinrichtung und Ableitungen</span></li>
+    <li><span class="list-label">Position 2:</span> <span class="placeholder">Erdungswiderstandsmessung</span></li>
+    <li><span class="list-label">Position 3:</span> <span class="placeholder">Prüfung Trennstellen</span></li>
+    <li><span class="list-label">Position 4:</span> <span class="placeholder">Überspannungsschutz prüfen</span></li>
+    <li><span class="list-label">Position 5:</span> <span class="placeholder">Prüfprotokoll</span></li>
+  </ol>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 6: ZUSATZLEISTUNGEN -->
+  <div class="section-title">6. Zusatzleistungen</div>
+  <ul class="zusatz">
+    <li><span class="placeholder">Instandsetzung beschädigter Ableitungen nach Befund</span></li>
+    <li><span class="placeholder">Erneuerung korrodierter Erder auf gesonderte Anforderung</span></li>
+    <li><span class="placeholder">Erstellung und Aktualisierung des Blitzschutz-Bestandsplans</span></li>
+  </ul>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 7: WARTUNGSINTERVALL UND LAUFZEIT -->
+  <div class="section-title">7. Wartungsintervall und Laufzeit</div>
+  <table class="two-col-data">
+    <tr>
+      <td class="label">Wartungsintervall</td>
+      <td class="value"><span class="placeholder">alle 2 Jahre</span></td>
+      <td class="label">Startdatum</td>
+      <td class="value"><span class="placeholder">2023-01-01</span></td>
+    </tr>
+    <tr>
+      <td class="label">Enddatum</td>
+      <td class="value"><span class="placeholder">2025-12-31</span></td>
+      <td class="label">Kündigungsfrist</td>
+      <td class="value"><span class="placeholder">3 Monate</span> zum <span class="placeholder">Jahresende</span></td>
+    </tr>
+    <tr>
+      <td class="label">Reaktionszeit bei Störung</td>
+      <td class="value" colspan="3"><span class="placeholder">nach Vereinbarung, reguläre Terminplanung innerhalb von 5 Werktagen</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 8: KOSTEN UND ZAHLUNGSBEDINGUNGEN -->
+  <div class="section-title">8. Kosten und Zahlungsbedingungen</div>
+  <table class="two-col-data">
+    <tr>
+      <td class="label">Betrag</td>
+      <td class="value"><span class="placeholder">450.0</span></td>
+      <td class="label">Währung</td>
+      <td class="value"><span class="placeholder">EUR</span></td>
+    </tr>
+    <tr>
+      <td class="label">Bezugseinheit</td>
+      <td class="value"><span class="placeholder">pro Prüfung</span></td>
+      <td class="label">Mehrwertsteuer</td>
+      <td class="value"><span class="placeholder">zzgl. MwSt.</span></td>
+    </tr>
+    <tr>
+      <td class="label">Zahlungsbedingungen</td>
+      <td class="value" colspan="3"><span class="placeholder">Rechnung nach Durchführung der Wartung, zahlbar innerhalb von 30 Tagen netto ohne Abzug</span></td>
+    </tr>
+    <tr>
+      <td class="label">Preisanpassungsklausel</td>
+      <td class="value" colspan="3"><span class="placeholder">Der Wartungspreis kann einmal jährlich zum 1. Januar entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamts angepasst werden, maximal jedoch um 3 % gegenüber dem Vorjahrespreis. Die Anpassung ist dem Auftraggeber mindestens 4 Wochen vor Inkrafttreten schriftlich mitzuteilen.</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 9: HAFTUNG UND GEWÄHRLEISTUNG -->
+  <div class="section-title">9. Haftung und Gewährleistung</div>
+  <table class="data-table">
+    <tr>
+      <td class="label">Haftungsklauseln</td>
+      <td class="value"><span class="placeholder">Der Auftragnehmer haftet für Schäden, die nachweislich auf Ausführungsfehler bei der Wartung zurückzuführen sind, begrenzt auf den Auftragswert der jeweiligen Wartungsmaßnahme. Eine weitergehende Haftung für mittelbare Schäden oder Folgeschäden ist ausgeschlossen, soweit gesetzlich zulässig.</span></td>
+    </tr>
+    <tr>
+      <td class="label">Gewährleistungszeit</td>
+      <td class="value"><span class="placeholder">24 Monate auf durchgeführte Arbeiten und ausgetauschte Bauteile</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 10: GERICHTSSTAND -->
+  <div class="section-title">10. Gerichtsstand</div>
+  <table class="data-table">
+    <tr>
+      <td class="label">Gerichtsstand</td>
+      <td class="value"><span class="placeholder">München</span></td>
+    </tr>
+  </table>
+
+  <hr class="section-rule" />
+
+  <!-- SECTION 11: UNTERSCHRIFTEN -->
+  <div class="section-title">11. Unterschriften</div>
+  <table class="sig-block">
+    <tr>
+      <td style="padding-right:14px;">
+        <div class="sig-inner">
+          <div class="sig-role"><span class="placeholder">Auftraggeber</span></div>
+          <table>
+            <tr>
+              <td class="slabel">Unterzeichner:</td>
+              <td><span class="placeholder">Hans Meyer</span></td>
+            </tr>
+            <tr>
+              <td class="slabel">Ort:</td>
+              <td><span class="placeholder">München</span></td>
+            </tr>
+            <tr>
+              <td class="slabel">Datum:</td>
+              <td><span class="placeholder">2022-12-15</span></td>
+            </tr>
+          </table>
+          <div class="sig-line"></div>
+          <div class="sig-name-text">Unterschrift / Stempel</div>
+        </div>
+      </td>
+      <td style="padding-left:14px;">
+        <div class="sig-inner">
+          <div class="sig-role"><span class="placeholder">Auftragnehmer</span></div>
+          <table>
+            <tr>
+              <td class="slabel">Unterzeichner:</td>
+              <td><span class="placeholder">Klaus Bauer</span></td>
+            </tr>
+            <tr>
+              <td class="slabel">Ort:</td>
+              <td><span class="placeholder">Garching</span></td>
+            </tr>
+            <tr>
+              <td class="slabel">Datum:</td>
+              <td><span class="placeholder">2022-12-18</span></td>
+            </tr>
+          </table>
+          <div class="sig-line"></div>
+          <div class="sig-name-text">Unterschrift / Stempel</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-col">
+      <strong>Auftragnehmer</strong>
+      Blitzschutz &amp; Elektrotechnik Kessler GmbH<br />
+      Industriepark 12, 55252 Kastel<br />
+      Tel.: +49 6134 561890
+    </div>
+    <div class="footer-col">
+      <strong>Normgrundlage</strong>
+      DIN EN 62305 (Teile 1–4)<br />
+      VDE 0185-305<br />
+      Aktuell gültige Fassung
+    </div>
+    <div class="footer-col" style="text-align:right;">
+      <strong>Dokument</strong>
+      Wartungsvertrag Blitzschutzanlage<br />
+      Vertragsdokument – vertraulich<br />
+      &copy; Kessler GmbH
+    </div>
+  </div>
+
+</body>

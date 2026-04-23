@@ -1,0 +1,12 @@
+{
+  "anlagentyp": {
+    "typ": "Blitzschutzanlage",
+    "hersteller": "Dehn",
+    "schutzklasse": "II"
+  },
+  "anlagenstandort": "Leopoldstraße 12, 80802 München",
+  "datum_der_wartung": "2026-07-10",
+  "ausfuehrende_fachfirma": "Blitzschutz Bayern GmbH",
+  "techniker_anmerkungen": "Erste Routineprüfung für Q3.",
+  "wartungsergebnis": "erfolgreich"
+}

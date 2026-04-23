@@ -4,14 +4,20 @@ End-to-end pipeline:
     JSON data + few-shots  ->  [Generator LLM]  ->  HTML
 
 Usage:
-    python3 pipeline.py <doc_key> <system_key>
+    python3 pipeline.py <doc_key> <system_key> [--no-few-shots]
 
-    doc_key:    wartungsvertrag | wartungsprotokoll
-    system_key: KLIMAANLAGE | WAERMEPUMPE | HEIZKESSEL | LUEFTUNGSANLAGE |
-                BRANDMELDEANLAGE | SPRINKLER | RAUCHMELDER | FEUERSCHUTZTUER |
-                RAUCHSCHUTZ_RWA | SICHERHEITSBELEUCHTUNG | AUFZUG_PERSONEN |
-                ELEKTRISCHE_ANLAGE | HEBEANLAGE_ABWASSER | NOTSTROMAGGREGAT
+    doc_key:        wartungsvertrag | wartungsprotokoll
+    system_key:     KLIMAANLAGE | WAERMEPUMPE | HEIZKESSEL | LUEFTUNGSANLAGE |
+                    BRANDMELDEANLAGE | SPRINKLER | RAUCHMELDER | FEUERSCHUTZTUER |
+                    RAUCHSCHUTZ_RWA | SICHERHEITSBELEUCHTUNG | AUFZUG_PERSONEN |
+                    ELEKTRISCHE_ANLAGE | HEBEANLAGE_ABWASSER | NOTSTROMAGGREGAT
+    --no-few-shots: skip loading few-shot PDF examples (faster, avoids timeouts).
+
+To apply a scenario mode to generated data, use apply_mode.py afterwards:
+    python apply_mode.py <mode> <path/to/*_example.json>
 """
+
+from __future__ import annotations
 
 import sys
 from datetime import datetime
@@ -24,7 +30,6 @@ from taxonomy import REAL_ESTATE_TAXONOMY, SYSTEM_TYPES
 
 
 def _flatten(obj, prefix: str = "", index: int = 0) -> dict[str, str]:
-    """Recursively flatten a JSON object into {label: value} pairs matching _to_placeholder format."""
     result = {}
     if isinstance(obj, dict):
         for k, v in obj.items():
@@ -51,7 +56,7 @@ def fill_html(html: str, real_data: dict) -> str:
     return html
 
 
-def run(doc_key: str, system_key: str) -> None:
+def run(doc_key: str, system_key: str, use_few_shots: bool = True) -> None:
     if doc_key not in REAL_ESTATE_TAXONOMY:
         raise SystemExit(
             f"Unknown doc_key '{doc_key}'. Options: {list(REAL_ESTATE_TAXONOMY)}"
@@ -68,10 +73,11 @@ def run(doc_key: str, system_key: str) -> None:
     if not req_file.exists():
         raise SystemExit(f"Requirements file not found: {req_file}")
 
-    for pdf in doc.few_shot_files:
-        pdf_path = base / pdf
-        if not pdf_path.exists():
-            raise SystemExit(f"Few-shot file not found: {pdf_path}")
+    if use_few_shots:
+        for pdf in doc.few_shot_files:
+            pdf_path = base / pdf
+            if not pdf_path.exists():
+                raise SystemExit(f"Few-shot file not found: {pdf_path}")
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_dir = Path(__file__).parent / "output" / f"{doc_key}_{system_key}_{timestamp}"
@@ -81,9 +87,10 @@ def run(doc_key: str, system_key: str) -> None:
     print(f"\n[1/4] Synthesizing data for '{doc_key}' / '{system_key}'...")
     data = synthesize_to_file(doc_key, data_path, system_key)
 
-    print(f"\n[2/4] Generating HTML variants for '{doc_key}'...")
+    few_shots_note = "" if use_few_shots else " (no few-shots)"
+    print(f"\n[2/4] Generating HTML variants for '{doc_key}'{few_shots_note}...")
     stem = out_dir / f"{doc_key}_rendered"
-    artifacts = generate_document(doc_key, data, stem)
+    artifacts = generate_document(doc_key, data, stem, use_few_shots)
 
     print("\n[3/4] Filling HTML placeholders with real data...")
     for v in artifacts["variants"]:
@@ -122,6 +129,11 @@ def run(doc_key: str, system_key: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        raise SystemExit("Usage: python3 pipeline.py <doc_key> <system_key>")
-    run(sys.argv[1], sys.argv[2])
+    _args = sys.argv[1:]
+    if len(_args) < 2:
+        raise SystemExit(
+            "Usage: python3 pipeline.py <doc_key> <system_key> [--no-few-shots]"
+        )
+    _use_few_shots = "--no-few-shots" not in _args
+    _positional = [a for a in _args if not a.startswith("--")]
+    run(_positional[0], _positional[1], _use_few_shots)

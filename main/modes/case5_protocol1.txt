@@ -1,0 +1,35 @@
+{
+  "anlagentyp": "Blitzschutzanlage Schutzklasse II / OBO Bettermann / Modell 2024 / SN-ABC-123",
+  "anlagenstandort": "Friedrichstraße 100, 10117 Berlin (Gewerblich)",
+  "datum_der_wartung": "2026-04-23",
+  "durchgefuehrte_arbeiten": [
+    {
+      "arbeitsschritt": "Sichtprüfung Fangeinrichtung",
+      "ergebnis": "i.O."
+    },
+    {
+      "arbeitsschritt": "Messung Erdungswiderstand",
+      "ergebnis": "i.O."
+    },
+    {
+      "arbeitsschritt": "Kontrolle Überspannungsschutzgeräte (SPD)",
+      "ergebnis": "i.O."
+    }
+  ],
+  "bemerkungen": "Anlage in ordnungsgemäßem Zustand am Standort Berlin.",
+  "wartungsergebnis": "erfolgreich",
+  "ausfuehrende_fachfirma": {
+    "firma": "Blitzschutz Technik Nord GmbH",
+    "kd_techniker": "Thomas Müller",
+    "strasse": "Hauptstraße 5",
+    "plz": "10317",
+    "ort": "Berlin",
+    "tel": "+49 30 11122233",
+    "e_mail": "service@blitzschutz-nord.de"
+  },
+  "unterschriften": [
+    { "rolle": "Techniker", "unterschrift_von": "Thomas Müller", "datum": "2026-04-23" },
+    { "rolle": "Kunde", "unterschrift_von": "Hausverwaltung Mitte", "datum": "2026-04-23" }
+  ],
+  "blitzschutzklasse": "II"
+}

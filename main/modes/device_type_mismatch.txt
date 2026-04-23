@@ -1,0 +1,26 @@
+SCENARIO: device_type that is NOT consistent across entities.
+
+Per the ontology, Device.device_type, MaintenanceContract.device_type and
+MaintenanceProtocol.device_type must all be identical. Deliberately break
+this invariant in ONE of the following ways:
+
+1. Protocol references a different device_type than its contract.
+   Example:
+     - Contract.device_type  = "WAERMEPUMPE"
+     - Protocol.device_type  = "HEIZKESSEL"
+
+2. Contract and Device disagree.
+   Example:
+     - Device.device_type   = "WAERMEPUMPE"
+     - Contract.device_type = "KLIMAANLAGE"
+
+3. The textual description of the system inside a free-text field
+   (e.g. "Anlage" / "Objektbeschreibung") contradicts the structured
+   device_type enum.
+
+Requirements:
+- All chosen device_type values must come from the controlled vocabulary
+  (WAERMEPUMPE, HEIZKESSEL, RAUCHMELDER, SPRINKLER, AUFZUG, KLIMAANLAGE,
+  ELEKTRISCH_ALLG).
+- Every other field (dates, costs, provider, addresses) should stay
+  internally consistent so the only anomaly is the device_type mismatch.

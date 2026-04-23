@@ -159,9 +159,11 @@ def _generate_raw_output(
 # -------------------------
 
 
-def generate_document(doc_key: str, data: dict, output_stem: Path) -> dict:
+def generate_document(
+    doc_key: str, data: dict, output_stem: Path, use_few_shots: bool = True
+) -> dict:
     doc = REAL_ESTATE_TAXONOMY[doc_key]
-    doc_blocks = _few_shot_document_blocks(doc)
+    doc_blocks = _few_shot_document_blocks(doc) if use_few_shots else []
     profiles = get_profiles()
     total = len(profiles)
 

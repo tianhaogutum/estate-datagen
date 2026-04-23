@@ -1,0 +1,177 @@
+{
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Sole/Wasser-Wärmepumpe",
+      "Hersteller": "Viessmann",
+      "Modell": "Vitocal 200-G BWS 101.A10",
+      "Seriennummer": "7521039482",
+      "Softwarestand": "3.12.4",
+      "Anzahl": 1
+    },
+    "Anlagenstandort": {
+      "Adresse": "Birkenweg 14, 73430 Aalen",
+      "Objekttyp": "EFH"
+    },
+    "Datum_der_Wartung": "2024-11-07",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Kältekreisprüfung (Drücke, Temperaturen, Dichtheit)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Solekonzentration messen",
+        "Ergebnis": "behoben"
+      },
+      {
+        "Arbeitspunkt": "Verdampfer reinigen (Lamellen, Oberfläche)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Kondensator / Wärmeübertrager reinigen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Betriebsstunden ablesen und dokumentieren",
+        "Ergebnis": "ja"
+      },
+      {
+        "Arbeitspunkt": "Softwarestand prüfen und ggf. aktualisieren",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Abtauverhalten kontrollieren (Frequenz, Dauer, Vollständigkeit)",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Heizungswasserdruck und -qualität prüfen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Elektrische Anschlüsse und Sicherheitseinrichtungen prüfen",
+        "Ergebnis": "i.O."
+      },
+      {
+        "Arbeitspunkt": "Regelung und Steuerparameter kontrollieren",
+        "Ergebnis": "i.O."
+      }
+    ],
+    "Bemerkungen": "Solekonzentration lag bei 22 %, Sollwert 25–30 % – Solemischung nachgefüllt und auf 28 % korrigiert. Alle übrigen Prüfpunkte unauffällig. Anlage läuft im Normalbetrieb.",
+    "Wartungsergebnis": "erfolgreich",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "Haustechnik Brenner GmbH",
+      "KD_Techniker": "Stefan Möller",
+      "Strasse": "Industriestraße 23",
+      "PLZ": "73430",
+      "Ort": "Aalen",
+      "Tel": "+49 7361 84720",
+      "EMail": "service@haustechnik-brenner.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Techniker",
+        "Unterschrift_von": "Stefan Möller",
+        "Datum": "2024-11-07"
+      },
+      {
+        "Rolle": "Kunde",
+        "Unterschrift_von": "Andreas Kreutzer",
+        "Datum": "2024-11-07"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Andreas Kreutzer",
+      "Anschrift": "Birkenweg 14, 73430 Aalen"
+    },
+    "Naechster_Wartungstermin": "2025-11-06",
+    "Datum_Inbetriebnahme": "2019-03-18",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Solemischung Tyfocor L 20-Liter-Kanister",
+        "Menge": 1
+      },
+      {
+        "Bezeichnung": "Dichtung Wartungsventil DN25",
+        "Menge": 2
+      },
+      {
+        "Bezeichnung": "Schmutzfängersieb 1 Zoll",
+        "Menge": 1
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Vorlauftemperatur",
+        "Wert": 38.4,
+        "Einheit": "°C"
+      },
+      {
+        "Bezeichnung": "Rücklauftemperatur",
+        "Wert": 33.1,
+        "Einheit": "°C"
+      },
+      {
+        "Bezeichnung": "Solekonzentration (nach Korrektur)",
+        "Wert": 28,
+        "Einheit": "%"
+      },
+      {
+        "Bezeichnung": "Außentemperatur",
+        "Wert": 6.2,
+        "Einheit": "°C"
+      },
+      {
+        "Bezeichnung": "Hochdruck",
+        "Wert": 18.7,
+        "Einheit": "bar"
+      },
+      {
+        "Bezeichnung": "Niederdruck",
+        "Wert": 4.3,
+        "Einheit": "bar"
+      },
+      {
+        "Bezeichnung": "Leistungsaufnahme",
+        "Wert": 2.8,
+        "Einheit": "kW"
+      },
+      {
+        "Bezeichnung": "Wärmeleistung",
+        "Wert": 11.2,
+        "Einheit": "kW"
+      },
+      {
+        "Bezeichnung": "COP",
+        "Wert": 4.0,
+        "Einheit": ""
+      },
+      {
+        "Bezeichnung": "Heizungswasserdruck",
+        "Wert": 1.8,
+        "Einheit": "bar"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_nach_EU_517_2014": true,
+      "Kaeltemittelart": "R410A",
+      "Kaeltemittelfuellmenge_kg": 3.2,
+      "Resultat_Lecksuche_g_a": 0,
+      "Wiederholungspruefung_erforderlich": false
+    },
+    "Historie": [
+      {
+        "Komponente": "Verdichter",
+        "Laufzeit_h": 14823
+      },
+      {
+        "Komponente": "Umwälzpumpe Heizkreis",
+        "Laufzeit_h": 22105
+      },
+      {
+        "Komponente": "Umwälzpumpe Sole",
+        "Laufzeit_h": 21988
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+# Violates Rule 4 (warning): two contracts for the same building + device_type
+# with overlapping [contract_start, contract_end] ranges.
+# ct-1: 2024-01-15 .. 2026-01-14
+# ct-2: 2025-06-01 .. 2027-05-31   <- overlaps 2025-06-01..2026-01-14
+
+@prefix :    <https://example.org/wartung#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:eu-1 a :EconomicUnit ;
+    :name "Wohnpark Nord" ;
+    :economicUnitType "Wirtschaftseinheit" .
+
+:bld-1 a :Building ;
+    :economicUnit :eu-1 ;
+    :name "Haus A" ;
+    :address "Musterstraße 1, 10115 Berlin" .
+
+:sp-1 a :ServiceProvider ; :name "HVAC Service GmbH" .
+:sp-2 a :ServiceProvider ; :name "Alternate Wartung GmbH" .
+
+:dev-1 a :Device ;
+    :building :bld-1 ;
+    :deviceType "WAERMEPUMPE" .
+
+:ct-1 a :MaintenanceContract ;
+    :contractBuilding :bld-1 ;
+    :deviceType "WAERMEPUMPE" ;
+    :serviceProvider :sp-1 ;
+    :contractDate  "2024-01-10"^^xsd:date ;
+    :contractStart "2024-01-15"^^xsd:date ;
+    :contractEnd   "2026-01-14"^^xsd:date ;
+    :terminationPeriodMonths 3 ;
+    :terminationDeadlineRule "END_OF_YEAR" ;
+    :maintenanceFrequency "ANNUAL" ;
+    :costPerMaintenance "450.00"^^xsd:decimal .
+
+:ct-2 a :MaintenanceContract ;
+    :contractBuilding :bld-1 ;
+    :deviceType "WAERMEPUMPE" ;
+    :serviceProvider :sp-2 ;
+    :contractDate  "2025-05-20"^^xsd:date ;
+    :contractStart "2025-06-01"^^xsd:date ;
+    :contractEnd   "2027-05-31"^^xsd:date ;    # <- overlaps ct-1
+    :terminationPeriodMonths 3 ;
+    :terminationDeadlineRule "END_OF_YEAR" ;
+    :maintenanceFrequency "ANNUAL" ;
+    :costPerMaintenance "500.00"^^xsd:decimal .

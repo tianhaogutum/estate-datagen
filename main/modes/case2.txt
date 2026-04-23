@@ -1,0 +1,34 @@
+{
+  "building": {
+    "building_id": "BLDG-EU-001",
+    "name": "Tech Plaza Berlin",
+    "address": "Musterstraße 1, 10117 Berlin",
+    "zones": [
+      {
+        "zone_id": "ZONE-B",
+        "description": "Brandabschnitt B / Fire Section B"
+      }
+    ]
+  },
+  "physical_device": {
+    "device_id": "DEVICE-BLZ-101",
+    "type": "Blitzschutzanlage",
+    "manufacturer": "Dehn + Söhne",
+    "modell": "DEHNventil M TNS 255",
+    "location": {
+      "floor": "Dachgeschoss",
+      "zone_id": "ZONE-B",
+      "specific_position": "Dachaufbau / Hauptableitung Nordseite"
+    },
+    "technical_data": {
+      "schutzklasse": "I",
+      "blitzschutzzone": "LPZ 0A → LPZ 1",
+      "normbasis": "DIN EN 62305",
+      "potentialausgleich_vorhanden": "ja"
+    },
+    "metadata": {
+      "installation_date": "2023-08-10",
+      "last_inspection_date": "2025-08-10"
+    }
+  }
+}
