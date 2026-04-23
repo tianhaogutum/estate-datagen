@@ -4,7 +4,7 @@ Apply a scenario mode to an existing JSON data file.
 Usage:
     python apply_mode.py <mode> <json_path>
 
-    mode:       name of a file in main/modes/<mode>.txt
+    mode:       name of a file in main/scenarios/<mode>.txt
     json_path:  path to a *_example.json produced by the pipeline
 
 Output:
@@ -37,9 +37,9 @@ BASE = Path(__file__).parent
 
 
 def _read_mode(mode: str) -> str:
-    path = BASE / "modes" / f"{mode}.txt"
+    path = BASE / "scenarios" / f"{mode}.txt"
     if not path.exists():
-        available = sorted(p.stem for p in (BASE / "modes").glob("*.txt"))
+        available = sorted(p.stem for p in (BASE / "scenarios").glob("*.txt"))
         raise SystemExit(f"Unknown mode '{mode}'. Available: {available}")
     return path.read_text(encoding="utf-8")
 

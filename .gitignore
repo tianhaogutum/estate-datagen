@@ -5,6 +5,7 @@ __pycache__/
 *.pyo
 *.pyd
 main/output/
+main/output_data/
 # copy files
 *copy*.py
 .DS_Store
