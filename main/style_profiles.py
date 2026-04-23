@@ -18,14 +18,48 @@ class StyleProfile:
 
 STYLE_PROFILES: list[StyleProfile] = [
     StyleProfile(
-        key="corporate_formal",
-        name="Corporate Formal",
+        key="compact_technical",
+        name="Compact Technical",
         description=(
-            "Classic corporate letter style. Serif headings (Georgia/Times), "
-            "bold section titles in ALL CAPS, dense multi-column tables for "
-            "field/value pairs, subtle horizontal rules between sections, "
-            "right-aligned page numbers, footer with company contact block. "
-            "Feels like a printed enterprise document from a large utility company."
+            "Dense layout with small 9pt Arial font, narrow margins, and thin gray lines between sections. "
+            "Data in two-column pairs with alternating gray row shading, bold uppercase section headers. "
+            "Company name top-left, document number top-right, legal footer at the bottom."
+        ),
+    ),
+    StyleProfile(
+        key="table_layout",
+        name="Table Layout Style",
+        description=(
+            "All data organized in bordered tables with a dark header row and white text. "
+            "Alternating row colors for readability, bold labels on the left, values on the right. "
+            "Centered bold title at the top, nested tables for subsections like address or costs."
+        ),
+    ),
+    StyleProfile(
+        key="simple_form",
+        name="Simple Form",
+        description=(
+            "Classic printable form with monospace font and dotted underlines where values go. "
+            "Each field on its own line with bold label and generous spacing between fields. "
+            "Signature area at the bottom with dotted lines for name, signature, and date."
+        ),
+    ),
+    StyleProfile(
+        key="minimal_modern",
+        name="Minimal Modern",
+        description=(
+            "Clean sans-serif design with lots of whitespace and no tables or borders. "
+            "Small gray uppercase labels stacked above their values, sections separated by space only. "
+            "Thin left-aligned title with a single blue accent line underneath."
+        ),
+    ),
+    StyleProfile(
+        key="quick_note",
+        name="Quick Note",
+        description=(
+            "Short summary fitting half a page with a bold title and thin line underneath. "
+            "Only essential fields listed one per line in simple label-colon-value format. "
+            "Light gray background, no tables or sections, feels like a quick internal memo."
         ),
     ),
 ]
@@ -33,3 +67,5 @@ STYLE_PROFILES: list[StyleProfile] = [
 
 def get_profiles() -> list[StyleProfile]:
     return STYLE_PROFILES
+
+    
