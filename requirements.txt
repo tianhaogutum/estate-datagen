@@ -1,2 +1,5 @@
 boto3==1.42.92
-pdfkit==1.0.0
+playwright==1.58.0
+pyshacl==0.31.0
+rdflib==7.6.0
+weasyprint==68.1
