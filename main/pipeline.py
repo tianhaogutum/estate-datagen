@@ -73,8 +73,10 @@ def run(doc_key: str, system_key: str) -> None:
         if not pdf_path.exists():
             raise SystemExit(f"Few-shot file not found: {pdf_path}")
 
+    from style_profiles import get_profiles
+    style_names = "_".join(p.key for p in get_profiles())
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_dir = Path(__file__).parent / "output" / f"{doc_key}_{system_key}_{timestamp}"
+    out_dir = Path(__file__).parent / "output" / f"{doc_key}_{system_key}_{style_names}_{timestamp}"
     out_dir.mkdir(parents=True, exist_ok=True)
     data_path = out_dir / f"{doc_key}_data.json"
 
