@@ -9,7 +9,6 @@ __pycache__/
 # generated outputs
 main/output/
 main/output_data/
-main/output_scenarios/
 
 # raw LLM outputs
 *.raw.txt

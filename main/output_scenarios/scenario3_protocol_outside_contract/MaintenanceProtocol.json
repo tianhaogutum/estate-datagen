@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": null,
+      "device_id": null,
+      "device_type": "Klimaanlage (Split-System)",
+      "maintenance_date": "2025-09-10",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Anlage in einwandfreiem Betriebszustand. Keine sicherheitsrelevanten Mängel festgestellt.",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (Split-System)",
+      "Hersteller": "Daikin",
+      "Modell": "FTXM35R / RXM35R",
+      "Seriennummer": "DK2023-09471-A",
+      "Anzahl_Innengeraete": "3"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main",
+      "Objekttyp": "Wohn- und Geschäftsgebäude"
+    },
+    "Datum_der_Wartung": "2025-09-10",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Reinigung und Überprüfung der Innen- und Außengeräte",
+        "Ergebnis": "Alle Geräte gereinigt, Lamellen der Außengeräte leicht verschmutzt, nach Reinigung ordnungsgemäß. Innengeräte ohne Auffälligkeiten."
+      },
+      {
+        "Arbeitspunkt": "Dichtigkeitskontrolle und Kältemittelkreislaufprüfung gemäß EU-Verordnung 517/2014",
+        "Ergebnis": "Keine Leckage festgestellt. Kältemitteldruck im Normbereich. Kältemittelfüllmenge je Einheit korrekt."
+      }
+    ],
+    "Bemerkungen": "Wartung wurde außerhalb des regulären Vertragsintervalls durchgeführt. Auftraggeber hat Wartungstermin kurzfristig angefordert. Filtermatten an Innengerät Nr. 2 (2. OG links) aufgrund starker Verschmutzung getauscht.",
+    "Wartungsergebnis": "Anlage in einwandfreiem Betriebszustand. Keine sicherheitsrelevanten Mängel festgestellt.",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "KlimaService Hessler GmbH",
+      "KD_Techniker": "Tobias Grunewald",
+      "Strasse": "Hanauer Landstraße 291",
+      "PLZ": "60314",
+      "Ort": "Frankfurt am Main",
+      "Tel": "+49 69 94127650",
+      "E_Mail": "service@klimahessler.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Tobias Grunewald",
+        "Datum": "2025-09-10"
+      },
+      {
+        "Rolle": "Auftraggeber / Objektverantwortlicher",
+        "Unterschrift_von": "Markus Feldmann",
+        "Datum": "2025-09-10"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Rhein-Main GmbH",
+      "Anschrift": "Gutleutstraße 114, 60327 Frankfurt am Main"
+    },
+    "Naechster_Wartungstermin": "2026-09-01",
+    "Datum_Inbetriebnahme": "2022-07-14",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Filtermatte Innengerät FTXM35R (Standard)",
+        "Menge": "2 Stück"
+      },
+      {
+        "Bezeichnung": "Kondenswasserablaufschlauch 1m",
+        "Menge": "1 Stück"
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Saugdruck Kältemittelkreislauf",
+        "Wert": "8,4",
+        "Einheit": "bar"
+      },
+      {
+        "Bezeichnung": "Hochdruck Kältemittelkreislauf",
+        "Wert": "26,1",
+        "Einheit": "bar"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_EU_517_2014": "Ja, durchgeführt",
+      "Kaeltemittelart": "R-32",
+      "Kaeltemittelfuellmenge_kg": "1,2",
+      "Resultat_Lecksuche_g_a": "0",
+      "Wiederholungspruefung_erforderlich": "Nein"
+    },
+    "Historie": [
+      {
+        "Komponente": "Kompressor Außengerät RXM35R",
+        "Laufzeit_h": "4820"
+      },
+      {
+        "Komponente": "Lüftermotor Innengerät FTXM35R (Einheit 1, EG)",
+        "Laufzeit_h": "3950"
+      }
+    ]
+  }
+}

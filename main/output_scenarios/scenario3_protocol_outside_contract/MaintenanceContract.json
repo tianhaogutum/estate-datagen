@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": null,
+      "building_id": null,
+      "device_type": "Klimaanlage (Split-System)",
+      "service_provider_id": null,
+      "contract_date": "2024-05-20",
+      "contract_start": "2024-06-01",
+      "contract_end": "2025-05-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 1080.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (Split-System)",
+      "Hersteller": "Daikin",
+      "Modell": "FTXM35R / RXM35R",
+      "Anzahl": "3"
+    },
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Rhein-Main GmbH",
+      "Anschrift": "Gutleutstraße 114, 60327 Frankfurt am Main",
+      "Telefon": "+49 69 74831200"
+    },
+    "Auftragnehmer": {
+      "Firma": "KlimaService Hessler GmbH",
+      "Anschrift": "Hanauer Landstraße 291, 60314 Frankfurt am Main",
+      "Telefon": "+49 69 94127650"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung und Instandhaltung der installierten Klimaanlagen (Split-Systeme) im Objekt Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main gemäß Herstellervorgaben und geltenden Normen.",
+    "Vereinbarungen_Leistungen": [
+      "Jährliche Inspektion und Wartung aller Split-Klimaanlagen inkl. Reinigung der Filter, Innen- und Außengeräte sowie Prüfung der Kältemittelkreisläufe",
+      "Dichtigkeitskontrolle gemäß EU-Verordnung 517/2014 sowie Dokumentation der Kältemittelfüllmengen und Leckageprüfung"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2024-06-01",
+      "Enddatum": "2025-05-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1080.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "Frankfurt am Main",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Markus Feldmann",
+        "Ort": "Frankfurt am Main",
+        "Datum": "2024-05-20"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Stefan Hessler",
+        "Ort": "Frankfurt am Main",
+        "Datum": "2024-05-22"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 24 Stunden an Werktagen",
+    "Zusatzleistungen": [
+      "Telefonische Störungshotline Mo–Fr 07:00–18:00 Uhr",
+      "Priorisierte Ersatzteilbeschaffung für Daikin-Geräte"
+    ],
+    "Zahlungsbedingungen": "Jährliche Vorauszahlung, fällig zum 01. Juni eines jeden Vertragsjahres, Zahlung innerhalb von 14 Tagen nach Rechnungsstellung",
+    "Haftungsklauseln": "Die Haftung des Auftragnehmers ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Eine Haftung für Folgeschäden ist ausgeschlossen, soweit gesetzlich zulässig.",
+    "Gewaehrleistungszeit": "12 Monate auf ausgetauschte Ersatzteile und durchgeführte Arbeiten",
+    "Preisanpassungsklausel": "Der Wartungspreis kann jährlich entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamtes angepasst werden, maximal jedoch um 5 % pro Jahr.",
+    "Mehrwertsteuer": "19 %",
+    "Anlagen_Stueckzahl": "3",
+    "Kaeltemittelart": "R-32",
+    "Kaeltemittelfuellmenge_kg": "1,2 kg je Einheit",
+    "Dichtigkeitskontrolle_EU_517_2014": "Ja, jährlich gemäß EU-Verordnung 517/2014 erforderlich"
+  }
+}

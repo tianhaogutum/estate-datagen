@@ -1,0 +1,39 @@
+{
+  "summary": {
+    "economic_units": 1,
+    "buildings": 1,
+    "contracts": 1,
+    "protocols": 0
+  },
+  "economic_units": [
+    {
+      "name": "Wohnungsbaugesellschaft Nordstadt GmbH",
+      "building_count": 1,
+      "buildings": [
+        {
+          "address": "Gartenstraße 14, 30159 Hannover",
+          "device_count": 1,
+          "devices": [
+            {
+              "device_type": "Aufzugsanlage",
+              "contract": {
+                "contract_id": "d902f2c1",
+                "service_provider": "ThyssenKrupp Elevator AG – Niederlassung Hannover",
+                "contract_date": "2024-12-10",
+                "contract_start": "2025-01-01",
+                "contract_end": "2027-12-31",
+                "maintenance_frequency": "QUARTERLY",
+                "cost_per_maintenance": 480.0,
+                "source_file": "wartungsvertrag_KLIMAANLAGE_template.json",
+                "protocols": {
+                  "count": 0,
+                  "entries": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

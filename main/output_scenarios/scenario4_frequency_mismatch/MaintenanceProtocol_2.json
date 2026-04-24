@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": null,
+      "device_id": null,
+      "device_type": "Klimaanlage (Split-System)",
+      "maintenance_date": "2024-08-22",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Mangel behoben – Anlage betriebsbereit",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (Split-System)",
+      "Hersteller": "Daikin",
+      "Modell": "FTXM50R / RXM50R",
+      "Seriennummer": "DK2023-4411872-A",
+      "Anzahl_Innengeraete": "2"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main",
+      "Objekttyp": "Bürogebäude"
+    },
+    "Datum_der_Wartung": "2024-08-22",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Überprüfung und Reinigung des Kondensatablaufs sowie der Kondensatwanne",
+        "Ergebnis": "Leichte Algenbildung im Kondensatablauf festgestellt und beseitigt. Ablauf frei und funktionsfähig."
+      },
+      {
+        "Arbeitspunkt": "Funktionskontrolle Steuerplatine und Fernbedienung beider Innengeräte",
+        "Ergebnis": "Alle Steuer- und Regelfunktionen arbeiten einwandfrei. Keine Fehlercode-Meldungen im Gerätespeicher."
+      }
+    ],
+    "Bemerkungen": "Zweiter Wartungseinsatz innerhalb Q3 2024 auf Veranlassung des Auftraggebers nach Hinweis auf erhöhte Geräuschentwicklung. Geräuschursache auf verschmutzten Kondensatablauf zurückgeführt und behoben. Wartungsintervall laut Vertrag eigentlich quartalsweise – dieser Einsatz stellt eine außerplanmäßige Zusatzwartung im selben Quartal dar.",
+    "Wartungsergebnis": "Mangel behoben – Anlage betriebsbereit",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "KälteKlima Technik Hessler GmbH",
+      "KD_Techniker": "Ralf Kunze",
+      "Strasse": "Hanauer Landstraße 312",
+      "PLZ": "60314",
+      "Ort": "Frankfurt am Main",
+      "Tel": "+49 69 90876540",
+      "E_Mail": "service@kaelteklima-hessler.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Ralf Kunze",
+        "Datum": "2024-08-22"
+      },
+      {
+        "Rolle": "Auftraggeber / Objektverantwortlicher",
+        "Unterschrift_von": "Petra Sommer (Hausverwaltung Rhein-Main GmbH)",
+        "Datum": "2024-08-22"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Rhein-Main GmbH",
+      "Anschrift": "Berger Straße 45, 60316 Frankfurt am Main"
+    },
+    "Naechster_Wartungstermin": "2024-10-01",
+    "Datum_Inbetriebnahme": "2022-06-15",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Kondensatablaufschlauch (DN16, 1 m)",
+        "Menge": "1 Stück"
+      },
+      {
+        "Bezeichnung": "Reinigungsmittel für Kondensatwanne",
+        "Menge": "1 Flasche"
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Saugdruck Kältemittelkreis",
+        "Wert": "8,3",
+        "Einheit": "bar"
+      },
+      {
+        "Bezeichnung": "Zulufttemperatur Innengerät",
+        "Wert": "24,5",
+        "Einheit": "°C"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_EU_517_2014": "Ja",
+      "Kaeltemittelart": "R-32",
+      "Kaeltemittelfuellmenge_kg": "1,8",
+      "Resultat_Lecksuche_g_a": "0",
+      "Wiederholungspruefung_erforderlich": "Nein"
+    },
+    "Historie": [
+      {
+        "Komponente": "Kompressor Außengerät",
+        "Laufzeit_h": "4465"
+      },
+      {
+        "Komponente": "Lüftermotor Innengerät",
+        "Laufzeit_h": "4240"
+      }
+    ]
+  }
+}
