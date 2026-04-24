@@ -34,91 +34,6 @@ Open `http://localhost:5173`.
 
 ![Pipeline](pipeline.png)
 
----
-
-## Project Structure
-
-```
-SyntheticDataGeneration/
-├── main/
-│   ├── data_schema_generator.py       # Step 1 — generate placeholder template JSON from requirements
-│   ├── data_samples_generator.py      # Step 2 — fill template(s) with real data via scenario spec
-│   ├── html_generator.py              # Step 3 — generate HTML layout from template JSON
-│   ├── fill_html.py                   # Step 4 — replace <label> placeholders with real values
-│   ├── ontology_view.py               # Assemble ontology tree from multiple data JSON files
-│   ├── pdf_converter.py               # HTML → PDF via Playwright
-│   ├── style_profiles.py              # 5 visual style variants
-│   ├── pipeline.py                    # Legacy end-to-end pipeline (kept for reference)
-│   │
-│   ├── document_requirements/         # Per-system requirement specs (.txt)
-│   │   ├── wartungsvertrag/           #   e.g. KLIMAANLAGE.txt, WAERMEPUMPE.txt …
-│   │   └── wartungsprotokoll/
-│   ├── entities_meta/                 # Entity schema JSON files (ontology field definitions)
-│   │   ├── wartungsvertrag.json       #   → MaintenanceContract fields
-│   │   ├── wartungsprotokoll.json     #   → MaintenanceProtocol fields
-│   │   ├── Building.json
-│   │   ├── Device.json
-│   │   ├── EconomicUnit.json
-│   │   └── ServiceProvider.json
-│   ├── scenario_specifications/       # Scenario prompt files (one .txt per anomaly)
-│   │   ├── normal.txt
-│   │   ├── no_protocols.txt
-│   │   ├── multi_contract.txt
-│   │   ├── protocol_outside_contract.txt
-│   │   ├── frequency_mismatch.txt
-│   │   └── address_mismatch.txt
-│   ├── few_shots/                     # Example PDFs for few-shot HTML prompting
-│   │
-│   └── output/                        # All generated artefacts (gitignored)
-│       ├── templates/                 #   placeholder template JSON files
-│       ├── data/                      #   filled data JSON files
-│       ├── html/                      #   HTML layouts
-│       ├── filled/                    #   filled HTMLs
-│       └── ontology/                  #   ontology view JSON files
-│
-├── backend/
-│   └── main.py                        # FastAPI backend — SSE pipeline + all function endpoints
-├── frontend/                          # React + TypeScript + Vite UI
-│   └── src/
-│       ├── pages/                     #   Generate, Scenarios, Functions, Dashboard, Preview
-│       └── components/                #   Navbar
-├── ontology_schema_future/            # OWL ontology + SHACL shapes (reference, not wired to pipeline)
-├── version_bk/                        # Evaluation / prototyping scratch
-├── requirements.txt
-└── README.md
-```
-
----
-
-## Prerequisites
-
-- Python >= 3.10
-- AWS CLI configured with Bedrock access in `eu-central-1`
-- Playwright Chromium: `playwright install chromium`
-- Node.js >= 18 (for the frontend)
-
-## Setup
-
-```bash
-python -m venv venv
-source venv/bin/activate          # Windows: .\venv\Scripts\activate
-pip install -r requirements.txt
-playwright install chromium
-```
-
-AWS credentials:
-```bash
-aws configure --profile claude-bedrock
-aws sts get-caller-identity --profile claude-bedrock
-```
-
-On non-Windows the pipeline uses the default boto3 credential chain. On Windows it looks for a `claude-bedrock` named profile.
-
-See the [Web UI](#web-ui) section above for starting the frontend and backend.
-
----
-
-
 ## Data Model
 
 ```mermaid
@@ -231,6 +146,93 @@ Assembles multiple data JSON files into a single hierarchical ontology tree:
 python ontology_view.py <data1.json> [<data2.json> ...] --out <out.json>
 # default output → output/ontology/ontology_view.json
 ```
+
+---
+
+## Project Structure
+
+<details>
+<summary>Expand</summary>
+
+```
+SyntheticDataGeneration/
+├── main/
+│   ├── data_schema_generator.py       # Step 1 — generate placeholder template JSON from requirements
+│   ├── data_samples_generator.py      # Step 2 — fill template(s) with real data via scenario spec
+│   ├── html_generator.py              # Step 3 — generate HTML layout from template JSON
+│   ├── fill_html.py                   # Step 4 — replace <label> placeholders with real values
+│   ├── ontology_view.py               # Assemble ontology tree from multiple data JSON files
+│   ├── pdf_converter.py               # HTML → PDF via Playwright
+│   ├── style_profiles.py              # 5 visual style variants
+│   ├── pipeline.py                    # Legacy end-to-end pipeline (kept for reference)
+│   │
+│   ├── document_requirements/         # Per-system requirement specs (.txt)
+│   │   ├── wartungsvertrag/           #   e.g. KLIMAANLAGE.txt, WAERMEPUMPE.txt …
+│   │   └── wartungsprotokoll/
+│   ├── entities_meta/                 # Entity schema JSON files (ontology field definitions)
+│   │   ├── wartungsvertrag.json       #   → MaintenanceContract fields
+│   │   ├── wartungsprotokoll.json     #   → MaintenanceProtocol fields
+│   │   ├── Building.json
+│   │   ├── Device.json
+│   │   ├── EconomicUnit.json
+│   │   └── ServiceProvider.json
+│   ├── scenario_specifications/       # Scenario prompt files (one .txt per anomaly)
+│   │   ├── normal.txt
+│   │   ├── no_protocols.txt
+│   │   ├── multi_contract.txt
+│   │   ├── protocol_outside_contract.txt
+│   │   ├── frequency_mismatch.txt
+│   │   └── address_mismatch.txt
+│   ├── few_shots/                     # Example PDFs for few-shot HTML prompting
+│   │
+│   └── output/                        # All generated artefacts (gitignored)
+│       ├── templates/                 #   placeholder template JSON files
+│       ├── data/                      #   filled data JSON files
+│       ├── html/                      #   HTML layouts
+│       ├── filled/                    #   filled HTMLs
+│       └── ontology/                  #   ontology view JSON files
+│
+├── backend/
+│   └── main.py                        # FastAPI backend — SSE pipeline + all function endpoints
+├── frontend/                          # React + TypeScript + Vite UI
+│   └── src/
+│       ├── pages/                     #   Generate, Scenarios, Functions, Dashboard, Preview
+│       └── components/                #   Navbar
+├── ontology_schema_future/            # OWL ontology + SHACL shapes (reference, not wired to pipeline)
+├── version_bk/                        # Evaluation / prototyping scratch
+├── requirements.txt
+└── README.md
+```
+
+</details>
+
+---
+
+## Prerequisites
+
+- Python >= 3.10
+- AWS CLI configured with Bedrock access in `eu-central-1`
+- Playwright Chromium: `playwright install chromium`
+- Node.js >= 18 (for the frontend)
+
+## Setup
+
+```bash
+python -m venv venv
+source venv/bin/activate          # Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
+playwright install chromium
+```
+
+AWS credentials:
+```bash
+aws configure --profile claude-bedrock
+aws sts get-caller-identity --profile claude-bedrock
+```
+
+On non-Windows the pipeline uses the default boto3 credential chain. On Windows it looks for a `claude-bedrock` named profile.
+
+See the [Web UI](#web-ui) section above for starting the frontend and backend.
 
 ---
 
