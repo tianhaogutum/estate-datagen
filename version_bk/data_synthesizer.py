@@ -17,7 +17,8 @@ import re
 from pathlib import Path
 
 import boto3
-from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
+
+from version_bk.taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
 BEDROCK_REGION = "eu-central-1"
 BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"

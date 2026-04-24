@@ -3,7 +3,8 @@ import subprocess
 from pathlib import Path
 
 import boto3
-from utils.render import extract_html_solutions_and_convert_to_pdf
+
+from version_bk.bk_eva.utils.render import extract_html_solutions_and_convert_to_pdf
 
 BEDROCK_REGION = "eu-central-1"
 BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"
