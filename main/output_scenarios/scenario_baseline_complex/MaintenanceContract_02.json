@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c1b1d1v2",
+      "building_id": null,
+      "device_type": "Klimaanlage (VRF-System)",
+      "service_provider_id": null,
+      "contract_date": "2022-11-15",
+      "contract_start": "2023-01-01",
+      "contract_end": "2025-12-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 1480.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (VRF-System)",
+      "Hersteller": "Mitsubishi Electric",
+      "Modell": "City Multi R2",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Leopoldstraße 18, 80802 München",
+      "Telefon": "+49 89 2361000"
+    },
+    "Auftragnehmer": {
+      "Firma": "TechAir Kälte- und Klimatechnik GmbH",
+      "Anschrift": "Industriestraße 77, 80939 München",
+      "Telefon": "+49 89 3214570"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Leopoldstraße 18, 80802 München"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Klimaanlage (VRF-System) Mitsubishi Electric City Multi R2 im Objekt Leopoldstraße 18, 80802 München.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Klimaanlage (VRF-System) gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2023-01-01",
+      "Enddatum": "2025-12-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1480.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Ort": "München",
+        "Datum": "2022-11-15"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Sandra Weiß",
+        "Ort": "München",
+        "Datum": "2022-11-15"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

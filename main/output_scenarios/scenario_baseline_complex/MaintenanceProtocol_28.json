@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c2b2d1v2",
+      "device_id": null,
+      "device_type": "Sprinkleranlage",
+      "maintenance_date": "2023-09-03",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Halbjahresinspektion – geringfügige Instandsetzung durchgeführt",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Sprinkleranlage",
+      "Hersteller": "Minimax GmbH",
+      "Modell": "Viking Sprinkler VK302",
+      "Seriennummer": "MMX-VK302-2018-00559",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Berliner Allee 15, 40212 Düsseldorf",
+      "Objekttyp": "Wohngebäude"
+    },
+    "Datum_der_Wartung": "2023-09-03",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Sprinkleranlage gemäß Wartungsvertrag c2b2d1v2",
+        "Ergebnis": "Halbjahresinspektion – geringfügige Instandsetzung durchgeführt"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "Alarmventil-Dichtung erneuert. Betrieb nach Prüfung wieder freigegeben.",
+    "Wartungsergebnis": "Halbjahresinspektion – geringfügige Instandsetzung durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "Minimax Mobile Services GmbH & Co. KG",
+      "KD_Techniker": "Nina Brandt",
+      "Strasse": "Industriestraße 10–12",
+      "PLZ": "23840",
+      "Ort": "Bad Oldesloe",
+      "Tel": "+49 4531 8030",
+      "E_Mail": "service@minimax.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Nina Brandt",
+        "Datum": "2023-09-03"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Datum": "2023-09-03"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Berliner Allee 15, 40212 Düsseldorf"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

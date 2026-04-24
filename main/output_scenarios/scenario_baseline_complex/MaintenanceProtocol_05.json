@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c1b1d2v1",
+      "device_id": null,
+      "device_type": "Personenaufzug",
+      "maintenance_date": "2019-03-20",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "TÜV-Prüfung bestanden – Aufzug betriebsbereit",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Personenaufzug",
+      "Hersteller": "ThyssenKrupp Elevator AG",
+      "Modell": "Evolution 200",
+      "Seriennummer": "TKE-EV200-2017-00831",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Leopoldstraße 18, 80802 München",
+      "Objekttyp": "Bürogebäude"
+    },
+    "Datum_der_Wartung": "2019-03-20",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Personenaufzug gemäß Wartungsvertrag c1b1d2v1",
+        "Ergebnis": "TÜV-Prüfung bestanden – Aufzug betriebsbereit"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "Sicherheitsprüfung gem. BetrSichV durchgeführt. Alle Sicherheitseinrichtungen funktionsfähig.",
+    "Wartungsergebnis": "TÜV-Prüfung bestanden – Aufzug betriebsbereit",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "ThyssenKrupp Aufzüge GmbH",
+      "KD_Techniker": "Jörg Neumann",
+      "Strasse": "Helfmann-Park 5",
+      "PLZ": "65760",
+      "Ort": "Eschborn",
+      "Tel": "+49 6196 9840",
+      "E_Mail": "aufzugservice@thyssenkrupp.com"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Jörg Neumann",
+        "Datum": "2019-03-20"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Datum": "2019-03-20"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Leopoldstraße 18, 80802 München"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

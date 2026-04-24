@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c2b2d2v2",
+      "device_id": null,
+      "device_type": "Elektrische Anlage (Niederspannung)",
+      "maintenance_date": "2024-04-17",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "DGUV V3-Jahresprüfung bestanden – Anlage betriebssicher",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Elektrische Anlage (Niederspannung)",
+      "Hersteller": "Siemens AG",
+      "Modell": "SENTRON 3VA",
+      "Seriennummer": "SIE-3VA-2020-11047",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Berliner Allee 15, 40212 Düsseldorf",
+      "Objekttyp": "Wohngebäude"
+    },
+    "Datum_der_Wartung": "2024-04-17",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Elektrische Anlage (Niederspannung) gemäß Wartungsvertrag c2b2d2v2",
+        "Ergebnis": "DGUV V3-Jahresprüfung bestanden – Anlage betriebssicher"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "Alle ortsveränderlichen Betriebsmittel geprüft. 2 defekte Steckdosen ausgetauscht.",
+    "Wartungsergebnis": "DGUV V3-Jahresprüfung bestanden – Anlage betriebssicher",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "ElektroProfis GmbH & Co. KG",
+      "KD_Techniker": "Ralf Zimmermann",
+      "Strasse": "Stromweg 22",
+      "PLZ": "40474",
+      "Ort": "Düsseldorf",
+      "Tel": "+49 211 6620910",
+      "E_Mail": "pruefdienst@elektroprofis.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Ralf Zimmermann",
+        "Datum": "2024-04-17"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Datum": "2024-04-17"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Berliner Allee 15, 40212 Düsseldorf"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

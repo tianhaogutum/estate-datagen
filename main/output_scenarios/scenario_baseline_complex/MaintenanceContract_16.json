@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c2b2d2v2",
+      "building_id": null,
+      "device_type": "Elektrische Anlage (Niederspannung)",
+      "service_provider_id": null,
+      "contract_date": "2024-01-15",
+      "contract_start": "2024-03-01",
+      "contract_end": "2027-02-28",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 720.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Elektrische Anlage (Niederspannung)",
+      "Hersteller": "Siemens AG",
+      "Modell": "SENTRON 3VA",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Berliner Allee 15, 40212 Düsseldorf",
+      "Telefon": "+49 211 8370420"
+    },
+    "Auftragnehmer": {
+      "Firma": "ElektroProfis GmbH & Co. KG",
+      "Anschrift": "Stromweg 22, 40474 Düsseldorf",
+      "Telefon": "+49 211 6620910"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Berliner Allee 15, 40212 Düsseldorf"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Elektrische Anlage (Niederspannung) Siemens AG SENTRON 3VA im Objekt Berliner Allee 15, 40212 Düsseldorf.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Elektrische Anlage (Niederspannung) gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2024-03-01",
+      "Enddatum": "2027-02-28",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 720.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "Düsseldorf",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Ort": "Düsseldorf",
+        "Datum": "2024-01-15"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Ralf Zimmermann",
+        "Ort": "Düsseldorf",
+        "Datum": "2024-01-15"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

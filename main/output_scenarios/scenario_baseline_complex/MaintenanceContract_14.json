@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c2b2d1v2",
+      "building_id": null,
+      "device_type": "Sprinkleranlage",
+      "service_provider_id": null,
+      "contract_date": "2021-06-01",
+      "contract_start": "2021-08-01",
+      "contract_end": "2024-07-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Halbjährlich",
+      "cost_per_maintenance": 2100.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Sprinkleranlage",
+      "Hersteller": "Minimax GmbH",
+      "Modell": "Viking Sprinkler VK302",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Berliner Allee 15, 40212 Düsseldorf",
+      "Telefon": "+49 211 8370420"
+    },
+    "Auftragnehmer": {
+      "Firma": "Minimax Mobile Services GmbH & Co. KG",
+      "Anschrift": "Industriestraße 10–12, 23840 Bad Oldesloe",
+      "Telefon": "+49 4531 8030"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Berliner Allee 15, 40212 Düsseldorf"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Sprinkleranlage Minimax GmbH Viking Sprinkler VK302 im Objekt Berliner Allee 15, 40212 Düsseldorf.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Sprinkleranlage gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Halbjährlich",
+    "Laufzeit": {
+      "Startdatum": "2021-08-01",
+      "Enddatum": "2024-07-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 2100.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Halbjahr"
+    },
+    "Gerichtsstand": "Düsseldorf",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Ort": "Düsseldorf",
+        "Datum": "2021-06-01"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Nina Brandt",
+        "Ort": "Bad Oldesloe",
+        "Datum": "2021-06-01"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

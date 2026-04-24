@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c1b2d2v1",
+      "device_id": null,
+      "device_type": "Lüftungsanlage (RLT-Anlage)",
+      "maintenance_date": "2021-04-20",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Halbjähreswartung – Filterwechsel durchgeführt",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Lüftungsanlage (RLT-Anlage)",
+      "Hersteller": "Trox GmbH",
+      "Modell": "ECFD 800",
+      "Seriennummer": "TROX-ECFD-2019-01129",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Maximilianstraße 7, 80539 München",
+      "Objekttyp": "Geschäftsgebäude"
+    },
+    "Datum_der_Wartung": "2021-04-20",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Lüftungsanlage (RLT-Anlage) gemäß Wartungsvertrag c1b2d2v1",
+        "Ergebnis": "Halbjähreswartung – Filterwechsel durchgeführt"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "G4-Taschenfilter getauscht. Luftmengenmessung: Sollwert ±3 %.",
+    "Wartungsergebnis": "Halbjähreswartung – Filterwechsel durchgeführt",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "LufttechnikNord GmbH",
+      "KD_Techniker": "Andreas Schröder",
+      "Strasse": "Siemensstraße 14",
+      "PLZ": "22113",
+      "Ort": "Hamburg",
+      "Tel": "+49 40 7330880",
+      "E_Mail": "service@lufttechniknord.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Andreas Schröder",
+        "Datum": "2021-04-20"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Datum": "2021-04-20"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Maximilianstraße 7, 80539 München"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

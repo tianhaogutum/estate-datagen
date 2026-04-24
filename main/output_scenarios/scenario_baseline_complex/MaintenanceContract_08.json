@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c1b2d2v2",
+      "building_id": null,
+      "device_type": "Lüftungsanlage (RLT-Anlage)",
+      "service_provider_id": null,
+      "contract_date": "2023-02-20",
+      "contract_start": "2023-04-01",
+      "contract_end": "2026-03-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Halbjährlich",
+      "cost_per_maintenance": 1820.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Lüftungsanlage (RLT-Anlage)",
+      "Hersteller": "Trox GmbH",
+      "Modell": "ECFD 800",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Maximilianstraße 7, 80539 München",
+      "Telefon": "+49 89 2361000"
+    },
+    "Auftragnehmer": {
+      "Firma": "LufttechnikNord GmbH",
+      "Anschrift": "Siemensstraße 14, 22113 Hamburg",
+      "Telefon": "+49 40 7330880"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Maximilianstraße 7, 80539 München"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Lüftungsanlage (RLT-Anlage) Trox GmbH ECFD 800 im Objekt Maximilianstraße 7, 80539 München.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Lüftungsanlage (RLT-Anlage) gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Halbjährlich",
+    "Laufzeit": {
+      "Startdatum": "2023-04-01",
+      "Enddatum": "2026-03-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1820.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Halbjahr"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Ort": "München",
+        "Datum": "2023-02-20"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Andreas Schröder",
+        "Ort": "Hamburg",
+        "Datum": "2023-02-20"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c2b1d2v1",
+      "building_id": null,
+      "device_type": "Brandmeldeanlage",
+      "service_provider_id": null,
+      "contract_date": "2019-11-01",
+      "contract_start": "2019-12-01",
+      "contract_end": "2022-11-30",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 750.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Brandmeldeanlage",
+      "Hersteller": "Bosch Security Systems",
+      "Modell": "FPA-5000",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Königsallee 42, 40212 Düsseldorf",
+      "Telefon": "+49 211 8370420"
+    },
+    "Auftragnehmer": {
+      "Firma": "SecureFire Sicherheitstechnik GmbH",
+      "Anschrift": "Sicherheitsring 3, 40549 Düsseldorf",
+      "Telefon": "+49 211 5034700"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Königsallee 42, 40212 Düsseldorf"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Brandmeldeanlage Bosch Security Systems FPA-5000 im Objekt Königsallee 42, 40212 Düsseldorf.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Brandmeldeanlage gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2019-12-01",
+      "Enddatum": "2022-11-30",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 750.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "Düsseldorf",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Ort": "Düsseldorf",
+        "Datum": "2019-11-01"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Stefan Keller",
+        "Ort": "Düsseldorf",
+        "Datum": "2019-11-01"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c1b1d2v2",
+      "building_id": null,
+      "device_type": "Personenaufzug",
+      "service_provider_id": null,
+      "contract_date": "2021-05-10",
+      "contract_start": "2021-07-01",
+      "contract_end": "2024-06-30",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Halbjährlich",
+      "cost_per_maintenance": 2800.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Personenaufzug",
+      "Hersteller": "ThyssenKrupp Elevator AG",
+      "Modell": "Evolution 200",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Leopoldstraße 18, 80802 München",
+      "Telefon": "+49 89 2361000"
+    },
+    "Auftragnehmer": {
+      "Firma": "ThyssenKrupp Aufzüge GmbH",
+      "Anschrift": "Helfmann-Park 5, 65760 Eschborn",
+      "Telefon": "+49 6196 9840"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Leopoldstraße 18, 80802 München"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Personenaufzug ThyssenKrupp Elevator AG Evolution 200 im Objekt Leopoldstraße 18, 80802 München.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Personenaufzug gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Halbjährlich",
+    "Laufzeit": {
+      "Startdatum": "2021-07-01",
+      "Enddatum": "2024-06-30",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 2800.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Halbjahr"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Ort": "München",
+        "Datum": "2021-05-10"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Jörg Neumann",
+        "Ort": "Eschborn",
+        "Datum": "2021-05-10"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

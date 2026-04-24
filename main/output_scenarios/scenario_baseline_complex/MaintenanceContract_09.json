@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c2b1d1v1",
+      "building_id": null,
+      "device_type": "Wärmepumpe (Luft-Wasser)",
+      "service_provider_id": null,
+      "contract_date": "2021-03-10",
+      "contract_start": "2021-04-01",
+      "contract_end": "2024-03-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 1100.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Wärmepumpe (Luft-Wasser)",
+      "Hersteller": "Viessmann",
+      "Modell": "Vitocal 250-A",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "Anschrift": "Königsallee 42, 40212 Düsseldorf",
+      "Telefon": "+49 211 8370420"
+    },
+    "Auftragnehmer": {
+      "Firma": "WärmetechnikRuhr GmbH",
+      "Anschrift": "Ruhrdeich 9, 45478 Mülheim an der Ruhr",
+      "Telefon": "+49 208 4429010"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Königsallee 42, 40212 Düsseldorf"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Wärmepumpe (Luft-Wasser) Viessmann Vitocal 250-A im Objekt Königsallee 42, 40212 Düsseldorf.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Wärmepumpe (Luft-Wasser) gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2021-04-01",
+      "Enddatum": "2024-03-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1100.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "Düsseldorf",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Thomas Bergmann",
+        "Ort": "Düsseldorf",
+        "Datum": "2021-03-10"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Frank Richter",
+        "Ort": "Mülheim an der Ruhr",
+        "Datum": "2021-03-10"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}

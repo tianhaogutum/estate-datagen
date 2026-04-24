@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c1b1d1v1",
+      "device_id": null,
+      "device_type": "Klimaanlage (VRF-System)",
+      "maintenance_date": "2021-09-08",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Leichte Verschmutzung im Wärmetauscher behoben – Anlage betriebsbereit",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (VRF-System)",
+      "Hersteller": "Mitsubishi Electric",
+      "Modell": "City Multi R2",
+      "Seriennummer": "ME-CMR2-2019-00214",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Leopoldstraße 18, 80802 München",
+      "Objekttyp": "Bürogebäude"
+    },
+    "Datum_der_Wartung": "2021-09-08",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Klimaanlage (VRF-System) gemäß Wartungsvertrag c1b1d1v1",
+        "Ergebnis": "Leichte Verschmutzung im Wärmetauscher behoben – Anlage betriebsbereit"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "Wärmetauscher gereinigt. Kältemittelkreislauf auf Dichtigkeit geprüft – kein Leck.",
+    "Wartungsergebnis": "Leichte Verschmutzung im Wärmetauscher behoben – Anlage betriebsbereit",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "KlimaService Bayern GmbH",
+      "KD_Techniker": "Michael Rauer",
+      "Strasse": "Gewerbepark Süd 12",
+      "PLZ": "85521",
+      "Ort": "Ottobrunn",
+      "Tel": "+49 89 6073400",
+      "E_Mail": "service@klimaservice-bayern.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Michael Rauer",
+        "Datum": "2021-09-08"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Datum": "2021-09-08"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Leopoldstraße 18, 80802 München"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

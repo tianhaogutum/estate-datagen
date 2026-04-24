@@ -1,0 +1,590 @@
+{
+  "summary": {
+    "economic_units": 2,
+    "buildings": 4,
+    "contracts": 16,
+    "protocols": 32
+  },
+  "economic_units": [
+    {
+      "name": "Stadtwerke München Immobilien GmbH",
+      "building_count": 2,
+      "buildings": [
+        {
+          "address": "Leopoldstraße 18, 80802 München",
+          "device_count": 4,
+          "devices": [
+            {
+              "device_type": "Klimaanlage (VRF-System)",
+              "contract": {
+                "contract_id": "c1b1d1v1",
+                "service_provider": "KlimaService Bayern GmbH",
+                "contract_date": "2019-12-01",
+                "contract_start": "2020-01-01",
+                "contract_end": "2022-12-31",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 1200.0,
+                "source_file": "MaintenanceContract_01.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2020-09-14",
+                      "maintenance_type": null,
+                      "result_deficiency": "Wartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "KlimaService Bayern GmbH",
+                      "source_file": "MaintenanceProtocol_01.json"
+                    },
+                    {
+                      "maintenance_date": "2021-09-08",
+                      "maintenance_type": null,
+                      "result_deficiency": "Leichte Verschmutzung im Wärmetauscher behoben – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "KlimaService Bayern GmbH",
+                      "source_file": "MaintenanceProtocol_02.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Klimaanlage (VRF-System)",
+              "contract": {
+                "contract_id": "c1b1d1v2",
+                "service_provider": "TechAir Kälte- und Klimatechnik GmbH",
+                "contract_date": "2022-11-15",
+                "contract_start": "2023-01-01",
+                "contract_end": "2025-12-31",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 1480.0,
+                "source_file": "MaintenanceContract_02.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2023-09-06",
+                      "maintenance_type": null,
+                      "result_deficiency": "Erstinspektion und Übergabe – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "TechAir Kälte- und Klimatechnik GmbH",
+                      "source_file": "MaintenanceProtocol_03.json"
+                    },
+                    {
+                      "maintenance_date": "2024-09-11",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "TechAir Kälte- und Klimatechnik GmbH",
+                      "source_file": "MaintenanceProtocol_04.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Personenaufzug",
+              "contract": {
+                "contract_id": "c1b1d2v1",
+                "service_provider": "ThyssenKrupp Aufzüge GmbH",
+                "contract_date": "2018-06-01",
+                "contract_start": "2018-07-01",
+                "contract_end": "2021-06-30",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 2400.0,
+                "source_file": "MaintenanceContract_03.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2019-03-20",
+                      "maintenance_type": null,
+                      "result_deficiency": "TÜV-Prüfung bestanden – Aufzug betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "ThyssenKrupp Aufzüge GmbH",
+                      "source_file": "MaintenanceProtocol_05.json"
+                    },
+                    {
+                      "maintenance_date": "2020-10-15",
+                      "maintenance_type": null,
+                      "result_deficiency": "Wartung erfolgreich – geringfügige Schmierung erneuert",
+                      "deficiency_type": null,
+                      "performed_by": "ThyssenKrupp Aufzüge GmbH",
+                      "source_file": "MaintenanceProtocol_06.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Personenaufzug",
+              "contract": {
+                "contract_id": "c1b1d2v2",
+                "service_provider": "ThyssenKrupp Aufzüge GmbH",
+                "contract_date": "2021-05-10",
+                "contract_start": "2021-07-01",
+                "contract_end": "2024-06-30",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 2800.0,
+                "source_file": "MaintenanceContract_04.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2022-04-05",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung und TÜV-Inspektion – Betrieb freigegeben",
+                      "deficiency_type": null,
+                      "performed_by": "ThyssenKrupp Aufzüge GmbH",
+                      "source_file": "MaintenanceProtocol_07.json"
+                    },
+                    {
+                      "maintenance_date": "2023-10-12",
+                      "maintenance_type": null,
+                      "result_deficiency": "Wartung erfolgreich – Fangvorrichtung neu kalibriert",
+                      "deficiency_type": null,
+                      "performed_by": "ThyssenKrupp Aufzüge GmbH",
+                      "source_file": "MaintenanceProtocol_08.json"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "address": "Maximilianstraße 7, 80539 München",
+          "device_count": 4,
+          "devices": [
+            {
+              "device_type": "Heizungsanlage (Gas-Brennwertkessel)",
+              "contract": {
+                "contract_id": "c1b2d1v1",
+                "service_provider": "Viessmann Kundendienst GmbH",
+                "contract_date": "2020-09-01",
+                "contract_start": "2020-10-01",
+                "contract_end": "2023-09-30",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 890.0,
+                "source_file": "MaintenanceContract_05.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2021-10-05",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Viessmann Kundendienst GmbH",
+                      "source_file": "MaintenanceProtocol_09.json"
+                    },
+                    {
+                      "maintenance_date": "2022-10-12",
+                      "maintenance_type": null,
+                      "result_deficiency": "Kleinere Einstellung vorgenommen – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Viessmann Kundendienst GmbH",
+                      "source_file": "MaintenanceProtocol_10.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Heizungsanlage (Gas-Brennwertkessel)",
+              "contract": {
+                "contract_id": "c1b2d1v2",
+                "service_provider": "Viessmann Kundendienst GmbH",
+                "contract_date": "2023-08-15",
+                "contract_start": "2023-10-01",
+                "contract_end": "2026-09-30",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 980.0,
+                "source_file": "MaintenanceContract_06.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2023-10-09",
+                      "maintenance_type": null,
+                      "result_deficiency": "Übergabe-Inspektion und Jahreswartung – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Viessmann Kundendienst GmbH",
+                      "source_file": "MaintenanceProtocol_11.json"
+                    },
+                    {
+                      "maintenance_date": "2024-10-14",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Viessmann Kundendienst GmbH",
+                      "source_file": "MaintenanceProtocol_12.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Lüftungsanlage (RLT-Anlage)",
+              "contract": {
+                "contract_id": "c1b2d2v1",
+                "service_provider": "LufttechnikNord GmbH",
+                "contract_date": "2020-03-01",
+                "contract_start": "2020-04-01",
+                "contract_end": "2023-03-31",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 1650.0,
+                "source_file": "MaintenanceContract_07.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2021-04-20",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjähreswartung – Filterwechsel durchgeführt",
+                      "deficiency_type": null,
+                      "performed_by": "LufttechnikNord GmbH",
+                      "source_file": "MaintenanceProtocol_13.json"
+                    },
+                    {
+                      "maintenance_date": "2022-10-25",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "LufttechnikNord GmbH",
+                      "source_file": "MaintenanceProtocol_14.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Lüftungsanlage (RLT-Anlage)",
+              "contract": {
+                "contract_id": "c1b2d2v2",
+                "service_provider": "LufttechnikNord GmbH",
+                "contract_date": "2023-02-20",
+                "contract_start": "2023-04-01",
+                "contract_end": "2026-03-31",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 1820.0,
+                "source_file": "MaintenanceContract_08.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2023-11-08",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "LufttechnikNord GmbH",
+                      "source_file": "MaintenanceProtocol_15.json"
+                    },
+                    {
+                      "maintenance_date": "2024-05-15",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "LufttechnikNord GmbH",
+                      "source_file": "MaintenanceProtocol_16.json"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wohnbaugesellschaft Nordrhein GmbH",
+      "building_count": 2,
+      "buildings": [
+        {
+          "address": "Königsallee 42, 40212 Düsseldorf",
+          "device_count": 4,
+          "devices": [
+            {
+              "device_type": "Wärmepumpe (Luft-Wasser)",
+              "contract": {
+                "contract_id": "c2b1d1v1",
+                "service_provider": "WärmetechnikRuhr GmbH",
+                "contract_date": "2021-03-10",
+                "contract_start": "2021-04-01",
+                "contract_end": "2024-03-31",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 1100.0,
+                "source_file": "MaintenanceContract_09.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2022-05-18",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "WärmetechnikRuhr GmbH",
+                      "source_file": "MaintenanceProtocol_17.json"
+                    },
+                    {
+                      "maintenance_date": "2023-05-22",
+                      "maintenance_type": null,
+                      "result_deficiency": "Kältemittel R-32 nachgefüllt – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "WärmetechnikRuhr GmbH",
+                      "source_file": "MaintenanceProtocol_18.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Wärmepumpe (Luft-Wasser)",
+              "contract": {
+                "contract_id": "c2b1d1v2",
+                "service_provider": "WärmetechnikRuhr GmbH",
+                "contract_date": "2024-02-01",
+                "contract_start": "2024-04-01",
+                "contract_end": "2027-03-31",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 1280.0,
+                "source_file": "MaintenanceContract_10.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2024-05-16",
+                      "maintenance_type": null,
+                      "result_deficiency": "Erstinspektion nach Vertragsverlängerung – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "WärmetechnikRuhr GmbH",
+                      "source_file": "MaintenanceProtocol_19.json"
+                    },
+                    {
+                      "maintenance_date": "2025-05-20",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "WärmetechnikRuhr GmbH",
+                      "source_file": "MaintenanceProtocol_20.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Brandmeldeanlage",
+              "contract": {
+                "contract_id": "c2b1d2v1",
+                "service_provider": "SecureFire Sicherheitstechnik GmbH",
+                "contract_date": "2019-11-01",
+                "contract_start": "2019-12-01",
+                "contract_end": "2022-11-30",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 750.0,
+                "source_file": "MaintenanceContract_11.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2020-12-08",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahresinspektion bestanden – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "SecureFire Sicherheitstechnik GmbH",
+                      "source_file": "MaintenanceProtocol_21.json"
+                    },
+                    {
+                      "maintenance_date": "2021-12-14",
+                      "maintenance_type": null,
+                      "result_deficiency": "Funktionstest aller Melder – keine Mängel",
+                      "deficiency_type": null,
+                      "performed_by": "SecureFire Sicherheitstechnik GmbH",
+                      "source_file": "MaintenanceProtocol_22.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Brandmeldeanlage",
+              "contract": {
+                "contract_id": "c2b1d2v2",
+                "service_provider": "SecureFire Sicherheitstechnik GmbH",
+                "contract_date": "2022-10-10",
+                "contract_start": "2022-12-01",
+                "contract_end": "2025-11-30",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 820.0,
+                "source_file": "MaintenanceContract_12.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2023-12-05",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahreswartung bestanden – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "SecureFire Sicherheitstechnik GmbH",
+                      "source_file": "MaintenanceProtocol_23.json"
+                    },
+                    {
+                      "maintenance_date": "2024-12-10",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahresinspektion erfolgreich – alle Melder betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "SecureFire Sicherheitstechnik GmbH",
+                      "source_file": "MaintenanceProtocol_24.json"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "address": "Berliner Allee 15, 40212 Düsseldorf",
+          "device_count": 4,
+          "devices": [
+            {
+              "device_type": "Sprinkleranlage",
+              "contract": {
+                "contract_id": "c2b2d1v1",
+                "service_provider": "Minimax Mobile Services GmbH & Co. KG",
+                "contract_date": "2018-07-01",
+                "contract_start": "2018-08-01",
+                "contract_end": "2021-07-31",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 1900.0,
+                "source_file": "MaintenanceContract_13.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2019-08-20",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung – Drucktest bestanden",
+                      "deficiency_type": null,
+                      "performed_by": "Minimax Mobile Services GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_25.json"
+                    },
+                    {
+                      "maintenance_date": "2020-09-15",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahresinspektion bestanden – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Minimax Mobile Services GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_26.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Sprinkleranlage",
+              "contract": {
+                "contract_id": "c2b2d1v2",
+                "service_provider": "Minimax Mobile Services GmbH & Co. KG",
+                "contract_date": "2021-06-01",
+                "contract_start": "2021-08-01",
+                "contract_end": "2024-07-31",
+                "maintenance_frequency": "Halbjährlich",
+                "cost_per_maintenance": 2100.0,
+                "source_file": "MaintenanceContract_14.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2022-08-17",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahreswartung erfolgreich – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "Minimax Mobile Services GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_27.json"
+                    },
+                    {
+                      "maintenance_date": "2023-09-03",
+                      "maintenance_type": null,
+                      "result_deficiency": "Halbjahresinspektion – geringfügige Instandsetzung durchgeführt",
+                      "deficiency_type": null,
+                      "performed_by": "Minimax Mobile Services GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_28.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Elektrische Anlage (Niederspannung)",
+              "contract": {
+                "contract_id": "c2b2d2v1",
+                "service_provider": "ElektroProfis GmbH & Co. KG",
+                "contract_date": "2021-01-10",
+                "contract_start": "2021-03-01",
+                "contract_end": "2024-02-29",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 650.0,
+                "source_file": "MaintenanceContract_15.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2022-04-18",
+                      "maintenance_type": null,
+                      "result_deficiency": "DGUV V3-Prüfung bestanden – Anlage betriebssicher",
+                      "deficiency_type": null,
+                      "performed_by": "ElektroProfis GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_29.json"
+                    },
+                    {
+                      "maintenance_date": "2023-04-21",
+                      "maintenance_type": null,
+                      "result_deficiency": "Sicherheitsprüfung bestanden – keine Mängel",
+                      "deficiency_type": null,
+                      "performed_by": "ElektroProfis GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_30.json"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "device_type": "Elektrische Anlage (Niederspannung)",
+              "contract": {
+                "contract_id": "c2b2d2v2",
+                "service_provider": "ElektroProfis GmbH & Co. KG",
+                "contract_date": "2024-01-15",
+                "contract_start": "2024-03-01",
+                "contract_end": "2027-02-28",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 720.0,
+                "source_file": "MaintenanceContract_16.json",
+                "protocols": {
+                  "count": 2,
+                  "entries": [
+                    {
+                      "maintenance_date": "2024-04-17",
+                      "maintenance_type": null,
+                      "result_deficiency": "DGUV V3-Jahresprüfung bestanden – Anlage betriebssicher",
+                      "deficiency_type": null,
+                      "performed_by": "ElektroProfis GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_31.json"
+                    },
+                    {
+                      "maintenance_date": "2025-04-22",
+                      "maintenance_type": null,
+                      "result_deficiency": "Jahresprüfung erfolgreich – keine Beanstandungen",
+                      "deficiency_type": null,
+                      "performed_by": "ElektroProfis GmbH & Co. KG",
+                      "source_file": "MaintenanceProtocol_32.json"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

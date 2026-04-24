@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": "c1b2d1v2",
+      "device_id": null,
+      "device_type": "Heizungsanlage (Gas-Brennwertkessel)",
+      "maintenance_date": "2023-10-09",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Übergabe-Inspektion und Jahreswartung – Anlage betriebsbereit",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Heizungsanlage (Gas-Brennwertkessel)",
+      "Hersteller": "Viessmann",
+      "Modell": "Vitodens 300-W",
+      "Seriennummer": "VTD300W-2018-05512",
+      "Anzahl": "1"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Maximilianstraße 7, 80539 München",
+      "Objekttyp": "Geschäftsgebäude"
+    },
+    "Datum_der_Wartung": "2023-10-09",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Inspektion und Wartung der Heizungsanlage (Gas-Brennwertkessel) gemäß Wartungsvertrag c1b2d1v2",
+        "Ergebnis": "Übergabe-Inspektion und Jahreswartung – Anlage betriebsbereit"
+      },
+      {
+        "Arbeitspunkt": "Überprüfung aller sicherheitsrelevanten Bauteile und Dokumentation",
+        "Ergebnis": "Alle geprüften Komponenten in ordnungsgemäßem Zustand"
+      }
+    ],
+    "Bemerkungen": "Übergabeinspektion nach Vertragsverlängerung. Dichtheitsprüfung unauffällig.",
+    "Wartungsergebnis": "Übergabe-Inspektion und Jahreswartung – Anlage betriebsbereit",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "Viessmann Kundendienst GmbH",
+      "KD_Techniker": "Klaus Bauer",
+      "Strasse": "Viessmannstraße 1",
+      "PLZ": "35108",
+      "Ort": "Allendorf",
+      "Tel": "+49 6452 7090",
+      "E_Mail": "service@viessmann.com"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Klaus Bauer",
+        "Datum": "2023-10-09"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Datum": "2023-10-09"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Maximilianstraße 7, 80539 München"
+    },
+    "Naechster_Wartungstermin": null,
+    "Datum_Inbetriebnahme": null,
+    "Verwendete_Ersatzteile": [],
+    "Messwerte": []
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": "c1b2d1v1",
+      "building_id": null,
+      "device_type": "Heizungsanlage (Gas-Brennwertkessel)",
+      "service_provider_id": null,
+      "contract_date": "2020-09-01",
+      "contract_start": "2020-10-01",
+      "contract_end": "2023-09-30",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 890.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Heizungsanlage (Gas-Brennwertkessel)",
+      "Hersteller": "Viessmann",
+      "Modell": "Vitodens 300-W",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Stadtwerke München Immobilien GmbH",
+      "Anschrift": "Maximilianstraße 7, 80539 München",
+      "Telefon": "+49 89 2361000"
+    },
+    "Auftragnehmer": {
+      "Firma": "Viessmann Kundendienst GmbH",
+      "Anschrift": "Viessmannstraße 1, 35108 Allendorf",
+      "Telefon": "+49 6452 7090"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Maximilianstraße 7, 80539 München"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung der Heizungsanlage (Gas-Brennwertkessel) Viessmann Vitodens 300-W im Objekt Maximilianstraße 7, 80539 München.",
+    "Vereinbarungen_Leistungen": [
+      "Inspektion und Wartung der Heizungsanlage (Gas-Brennwertkessel) gemäß Herstellervorgaben und einschlägigen Normen",
+      "Reinigung, Funktionsprüfung und Dokumentation aller sicherheitsrelevanten Bauteile"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2020-10-01",
+      "Enddatum": "2023-09-30",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 890.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Dr. Petra Hoffmann",
+        "Ort": "München",
+        "Datum": "2020-09-01"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Klaus Bauer",
+        "Ort": "Allendorf",
+        "Datum": "2020-09-01"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage",
+      "Erstellung eines Wartungsberichts nach jeder Wartung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden durch nachgewiesene Fahrlässigkeit. Die Haftung ist auf die jährliche Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Jährliche Anpassung um maximal 3 % mit Ankündigungsfrist von 6 Wochen",
+    "Mehrwertsteuer": "19 %"
+  }
+}
