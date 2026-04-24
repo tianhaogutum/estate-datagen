@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "economic_units": 1,
+    "buildings": 1,
+    "contracts": 1,
+    "protocols": 1
+  },
+  "economic_units": [
+    {
+      "name": "Immobilienverwaltung Berger & Söhne GmbH",
+      "building_count": 1,
+      "buildings": [
+        {
+          "address": "Rosenheimer Straße 45, 81669 München",
+          "device_count": 1,
+          "devices": [
+            {
+              "device_type": "Klimaanlage (VRF-System)",
+              "contract": {
+                "contract_id": "a4ba981c",
+                "service_provider": "KlimaService Bayern GmbH",
+                "contract_date": "2022-12-15",
+                "contract_start": "2023-01-01",
+                "contract_end": "2025-12-31",
+                "maintenance_frequency": "Jährlich",
+                "cost_per_maintenance": 1480.0,
+                "source_file": "MaintenanceContract.json",
+                "protocols": {
+                  "count": 1,
+                  "entries": [
+                    {
+                      "maintenance_date": "2024-04-17",
+                      "maintenance_type": null,
+                      "result_deficiency": "Wartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+                      "deficiency_type": null,
+                      "performed_by": "KlimaService Bayern GmbH",
+                      "source_file": "MaintenanceProtocol.json"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

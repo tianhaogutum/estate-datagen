@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": null,
+      "building_id": null,
+      "device_type": "Klimaanlage (VRF-System)",
+      "service_provider_id": null,
+      "contract_date": "2022-12-15",
+      "contract_start": "2023-01-01",
+      "contract_end": "2025-12-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Jährlich",
+      "cost_per_maintenance": 1480.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (VRF-System)",
+      "Hersteller": "Daikin",
+      "Modell": "VRV IV Heat Pump",
+      "Anzahl": "1"
+    },
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Berger & Söhne GmbH",
+      "Anschrift": "Rosenheimer Straße 45, 81669 München",
+      "Telefon": "+49 89 4521890"
+    },
+    "Auftragnehmer": {
+      "Firma": "KlimaService Bayern GmbH",
+      "Anschrift": "Gewerbepark Süd 12, 85521 Ottobrunn",
+      "Telefon": "+49 89 6073400"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Rosenheimer Straße 45, 81669 München"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung und Instandhaltung der Klimaanlage (VRF-System) der Marke Daikin, Modell VRV IV Heat Pump, im Objekt Rosenheimer Straße 45, 81669 München.",
+    "Vereinbarungen_Leistungen": [
+      "Jährliche Inspektion und Wartung der Innen- und Außengeräte gemäß Herstellervorgaben und VDI 6022",
+      "Reinigung der Filter, Wärmetauscher und Kondensatwannen sowie Überprüfung aller elektrischen und mechanischen Komponenten"
+    ],
+    "Wartungsintervall": "Jährlich",
+    "Laufzeit": {
+      "Startdatum": "2023-01-01",
+      "Enddatum": "2025-12-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Vertragsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 1480.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "Jahr"
+    },
+    "Gerichtsstand": "München",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Klaus Berger",
+        "Ort": "München",
+        "Datum": "2022-12-15"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Thomas Huber",
+        "Ort": "Ottobrunn",
+        "Datum": "2022-12-19"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 8 Stunden an Werktagen (Mo–Fr, 07:00–17:00 Uhr)",
+    "Zusatzleistungen": [
+      "Notfalldienst außerhalb der regulären Arbeitszeiten auf Anfrage gegen gesonderte Vergütung",
+      "Erstellung eines jährlichen Wartungsberichts mit Empfehlungen zur Anlagenoptimierung"
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug",
+    "Haftungsklauseln": "Der Auftragnehmer haftet nur für Schäden, die durch nachgewiesene Fahrlässigkeit bei der Wartungsausführung entstanden sind. Die Haftung ist auf die Höhe der jährlichen Wartungsvergütung begrenzt.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Wartungsleistungen und eingebaute Ersatzteile",
+    "Preisanpassungsklausel": "Der Wartungspreis kann einmal jährlich zum Vertragsbeginn um maximal 3 % angepasst werden, mit einer Ankündigungsfrist von 6 Wochen.",
+    "Mehrwertsteuer": "19 %",
+    "Anlagen_Stueckzahl": "1 Außengerät, 4 Innengeräte",
+    "Kaeltemittelart": "R-410A",
+    "Kaeltemittelfuellmenge_kg": "7,5",
+    "Dichtigkeitskontrolle_EU_517_2014": "Ja, gemäß EU-Verordnung Nr. 517/2014 wird eine jährliche Dichtigkeitskontrolle durchgeführt"
+  }
+}

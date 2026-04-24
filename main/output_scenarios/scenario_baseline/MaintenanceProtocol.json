@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "entity": "MaintenanceProtocol",
+    "field_values": {
+      "id": null,
+      "contract_id": null,
+      "device_id": null,
+      "device_type": "Klimaanlage (VRF-System)",
+      "maintenance_date": "2024-04-17",
+      "maintenance_type": null,
+      "performed_by_id": null,
+      "ordered_by_id": null,
+      "result_deficiency": "Wartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+      "deficiency_type": null
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (VRF-System)",
+      "Hersteller": "Daikin",
+      "Modell": "VRV IV Heat Pump",
+      "Seriennummer": "DKVRVIV-2019-00847",
+      "Anzahl_Innengeraete": "4"
+    },
+    "Anlagenstandort": {
+      "Adresse": "Rosenheimer Straße 45, 81669 München",
+      "Objekttyp": "Bürogebäude"
+    },
+    "Datum_der_Wartung": "2024-04-17",
+    "Durchgefuehrte_Arbeiten": [
+      {
+        "Arbeitspunkt": "Reinigung und Überprüfung aller vier Innengeräte inkl. Filter, Lamellen und Kondensatwannen",
+        "Ergebnis": "Alle Filter gereinigt, Kondensatwannen ohne Ablagerungen, Lamellen in gutem Zustand"
+      },
+      {
+        "Arbeitspunkt": "Inspektion des Außengeräts: Überprüfung von Verdichter, Lüftermotor, Wärmetauscher und elektrischen Anschlüssen",
+        "Ergebnis": "Verdichter und Lüftermotor funktionsfähig, Wärmetauscher gereinigt, alle elektrischen Verbindungen fest und korrosionsfrei"
+      }
+    ],
+    "Bemerkungen": "Die Anlage befindet sich in einem ordnungsgemäßen Betriebszustand. Es wurden keine sicherheitsrelevanten Mängel festgestellt. Ein leicht erhöhter Verschleiß am Filtermedium von Innengerät 3 (2. OG, Besprechungsraum) wurde vermerkt; Austausch beim nächsten Wartungstermin empfohlen.",
+    "Wartungsergebnis": "Wartung erfolgreich abgeschlossen – Anlage betriebsbereit",
+    "Ausfuehrende_Fachfirma": {
+      "Firma": "KlimaService Bayern GmbH",
+      "KD_Techniker": "Marco Steinberg",
+      "Strasse": "Gewerbepark Süd 12",
+      "PLZ": "85521",
+      "Ort": "Ottobrunn",
+      "Tel": "+49 89 6073400",
+      "E_Mail": "service@klimaservice-bayern.de"
+    },
+    "Unterschriften": [
+      {
+        "Rolle": "Ausführender Techniker",
+        "Unterschrift_von": "Marco Steinberg",
+        "Datum": "2024-04-17"
+      },
+      {
+        "Rolle": "Auftraggeber / Gebäudeverantwortlicher",
+        "Unterschrift_von": "Klaus Berger",
+        "Datum": "2024-04-17"
+      }
+    ]
+  },
+  "optional": {
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Berger & Söhne GmbH",
+      "Anschrift": "Rosenheimer Straße 45, 81669 München"
+    },
+    "Naechster_Wartungstermin": "2025-04-01",
+    "Datum_Inbetriebnahme": "2019-08-12",
+    "Verwendete_Ersatzteile": [
+      {
+        "Bezeichnung": "Filtermatte G4 für Innengerät Typ FXAQ50P",
+        "Menge": "2 Stück"
+      },
+      {
+        "Bezeichnung": "Kondensatwannen-Reinigungs- und Desinfektionsmittel",
+        "Menge": "0,5 Liter"
+      }
+    ],
+    "Messwerte": [
+      {
+        "Bezeichnung": "Hochdruck Kältekreis",
+        "Wert": "26,4",
+        "Einheit": "bar"
+      },
+      {
+        "Bezeichnung": "Niederdruck Kältekreis",
+        "Wert": "8,7",
+        "Einheit": "bar"
+      }
+    ],
+    "Kaeltetechnische_Pruefung": {
+      "Dichtigkeitskontrolle_EU_517_2014": "Ja, durchgeführt gemäß EU-Verordnung Nr. 517/2014",
+      "Kaeltemittelart": "R-410A",
+      "Kaeltemittelfuellmenge_kg": "7,5",
+      "Resultat_Lecksuche_g_a": "0",
+      "Wiederholungspruefung_erforderlich": "Nein"
+    },
+    "Historie": [
+      {
+        "Komponente": "Verdichter Außengerät",
+        "Laufzeit_h": "11240"
+      },
+      {
+        "Komponente": "Lüftermotor Außengerät",
+        "Laufzeit_h": "10875"
+      }
+    ]
+  }
+}
