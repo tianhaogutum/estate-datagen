@@ -1,0 +1,12 @@
+{
+  "entity": "Device",
+  "fields": [
+    { "name": "id",          "type": "UUID",   "constraints": { "primary_key": true } },
+    { "name": "building_id", "type": "UUID",   "constraints": { "foreign_key": "Building", "required": true } },
+    { "name": "device_type", "type": "Enum",   "constraints": {
+        "required": true,
+        "values": ["WAERMEPUMPE", "HEIZKESSEL", "RAUCHMELDER", "SPRINKLER", "AUFZUG", "KLIMAANLAGE", "ELEKTRISCH_ALLG"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+SCENARIO: Maintenance contract exists but no maintenance protocols have ever been recorded.
+
+Generate a realistic MaintenanceContract where the contract is clearly active
+(contract_start is in the past, contract_end is in the future or unbefristet),
+but zero MaintenanceProtocol records exist for it.
+
+RULES:
+- contract_start must be at least 12 months ago from today (2026-04-24)
+- contract_end must be in the future (>= 2026-12-31)
+- maintenance_frequency must be one of: QUARTERLY, SEMI_ANNUAL, ANNUAL
+- Based on the frequency and contract_start, at least 2–4 protocol events should
+  have occurred by now — but none will be generated (the absence is the anomaly)
+- All contract fields must be fully realistic and internally consistent
+- Do NOT generate any protocol data — the anomaly is the missing protocols

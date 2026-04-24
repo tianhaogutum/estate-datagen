@@ -1,0 +1,9 @@
+{
+  "entity": "Building",
+  "fields": [
+    { "name": "id",               "type": "UUID",   "constraints": { "primary_key": true } },
+    { "name": "economic_unit_id", "type": "UUID",   "constraints": { "foreign_key": "EconomicUnit", "required": true } },
+    { "name": "name",             "type": "String", "constraints": { "required": true } },
+    { "name": "address",          "type": "String", "constraints": { "required": true } }
+  ]
+}

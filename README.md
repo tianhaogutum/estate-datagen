@@ -1,36 +1,49 @@
 # Synthetic Data Generation — 1000plus
 
-Generates synthetic German maintenance documents (Wartungsverträge, Wartungsprotokolle) using Claude via AWS Bedrock. The pipeline takes per-system requirement specs as input and produces diverse, high-fidelity HTML and PDF outputs across multiple visual style variants. A separate scenario layer allows post-hoc injection of domain anomalies (date mismatches, device-type inconsistencies, address errors, etc.) into generated data.
+Generates synthetic German maintenance documents (Wartungsverträge, Wartungsprotokolle) using Claude via AWS Bedrock. The pipeline produces structured JSON, HTML layouts, and filled documents across multiple visual style variants. A scenario layer injects deliberate domain anomalies (missing protocols, overlapping contracts, date/address mismatches, frequency violations) to support data-quality testing.
 
 ## Project Structure
 
 ```
 SyntheticDataGeneration/
 ├── main/
-│   ├── pipeline.py                    # Entry point — orchestrates the full pipeline
-│   ├── data_synthesizer.py            # LLM-based JSON data generation
-│   ├── doc_generator.py               # HTML template generation (few-shot prompted)
-│   ├── pdf_converter.py               # HTML → PDF via Playwright (headless Chromium)
-│   ├── fill_template.py               # Standalone HTML placeholder fill tool
-│   ├── apply_scenarios.py             # Apply a scenario to an existing JSON data file
-│   ├── taxonomy.py                    # Document types and system types
-│   ├── style_profiles.py              # Visual style variants
-│   ├── document_requirements/         # Per-system requirement specs
-│   │   ├── wartungsvertrag/           #   e.g. WAERMEPUMPE.txt, RAUCHMELDER.txt, ...
+│   ├── data_schema_generator.py       # Step 1 — generate placeholder template JSON from requirements
+│   ├── data_samples_generator.py      # Step 2 — fill template(s) with real data via scenario spec
+│   ├── html_generator.py              # Step 3 — generate HTML layout from template JSON
+│   ├── fill_html.py                   # Step 4 — replace &lt;label&gt; placeholders with real values
+│   ├── ontology_view.py               # Assemble ontology tree from multiple data JSON files
+│   ├── pdf_converter.py               # HTML → PDF via Playwright
+│   ├── style_profiles.py              # 5 visual style variants
+│   ├── pipeline.py                    # Legacy end-to-end pipeline (kept for reference)
+│   │
+│   ├── document_requirements/         # Per-system requirement specs (.txt)
+│   │   ├── wartungsvertrag/           #   e.g. KLIMAANLAGE.txt, WAERMEPUMPE.txt …
 │   │   └── wartungsprotokoll/
-│   ├── few_shots/                     # Example PDFs for few-shot prompting
-│   ├── scenarios/                     # Scenario prompt files (one .txt per scenario)
-│   ├── output/                        # Generated documents (timestamped runs, gitignored)
-│   ├── output_data/                   # apply_scenarios.py outputs (gitignored)
-│   └── test_cases_demo/               # Hand-crafted test cases with artifacts
-│       ├── case1_protocol/            # Base Wartungsprotokoll (Blitzschutz)
-│       ├── case1_vertrag/             # Base Wartungsvertrag (Blitzschutz)
-│       ├── case2/                     # Multiple contracts, one physical device
-│       ├── case3/                     # Protocol date outside active contract period
-│       ├── case4/                     # Two protocols in same quarter (freq mismatch)
-│       └── case5/                     # Protocol addresses don't match building
-├── ontology_ignore/                   # OWL ontology + SHACL shapes (standalone, not wired to pipeline)
-├── bk/                                # Prototyping / reference
+│   ├── entities_meta/                 # Entity schema JSON files (ontology field definitions)
+│   │   ├── wartungsvertrag.json       #   → MaintenanceContract fields
+│   │   ├── wartungsprotokoll.json     #   → MaintenanceProtocol fields
+│   │   ├── Building.json
+│   │   ├── Device.json
+│   │   ├── EconomicUnit.json
+│   │   └── ServiceProvider.json
+│   ├── scenario_specifications/       # Scenario prompt files (one .txt per anomaly)
+│   │   ├── normal.txt
+│   │   ├── no_protocols.txt
+│   │   ├── multi_contract.txt
+│   │   ├── protocol_outside_contract.txt
+│   │   ├── frequency_mismatch.txt
+│   │   └── address_mismatch.txt
+│   ├── few_shots/                     # Example PDFs for few-shot HTML prompting
+│   │
+│   └── output/                        # All generated artefacts (gitignored)
+│       ├── templates/                 #   placeholder template JSON files
+│       ├── data/                      #   filled data JSON files
+│       ├── html/                      #   HTML layouts
+│       ├── filled/                    #   filled HTMLs
+│       └── ontology/                  #   ontology view JSON files
+│
+├── ontology_schema_future/            # OWL ontology + SHACL shapes (reference, not wired to pipeline)
+├── bk_eva/                            # Evaluation / prototyping scratch
 ├── requirements.txt
 └── README.md
 ```
@@ -38,129 +51,133 @@ SyntheticDataGeneration/
 ## Prerequisites
 
 - Python >= 3.10
-- AWS CLI configured with a profile that has Bedrock access in `eu-central-1`
-- Playwright Chromium (installed via `playwright install chromium`)
+- AWS CLI configured with Bedrock access in `eu-central-1`
+- Playwright Chromium: `playwright install chromium`
 
 ## Setup
 
-### 1. Create and activate a virtual environment
-
-**macOS / Linux:**
 ```bash
 python -m venv venv
-source venv/bin/activate
-```
-
-**PowerShell:**
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-python -m venv venv
-.\venv\Scripts\activate
-```
-
-### 2. Install dependencies
-
-```bash
+source venv/bin/activate          # Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
 playwright install chromium
 ```
 
-### 3. Configure AWS credentials
-
+AWS credentials:
 ```bash
 aws configure --profile claude-bedrock
 aws sts get-caller-identity --profile claude-bedrock
 ```
 
-On non-Windows the pipeline uses the default boto3 credential chain. To use a named profile, update `profile_name` in `data_synthesizer.py` and `doc_generator.py`.
+On non-Windows the pipeline uses the default boto3 credential chain. On Windows it looks for a `claude-bedrock` named profile.
 
-## Running the Pipeline
+---
+
+## New Pipeline (Step-by-Step)
+
+### Step 1 — Generate a placeholder template
+
+Reads `document_requirements/<doc_key>/<system_key>.txt` and `entities_meta/<doc_key>.json`, returns a JSON with `meta`, `required`, and `optional` sections where every value is a `<Placeholder>`.
 
 ```bash
 cd main
-python pipeline.py <doc_key> <system_key> [--no-few-shots]
+python data_schema_generator.py <doc_key> <system_key>
+# output → output/templates/<doc_key>_<system_key>_template.json
 ```
-
-| Flag | Effect |
-|---|---|
-| _(none)_ | Full pipeline with few-shot PDF examples |
-| `--no-few-shots` | Skip few-shot PDFs (faster, avoids read timeouts) |
 
 Examples:
-
 ```bash
-python pipeline.py wartungsvertrag WAERMEPUMPE
-python pipeline.py wartungsprotokoll RAUCHMELDER --no-few-shots
+python data_schema_generator.py wartungsvertrag KLIMAANLAGE
+python data_schema_generator.py wartungsprotokoll WAERMEPUMPE
 ```
 
-The pipeline runs four stages:
+### Step 2 — Fill template(s) with real data
 
-1. **Synthesize** — Claude generates structured JSON from the per-system requirement spec
-2. **Generate** — Claude produces an HTML template (with `&lt;label&gt;` placeholders) for each style variant
-3. **Fill** — placeholders are replaced with real values (no LLM)
-4. **Convert** — filled HTML is rendered to PDF via Playwright
-
-Output is written to `main/output/<doc_key>_<system_key>_<timestamp>/`.
-
-## Applying Scenarios
-
-Scenarios inject deliberate anomalies into an existing JSON data file without re-running the full pipeline.
+Reads one or more template JSON files and a scenario spec, fills all placeholders in a **single LLM call** (so values are consistent across documents).
 
 ```bash
-cd main
-python apply_scenarios.py <scenario> <path/to/*_example.json>
+# single document
+python data_samples_generator.py <template.json> <scenario_spec.txt>
+
+# multiple documents (consistent values across all)
+python data_samples_generator.py \
+  --template output/templates/wartungsvertrag_KLIMAANLAGE_template.json \
+  --template output/templates/wartungsprotokoll_KLIMAANLAGE_template.json \
+  --scenario scenario_specifications/normal.txt \
+  --out-dir output/data/my_run/
 ```
 
-The script reads `scenarios/<scenario>.txt` as the instruction prompt, sends it together with the input JSON to Claude, and writes the modified JSON (same structure, changed values) to `main/output_data/<scenario>_<timestamp>.json`.
+Output: one `<EntityName>.json` per template in `output/data/<scenario>/`.
 
-Then fill a template with the new data:
+### Step 3 — Generate HTML layout
+
+Reads a template JSON (placeholder values preserved) and few-shot PDFs, generates HTML via the LLM.
 
 ```bash
-python fill_template.py <html_template> <json_path> [<output_path>]
+python html_generator.py <template.json> <doc_key> [<style_key>|all] [--no-few-shots]
+# output → output/html/<template_stem>_<style_key>.html
 ```
 
-### Available Scenarios
+Style keys: `corporate_formal`, `field_service_form`, `municipal_office`, `modern_saas`, `handwritten_scan`
 
-| Scenario file | Anomaly |
+```bash
+python html_generator.py output/templates/wartungsvertrag_KLIMAANLAGE_template.json wartungsvertrag corporate_formal
+python html_generator.py output/templates/wartungsvertrag_KLIMAANLAGE_template.json wartungsvertrag all --no-few-shots
+```
+
+### Step 4 — Fill HTML with real data
+
+Replaces `&lt;Label&gt;` placeholders in an HTML file with real values from a filled data JSON.
+
+```bash
+python fill_html.py <data.json> <template.html> [<out.html>]
+# output → output/filled/<html_stem>_filled.html
+```
+
+### Ontology View
+
+Assembles multiple data JSON files into a single hierarchical ontology tree:
+`EconomicUnit → Building → Device → Contract → Protocols`
+
+```bash
+python ontology_view.py <data1.json> [<data2.json> ...] --out <out.json>
+# default output → output/ontology/ontology_view.json
+```
+
+---
+
+## Scenario Specifications
+
+Each `.txt` in `scenario_specifications/` describes one anomaly scenario passed as instructions to the LLM during data generation.
+
+| File | Anomaly |
 |---|---|
-| `case2` | Multiple contracts for one physical device |
-| `case3_protocol` | Protocol date falls outside active contract period |
-| `case3_vertrag` | Contract data aligned to case3 building/device |
-| `case4_contract` | Quarterly contract (case4 base) |
-| `case4_protocol1/2` | Two protocols in the same quarter |
-| `case5_protocol1/2` | Protocol addresses don't match the building |
+| `normal.txt` | Fully coherent data, no anomalies |
+| `no_protocols.txt` | Active contract with zero protocol records |
+| `multi_contract.txt` | Two overlapping contracts for the same device in one building |
+| `protocol_outside_contract.txt` | Protocol date falls before contract_start or after contract_end |
+| `frequency_mismatch.txt` | Two protocols in one quarter, or a quarter with no protocol |
+| `address_mismatch.txt` | Protocol location address differs from the contract building address |
 
-Add a new scenario by creating `main/scenarios/<name>.txt` with plain-English instructions and reference data.
+Add a new scenario by creating `scenario_specifications/<name>.txt` with plain-English instructions.
 
-## Test Cases Demo
-
-`main/test_cases_demo/` contains hand-crafted examples, one folder per case:
-
-| Case | Scenario |
-|---|---|
-| `case1_protocol` / `case1_vertrag` | Clean baseline documents (Blitzschutz) |
-| `case2` | Multiple contracts, one physical device |
-| `case3` | Protocol date outside active contract period |
-| `case4` | Two maintenance events in one quarter (frequency violation) |
-| `case5` | Protocol addresses don't match the building |
-
-Each case folder contains an `artifacts/` subfolder with the generated JSON, HTML and PDF files.
+---
 
 ## Supported Document Types
 
 | doc_key | Description |
 |---|---|
 | `wartungsvertrag` | Maintenance contract |
-| `wartungsprotokoll` | Maintenance protocol |
+| `wartungsprotokoll` | Maintenance protocol / service record |
 
 ## Supported System Types (`system_key`)
 
 `KLIMAANLAGE`, `WAERMEPUMPE`, `HEIZKESSEL`, `LUEFTUNGSANLAGE`, `BRANDMELDEANLAGE`, `SPRINKLER`, `RAUCHMELDER`, `FEUERSCHUTZTUER`, `RAUCHSCHUTZ_RWA`, `SICHERHEITSBELEUCHTUNG`, `AUFZUG_PERSONEN`, `ELEKTRISCHE_ANLAGE`, `HEBEANLAGE_ABWASSER`, `NOTSTROMAGGREGAT`, `FEUERSCHUTZABSCHLUSS`, `FEUERSCHUTZEINRICHTUNG_MANUELL`, `SANITAER_ALLG`, `ELEKTRISCHE_ANLAGE_MOBIL`, `BLITZSCHUTZ`, `DRUCKBEHAELTER`, `CO_WARNANLAGE`
 
-Each `(doc_key, system_key)` pair requires a matching spec at `main/document_requirements/<doc_key>/<system_key>.txt`.
+---
 
 ## Tech Stack
 
 - **Claude Sonnet 4.6** via AWS Bedrock (`eu.anthropic.claude-sonnet-4-6`, `eu-central-1`)
-- **Playwright / Chromium** for HTML-to-PDF rendering
-- **boto3** for AWS authentication
+- **Playwright / Chromium** — HTML → PDF rendering
+- **boto3** — AWS authentication

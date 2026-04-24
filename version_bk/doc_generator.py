@@ -16,8 +16,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import boto3
+from main.version_bk.taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 from style_profiles import StyleProfile, get_profiles
-from taxonomy import REAL_ESTATE_TAXONOMY, DocumentType
 
 BEDROCK_REGION = "eu-central-1"
 BEDROCK_MODEL_ID = "eu.anthropic.claude-sonnet-4-6"

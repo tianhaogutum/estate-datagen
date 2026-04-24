@@ -1,0 +1,19 @@
+SCENARIO: Multiple overlapping contracts for one physical device in a building.
+
+You are generating the SECOND maintenance contract for a Klimaanlage (Split-System)
+located at the same building as an existing contract. This creates an anomaly:
+two active contracts covering the same device type at the same address simultaneously.
+
+RULES FOR THIS SCENARIO:
+- Objekt_der_Wartung.Adresse MUST be exactly: "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+- Anlagentyp.Typ MUST be exactly: "Klimaanlage (Split-System)"
+- Auftraggeber.Name MUST be exactly: "Immobilienverwaltung Hoffmann GmbH"
+- Use a DIFFERENT Auftragnehmer (different service provider company, name, address, phone)
+- Laufzeit.Startdatum must fall WITHIN the period 2024-01-01 to 2026-12-31
+  (i.e. the contract periods overlap with the existing contract)
+- Laufzeit.Enddatum must also fall within or extend beyond 2026-12-31
+- Use a different Kosten.Betrag than 1480 EUR
+- Use a different Wartungsintervall (e.g. "Vierteljährlich" if the first was "Halbjährlich")
+- All other fields should be realistic and internally consistent
+- The anomaly is intentional: the building already has an active contract for this
+  device type — this second contract represents a data quality / process error

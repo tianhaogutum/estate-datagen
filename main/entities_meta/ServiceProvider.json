@@ -1,0 +1,7 @@
+{
+  "entity": "ServiceProvider",
+  "fields": [
+    { "name": "id",   "type": "UUID",   "constraints": { "primary_key": true } },
+    { "name": "name", "type": "String", "constraints": { "required": true } }
+  ]
+}

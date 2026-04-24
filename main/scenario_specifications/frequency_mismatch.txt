@@ -1,0 +1,27 @@
+SCENARIO: Maintenance dates do not match the contracted maintenance frequency.
+
+The contract specifies QUARTERLY maintenance (one event every 3 months).
+Generate a set of MaintenanceProtocol records that violate this schedule in one
+of the following ways — pick ONE and apply it consistently:
+
+  Case A — Two maintenances in one quarter:
+    Generate two protocol dates within the SAME calendar quarter, e.g.:
+    "2024-07-10" and "2024-08-22" (both in Q3 2024).
+    All other quarters have exactly one protocol as expected.
+
+  Case B — Missing maintenance in a quarter:
+    Skip one quarter entirely — no protocol record exists for it, e.g.:
+    Q1 2024 has a protocol, Q2 2024 is completely missing, Q3 2024 has a protocol.
+
+CONTRACT CONTEXT (use these values for consistency):
+- contract_start: "2024-01-01"
+- contract_end:   "2025-12-31"
+- maintenance_frequency: QUARTERLY (one event per quarter expected)
+- device_type: "Klimaanlage (Split-System)"
+- building address: "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+
+RULES:
+- Generate 2–5 protocol records total to show the pattern
+- All protocol dates must be within the contract period
+- All other fields (Fachfirma, Ergebnis, Unterschriften) must be realistic
+- Clearly apply exactly one of Case A or Case B — do not mix both anomalies

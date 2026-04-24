@@ -1,0 +1,22 @@
+{
+  "entity": "MaintenanceProtocol",
+  "fields": [
+    { "name": "id",              "type": "UUID",    "constraints": { "primary_key": true } },
+    { "name": "contract_id",     "type": "UUID",    "constraints": { "foreign_key": "MaintenanceContract", "required": true } },
+    { "name": "device_id",       "type": "UUID",    "constraints": { "foreign_key": "Device", "required": true } },
+    { "name": "device_type",     "type": "Enum",    "constraints": { "required": true, "note": "must equal contract.device_type" } },
+    { "name": "maintenance_date","type": "Date",    "constraints": { "required": true } },
+    { "name": "maintenance_type","type": "Enum",    "constraints": {
+        "values": ["WARTUNG", "INSPEKTION", "PRUEFUNG", "REPARATUR", "ERSTABNAHME"]
+      }
+    },
+    { "name": "performed_by_id", "type": "UUID",    "constraints": { "foreign_key": "ServiceProvider", "required": true } },
+    { "name": "ordered_by_id",   "type": "UUID",    "constraints": { "foreign_key": "EconomicUnit", "optional": true } },
+    { "name": "result_deficiency","type": "Boolean","constraints": { "required": true } },
+    { "name": "deficiency_type", "type": "Enum",    "constraints": {
+        "required_if": "result_deficiency = true",
+        "values": ["MINOR", "MAJOR", "CRITICAL"]
+      }
+    }
+  ]
+}

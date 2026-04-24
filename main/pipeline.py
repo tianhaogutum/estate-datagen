@@ -23,10 +23,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from data_synthesizer import synthesize_to_file
-from doc_generator import generate_document
+from main.version_bk.data_synthesizer import synthesize_to_file
+from main.version_bk.doc_generator import generate_document
+from main.version_bk.taxonomy import REAL_ESTATE_TAXONOMY, SYSTEM_TYPES
 from pdf_converter import convert_html_to_pdf
-from taxonomy import REAL_ESTATE_TAXONOMY, SYSTEM_TYPES
 
 
 def _flatten(obj, prefix: str = "", index: int = 0) -> dict[str, str]:

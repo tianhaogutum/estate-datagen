@@ -1,0 +1,17 @@
+SCENARIO: Address in maintenance protocol does not match the building in the contract.
+
+Generate a MaintenanceProtocol where the Anlagenstandort address is different
+from the building address recorded in the associated MaintenanceContract.
+
+RULES:
+- The contract building address is:
+  "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+- The protocol Anlagenstandort MUST use a clearly different address, e.g.:
+  "Hanauer Landstraße 147, 60314 Frankfurt am Main"
+  (different street, same city is sufficient — or even a different city)
+- device_type must still match: "Klimaanlage (Split-System)"
+- Ausfuehrende_Fachfirma should be the same service provider as the contract
+- maintenance_date must fall within a plausible active contract period
+- All other fields must be realistic and internally consistent
+- The anomaly is intentional: the address mismatch indicates the technician
+  serviced a different device/building than the one covered by this contract

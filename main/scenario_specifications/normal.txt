@@ -1,0 +1,2 @@
+Generate realistic, fully coherent data with no anomalies.
+All dates, device types, service providers, and contract details must be internally consistent.

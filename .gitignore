@@ -4,8 +4,15 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.DS_Store
+
+# generated outputs
 main/output/
 main/output_data/
-# copy files
+main/output_scenarios/
+
+# raw LLM outputs
+*.raw.txt
+
+# copy artefacts
 *copy*.py
-.DS_Store

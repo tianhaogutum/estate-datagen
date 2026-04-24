@@ -1,0 +1,17 @@
+SCENARIO: Maintenance protocol with a date that falls outside the active contract period.
+
+Generate a MaintenanceProtocol where the maintenance_date does NOT fall within
+the associated contract's active period (before contract_start or after contract_end).
+
+RULES:
+- The associated contract has: contract_start = "2024-06-01", contract_end = "2025-05-31"
+- maintenance_date MUST be outside this range — either:
+    Option A (before start): a date before 2024-06-01, e.g. "2024-03-15"
+    Option B (after end):    a date after 2025-05-31, e.g. "2025-09-10"
+  Choose one option randomly but be consistent throughout all date fields
+- device_type must match the contract: use "Klimaanlage (Split-System)"
+- Objekt_der_Wartung / Anlagenstandort address must match the contract building:
+  "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+- Ausfuehrende_Fachfirma should be the same service provider as the contract
+- All other fields must be realistic and internally consistent
+- The anomaly is intentional: the protocol date violates the contract period

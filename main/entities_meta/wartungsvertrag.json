@@ -1,0 +1,20 @@
+{
+  "entity": "MaintenanceContract",
+  "fields": [
+    { "name": "id",                       "type": "UUID",    "constraints": { "primary_key": true } },
+    { "name": "building_id",              "type": "UUID",    "constraints": { "foreign_key": "Building", "required": true } },
+    { "name": "device_type",              "type": "Enum",    "constraints": { "required": true, "note": "must match a Device in that building" } },
+    { "name": "service_provider_id",      "type": "UUID",    "constraints": { "foreign_key": "ServiceProvider" } },
+    { "name": "contract_date",            "type": "Date",    "constraints": { "required": true } },
+    { "name": "contract_start",           "type": "Date",    "constraints": { "required": true, "rule": ">= contract_date" } },
+    { "name": "contract_end",             "type": "Date",    "constraints": { "optional": true, "rule": "> contract_start if set" } },
+    { "name": "termination_period_months","type": "Integer", "constraints": { "required": true, "default": 3 } },
+    { "name": "termination_deadline_rule","type": "Enum",    "constraints": { "default": "END_OF_YEAR" } },
+    { "name": "maintenance_frequency",    "type": "Enum",    "constraints": {
+        "required": true,
+        "values": ["MONTHLY", "QUARTERLY", "SEMI_ANNUAL", "ANNUAL", "BIENNIAL"]
+      }
+    },
+    { "name": "cost_per_maintenance",     "type": "Decimal", "constraints": { "required": true, "rule": ">= 0", "currency": "EUR" } }
+  ]
+}
