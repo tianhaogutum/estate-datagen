@@ -4,6 +4,32 @@ Generates synthetic German maintenance documents (Wartungsverträge, Wartungspro
 
 ---
 
+## Web UI
+
+A browser-based interface lets non-CLI users run the full pipeline and explore results without touching the command line.
+
+![UI Screenshot](ui.png)
+
+**Features:**
+- **Generate** — 3-step wizard (document type → visual style → one-click generate). Streams live progress via SSE and displays all output PDFs with download links plus a collapsible ontology tree on completion.
+- **Scenarios** — browse all generated scenario folders. Clicking a scenario loads its ontology tree (EconomicUnit → Building → Device → Contract → Protocol) with search and expand/collapse.
+- **Functions** — run any individual pipeline step (schema generation, data filling, ontology assembly, HTML layout, placeholder fill, PDF conversion) with file upload inputs and JSON output preview.
+- **Dashboard** — overview of supported system types, document types, scenarios, and style variants.
+
+**Stack:** React + TypeScript + Vite frontend · FastAPI + uvicorn backend · SSE for streaming pipeline progress.
+
+```bash
+# Start backend (port 8000)
+venv/bin/python backend/main.py
+
+# Start frontend (port 5173)
+cd frontend && npm install && npm run dev
+```
+
+Open `http://localhost:5173`.
+
+---
+
 ## Pipeline Overview
 
 ```mermaid
@@ -107,17 +133,7 @@ aws sts get-caller-identity --profile claude-bedrock
 
 On non-Windows the pipeline uses the default boto3 credential chain. On Windows it looks for a `claude-bedrock` named profile.
 
-### Frontend & Backend
-
-```bash
-# Start backend (port 8000)
-venv/bin/python backend/main.py
-
-# Start frontend (port 5173)
-cd frontend && npm install && npm run dev
-```
-
-Open `http://localhost:5173` in your browser.
+See the [Web UI](#web-ui) section above for starting the frontend and backend.
 
 ---
 
