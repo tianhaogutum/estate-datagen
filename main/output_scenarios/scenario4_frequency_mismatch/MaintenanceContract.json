@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": null,
+      "building_id": null,
+      "device_type": "Klimaanlage (Split-System)",
+      "service_provider_id": null,
+      "contract_date": "2023-12-15",
+      "contract_start": "2024-01-01",
+      "contract_end": "2025-12-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "Vierteljährlich (quartalsweise)",
+      "cost_per_maintenance": 480.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Klimaanlage (Split-System)",
+      "Hersteller": "Daikin",
+      "Modell": "FTXM50R / RXM50R",
+      "Anzahl": "2"
+    },
+    "Auftraggeber": {
+      "Name": "Immobilienverwaltung Rhein-Main GmbH",
+      "Anschrift": "Berger Straße 45, 60316 Frankfurt am Main",
+      "Telefon": "+49 69 44512300"
+    },
+    "Auftragnehmer": {
+      "Firma": "KälteKlima Technik Hessler GmbH",
+      "Anschrift": "Hanauer Landstraße 312, 60314 Frankfurt am Main",
+      "Telefon": "+49 69 90876540"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung und Instandhaltung der installierten Klimaanlage (Split-System) der Marke Daikin, Modell FTXM50R / RXM50R, im Objekt Sachsenhäuser Landwehrweg 23, 60594 Frankfurt am Main, gemäß den geltenden technischen Normen und Herstellervorgaben.",
+    "Vereinbarungen_Leistungen": [
+      "Vierteljährliche Inspektion und Wartung der Innen- und Außengeräte inkl. Reinigung der Filter, Überprüfung der Kältemittelkreisläufe sowie Funktionskontrolle aller Steuer- und Regelkomponenten gemäß VDI 6022 und Herstellervorschriften.",
+      "Dichtigkeitsprüfung der Kältemittelkreisläufe gemäß EU-Verordnung Nr. 517/2014 (F-Gas-Verordnung) sowie Dokumentation der Ergebnisse im Wartungsprotokoll."
+    ],
+    "Wartungsintervall": "Vierteljährlich (quartalsweise)",
+    "Laufzeit": {
+      "Startdatum": "2024-01-01",
+      "Enddatum": "2025-12-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Quartalsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 480.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "pro Wartungseinsatz"
+    },
+    "Gerichtsstand": "Frankfurt am Main",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Markus Feldmann (Geschäftsführer, Immobilienverwaltung Rhein-Main GmbH)",
+        "Ort": "Frankfurt am Main",
+        "Datum": "2023-12-15"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Stefan Hessler (Geschäftsführer, KälteKlima Technik Hessler GmbH)",
+        "Ort": "Frankfurt am Main",
+        "Datum": "2023-12-18"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 24 Stunden an Werktagen, innerhalb von 48 Stunden an Wochenenden und Feiertagen.",
+    "Zusatzleistungen": [
+      "Telefonische Störungshotline während der Geschäftszeiten (Mo–Fr, 07:00–18:00 Uhr).",
+      "Auf Wunsch Bereitstellung eines Leihgerätes bei längerfristigen Reparaturarbeiten gegen gesonderte Vergütung."
+    ],
+    "Zahlungsbedingungen": "Zahlung innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug. Jährliche Sammelrechnung zum Ende eines Kalenderjahres möglich.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die durch grobe Fahrlässigkeit oder Vorsatz bei der Ausführung der Wartungsarbeiten entstehen. Eine darüber hinausgehende Haftung ist ausgeschlossen.",
+    "Gewaehrleistungszeit": "12 Monate auf durchgeführte Reparatur- und Austauschleistungen.",
+    "Preisanpassungsklausel": "Die vereinbarten Wartungspauschalen können einmal jährlich zum 01. Januar um maximal 3 % angepasst werden. Der Auftraggeber ist hierüber mindestens 8 Wochen im Voraus schriftlich zu informieren.",
+    "Mehrwertsteuer": "19 % MwSt. auf alle ausgewiesenen Nettopreise.",
+    "Anlagen_Stueckzahl": "2 Split-Klimaanlagen (je 1 Innen- und 1 Außengerät)",
+    "Kaeltemittelart": "R-32",
+    "Kaeltemittelfuellmenge_kg": "1,8",
+    "Dichtigkeitskontrolle_EU_517_2014": "Ja, Dichtigkeitsprüfung gemäß EU-Verordnung Nr. 517/2014 wird bei jedem Wartungseinsatz durchgeführt und dokumentiert."
+  }
+}

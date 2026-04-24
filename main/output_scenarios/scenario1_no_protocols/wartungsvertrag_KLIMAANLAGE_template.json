@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "entity": "MaintenanceContract",
+    "field_values": {
+      "id": null,
+      "building_id": null,
+      "device_type": "Aufzugsanlage",
+      "service_provider_id": null,
+      "contract_date": "2024-12-10",
+      "contract_start": "2025-01-01",
+      "contract_end": "2027-12-31",
+      "termination_period_months": "3 Monate",
+      "termination_deadline_rule": null,
+      "maintenance_frequency": "QUARTERLY",
+      "cost_per_maintenance": 480.0
+    }
+  },
+  "required": {
+    "Anlagentyp": {
+      "Typ": "Aufzugsanlage",
+      "Hersteller": "ThyssenKrupp Elevator",
+      "Modell": "synergy 300",
+      "Anzahl": "2"
+    },
+    "Auftraggeber": {
+      "Name": "Wohnungsbaugesellschaft Nordstadt GmbH",
+      "Anschrift": "Gartenstraße 14, 30159 Hannover",
+      "Telefon": "+49 511 847263-0"
+    },
+    "Auftragnehmer": {
+      "Firma": "ThyssenKrupp Elevator AG – Niederlassung Hannover",
+      "Anschrift": "Industrieweg 22, 30179 Hannover",
+      "Telefon": "+49 511 963410-0"
+    },
+    "Objekt_der_Wartung": {
+      "Adresse": "Gartenstraße 14, 30159 Hannover"
+    },
+    "Gegenstand_des_Vertrages": "Regelmäßige Wartung und Inspektion von zwei Personenaufzügen der Marke ThyssenKrupp Elevator, Modell synergy 300, im Wohngebäude Gartenstraße 14, 30159 Hannover, gemäß den Anforderungen der Betriebssicherheitsverordnung (BetrSichV) sowie den einschlägigen DIN-Normen.",
+    "Vereinbarungen_Leistungen": [
+      "Durchführung aller vorgeschriebenen Wartungsarbeiten gemäß BetrSichV und DIN EN 13015, einschließlich Schmierung, Einstellung und Funktionsprüfung aller sicherheitsrelevanten Bauteile beider Aufzugsanlagen.",
+      "Dokumentation sämtlicher Wartungsmaßnahmen im Wartungsbuch sowie Meldung festgestellter Mängel an den Auftraggeber mit Empfehlung zur Behebung innerhalb von 48 Stunden nach Feststellung."
+    ],
+    "Wartungsintervall": "QUARTERLY",
+    "Laufzeit": {
+      "Startdatum": "2025-01-01",
+      "Enddatum": "2027-12-31",
+      "Kuendigungsfrist": {
+        "Frist": "3 Monate",
+        "Zum": "Quartalsende"
+      }
+    },
+    "Kosten": {
+      "Betrag": 480.0,
+      "Waehrung": "EUR",
+      "Bezugseinheit": "pro Monat (netto)"
+    },
+    "Gerichtsstand": "Hannover",
+    "Unterschriften": [
+      {
+        "Rolle": "Auftraggeber",
+        "Unterschrift_von": "Markus Feldmann, Geschäftsführer",
+        "Ort": "Hannover",
+        "Datum": "2024-12-10"
+      },
+      {
+        "Rolle": "Auftragnehmer",
+        "Unterschrift_von": "Sandra Krüger, Niederlassungsleiterin",
+        "Ort": "Hannover",
+        "Datum": "2024-12-12"
+      }
+    ]
+  },
+  "optional": {
+    "Reaktionszeit_bei_Stoerung": "Innerhalb von 4 Stunden nach Störungsmeldung an Werktagen; innerhalb von 8 Stunden an Wochenenden und gesetzlichen Feiertagen.",
+    "Zusatzleistungen": [
+      "24-Stunden-Notrufbereitschaft für eingeschlossene Personen über eine dedizierte Notruflinie, inkl. unverzüglicher Befreiung durch qualifiziertes Fachpersonal.",
+      "Jährliche Vorbereitung und Begleitung der wiederkehrenden Prüfung durch eine zugelassene Überwachungsstelle (ZÜS) gemäß BetrSichV § 15."
+    ],
+    "Zahlungsbedingungen": "Zahlung monatlich im Voraus, fällig zum 1. eines jeden Monats. Bei Zahlungsverzug werden Verzugszinsen in Höhe von 9 Prozentpunkten über dem jeweiligen Basiszinssatz berechnet.",
+    "Haftungsklauseln": "Der Auftragnehmer haftet für Schäden, die durch nachweislich fehlerhafte Wartungsarbeiten entstehen, bis zur Höhe der vereinbarten jährlichen Vertragssumme. Eine weitergehende Haftung ist ausgeschlossen, sofern keine grobe Fahrlässigkeit oder Vorsatz vorliegt.",
+    "Gewaehrleistungszeit": "12 Monate ab Durchführung der jeweiligen Wartungsleistung",
+    "Preisanpassungsklausel": "Der Auftragnehmer ist berechtigt, die Vergütung einmal jährlich zum 1. Januar entsprechend der Entwicklung des Verbraucherpreisindex (VPI) des Statistischen Bundesamtes anzupassen. Die Anpassung ist dem Auftraggeber mindestens 8 Wochen vorher schriftlich mitzuteilen.",
+    "Mehrwertsteuer": "19 % MwSt. wird zusätzlich zum Nettobetrag in Rechnung gestellt.",
+    "Anlagen_Stueckzahl": "2",
+    "Kaeltemittelart": "Nicht zutreffend (keine Kälteanlage)",
+    "Kaeltemittelfuellmenge_kg": "0",
+    "Dichtigkeitskontrolle_EU_517_2014": "Nicht zutreffend (keine fluorierte Treibhausgase vorhanden)"
+  }
+}
