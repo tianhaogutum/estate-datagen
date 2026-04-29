@@ -1,4 +1,5 @@
-# Synthetic Data Generation — 1000plus (please check: Team001_diafania_1000plus_poster.pdf)
+# Synthetic Data Generation — 1000plus 
+(please also check: Team001_diafania_1000plus_poster.pdf)
 
 Generates synthetic German maintenance documents (Wartungsverträge, Wartungsprotokolle) using Claude via AWS Bedrock. The pipeline produces structured JSON, HTML layouts, and filled documents across multiple visual style variants. A scenario layer injects deliberate domain anomalies (missing protocols, overlapping contracts, date/address mismatches, frequency violations) to support data-quality testing.
 
